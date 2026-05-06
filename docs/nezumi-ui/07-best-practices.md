@@ -1,0 +1,46 @@
+# Best Practices
+
+## Imports
+
+Use public package exports:
+
+```tsx
+import { Button } from "@nezumi/ui/components/button"
+import { Stack } from "@nezumi/ui/layout"
+import { cn } from "@nezumi/ui/lib/utils"
+```
+
+## Styling
+
+Prefer generated utilities:
+
+```tsx
+<section className="bg-background text-foreground p-16 border border-border" />
+```
+
+Use raw CSS variables only in CSS files or inline runtime cases:
+
+```css
+.surface {
+  background: var(--color-background);
+  padding: var(--spacing-16);
+}
+```
+
+## React 19
+
+Use function components with `ref` as a prop when DOM access is part of the public contract.
+
+```tsx
+export function Input({ ref, ...props }: React.ComponentProps<"input">) {
+  return <input ref={ref} {...props} />
+}
+```
+
+## Package Surface
+
+Do not add root barrel exports for app consumers. Add leaf files under `src/components` instead.
+
+## shadcn Compatibility
+
+Keep `components.json` aligned with the package exports so registry additions use the same aliases.

@@ -1,0 +1,61 @@
+# Atomic Design
+
+Atomic Design remains useful internally, but consumers should not import from atomic folders directly.
+
+## Internal Levels
+
+- `atoms`: primitive UI pieces such as Button.
+- `molecules`: composed controls such as fields or search rows.
+- `organisms`: larger UI sections.
+- `templates`: reusable page-level structures.
+- `components`: public leaf exports that hide the internal level.
+
+## Public Leaf Example
+
+```tsx
+// packages/ui/src/components/button.tsx
+export {
+  Button,
+  buttonVariants,
+  type ButtonProps,
+} from "../atoms/Button"
+```
+
+```tsx
+import { Button } from "@nezumi/ui/components/button"
+```
+
+## React 19 Component Pattern
+
+```tsx
+import * as React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
+import { cn } from "@nezumi/ui/lib/utils"
+
+const badgeVariants = cva("inline-flex items-center rounded-md px-2 py-1 text-xs", {
+  variants: {
+    variant: {
+      default: "bg-background text-foreground",
+      primary: "bg-primary text-primary-foreground",
+      destructive: "bg-destructive text-white",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+  },
+})
+
+export interface BadgeProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof badgeVariants> {
+  ref?: React.Ref<HTMLDivElement>
+}
+
+export function Badge({ className, variant, ref, ...props }: BadgeProps) {
+  return <div ref={ref} className={cn(badgeVariants({ variant }), className)} {...props} />
+}
+```
+
+## Composition Rule
+
+Internal levels may compose downward or sideways when it keeps the implementation pragmatic. Application code still imports only public leaves.

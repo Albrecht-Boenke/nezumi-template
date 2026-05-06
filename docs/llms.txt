@@ -1,0 +1,26 @@
+# Nezumi UI – lokale Dokumentation (offline Index)
+
+Zusammenfassung: Offline-Snapshots und Projektleitpfaden unter `docs/`. Agents sollen immer zuerst **README** / **`INDEX.md`** je Bereich nutzen und nur dann gezielt einzelne Dateien öffnen. Netzwerk-URLs sind für Verifikation nachgelagert, nicht Pflicht für Lokales Lesen.
+
+## Zentrale Einstiege
+
+- Überblick (Projekt vs. Vendor): [README.md](./README.md)
+- Vendor-Manifest und Snapshot-Herkunft: [vendor-framework-docs.md](./vendor-framework-docs.md)
+
+## Projekt-Doku
+
+- Nezumi UI (maßgeblich für dieses Repo): [nezumi-ui/README.md](./nezumi-ui/README.md)
+
+## Vendor-INDEX (offline)
+
+- React — [react/INDEX.md](./react/INDEX.md) — Offline react.dev Kernlehr- und Referenztexte als MDX.
+- Next.js — [nextjs/INDEX.md](./nextjs/INDEX.md) — Offline Next.js Handbook.
+- Tailwind CSS — [tailwind-css/INDEX.md](./tailwind-css/INDEX.md) — Viele Seiten als flache `*.mdx` nach Utility/Kapitelnamen im Ordner; Suche über Dateiname sinnvoll.
+- shadcn/ui — [shadcn-ui/INDEX.md](./shadcn-ui/INDEX.md) — V4 Docs; Top-Level-Unterlagen unter `overview/`.
+- TypeScript — [typescript/INDEX.md](./typescript/INDEX.md) — Handbuch unter `handbook/`; TSConfigunterartikel unter `tsconfig/`.
+- Turborepo — [turbo/INDEX.md](./turbo/INDEX.md) — Handbuch unter `handbook/`; strukturelle Navigation zusätzlich in [turbo/sitemap-official.md](./turbo/sitemap-official.md); Routenliste in [turbo/llms.txt](./turbo/llms.txt).
+- cn() Helpers (clsx, tailwind-merge) — [cn/INDEX.md](./cn/INDEX.md)
+
+## Qualitätssicherung (Retrieval-Organisation)
+
+- Vollständige Kriterienliste: [../OFFLINE_AGENT_RETRIEVAL_CHECKLIST.md](../OFFLINE_AGENT_RETRIEVAL_CHECKLIST.md) — umgesetzt Stand 2026-05-06.

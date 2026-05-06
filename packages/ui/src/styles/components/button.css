@@ -1,0 +1,7 @@
+@theme {
+  --button-radius:     var(--radius-md);
+  --button-padding-x:  var(--spacing-16);
+  --button-padding-y:  var(--spacing-8);
+  --button-font-size:  var(--text-sm);
+  --button-font-weight:var(--font-weight-medium);
+}

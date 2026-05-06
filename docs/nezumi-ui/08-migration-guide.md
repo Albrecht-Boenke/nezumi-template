@@ -1,0 +1,46 @@
+# Migration Guide
+
+## Import Migration
+
+Move consumer imports to public leaves:
+
+```tsx
+import { Button } from "@nezumi/ui/components/button"
+import { Container } from "@nezumi/ui/layout"
+```
+
+## Token Migration
+
+Replace JavaScript token wrappers with Tailwind utilities or CSS variables:
+
+```tsx
+<div className="bg-background p-16" />
+```
+
+```css
+.card {
+  background: var(--color-background);
+  padding: var(--spacing-16);
+}
+```
+
+## Package Migration
+
+The UI package owns:
+
+- `src/styles/global.css`
+- `src/styles/tokens/*.css`
+- `src/styles/semantic/*.css`
+- `src/styles/components/*.css`
+- `src/components/*.tsx`
+- `src/layout/index.ts`
+
+Do not add a second token source.
+
+## Verification
+
+```bash
+pnpm install
+pnpm --filter @nezumi/ui build
+pnpm --filter @nezumi/ui typecheck
+```

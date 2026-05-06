@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+/* Scan app + workspace UI package (node_modules may be symlinked — path is workspace-stable) */
+@source "../../../packages/ui/src/**/*.{ts,tsx}";
+@source "../../../packages/ui/dist/**/*.{js,mjs}";
+@source "../../**/*.{ts,tsx,mdx,css}";
+
+@import "@nezumi/ui/design-tokens.css";

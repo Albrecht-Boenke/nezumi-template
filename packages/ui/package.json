@@ -1,0 +1,74 @@
+{
+  "name": "@nezumi/ui",
+  "version": "1.0.0",
+  "description": "UI component library built with Atomic Design pattern - Atoms, Molecules, Organisms, Templates",
+  "files": [
+    "dist",
+    "src/styles"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "test:ui": "vitest --ui"
+  },
+  "exports": {
+    "./globals.css": {
+      "style": "./src/styles/global.css",
+      "default": "./src/styles/global.css"
+    },
+    "./design-tokens.css": {
+      "style": "./src/styles/design-tokens.css",
+      "default": "./src/styles/design-tokens.css"
+    },
+    "./components/button": {
+      "types": "./dist/components/button.d.ts",
+      "import": "./dist/components/button.mjs",
+      "require": "./dist/components/button.js"
+    },
+    "./layout": {
+      "types": "./dist/layout/index.d.ts",
+      "import": "./dist/layout/index.mjs",
+      "require": "./dist/layout/index.js"
+    },
+    "./lib/utils": {
+      "types": "./dist/lib/utils.d.ts",
+      "import": "./dist/lib/utils.mjs",
+      "require": "./dist/lib/utils.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "./src/styles/**/*.css"
+  ],
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "tailwindcss": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.14.0",
+    "radix-ui": "^1.4.3",
+    "tailwind-merge": "^3.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "jsdom": "^29.1.1",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "tailwindcss": "catalog:",
+    "tsup": "^8.5.1",
+    "typescript": "catalog:",
+    "vitest": "^4.1.5"
+  }
+}

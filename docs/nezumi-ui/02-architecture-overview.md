@@ -1,0 +1,70 @@
+# Architecture Overview
+
+Nezumi UI uses a small, source-first package architecture. The current mockup does not split tokens, layout, hooks, or schemas into separate packages. The UI package owns the public API and the token CSS.
+
+## Layers
+
+```
+Applications
+  import public leaf exports
+@nezumi/ui package
+  src/components/<name>.tsx     # public surface
+  src/layout/index.ts           # public layout entrypoint
+  src/lib/utils.ts              # public utility entrypoint
+Internal implementation
+  src/atoms/
+  src/molecules/
+  src/organisms/
+  src/templates/
+CSS foundation
+  src/styles/global.css
+  src/styles/tokens/*.css
+  src/styles/semantic/*.css
+  src/styles/components/*.css
+```
+
+## Public API
+
+The public API is granular:
+
+```tsx
+import { Button } from "@nezumi/ui/components/button"
+import { Grid } from "@nezumi/ui/layout"
+import { cn } from "@nezumi/ui/lib/utils"
+```
+
+The root package export is intentionally absent. This keeps dependency graphs small and matches the shadcn monorepo model.
+
+## Token Architecture
+
+Tailwind CSS v4 reads tokens from `@theme`:
+
+```css
+@theme {
+  --color-background: var(--color-neutral-50);
+  --spacing-16: 1rem;
+  --radius-lg: 0.5rem;
+}
+```
+
+Then components consume generated utilities:
+
+```tsx
+<div className="bg-background p-16 rounded-lg" />
+```
+
+## Framework Baseline
+
+- React 19.2: refs are regular props in function components; `<ViewTransition>`, `useEffectEvent`, and `<Activity>` are available for app-level interaction work.
+- Next.js 16: App Router, `proxy.ts` for request interception, Turbopack as the default bundler, `cacheComponents`, and `"use cache"` are the documented defaults for new app architecture.
+- Tailwind CSS v4: CSS-first configuration with `@theme`.
+- Radix UI: unified `radix-ui` package.
+- shadcn/ui: granular package exports and `components.json`.
+
+## Build Flow
+
+```bash
+pnpm install
+pnpm --filter @nezumi/ui build
+pnpm --filter @nezumi/ui typecheck
+```

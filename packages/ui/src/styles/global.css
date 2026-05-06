@@ -1,0 +1,3 @@
+/* global.css — one-shot import (e.g. Storybook); apps use globals.css entry + design-tokens */
+@import "tailwindcss";
+@import "./design-tokens.css";

@@ -1,0 +1,11 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+# Workspace catalog is valid for internal dependencies and devDependencies.
+# Publishable package peerDependencies must use concrete semver ranges.
+catalog:
+  react: ^19.2.5
+  react-dom: ^19.2.5
+  tailwindcss: ^4.2.4
+  typescript: ^6.0.3

@@ -1,0 +1,5 @@
+@theme {
+  --space-content: var(--spacing-16);
+  --space-section: var(--spacing-48);
+  --space-page:    var(--spacing-64);
+}

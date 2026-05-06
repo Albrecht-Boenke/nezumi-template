@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": false,
+    "isolatedModules": true,
+    "types": ["node"],
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@nezumi/ui/components": ["./src/components"],
+      "@nezumi/ui/components/*": ["./src/components/*"],
+      "@nezumi/ui/layout": ["./src/layout/index.ts"],
+      "@nezumi/ui/lib": ["./src/lib"],
+      "@nezumi/ui/lib/*": ["./src/lib/*"]
+    },
+    "ignoreDeprecations": "6.0"
+  },
+  "include": ["src"],
+  "exclude": ["dist", "node_modules"]
+}

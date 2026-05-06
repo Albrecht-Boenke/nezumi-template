@@ -1,0 +1,11 @@
+---
+description: Für Framework-Fragen im Nezumi-Repo lokale Doku gezielt laden (docs/README.md oder passende docs/*/INDEX.md)—niemals rekursiv gesamtes docs/ öffnen.
+alwaysApply: false
+---
+
+# Offline-Dokumentation (Retrieval)
+
+1. Einstieg: `docs/README.md` oder – für eine Bibliothek – die jeweilige `docs/<name>/INDEX.md`.
+2. Kein rekursiver „alles durchsuchen“. Große Vendor-MDX-Dateien bewusst einzeln per Verweis oder Dateiname laden.
+3. Architekturentscheidungen: `docs/nezumi-ui/` gewinnt vor Vendor-Mirrors; siehe auch `docs/vendor-framework-docs.md`.
+4. Vollständige Checkliste offlinetauglicher Organisation: Repo-Root `OFFLINE_AGENT_RETRIEVAL_CHECKLIST.md`.

@@ -1,0 +1,491 @@
+# Kapitel 10: Design Tokens & Tailwind v4 — Das 3-Layer-System
+
+> **Lernziel:** Verstehen, wie Design Tokens in Tailwind v4 mit der `@theme`-Direktive funktionieren, warum eine 3-schichtige Token-Hierarchie essentiell ist, und wie Motion Tokens das System vervollständigen.
+
+---
+
+## Was sind Design Tokens — und warum brauchst du sie?
+
+Design Tokens sind die atomaren Bausteine deines Design Systems: Farben, Abstände, Typografie, Animationsdauern. Ohne sie entstehen folgende Probleme:
+
+| Problem | Konsequenz |
+|---|---|
+| **Style Drift** | Zufällige Hex-Codes, einmalige Spacing-Werte |
+| **Refactor-Risiko** | Eine Farbe ändern → unbekannte Komponenten brechen |
+| **Inkonsistenz** | Gleiche UI-Elemente sehen an verschiedenen Stellen anders aus |
+| **Theming-Aufwand** | Dark Mode wird zu einem massiven Umbau |
+| **Onboarding-Reibung** | Neue Entwickler wissen nicht, welche Werte zu verwenden sind |
+
+Tokens lösen das durch **eine einzige Quelle der Wahrheit**: Einmal ändern, überall aktualisiert.
+
+---
+
+## Tailwind v4: CSS-First statt JavaScript-Config
+
+Tailwind v3 verwendete `tailwind.config.js`. Tailwind v4 bringt einen **paradigmatischen Wechsel**: Tokens werden in CSS definiert — über die `@theme`-Direktive.
+
+### v3 vs. v4 im Vergleich
+
+| Tailwind v3 | Tailwind v4 |
+|---|---|
+| `tailwind.config.js` (JavaScript) | `@theme` (CSS) |
+| Nur compile-time | Runtime CSS-Variablen |
+| Konfiguration via JS-Objekte | Konfiguration via CSS |
+| Manuelles Theming | Natives CSS-Variable-Theming |
+
+### Warum das wichtig ist: Performance
+
+- **5× schnellere** Full Builds
+- **100× schnellere** Incremental Builds  
+- HMR: nahezu sofort
+
+### Die `@theme`-Direktive
+
+```css
+@import "tailwindcss";
+
+@theme {
+  /* Diese Tokens generieren AUTOMATISCH Utility-Klassen */
+  --color-primary-500: oklch(59.59% 0.24 255);
+  --color-primary-600: oklch(49.59% 0.24 255);
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+
+  --font-display: "Inter", sans-serif;
+}
+```
+
+Durch das Definieren von `--color-primary-500` im `@theme`-Block generiert Tailwind **automatisch**:
+- `bg-primary-500`
+- `text-primary-500`
+- `border-primary-500`
+- `fill-primary-500`
+- ... und alle weiteren Farb-Utilities
+
+> **Wichtiger Unterschied zu `:root`:** Variablen in `:root` sind zwar zur Laufzeit verfügbar, aber Tailwind kennt sie nicht und generiert keine Klassen. `@theme` registriert Tokens explizit bei Tailwinds Engine.
+
+---
+
+## Die 3-Layer Token-Hierarchie
+
+Das Fundament eines skalierbaren Token-Systems ist die **strikte Trennung in drei Schichten**. Komponenten referenzieren nie Primitives direkt.
+
+```
+Primitive Tokens  →  Semantic Tokens  →  Component Tokens
+(Rohwerte)           (Zweck-gebunden)     (Varianten-spezifisch)
+```
+
+### Layer 1: Primitive Tokens (Basis)
+
+Rohe Werte ohne semantische Bedeutung. Das ist deine vollständige Palette — sie wird nur von Semantic Tokens referenziert.
+
+```css
+@theme {
+  /* Farb-Primitives (OKLCH für perceptually even steps) */
+  --color-blue-100: oklch(95% 0.02 250);
+  --color-blue-200: oklch(90% 0.04 250);
+  --color-blue-300: oklch(80% 0.08 250);
+  --color-blue-400: oklch(70% 0.12 250);
+  --color-blue-500: oklch(60% 0.16 250);  /* Primary */
+  --color-blue-600: oklch(50% 0.16 250);
+  --color-blue-700: oklch(40% 0.14 250);
+  --color-blue-800: oklch(30% 0.12 250);
+  --color-blue-900: oklch(20% 0.10 250);
+
+  /* Spacing-Primitives (Native Pixel-Skala) */
+  --spacing-0:  0rem;
+  --spacing-1:  0.0625rem; /* 1px */
+  --spacing-4:  0.25rem;   /* 4px */
+  --spacing-8:  0.5rem;    /* 8px */
+  --spacing-12: 0.75rem;   /* 12px */
+  --spacing-16: 1rem;      /* 16px (Base) */
+  --spacing-24: 1.5rem;    /* 24px */
+  --spacing-32: 2rem;      /* 32px */
+  --spacing-48: 3rem;      /* 48px */
+  --spacing-64: 4rem;      /* 64px */
+  --spacing-96: 6rem;      /* 96px */
+
+  /* Border-Radius-Primitives */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+}
+```
+
+### Layer 2: Semantic Tokens (Zweck-gebunden)
+
+Diese Tokens drücken **Absicht** aus, nicht Rohwerte. Komponenten sollen ausschließlich semantische Tokens verwenden.
+
+```css
+@theme {
+  /* Semantische Farben — referenzieren Primitives */
+  --color-background: var(--color-gray-50);
+  --color-foreground: var(--color-gray-900);
+  --color-muted: var(--color-gray-500);
+  --color-border: var(--color-gray-200);
+  --color-ring: var(--color-blue-500);
+
+  /* Surface-Tokens */
+  --color-surface-primary: var(--color-white);
+  --color-surface-secondary: var(--color-gray-100);
+  --color-surface-elevated: var(--color-white);
+
+  /* Action-Tokens */
+  --color-action-primary: var(--color-blue-600);
+  --color-action-primary-hover: var(--color-blue-700);
+  --color-action-destructive: var(--color-red-600);
+
+  /* State-Tokens */
+  --color-success: var(--color-green-600);
+  --color-warning: var(--color-amber-500);
+  --color-error: var(--color-red-600);
+  --color-info: var(--color-blue-500);
+
+  /* Semantisches Spacing — referenzieren Primitives */
+  --space-content: var(--spacing-16);
+  --space-section: var(--spacing-48);
+  --space-page:    var(--spacing-64);
+}
+```
+
+### Layer 3: Component Tokens (Varianten-spezifisch)
+
+Tokens, die spezifisch für eine Komponente und ihre Varianten sind. Sie referenzieren immer Semantic Tokens.
+
+```css
+@theme {
+  /* Button-Tokens */
+  --button-radius: var(--radius-md);
+  --button-padding-x: var(--spacing-16);
+  --button-padding-y: var(--spacing-8);
+  --button-font-size: var(--text-sm);
+
+  /* Card-Tokens */
+  --card-radius: var(--radius-xl);
+  --card-padding: var(--spacing-24);
+
+  /* Input-Tokens */
+  --input-radius: var(--radius-md);
+  --input-border-width: 1px;
+  --input-padding-x: var(--spacing-12);
+  --input-padding-y: var(--spacing-8);
+}
+```
+
+> **Goldene Regel:** Komponenten referenzieren Component Tokens. Component Tokens referenzieren Semantic Tokens. Semantic Tokens referenzieren Primitive Tokens. **Niemals Layer überspringen.**
+
+---
+
+## Motion Tokens — der fehlende Baustein
+
+Motion wird in Token-Systemen häufig vergessen, was zu inkonsistenten Animationen im gesamten UI führt. Besonders in einer Library mit `motion` (ehemals Framer Motion) ist das ein kritischer Layer.
+
+### Das Motion Token Set
+
+```css
+@theme {
+  /* Motion Primitives (Scale) */
+  --duration-100: 100ms;
+  --duration-200: 200ms;
+  --duration-300: 300ms;
+  --duration-500: 500ms;
+
+  /* Easing Primitives */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* Semantic Motion Tokens */
+  --duration-fast: var(--duration-100);
+  --duration-normal: var(--duration-200);
+  --duration-slow: var(--duration-300);
+  --duration-slower: var(--duration-500);
+
+  --ease-standard: var(--ease-in-out);
+  --ease-entrance: var(--ease-out);
+  --ease-exit: var(--ease-in);
+}
+```
+
+### Motion Token Richtlinien
+
+| Element | Duration | Easing |
+|---|---|---|
+| Hover-States | fast (100ms) | ease-out |
+| Button-Klicks | normal (200ms) | ease-out |
+| Tooltips | fast (100ms) | ease-out |
+| Dropdowns | normal (200ms) | ease-out |
+| Modals | slow (300ms) | ease-spring |
+| Page Transitions | slower (500ms) | ease-in-out |
+
+### Motion Tokens in CSS verwenden
+
+```css
+.button {
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.dropdown-item {
+  transition: background-color var(--duration-fast) var(--ease-in-out);
+}
+
+.modal {
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-spring);
+}
+```
+
+### Motion Tokens mit der Motion-Library (React)
+
+```tsx
+import { motion } from "motion/react"
+
+// Statt hardcoded Werte:
+// transition={{ duration: 0.2, ease: [0, 0, 0.2, 1] }}
+
+// CSS-Variablen referenzieren — konsistent mit allen CSS-Animationen
+const transitionConfig = {
+  duration: 0.2,  // = --duration-normal
+  ease: [0, 0, 0.2, 1],  // = --ease-out
+}
+
+<motion.div
+  initial={{ opacity: 0, y: 4 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={transitionConfig}
+/>
+```
+
+---
+
+## OKLCH — warum nicht Hex oder HSL?
+
+Tailwind v4 setzt auf OKLCH als Standard-Farbraum. Der Grund ist einfach:
+
+| Farbraum | Problem |
+|---|---|
+| Hex / RGB | Schritte sind perceptuell ungleichmäßig |
+| HSL | Gleiches Problem — `hsl(220, 50%, 50%)` und `hsl(40, 50%, 50%)` wirken unterschiedlich hell |
+| **OKLCH** | Perceptuell gleichmäßige Helligkeit über alle Farbtöne |
+
+### OKLCH-Anatomie
+
+```css
+/* oklch(lightness chroma hue) */
+--color-blue-500: oklch(60% 0.16 250);
+/*                    │     │    │
+                      │     │    └── Hue (Farbton, 0–360°)
+                      │     └── Chroma (Sättigung, 0 = grau)
+                      └── Lightness (0% = schwarz, 100% = weiß)
+*/
+```
+
+### Eine gleichmäßige Farbskala erstellen
+
+```css
+@theme {
+  /* Gleichmäßige Helligkeitsstufen = konsistentes UI */
+  --color-brand-50:  oklch(98% 0.01 250);
+  --color-brand-100: oklch(95% 0.02 250);
+  --color-brand-200: oklch(90% 0.05 250);
+  --color-brand-300: oklch(80% 0.08 250);
+  --color-brand-400: oklch(70% 0.12 250);
+  --color-brand-500: oklch(60% 0.16 250);  /* Primary */
+  --color-brand-600: oklch(50% 0.14 250);
+  --color-brand-700: oklch(40% 0.12 250);
+  --color-brand-800: oklch(30% 0.10 250);
+  --color-brand-900: oklch(20% 0.08 250);
+  --color-brand-950: oklch(12% 0.06 250);
+}
+```
+
+**Tipp:** [oklch.com](https://oklch.com) ist ein hervorragendes Tool um OKLCH-Farben visuell zu entwickeln und zu überprüfen.
+
+---
+
+## Theming: Dark Mode und Multi-Brand
+
+Da Tokens CSS-Variablen sind, ist Theming zur Laufzeit möglich — kein Rebuild nötig.
+
+### Dark Mode (class-basiert — empfohlen für Next.js)
+
+```css
+/* @theme definiert Light Mode als Default */
+@theme {
+  --color-background: var(--color-gray-50);
+  --color-foreground: var(--color-gray-900);
+  --color-border: var(--color-gray-200);
+}
+
+/* Dark Mode überschreibt Semantic Tokens */
+.dark {
+  --color-background: var(--color-gray-950);
+  --color-foreground: var(--color-gray-50);
+  --color-border: var(--color-gray-800);
+}
+```
+
+> **Warum `.dark`-Klasse statt `@media (prefers-color-scheme: dark)`?**
+> In Next.js App Router mit `next-themes` ist die class-basierte Variante Standard — sie ermöglicht dem User, den Theme manuell zu wählen, unabhängig von OS-Einstellungen.
+
+### Multi-Brand Theming
+
+```css
+/* Default Brand */
+:root {
+  --color-action-primary: var(--color-blue-600);
+}
+
+/* Client A */
+[data-brand="client-a"] {
+  --color-action-primary: var(--color-green-600);
+}
+
+/* Client B */
+[data-brand="client-b"] {
+  --color-action-primary: var(--color-purple-600);
+}
+```
+
+---
+
+## Token Dateistruktur für nezumi-ui
+
+Die Tokens sind im UI-Package zentralisiert, um eine konsistente Generierung von Utility-Klassen durch Tailwind v4 zu gewährleisten.
+
+```
+packages/ui/src/styles/
+├── tokens/              # Layer 1: Primitives (Scale)
+│   ├── colors.css       # OKLCH Farbpaletten
+│   ├── spacing.css      # Native Pixel-basierte Scale
+│   ├── typography.css   # Font-Sizes, Weights, Families
+│   ├── radius.css       # Border-Radius Scale
+│   ├── shadows.css      # Shadow Scale
+│   └── motion.css       # Durations & Easings
+├── semantic/            # Layer 2: Semantic (Aliases)
+│   ├── colors.css       # --color-primary etc.
+│   └── spacing.css      # --space-content etc.
+├── components/          # Layer 3: Component (Specific)
+│   ├── button.css       # --button-radius etc.
+│   ├── card.css         
+│   └── input.css        
+└── global.css           # Entry Point (Tailwind @import)
+```
+
+### `global.css` — der Einstiegspunkt
+
+```css
+/* global.css */
+@import "tailwindcss";
+
+/* Layer 1: Primitives */
+@import "./tokens/colors.css";
+@import "./tokens/spacing.css";
+@import "./tokens/typography.css";
+@import "./tokens/motion.css";
+@import "./tokens/radius.css";
+@import "./tokens/shadows.css";
+
+/* Layer 2: Semantic */
+@import "./semantic/colors.css";
+@import "./semantic/spacing.css";
+
+/* Layer 3: Component */
+@import "./components/button.css";
+@import "./components/card.css";
+
+/* Base Styles */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+}
+```
+
+---
+
+## Style Drift verhindern
+
+Style Drift ist der schleichende Tod eines Design Systems.
+
+### Warnsignale
+
+| Warnsignal | Was passiert |
+|---|---|
+| `pl-[17px]` | Willkürliche Spacing-Werte statt Token |
+| `shadow-[0_2px_8px_...]` | Willkürliche Schatten proliferieren |
+| `rounded-[7px]` | Willkürliche Border-Radii |
+| `#3b82f6` | Hardcoded Farben statt `text-primary-500` |
+| Jede Komponente mit anderen Timing-Werten | Keine Motion Tokens |
+
+### Prävention
+
+1. **ESLint-Rules**: Arbitrary Values in Commits verbieten
+2. **Token Audits**: Quartalsweise Scan auf Token-Verletzungen
+3. **Code Review Fokus**: Reviewer markieren Token-Verletzungen
+4. **Dokumentation**: Klare Leitlinien, welcher Token wann zu verwenden ist
+
+### Drift beheben
+
+1. Audit: Suche nach `[` in Tailwind-Klassen → findet arbitrary values
+2. Jeden Wert dem nächstgelegenen Token zuordnen
+3. Neuen Token nur erstellen wenn wirklich nötig
+4. Komponenten auf Token aktualisieren
+5. Lint-Rules hinzufügen, um Wiederholung zu verhindern
+
+---
+
+## Implementierungs-Checkliste für nezumi-ui
+
+### Foundation (Layer 1)
+- [x] Farb-Primitives als OKLCH-Skala (50–950) definiert
+- [x] Spacing-Scale native pixel-basiert (0, 1, 2, 4, 8, 16, ...)
+- [x] Typografie-Skala (Font-Sizes, Weights, Line-Heights)
+- [x] Border-Radius-Skala
+- [x] Shadow-Skala
+- [x] **Motion-Skala** (Duration-Primitives + Easing-Primitives)
+
+### Semantic Layer (Layer 2)
+- [ ] Farben auf semantische Namen mappen (`background`, `foreground`, `border`, ...)
+- [ ] Surface-Farben (`surface-primary`, `surface-elevated`, ...)
+- [ ] Action-Farben (`action-primary`, `action-destructive`, ...)
+- [ ] State-Farben (`success`, `warning`, `error`, `info`)
+
+### Component Layer (Layer 3)
+- [ ] Button-Tokens (`--button-radius`, `--button-padding-*`)
+- [ ] Card-Tokens (`--card-radius`, `--card-padding`)
+- [ ] Input-Tokens
+
+### Theming
+- [ ] `.dark`-Klasse für Dark Mode (nicht `@media prefers-color-scheme`)
+- [ ] `[data-brand]` Selector für Multi-Brand Support
+- [ ] Transition auf Body für smooth Theme-Switch
+
+---
+
+## Zusammenfassung
+
+Das 3-Layer Token-System mit Tailwind v4 gibt nezumi-ui:
+
+1. **Skalierbarkeit** — Tokens ändern sich, Komponenten nicht
+2. **Konsistenz** — Eine Quelle der Wahrheit für alle Werte
+3. **Performance** — `@theme` generiert Utility-Klassen direkt, 100× schnellere Incremental Builds
+4. **Theming** — Dark Mode, Multi-Brand und Runtime-Switching ohne Rebuild
+5. **Motion-Konsistenz** — Animationen sind genauso tokenisiert wie Farben
+
+Der kritische Unterschied zu unserem bisherigen Ansatz: **`:root`-Variablen ohne `@theme` sind für Tailwind unsichtbar.** Erst `@theme` macht aus CSS-Variablen Tailwind-Utility-Klassen.
+
+---
+
+*Quelle: [Design Tokens That Scale in 2026 (Tailwind v4 + CSS Variables) — Mavik Labs](https://www.maviklabs.com/blog/design-tokens-tailwind-v4-2026/)*
