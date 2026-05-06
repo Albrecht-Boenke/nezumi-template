@@ -190,11 +190,9 @@ Use this file as the **single navigation root**. Do **not** assume nested `handb
 
 ## Tutorials
 
-- [126 — ASP.NET Core](./126-handbook-tutorials-asp.net-core.mdx) | Type: Tutorial | Summary: Using TypeScript in ASP.NET Core
-- [127 — Angular](./127-handbook-tutorials-angular.mdx) | Type: Tutorial | Summary: Using Angular with TypeScript
-- [128 — Using Babel with TypeScript](./128-handbook-tutorials-babel-with-typescript.mdx) | Type: Tutorial | Summary: How to create a hybrid Babel + TypeScript project
+Slots **126**, **127**, **128**, and **130** are deliberately empty in this template: upstream tutorials targeted ASP.NET Core, Angular, Babel-heavy hybrid builds, and Gulp workflows that do not align with Nezumi (React / Next.js / Turbopack or `tsc`-centric tooling).
+
 - [129 — DOM Manipulation](./129-handbook-tutorials-dom-manipulation.mdx) | Type: Tutorial | Summary: Using the DOM with TypeScript
-- [130 — Gulp](./130-handbook-tutorials-gulp.mdx) | Type: Tutorial | Summary: Using TypeScript with Gulp
 - [131 — Migrating from JavaScript](./131-handbook-tutorials-migrating-from-javascript.mdx) | Type: Tutorial | Summary: How to migrate from JavaScript to TypeScript
 - [132 — React](./132-handbook-tutorials-react.mdx) | Type: Tutorial | Summary: Links to learn about TypeScript and React
 - [133 — TypeScript Tooling in 5 minutes](./133-handbook-tutorials-typescript-tooling-in-5-minutes.mdx) | Type: Tutorial | Summary: A tutorial to understand how to create a small website with TypeScript

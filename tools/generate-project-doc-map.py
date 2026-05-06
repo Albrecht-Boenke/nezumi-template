@@ -76,7 +76,7 @@ def docs_hint(rel_posix: str) -> str:
         return "[Vitest in Turbo](docs/turbo/43-guides-tools-vitest.mdx) ⚠ **Vitest Core-Doku offline fehlt**"
 
     if "/src/components/" in rel:
-        return "[shadcn components](docs/shadcn-ui/components/index.mdx) · [React DOM](docs/react/reference/react-dom/components/index.md) · [nezumi dev](docs/nezumi-ui/06-component-development.md)"
+        return "[shadcn components](docs/shadcn-ui/components/index.mdx) · [React DOM components](docs/react/151-reference-react-dom-components-index.mdx) · [nezumi dev](docs/nezumi-ui/06-component-development.md)"
 
     if "/src/atoms/" in rel:
         return "[Atomic Design nezumi](docs/nezumi-ui/03-atomic-design.md) · [shadcn radix](docs/shadcn-ui/components/radix/)"
@@ -89,8 +89,8 @@ def docs_hint(rel_posix: str) -> str:
 
     if "/src/styles/" in rel:
         if "global.css" in rl:
-            return "[adding-custom-styles](docs/tailwind-css/adding-custom-styles.mdx) · [design tokens v4](docs/nezumi-ui/10-design-tokens-tailwind-v4.md)"
-        return "[Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme.mdx](docs/tailwind-css/theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)"
+            return "[adding-custom-styles](docs/tailwind-css/002-adding-custom-styles.mdx) · [design tokens v4](docs/nezumi-ui/10-design-tokens-tailwind-v4.md)"
+        return "[Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme](docs/tailwind-css/172-theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)"
 
     if rel.endswith((".tsx", ".jsx")) and "packages/ui/src" in rel:
         return "[React INDEX](docs/react/INDEX.md) · [composition](docs/nezumi-ui/composition.md)"

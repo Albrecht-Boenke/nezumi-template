@@ -94,13 +94,7 @@ It is not intended to replace individual docs.
 
             - [36 — ESLint](./36-guides-tools-eslint.mdx) | Type: How-to | Summary: Learn how to use ESLint in a monorepo. | Prerequisites: Tools | Topics: guides, tools, eslint
 
-            - [37 — Playwright](./37-guides-tools-playwright.mdx) | Type: How-to | Summary: Learn how to use Playwright in a Turborepo. | Prerequisites: Tools | Topics: guides, tools, playwright
-
-            - [38 — Prisma](./38-guides-tools-prisma.mdx) | Type: How-to | Summary: Learn how to use Prisma in a Turborepo. | Prerequisites: Tools | Topics: guides, tools, prisma
-
             - [39 — shadcn/ui](./39-guides-tools-shadcn-ui.mdx) | Type: How-to | Summary: Learn how to use shadcn/ui in a Turborepo. | Prerequisites: Tools | Topics: guides, tools, shadcn-ui
-
-            - [40 — Storybook](./40-guides-tools-storybook.mdx) | Type: How-to | Summary: Learn how to use Storybook in a Turborepo. | Prerequisites: Tools | Topics: guides, tools, storybook
 
             - [41 — Tailwind CSS](./41-guides-tools-tailwind.mdx) | Type: How-to | Summary: Learn how to use Tailwind CSS in a Turborepo. | Prerequisites: Tools | Topics: guides, tools, tailwind
 

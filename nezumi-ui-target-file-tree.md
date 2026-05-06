@@ -12,10 +12,10 @@ This document describes a **target** monorepo layout and responsibilities. **Nor
 | ----- | ----------------------------------------------- |
 | **Monorepo layout** | [docs/turbo/20-crafting-your-repository-structuring-a-repository.mdx](docs/turbo/20-crafting-your-repository-structuring-a-repository.mdx): `apps/*` + `packages/*`, workspace globs, `package.json` per package, root `turbo.json`. |
 | **shadcn + Turborepo** | [docs/shadcn-ui/overview/monorepo.mdx](docs/shadcn-ui/overview/monorepo.mdx): `apps/web`, `packages/ui`, **both** workspaces have **`components.json`**; Tailwind v4 → **empty** `tailwind.config` in `components.json`; `packages/ui/src/styles/globals.css`; `package.json#exports` including `./globals.css`. |
-| **Tailwind v4 tokens** | [docs/tailwind-css/theme.mdx](docs/tailwind-css/theme.mdx): design tokens as **theme variables** (`@theme` / theme namespaces). [docs/tailwind-css/adding-custom-styles.mdx](docs/tailwind-css/adding-custom-styles.mdx): extend/customize via CSS. |
-| **Class detection + monorepos** | [docs/tailwind-css/detecting-classes-in-source-files.mdx](docs/tailwind-css/detecting-classes-in-source-files.mdx): no dynamic class-string assembly; use `@source` (or `source()`) when scan paths must include shared packages. [docs/tailwind-css/functions-and-directives.mdx](docs/tailwind-css/functions-and-directives.mdx): `@source`, `@import`, `@theme`. |
-| **Next.js app + Tailwind** | [docs/nextjs/01-app/01-getting-started/01-installation.mdx](docs/nextjs/01-app/01-getting-started/01-installation.mdx): **minimum Node.js 20.9**. [docs/nextjs/01-app/01-getting-started/11-css.mdx](docs/nextjs/01-app/01-getting-started/11-css.mdx): `postcss.config.mjs` with `@tailwindcss/postcss`, import Tailwind in **`app/globals.css`**, import that CSS from the root layout. |
-| **Next + workspace UI package** | [docs/nextjs/01-app/03-api-reference/05-config/01-next-config-js/transpilePackages.mdx](docs/nextjs/01-app/03-api-reference/05-config/01-next-config-js/transpilePackages.mdx): `transpilePackages` for local packages. |
+| **Tailwind v4 tokens** | [172-theme.mdx](docs/tailwind-css/172-theme.mdx): design tokens as **theme variables** (`@theme` / theme namespaces). [002-adding-custom-styles.mdx](docs/tailwind-css/002-adding-custom-styles.mdx): extend/customize via CSS. |
+| **Class detection + monorepos** | [053-detecting-classes-in-source-files.mdx](docs/tailwind-css/053-detecting-classes-in-source-files.mdx): no dynamic class-string assembly; use `@source` (or `source()`) when scan paths must include shared packages. [084-functions-and-directives.mdx](docs/tailwind-css/084-functions-and-directives.mdx): `@source`, `@import`, `@theme`. |
+| **Next.js app + Tailwind** | [docs/nextjs/001-01-app-01-getting-started-01-installation.mdx](docs/nextjs/001-01-app-01-getting-started-01-installation.mdx): **minimum Node.js 20.9**. [docs/nextjs/011-01-app-01-getting-started-11-css.mdx](docs/nextjs/011-01-app-01-getting-started-11-css.mdx): `postcss.config.mjs` with `@tailwindcss/postcss`, import Tailwind in **`app/globals.css`**, import that CSS from the root layout. |
+| **Next + workspace UI package** | [docs/nextjs/223-01-app-03-api-reference-05-config-01-next-config-js-transpilepackages.mdx](docs/nextjs/223-01-app-03-api-reference-05-config-01-next-config-js-transpilepackages.mdx): `transpilePackages` for local packages. |
 | **Animation (shadcn + Tailwind v4)** | [docs/shadcn-ui/overview/tailwind-v4.mdx](docs/shadcn-ui/overview/tailwind-v4.mdx): `tailwindcss-animate` deprecated; use **`tw-animate-css`** and `@import "tw-animate-css"` in globals (when that stack is used). |
 
 **Supplementary project conventions** (Atomic Design, Nezumi public API): [docs/nezumi-ui/README.md](docs/nezumi-ui/README.md) — use **after** the vendor rules above.
@@ -27,7 +27,7 @@ This document describes a **target** monorepo layout and responsibilities. **Nor
 | Topic | Primary entry |
 | ----- | ------------- |
 | **Turborepo** | [docs/turbo/INDEX.md](docs/turbo/INDEX.md) |
-| **Next.js** | [docs/nextjs/INDEX.md](docs/nextjs/INDEX.md) · App Router [01-app/index.mdx](docs/nextjs/01-app/index.mdx) |
+| **Next.js** | [docs/nextjs/INDEX.md](docs/nextjs/INDEX.md) · App Router overview [257-01-app-index.mdx](docs/nextjs/257-01-app-index.mdx) |
 | **React** | [docs/react/INDEX.md](docs/react/INDEX.md) |
 | **Tailwind CSS v4** | [docs/tailwind-css/INDEX.md](docs/tailwind-css/INDEX.md) |
 | **shadcn/ui v4** | [docs/shadcn-ui/INDEX.md](docs/shadcn-ui/INDEX.md) |
@@ -61,7 +61,7 @@ The **shadcn monorepo** template in the vendor docs uses a single **`apps/web`**
 Optional (not required by the minimal shadcn example; add when you need them):
 
 - `packages/typescript-config/` and `packages/storybook/` are shown in the topology above when you adopt them; they are **not** mandated by the minimal shadcn example. Storybook: **no** Storybook content in `docs/` mirrors here—version and addons are **not** fixed by this vendor set—see Storybook’s own documentation.
-- `.nvmrc` — **not** required by Turborepo/Next vendor docs; optional team pin if it satisfies Next’s **minimum Node** (currently **≥ 20.9** per [installation.mdx](docs/nextjs/01-app/01-getting-started/01-installation.mdx)).
+- `.nvmrc` — **not** required by Turborepo/Next vendor docs; optional team pin if it satisfies Next’s **minimum Node** (currently **≥ 20.9** per [001-01-app-01-getting-started-01-installation.mdx](docs/nextjs/001-01-app-01-getting-started-01-installation.mdx)).
 
 **Boundary rule (Nezumi):** apps may depend on `@nezumi/ui`; apps do not import each other; `@nezumi/ui` does not import apps ([MONOREPO_ARCHITECTURE.md](docs/nezumi-ui/MONOREPO_ARCHITECTURE.md)).
 
@@ -103,7 +103,7 @@ apps/
 │   ├── eslint.config.mjs
 │   ├── next.config.ts
 │   ├── package.json
-│   ├── postcss.config.mjs      # Next.js Tailwind v4 — use .mjs ([11-css.mdx](docs/nextjs/01-app/01-getting-started/11-css.mdx))
+│   ├── postcss.config.mjs      # Next.js Tailwind v4 — use .mjs ([011-01-app-01-getting-started-11-css.mdx](docs/nextjs/011-01-app-01-getting-started-11-css.mdx))
 │   └── tsconfig.json
 ├── members/
 │   └── …                       # same responsibilities as homepage
@@ -114,16 +114,16 @@ apps/
 **Vendor-backed responsibilities (every app):**
 
 - **`app/`:** routes, layouts, metadata, data fetching, app-specific logic.
-- **`app/globals.css`:** `@import "tailwindcss"` ([11-css.mdx](docs/nextjs/01-app/01-getting-started/11-css.mdx)); **`@source`** for `packages/ui` when needed ([detecting-classes-in-source-files.mdx](docs/tailwind-css/detecting-classes-in-source-files.mdx)); import shared CSS via **`package.json#exports`** (e.g. **`@import "@nezumi/ui/design-tokens.css"`** — actual export names follow `packages/ui/package.json`).
-- **`app/layout.tsx`:** import `./globals.css` ([11-css.mdx](docs/nextjs/01-app/01-getting-started/11-css.mdx)); optional **`ThemeProvider`** if using `next-themes` / shadcn theming ([theming.mdx](docs/shadcn-ui/overview/theming.mdx)); `<html lang="..." suppressHydrationWarning>` as needed.
+- **`app/globals.css`:** `@import "tailwindcss"` ([011-01-app-01-getting-started-11-css.mdx](docs/nextjs/011-01-app-01-getting-started-11-css.mdx)); **`@source`** for `packages/ui` when needed ([053-detecting-classes-in-source-files.mdx](docs/tailwind-css/053-detecting-classes-in-source-files.mdx)); import shared CSS via **`package.json#exports`** (e.g. **`@import "@nezumi/ui/design-tokens.css"`** — actual export names follow `packages/ui/package.json`).
+- **`app/layout.tsx`:** import `./globals.css` ([011-01-app-01-getting-started-11-css.mdx](docs/nextjs/011-01-app-01-getting-started-11-css.mdx)); optional **`ThemeProvider`** if using `next-themes` / shadcn theming ([theming.mdx](docs/shadcn-ui/overview/theming.mdx)); `<html lang="..." suppressHydrationWarning>` as needed.
 - **`components/blocks/`:** app-owned shadcn registry blocks and page regions.
 - **`components/organisms/`** / **`components/templates/`:** app-specific Atomic-Design compositions.
 - **`components.json`:** shadcn bridge — map **`utils`** → `@nezumi/ui/lib/utils`, **`ui`** → `@nezumi/ui/components`; keep **`style`**, **`iconLibrary`**, **`baseColor`** identical to `packages/ui/components.json`; **`tailwind.config` empty** for Tailwind v4 ([monorepo.mdx](docs/shadcn-ui/overview/monorepo.mdx)).
-- **`next.config.ts`:** `transpilePackages: ["@nezumi/ui"]` ([transpilePackages.mdx](docs/nextjs/01-app/03-api-reference/05-config/01-next-config-js/transpilePackages.mdx)).
-- **`postcss.config.mjs`:** `@tailwindcss/postcss` ([11-css.mdx](docs/nextjs/01-app/01-getting-started/11-css.mdx)).
+- **`next.config.ts`:** `transpilePackages: ["@nezumi/ui"]` ([223-01-app-03-api-reference-05-config-01-next-config-js-transpilepackages.mdx](docs/nextjs/223-01-app-03-api-reference-05-config-01-next-config-js-transpilepackages.mdx)).
+- **`postcss.config.mjs`:** `@tailwindcss/postcss` ([011-01-app-01-getting-started-11-css.mdx](docs/nextjs/011-01-app-01-getting-started-11-css.mdx)).
 - **`package.json`:** `workspace:*` → `@nezumi/ui`; React / Next per catalog or lockfile.
 
-**Docs:** [01-installation.mdx](docs/nextjs/01-app/01-getting-started/01-installation.mdx) · [11-css.mdx](docs/nextjs/01-app/01-getting-started/11-css.mdx) · [05-server-and-client-components.mdx](docs/nextjs/01-app/01-getting-started/05-server-and-client-components.mdx) · [transpilePackages.mdx](docs/nextjs/01-app/03-api-reference/05-config/01-next-config-js/transpilePackages.mdx) · [monorepo.mdx](docs/shadcn-ui/overview/monorepo.mdx) · [components-json.mdx](docs/shadcn-ui/overview/components-json.mdx).
+**Docs:** [001-01-app-01-getting-started-01-installation.mdx](docs/nextjs/001-01-app-01-getting-started-01-installation.mdx) · [011-01-app-01-getting-started-11-css.mdx](docs/nextjs/011-01-app-01-getting-started-11-css.mdx) · [005-01-app-01-getting-started-05-server-and-client-components.mdx](docs/nextjs/005-01-app-01-getting-started-05-server-and-client-components.mdx) · [223-01-app-03-api-reference-05-config-01-next-config-js-transpilepackages.mdx](docs/nextjs/223-01-app-03-api-reference-05-config-01-next-config-js-transpilepackages.mdx) · [monorepo.mdx](docs/shadcn-ui/overview/monorepo.mdx) · [components-json.mdx](docs/shadcn-ui/overview/components-json.mdx).
 
 ---
 
@@ -133,7 +133,7 @@ apps/
 apps/homepage/app/cards/page.tsx
 ```
 
-**Docs:** [05-server-and-client-components.mdx](docs/nextjs/01-app/01-getting-started/05-server-and-client-components.mdx) · [06-fetching-data.mdx](docs/nextjs/01-app/01-getting-started/06-fetching-data.mdx).
+**Docs:** [005-01-app-01-getting-started-05-server-and-client-components.mdx](docs/nextjs/005-01-app-01-getting-started-05-server-and-client-components.mdx) · [006-01-app-01-getting-started-06-fetching-data.mdx](docs/nextjs/006-01-app-01-getting-started-06-fetching-data.mdx).
 
 ---
 
@@ -174,7 +174,7 @@ packages/ui/
     └── …                        # optional: atoms/, molecules/, layout/ — Nezumi / Atomic Design (see docs/nezumi-ui)
 ```
 
-**Token CSS layout (vendor):** Tailwind does **not** mandate a single `tokens.css` path. Design tokens are **theme variables**; define them in CSS (often under `@theme`) and split across files via **`@import`** ([theme.mdx](docs/tailwind-css/theme.mdx), [adding-custom-styles.mdx](docs/tailwind-css/adding-custom-styles.mdx)). **This repository** additionally exports **`design-tokens.css`** and splits primitives under `src/styles/tokens/`, `semantic/`, `components/` — valid as long as the import graph ends in one app-owned Tailwind entry or documented **`@source`** paths.
+**Token CSS layout (vendor):** Tailwind does **not** mandate a single `tokens.css` path. Design tokens are **theme variables**; define them in CSS (often under `@theme`) and split across files via **`@import`** ([172-theme.mdx](docs/tailwind-css/172-theme.mdx), [002-adding-custom-styles.mdx](docs/tailwind-css/002-adding-custom-styles.mdx)). **This repository** additionally exports **`design-tokens.css`** and splits primitives under `src/styles/tokens/`, `semantic/`, `components/` — valid as long as the import graph ends in one app-owned Tailwind entry or documented **`@source`** paths.
 
 **Animations (vendor):** If following current shadcn Tailwind v4 guidance, add **`@import "tw-animate-css"`** to globals after installing `tw-animate-css` ([tailwind-v4.mdx](docs/shadcn-ui/overview/tailwind-v4.mdx)).
 
@@ -201,9 +201,9 @@ Do **not** expose **internal** atomic folders as stable public imports unless yo
 **Rules:**
 
 - Apps and CLI-generated blocks resolve UI through **`package.json#exports`** and workspace aliases in **`components.json`**—not ad-hoc `compilerOptions.paths` for published paths ([monorepo.mdx](docs/shadcn-ui/overview/monorepo.mdx)).
-- **`"use client"`** where required ([use-client.md](docs/react/reference/rsc/use-client.md)).
+- **`"use client"`** where required ([188-reference-rsc-use-client.mdx](docs/react/188-reference-rsc-use-client.mdx)).
 
-**Docs:** [transpilePackages.mdx](docs/nextjs/01-app/03-api-reference/05-config/01-next-config-js/transpilePackages.mdx) · [04-public-api.md](docs/nezumi-ui/04-public-api.md).
+**Docs:** [223-01-app-03-api-reference-05-config-01-next-config-js-transpilepackages.mdx](docs/nextjs/223-01-app-03-api-reference-05-config-01-next-config-js-transpilepackages.mdx) · [04-public-api.md](docs/nezumi-ui/04-public-api.md).
 
 ---
 
@@ -219,9 +219,9 @@ Expected **ingredients** (compose to taste):
 @custom-variant dark (&:where(.dark, .dark *));   /* if using class-based dark — see Tailwind dark mode doc */
 ```
 
-**App-level:** if classes in `packages/ui` are not scanned, add **`@source`** to the **app** stylesheet pointing at the UI package ([detecting-classes-in-source-files.mdx](docs/tailwind-css/detecting-classes-in-source-files.mdx)). **Never** build utility class strings dynamically ([detecting-classes-in-source-files.mdx](docs/tailwind-css/detecting-classes-in-source-files.mdx)).
+**App-level:** if classes in `packages/ui` are not scanned, add **`@source`** to the **app** stylesheet pointing at the UI package ([053-detecting-classes-in-source-files.mdx](docs/tailwind-css/053-detecting-classes-in-source-files.mdx)). **Never** build utility class strings dynamically ([053-detecting-classes-in-source-files.mdx](docs/tailwind-css/053-detecting-classes-in-source-files.mdx)).
 
-**Docs:** [theme.mdx](docs/tailwind-css/theme.mdx) · [dark-mode.mdx](docs/tailwind-css/dark-mode.mdx) · [detecting-classes-in-source-files.mdx](docs/tailwind-css/detecting-classes-in-source-files.mdx) · [tailwind-v4.mdx](docs/shadcn-ui/overview/tailwind-v4.mdx) · [10-design-tokens-tailwind-v4.md](docs/nezumi-ui/10-design-tokens-tailwind-v4.md) (Nezumi narrative layered on `@theme`).
+**Docs:** [172-theme.mdx](docs/tailwind-css/172-theme.mdx) · [052-dark-mode.mdx](docs/tailwind-css/052-dark-mode.mdx) · [053-detecting-classes-in-source-files.mdx](docs/tailwind-css/053-detecting-classes-in-source-files.mdx) · [tailwind-v4.mdx](docs/shadcn-ui/overview/tailwind-v4.mdx) · [10-design-tokens-tailwind-v4.md](docs/nezumi-ui/10-design-tokens-tailwind-v4.md) (Nezumi narrative layered on `@theme`).
 
 ---
 
@@ -275,8 +275,8 @@ apps/* -> app-specific code from another app
 
 1. Workspace root: `package.json`, `pnpm-workspace.yaml`, `turbo.json` ([20-crafting-your-repository-structuring-a-repository.mdx](docs/turbo/20-crafting-your-repository-structuring-a-repository.mdx)).
 2. **`packages/ui`** with **`components.json`**, **`src/styles/globals.css`**, **`lib/utils.ts`**, granular **`exports`** ([monorepo.mdx](docs/shadcn-ui/overview/monorepo.mdx)).
-3. **`apps/homepage`**, **`apps/members`**, **`apps/operations`** — each with **`app/globals.css`** (Tailwind + `@source` as needed), **`postcss.config.mjs`**, **`next.config.ts`** + `transpilePackages`, **`components.json`** ([11-css.mdx](docs/nextjs/01-app/01-getting-started/11-css.mdx), [monorepo.mdx](docs/shadcn-ui/overview/monorepo.mdx)).
-4. Add components and token CSS layers following Tailwind **`@theme`** + **`@import`** ([theme.mdx](docs/tailwind-css/theme.mdx)).
+3. **`apps/homepage`**, **`apps/members`**, **`apps/operations`** — each with **`app/globals.css`** (Tailwind + `@source` as needed), **`postcss.config.mjs`**, **`next.config.ts`** + `transpilePackages`, **`components.json`** ([011-01-app-01-getting-started-11-css.mdx](docs/nextjs/011-01-app-01-getting-started-11-css.mdx), [monorepo.mdx](docs/shadcn-ui/overview/monorepo.mdx)).
+4. Add components and token CSS layers following Tailwind **`@theme`** + **`@import`** ([172-theme.mdx](docs/tailwind-css/172-theme.mdx)).
 5. Optional: **`packages/typescript-config`**, **`packages/storybook`**, deeper Atomic layers per [docs/nezumi-ui/01-getting-started.md](docs/nezumi-ui/01-getting-started.md).
 
 ---

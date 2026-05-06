@@ -53,8 +53,8 @@ Die **Links in der Spalte „→“** verweisen weiterhin auf passende Seiten un
           - `index.ts` → [Atomic Design nezumi](docs/nezumi-ui/03-atomic-design.md) · [shadcn radix](docs/shadcn-ui/components/radix/)
         - `index.ts` → [Atomic Design nezumi](docs/nezumi-ui/03-atomic-design.md) · [shadcn radix](docs/shadcn-ui/components/radix/)
       - **components/**
-        - `button.tsx` → [shadcn components](docs/shadcn-ui/components/index.mdx) · [React DOM](docs/react/reference/react-dom/components/index.md) · [nezumi dev](docs/nezumi-ui/06-component-development.md)
-        - `index.ts` → [shadcn components](docs/shadcn-ui/components/index.mdx) · [React DOM](docs/react/reference/react-dom/components/index.md) · [nezumi dev](docs/nezumi-ui/06-component-development.md)
+        - `button.tsx` → [shadcn components](docs/shadcn-ui/components/index.mdx) · [React DOM components](docs/react/151-reference-react-dom-components-index.mdx) · [nezumi dev](docs/nezumi-ui/06-component-development.md)
+        - `index.ts` → [shadcn components](docs/shadcn-ui/components/index.mdx) · [React DOM components](docs/react/151-reference-react-dom-components-index.mdx) · [nezumi dev](docs/nezumi-ui/06-component-development.md)
       - **layout/**
         - `Box.tsx` → [Public API / layout](docs/nezumi-ui/04-public-api.md) · [Tailwind utilities](docs/tailwind-css/INDEX.md)
         - `Container.tsx` → [Public API / layout](docs/nezumi-ui/04-public-api.md) · [Tailwind utilities](docs/tailwind-css/INDEX.md)
@@ -77,20 +77,20 @@ Die **Links in der Spalte „→“** verweisen weiterhin auf passende Seiten un
         - `index.ts` → [Atomic nezumi](docs/nezumi-ui/03-atomic-design.md)
       - **styles/**
         - **components/**
-          - `button.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme.mdx](docs/tailwind-css/theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
-          - `card.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme.mdx](docs/tailwind-css/theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
-          - `input.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme.mdx](docs/tailwind-css/theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
+          - `button.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme](docs/tailwind-css/172-theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
+          - `card.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme](docs/tailwind-css/172-theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
+          - `input.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme](docs/tailwind-css/172-theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
         - **semantic/**
-          - `colors.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme.mdx](docs/tailwind-css/theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
-          - `spacing.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme.mdx](docs/tailwind-css/theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
+          - `colors.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme](docs/tailwind-css/172-theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
+          - `spacing.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme](docs/tailwind-css/172-theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
         - **tokens/**
-          - `colors.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme.mdx](docs/tailwind-css/theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
-          - `motion.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme.mdx](docs/tailwind-css/theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
-          - `radius.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme.mdx](docs/tailwind-css/theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
-          - `shadows.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme.mdx](docs/tailwind-css/theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
-          - `spacing.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme.mdx](docs/tailwind-css/theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
-          - `typography.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme.mdx](docs/tailwind-css/theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
-        - `global.css` → [adding-custom-styles](docs/tailwind-css/adding-custom-styles.mdx) · [design tokens v4](docs/nezumi-ui/10-design-tokens-tailwind-v4.md)
+          - `colors.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme](docs/tailwind-css/172-theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
+          - `motion.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme](docs/tailwind-css/172-theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
+          - `radius.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme](docs/tailwind-css/172-theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
+          - `shadows.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme](docs/tailwind-css/172-theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
+          - `spacing.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme](docs/tailwind-css/172-theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
+          - `typography.css` → [Tailwind INDEX](docs/tailwind-css/INDEX.md) · [theme](docs/tailwind-css/172-theme.mdx) · [foundation](docs/nezumi-ui/05-foundation.md)
+        - `global.css` → [adding-custom-styles](docs/tailwind-css/002-adding-custom-styles.mdx) · [design tokens v4](docs/nezumi-ui/10-design-tokens-tailwind-v4.md)
       - **templates/**
         - `index.ts` → [Atomic nezumi](docs/nezumi-ui/03-atomic-design.md)
     - `.DS_Store` → [nezumi README](docs/nezumi-ui/README.md)

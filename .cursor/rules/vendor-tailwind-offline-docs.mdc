@@ -9,4 +9,4 @@ alwaysApply: false
 # Tailwind Offline
 
 1. Überblick: `docs/tailwind-css/INDEX.md`.
-2. Konkretes Utility: Datei `docs/tailwind-css/<name>.mdx` entspricht häufig dem Utility-Namen oder Kapiteltitel auf tailwindcss.com.
+2. Konkretes Utility / Kapitel: flache Datei `docs/tailwind-css/NNN-<slug>.mdx` (`NNN` = stabiler Index); Zuordnung und Slugs in `docs/tailwind-css/INDEX.md`.
