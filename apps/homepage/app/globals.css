@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Scan app + workspace UI package (node_modules may be symlinked — path is workspace-stable) */
+/* Tailwind @source: ../../../packages/ui = repo root. ../**/* = this app only; ../../** would scan all of apps/. */
 @source "../../../packages/ui/src/**/*.{ts,tsx}";
 @source "../../../packages/ui/dist/**/*.{js,mjs}";
 @source "../**/*.{ts,tsx,mdx,css}";

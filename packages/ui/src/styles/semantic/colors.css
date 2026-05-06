@@ -23,6 +23,7 @@
   --color-success: var(--color-nezumi-fukagawa-deep);
   --color-warning: var(--color-nezumi-cha);
   --color-error: var(--color-nezumi-d-destructive);
+  --color-on-error: var(--color-nezumi-snow);
   --color-info: var(--color-nezumi-minato);
 
   /* Status surfaces — light: mixes per DESIGN.md §2 */

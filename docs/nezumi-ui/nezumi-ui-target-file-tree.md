@@ -219,7 +219,7 @@ Expected **ingredients** (compose to taste):
 @custom-variant dark (&:where(.dark, .dark *));   /* if using class-based dark — see Tailwind dark mode doc */
 ```
 
-**App-level:** if classes in `packages/ui` are not scanned, add **`@source`** to the **app** stylesheet pointing at the UI package ([053-detecting-classes-in-source-files.mdx](docs/tailwind-css/053-detecting-classes-in-source-files.mdx)). **Never** build utility class strings dynamically ([053-detecting-classes-in-source-files.mdx](docs/tailwind-css/053-detecting-classes-in-source-files.mdx)).
+**App-level:** if classes in `packages/ui` are not scanned, add **`@source`** to the **app** stylesheet pointing at the UI package ([053-detecting-classes-in-source-files.mdx](docs/tailwind-css/053-detecting-classes-in-source-files.mdx)). From `app/globals.css`, use **`../../../packages/ui/...`** for the workspace package; scan **only that app’s** sources with **`../**/*`** (one segment up to `apps/<name>/`), not **`../../**/*`** (that lands under `apps/` and pulls in every sibling app’s files). **Never** build utility class strings dynamically ([053-detecting-classes-in-source-files.mdx](docs/tailwind-css/053-detecting-classes-in-source-files.mdx)).
 
 **Docs:** [172-theme.mdx](docs/tailwind-css/172-theme.mdx) · [052-dark-mode.mdx](docs/tailwind-css/052-dark-mode.mdx) · [053-detecting-classes-in-source-files.mdx](docs/tailwind-css/053-detecting-classes-in-source-files.mdx) · [tailwind-v4.mdx](docs/shadcn-ui/overview/tailwind-v4.mdx) · [010-nezumi-ui-design-tokens-tailwind-v4.mdx](docs/nezumi-ui/010-nezumi-ui-design-tokens-tailwind-v4.mdx) (Nezumi narrative layered on `@theme`).
 

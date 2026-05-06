@@ -59,6 +59,13 @@ describe("Button", () => {
     expect(element.className).toContain("custom-class")
   })
 
+  it("destructive variant uses on-error foreground token", () => {
+    const element = render(<Button variant="destructive">Delete</Button>)
+
+    expect(element.className).toContain("bg-error")
+    expect(element.className).toContain("text-on-error")
+  })
+
   it("forwards button props and ref", () => {
     const ref = React.createRef<HTMLButtonElement>()
     const element = render(

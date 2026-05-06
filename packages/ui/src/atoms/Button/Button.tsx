@@ -34,7 +34,7 @@ const buttonVariants = cva(
           "hover:bg-button-secondary-hover",
         ],
         destructive: [
-          "bg-error text-on-brand",
+          "bg-error text-on-error",
           "hover:bg-button-error-hover",
         ],
         outline: [

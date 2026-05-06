@@ -98,9 +98,10 @@ Light defaults live in `semantic/colors.css`; dark values are overridden in `.da
 | `--color-success` | `var(--color-nezumi-fukagawa-deep)` | `var(--color-nezumi-fukagawa)` | `#4d6e47` → `#97a791` | Positive status |
 | `--color-warning` | `var(--color-nezumi-cha)` | `var(--color-nezumi-cha)` | `#a99e93` → `#a99e93` | Warning status |
 | `--color-error` | `var(--color-nezumi-d-destructive)` | `var(--color-nezumi-d-error-dark)` | `#9c5246` → `#e07a6b` | Error/destructive status |
+| `--color-on-error` | `var(--color-nezumi-snow)` | `var(--color-nezumi-dark-bg)` | `#ffffff` → `#121014` | Text/icon on solid error/destructive fills (contrast-safe vs `--color-error` in both modes) |
 | `--color-info` | `var(--color-nezumi-minato)` | `var(--color-nezumi-minato)` | `#80989b` → `#80989b` | Informational status |
 
-**Tailwind (semantic):** `bg-brand`, `text-on-brand`, `bg-surface`, `text-text`, `text-text-muted`, `border-border`, `bg-success-bg`, `text-success`, etc.
+**Tailwind (semantic):** `bg-brand`, `text-on-brand`, `bg-surface`, `text-text`, `text-text-muted`, `text-on-error`, `border-border`, `bg-success-bg`, `text-success`, etc.
 
 ### Status background mixes
 

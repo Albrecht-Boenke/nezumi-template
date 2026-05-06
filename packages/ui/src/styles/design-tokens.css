@@ -36,6 +36,7 @@
   --color-success: var(--color-nezumi-fukagawa);
   --color-warning: var(--color-nezumi-cha);
   --color-error: var(--color-nezumi-d-error-dark);
+  --color-on-error: var(--color-nezumi-dark-bg);
   --color-info: var(--color-nezumi-minato);
 
   --color-success-bg: color-mix(in oklch, var(--color-success) 25%, var(--color-surface));
