@@ -32,68 +32,94 @@ This file is the visual SSOT for agents. It describes the **target state**, not 
 
 ## 2. Colors
 
-### Primitive Palette
-| Token | Hex |
-| :---- | :-- |
-| `--nezumi-sabi` | `#47585c` |
-| `--nezumi-minato` | `#80989b` |
-| `--nezumi-ume` | `#c099a0` |
-| `--nezumi-sakura` | `#e9dfe5` |
-| `--nezumi-fuji` | `#a6a5c4` |
-| `--nezumi-kinu` | `#dddcd6` |
-| `--nezumi-genji` | `#888084` |
-| `--nezumi-koi` | `#4f455c` |
-| `--nezumi-bg` | `#f5f4f1` |
-| `--nezumi-akatsuki` | `#d3cfd9` |
-| `--nezumi-fukagawa` | `#97a791` |
-| `--nezumi-fukagawa-deep` | `#4d6e47` |
-| `--nezumi-cha` | `#a99e93` |
-| `--nezumi-budo` | `#705b67` |
-| `--nezumi-chigusa` | `#bed3ca` |
-| `--nezumi-paper` | `#faf9f5` |
-| `--nezumi-line` | `#d4d3cf` |
-| `--nezumi-snow` | `#ffffff` |
-| `--nezumi-dark-bg` | `#121014` |
-| `--nezumi-dark-raised` | `#1a181c` |
-| `--nezumi-dark-subtle` | `#242226` |
-| `--nezumi-dark-muted` | `#2a272b` |
-| `--nezumi-dark-line` | `#3a383c` |
-| `--nezumi-dark-secondary-bg` | `#4a3d42` |
-| `--nezumi-d-destructive` | `#9c5246` |
-| `--nezumi-d-error-dark` | `#e07a6b` |
+### Implementation (Nezumi-Template repo)
 
-### Semantic Palette
-| Token | Light | Dark | Use |
-| :---- | :---- | :--- | :-- |
-| `--color-brand` | `#47585c` | `#80989b` | Primary action, navigation emphasis, brand anchor |
-| `--color-on-brand` | `#faf9f5` | `#faf9f5` | Text/icon on brand |
-| `--color-brand-bg` | `#80989b` | `#47585c` | Secondary brand panels |
-| `--color-on-brand-bg` | `#4f455c` | `#ffffff` | Text/icon on brand background |
-| `--color-secondary` | `#c099a0` | `#c099a0` | Warm secondary action/accent |
-| `--color-secondary-bg` | `#e9dfe5` | `#4a3d42` | Warm muted surfaces |
-| `--color-accent` | `#a6a5c4` | `#a6a5c4` | Small editorial/chart accents |
-| `--color-text` | `#4f455c` | `#dddcd6` | Primary text |
-| `--color-text-muted` | `#888084` | `#888084` | Metadata, helper text |
-| `--color-surface` | `#f5f4f1` | `#121014` | Page background |
-| `--color-surface-raised` | `#ffffff` | `#1a181c` | Default lifted surface |
-| `--color-surface-raised-subtle` | `#d3cfd9` | `#242226` | Soft section separation |
-| `--color-surface-muted` | `#dddcd6` | `#2a272b` | Muted rails/grouped regions |
-| `--color-border` | `#d4d3cf` | `#3a383c` | Hairline border only |
-| `--color-success` | `#4d6e47` | `#97a791` | Positive status |
-| `--color-warning` | `#a99e93` | `#a99e93` | Warning status |
-| `--color-error` | `#9c5246` | `#e07a6b` | Error/destructive status |
-| `--color-info` | `#80989b` | `#80989b` | Informational status |
+| Layer File | Role |
+| :----------- | :--- |
+| `packages/ui/src/styles/tokens/colors.css` | **Primitives** in Tailwind `@theme`: `--color-nezumi-*`. Each value is **OKLCH** with the SSOT hex as input: `oklch(from #rrggbb l c h)`. Tailwind generates utilities such as `bg-nezumi-sabi` (use in apps only when justified; prefer semantic utilities). |
+| `packages/ui/src/styles/semantic/colors.css` | **Semantic** colors in `@theme`: `--color-brand`, `--color-text`, … as `var(--color-nezumi-*)`. Status backgrounds use `color-mix(in oklch, …)` per rules below. |
+| `packages/ui/src/styles/design-tokens.css` | **`.dark`** block: semantic overrides (same `--color-*` names). **`html.dark`** in `@layer base` sets `color-scheme: dark` only. Base `body`, `:focus-visible`, scrollbar use semantic tokens. |
+| `packages/ui/src/styles/components/button.css` | **Component** color tokens (e.g. `--color-button-brand-hover`) as `color-mix(in oklch, …)` on top of semantic primitives. |
+| Apps | Import `@nezumi/ui/design-tokens.css` from `app/globals.css`. App **TSX** uses semantic Tailwind classes only (`bg-surface`, `text-text`, `border-border`, …) — no raw hex, no default Tailwind palette. |
 
-### Status Background Mixes
-- `--color-success-bg`: light `12%` mix, dark `25%` mix
-- `--color-warning-bg`: light `15%` mix, dark `25%` mix
-- `--color-error-bg`: light `12%` mix, dark `25%` mix
-- `--color-info-bg`: light `12%` mix, dark `25%` mix
+**Reference hex** in the tables below is the **authoring / SSOT sRGB** for each primitive. The **stored token value** in code is always the OKLCH form above.
 
-### Focus Tokens
+### Primitive palette
+
+| Slug (human reference) | CSS token (`@theme`) | SSOT hex (input to `oklch(from …)`) |
+| :----------------------- | :------------------- | :---------------------------------- |
+| sabi | `--color-nezumi-sabi` | `#47585c` |
+| minato | `--color-nezumi-minato` | `#80989b` |
+| ume | `--color-nezumi-ume` | `#c099a0` |
+| sakura | `--color-nezumi-sakura` | `#e9dfe5` |
+| fuji | `--color-nezumi-fuji` | `#a6a5c4` |
+| kinu | `--color-nezumi-kinu` | `#dddcd6` |
+| genji | `--color-nezumi-genji` | `#888084` |
+| koi | `--color-nezumi-koi` | `#4f455c` |
+| bg | `--color-nezumi-bg` | `#f5f4f1` |
+| akatsuki | `--color-nezumi-akatsuki` | `#d3cfd9` |
+| fukagawa | `--color-nezumi-fukagawa` | `#97a791` |
+| fukagawa-deep | `--color-nezumi-fukagawa-deep` | `#4d6e47` |
+| cha | `--color-nezumi-cha` | `#a99e93` |
+| budo | `--color-nezumi-budo` | `#705b67` |
+| chigusa | `--color-nezumi-chigusa` | `#bed3ca` |
+| paper | `--color-nezumi-paper` | `#faf9f5` |
+| line | `--color-nezumi-line` | `#d4d3cf` |
+| snow | `--color-nezumi-snow` | `#ffffff` |
+| dark-bg | `--color-nezumi-dark-bg` | `#121014` |
+| dark-raised | `--color-nezumi-dark-raised` | `#1a181c` |
+| dark-subtle | `--color-nezumi-dark-subtle` | `#242226` |
+| dark-muted | `--color-nezumi-dark-muted` | `#2a272b` |
+| dark-line | `--color-nezumi-dark-line` | `#3a383c` |
+| dark-secondary-bg | `--color-nezumi-dark-secondary-bg` | `#4a3d42` |
+| d-destructive | `--color-nezumi-d-destructive` | `#9c5246` |
+| d-error-dark | `--color-nezumi-d-error-dark` | `#e07a6b` |
+
+### Semantic palette
+
+Light defaults live in `semantic/colors.css`; dark values are overridden in `.dark` in `design-tokens.css`. The **Implementation** columns match the actual `var(--color-nezumi-*)` wiring. **Approx. hex** is the same as before for design review (equals the referenced primitive’s SSOT hex).
+
+| Token | Light (code) | Dark (code) | Approx. hex (light → dark) | Use |
+| :---- | :----------- | :---------- | :------------------------- | :-- |
+| `--color-brand` | `var(--color-nezumi-sabi)` | `var(--color-nezumi-minato)` | `#47585c` → `#80989b` | Primary action, navigation emphasis, brand anchor |
+| `--color-on-brand` | `var(--color-nezumi-paper)` | `var(--color-nezumi-paper)` | `#faf9f5` → `#faf9f5` | Text/icon on brand |
+| `--color-brand-bg` | `var(--color-nezumi-minato)` | `var(--color-nezumi-sabi)` | `#80989b` → `#47585c` | Secondary brand panels |
+| `--color-on-brand-bg` | `var(--color-nezumi-koi)` | `var(--color-nezumi-snow)` | `#4f455c` → `#ffffff` | Text/icon on brand background |
+| `--color-secondary` | `var(--color-nezumi-ume)` | `var(--color-nezumi-ume)` | `#c099a0` → `#c099a0` | Warm secondary action/accent |
+| `--color-secondary-bg` | `var(--color-nezumi-sakura)` | `var(--color-nezumi-dark-secondary-bg)` | `#e9dfe5` → `#4a3d42` | Warm muted surfaces |
+| `--color-accent` | `var(--color-nezumi-fuji)` | `var(--color-nezumi-fuji)` | `#a6a5c4` → `#a6a5c4` | Small editorial/chart accents |
+| `--color-text` | `var(--color-nezumi-koi)` | `var(--color-nezumi-kinu)` | `#4f455c` → `#dddcd6` | Primary text |
+| `--color-text-muted` | `var(--color-nezumi-genji)` | `var(--color-nezumi-genji)` | `#888084` → `#888084` | Metadata, helper text |
+| `--color-surface` | `var(--color-nezumi-bg)` | `var(--color-nezumi-dark-bg)` | `#f5f4f1` → `#121014` | Page background |
+| `--color-surface-raised` | `var(--color-nezumi-snow)` | `var(--color-nezumi-dark-raised)` | `#ffffff` → `#1a181c` | Default lifted surface |
+| `--color-surface-raised-subtle` | `var(--color-nezumi-akatsuki)` | `var(--color-nezumi-dark-subtle)` | `#d3cfd9` → `#242226` | Soft section separation |
+| `--color-surface-muted` | `var(--color-nezumi-kinu)` | `var(--color-nezumi-dark-muted)` | `#dddcd6` → `#2a272b` | Muted rails/grouped regions |
+| `--color-border` | `var(--color-nezumi-line)` | `var(--color-nezumi-dark-line)` | `#d4d3cf` → `#3a383c` | Hairline border only |
+| `--color-success` | `var(--color-nezumi-fukagawa-deep)` | `var(--color-nezumi-fukagawa)` | `#4d6e47` → `#97a791` | Positive status |
+| `--color-warning` | `var(--color-nezumi-cha)` | `var(--color-nezumi-cha)` | `#a99e93` → `#a99e93` | Warning status |
+| `--color-error` | `var(--color-nezumi-d-destructive)` | `var(--color-nezumi-d-error-dark)` | `#9c5246` → `#e07a6b` | Error/destructive status |
+| `--color-info` | `var(--color-nezumi-minato)` | `var(--color-nezumi-minato)` | `#80989b` → `#80989b` | Informational status |
+
+**Tailwind (semantic):** `bg-brand`, `text-on-brand`, `bg-surface`, `text-text`, `text-text-muted`, `border-border`, `bg-success-bg`, `text-success`, etc.
+
+### Status background mixes
+
+Implemented in `@theme` (light) and recomputed in `.dark` with higher percentages:
+
+| Token | Light (`semantic/colors.css`) | Dark (`.dark`) |
+| :---- | :-------------------------- | :------------- |
+| `--color-success-bg` | `color-mix(in oklch, var(--color-success) 12%, var(--color-surface))` | `25%` |
+| `--color-warning-bg` | `color-mix(in oklch, var(--color-warning) 15%, var(--color-surface))` | `25%` |
+| `--color-error-bg` | `color-mix(in oklch, var(--color-error) 12%, var(--color-surface))` | `25%` |
+| `--color-info-bg` | `color-mix(in oklch, var(--color-info) 12%, var(--color-surface))` | `25%` |
+
+### Focus tokens
+
+Defined in `semantic/colors.css` (same keys in dark unless overridden):
+
 - `--focus-ring-width`: `1px`
 - `--focus-ring-offset`: `2px`
-- `--focus-ring-color`: `var(--color-text)`
+- `--focus-ring-color`: `var(--color-text)` (updated under `.dark` via `--color-text`)
 - `--color-ring`: `var(--focus-ring-color)`
 
 ### Color Rules

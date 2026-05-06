@@ -42,11 +42,12 @@ The root package export is intentionally absent. This keeps dependency graphs sm
 
 ## Token Architecture
 
-Tailwind CSS 4.2.4 reads tokens from `@theme`:
+Tailwind CSS 4.2.4 reads tokens from `@theme`. Semantic color names follow **[`DESIGN.md`](../../../DESIGN.md) §2** (e.g. `--color-surface`, `--color-text`, `--color-brand`); primitives are **`--color-nezumi-*`** in `tokens/colors.css` (`@theme`, OKLCH from DESIGN hex).
 
 ```css
 @theme {
-  --color-background: var(--color-neutral-50);
+  --color-surface: var(--color-nezumi-bg);
+  --color-text: var(--color-nezumi-koi);
   --spacing-16: 1rem;
   --radius-lg: 0.5rem;
 }
@@ -55,7 +56,7 @@ Tailwind CSS 4.2.4 reads tokens from `@theme`:
 Then components consume generated utilities:
 
 ```tsx
-<div className="bg-background p-16 rounded-lg" />
+<div className="bg-surface text-text p-16 rounded-lg" />
 ```
 
 ## Framework Baseline

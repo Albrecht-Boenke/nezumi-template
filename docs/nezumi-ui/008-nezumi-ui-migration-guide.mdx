@@ -19,12 +19,12 @@ import { Container } from "@nezumi/ui/layout"
 Replace JavaScript token wrappers with Tailwind utilities or CSS variables:
 
 ```tsx
-<div className="bg-background p-16" />
+<div className="bg-surface p-16" />
 ```
 
 ```css
 .card {
-  background: var(--color-background);
+  background: var(--color-surface);
   padding: var(--spacing-16);
 }
 ```
@@ -34,6 +34,7 @@ Replace JavaScript token wrappers with Tailwind utilities or CSS variables:
 The UI package owns:
 
 - `src/styles/global.css`
+- `src/styles/design-tokens.css`
 - `src/styles/tokens/*.css`
 - `src/styles/semantic/*.css`
 - `src/styles/components/*.css`

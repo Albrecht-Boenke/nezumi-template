@@ -43,7 +43,7 @@ describe("Button", () => {
 
     expect(element.tagName).toBe("BUTTON")
     expect(element.textContent).toBe("Save")
-    expect(element.className).toContain("bg-action-primary")
+    expect(element.className).toContain("bg-brand")
     expect(element.className).toContain("h-40")
   })
 
@@ -54,7 +54,7 @@ describe("Button", () => {
       </Button>,
     )
 
-    expect(element.className).toContain("border-border-strong")
+    expect(element.className).toContain("border-border")
     expect(element.className).toContain("h-48")
     expect(element.className).toContain("custom-class")
   })
@@ -82,7 +82,7 @@ describe("Button", () => {
 
     expect(element.tagName).toBe("A")
     expect(element.getAttribute("href")).toBe("/docs")
-    expect(element.className).toContain("text-action-primary")
+    expect(element.className).toContain("text-brand")
     expect(element.hasAttribute("asChild")).toBe(false)
   })
 })

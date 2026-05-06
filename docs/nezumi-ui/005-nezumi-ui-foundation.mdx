@@ -5,13 +5,14 @@ description: CSS-first tokens under packages/ui/src/styles and Tailwind @theme.
 
 # Foundation And Design Tokens
 
-The foundation layer lives inside `packages/ui/src/styles/`. It is CSS-first and Tailwind CSS 4.2.4 native.
+The foundation layer lives inside `packages/ui/src/styles/`. It is CSS-first and Tailwind CSS 4.2.4 native. **Color naming follows [`DESIGN.md`](../../../DESIGN.md) §2:** primitives are registered in `tokens/colors.css` inside **`@theme`** as `--color-nezumi-*` (OKLCH via `oklch(from #… l c h)` so values match the DESIGN hex table exactly). Semantic `--color-*` live in `semantic/colors.css` (`@theme`). Dark overrides: `design-tokens.css` (`.dark`).
 
 ## File Layout
 
 ```
 packages/ui/src/styles/
 ├── global.css
+├── design-tokens.css
 ├── tokens/
 │   ├── colors.css
 │   ├── spacing.css
@@ -30,10 +31,23 @@ packages/ui/src/styles/
 
 ## Token Definition
 
+Primitives (OKLCH, `@theme` — hex in [`DESIGN.md`](../../../DESIGN.md) is the SSOT input to `oklch(from …)`):
+
 ```css
 @theme {
-  --color-blue-500: oklch(60% 0.16 250);
-  --color-background: var(--color-neutral-50);
+  --color-nezumi-sabi: oklch(from #47585c l c h);
+  --color-nezumi-paper: oklch(from #faf9f5 l c h);
+  /* … see tokens/colors.css */
+}
+```
+
+Semantic colors register Tailwind utilities:
+
+```css
+@theme {
+  --color-brand: var(--color-nezumi-sabi);
+  --color-text: var(--color-nezumi-koi);
+  --color-surface: var(--color-nezumi-bg);
   --spacing-16: 1rem;
   --text-sm: 0.875rem;
   --radius-lg: 0.5rem;
@@ -44,21 +58,22 @@ packages/ui/src/styles/
 `@theme` registers utilities with Tailwind:
 
 ```tsx
-<div className="bg-background text-foreground p-16 rounded-lg duration-normal" />
+<div className="bg-surface text-text p-16 rounded-lg duration-normal" />
 ```
 
 ## Dark Mode
 
-Dark-mode overrides belong under `.dark` in `global.css`, not inside `@theme`.
+Dark-mode overrides belong under `.dark` in `design-tokens.css`, not inside the light `@theme` block.
 
 ```css
 .dark {
-  --color-background: var(--color-neutral-950);
-  --color-foreground: var(--color-neutral-50);
+  --color-brand: var(--color-nezumi-minato);
+  --color-text: var(--color-nezumi-kinu);
+  --color-surface: var(--color-nezumi-dark-bg);
   color-scheme: dark;
 }
 ```
 
 ## Rule
 
-Do not create parallel TypeScript token objects. CSS `@theme` is the source of truth.
+Do not create parallel TypeScript token objects. CSS `@theme` and the shared CSS imports are the source of truth.

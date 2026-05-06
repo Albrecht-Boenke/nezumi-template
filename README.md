@@ -44,4 +44,4 @@ pnpm turbo typecheck
 | `apps/playground` | Reference Next.js shell consuming `@nezumi/ui`    |
 | `packages/ui`    | Published-style UI library (`@nezumi/ui`)           |
 | `docs/nezumi-ui` | Product/architecture docs for Nezumi in this repo  |
-| `docs/` (else)    | Offline vendor snapshots for agents (`INDEX.md`)  |
+| `docs/` (else)    | Offline vendor snapshots for agents; navigation hub [`docs/README.md`](docs/README.md)  |

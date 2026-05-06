@@ -1,76 +1,29 @@
+/* Primitive palette — DESIGN.md §2. Stored as OKLCH via relative color (exact match to SSOT hex). @theme so Tailwind registers utilities (e.g. bg-nezumi-sabi). */
 @theme {
-  /* Neutral */
-  --color-neutral-50:  oklch(98% 0.005 262);
-  --color-neutral-100: oklch(95% 0.005 262);
-  --color-neutral-200: oklch(90% 0.007 262);
-  --color-neutral-300: oklch(82% 0.008 262);
-  --color-neutral-400: oklch(70% 0.010 262);
-  --color-neutral-500: oklch(58% 0.012 262);
-  --color-neutral-600: oklch(46% 0.012 262);
-  --color-neutral-700: oklch(36% 0.010 262);
-  --color-neutral-800: oklch(26% 0.008 262);
-  --color-neutral-900: oklch(18% 0.006 262);
-  --color-neutral-950: oklch(12% 0.004 262);
-
-  /* Brand Blue */
-  --color-blue-50:  oklch(97% 0.01 262);
-  --color-blue-100: oklch(93% 0.03 262);
-  --color-blue-200: oklch(87% 0.07 262);
-  --color-blue-300: oklch(79% 0.12 262);
-  --color-blue-400: oklch(70% 0.18 262);
-  --color-blue-500: oklch(60% 0.24 262);
-  --color-blue-600: oklch(50% 0.22 262);
-  --color-blue-700: oklch(40% 0.19 262);
-  --color-blue-800: oklch(30% 0.15 262);
-  --color-blue-900: oklch(22% 0.11 262);
-  --color-blue-950: oklch(14% 0.07 262);
-
-  /* Brand Purple */
-  --color-purple-50:  oklch(97% 0.01 282);
-  --color-purple-100: oklch(93% 0.03 282);
-  --color-purple-200: oklch(87% 0.07 282);
-  --color-purple-300: oklch(79% 0.12 282);
-  --color-purple-400: oklch(68% 0.16 282);
-  --color-purple-500: oklch(58% 0.20 282);
-  --color-purple-600: oklch(48% 0.18 282);
-  --color-purple-700: oklch(38% 0.15 282);
-  --color-purple-800: oklch(28% 0.12 282);
-  --color-purple-900: oklch(20% 0.08 282);
-  --color-purple-950: oklch(13% 0.05 282);
-
-  /* Green */
-  --color-green-50:  oklch(97% 0.01 142);
-  --color-green-100: oklch(93% 0.04 142);
-  --color-green-200: oklch(87% 0.08 142);
-  --color-green-300: oklch(78% 0.12 142);
-  --color-green-400: oklch(68% 0.15 142);
-  --color-green-500: oklch(60% 0.16 142);
-  --color-green-600: oklch(50% 0.14 142);
-  --color-green-700: oklch(40% 0.12 142);
-  --color-green-800: oklch(30% 0.09 142);
-  --color-green-900: oklch(22% 0.07 142);
-
-  /* Amber */
-  --color-amber-50:  oklch(98% 0.02 85);
-  --color-amber-100: oklch(94% 0.06 85);
-  --color-amber-200: oklch(89% 0.10 85);
-  --color-amber-300: oklch(83% 0.14 85);
-  --color-amber-400: oklch(76% 0.17 80);
-  --color-amber-500: oklch(70% 0.18 75);
-  --color-amber-600: oklch(60% 0.16 70);
-  --color-amber-700: oklch(50% 0.14 65);
-  --color-amber-800: oklch(38% 0.11 60);
-  --color-amber-900: oklch(28% 0.08 55);
-
-  /* Red */
-  --color-red-50:  oklch(97% 0.01 25);
-  --color-red-100: oklch(93% 0.04 25);
-  --color-red-200: oklch(87% 0.08 25);
-  --color-red-300: oklch(79% 0.13 25);
-  --color-red-400: oklch(70% 0.17 25);
-  --color-red-500: oklch(60% 0.20 25);
-  --color-red-600: oklch(50% 0.18 25);
-  --color-red-700: oklch(40% 0.15 25);
-  --color-red-800: oklch(30% 0.12 25);
-  --color-red-900: oklch(22% 0.08 25);
+  --color-nezumi-sabi: oklch(from #47585c l c h);
+  --color-nezumi-minato: oklch(from #80989b l c h);
+  --color-nezumi-ume: oklch(from #c099a0 l c h);
+  --color-nezumi-sakura: oklch(from #e9dfe5 l c h);
+  --color-nezumi-fuji: oklch(from #a6a5c4 l c h);
+  --color-nezumi-kinu: oklch(from #dddcd6 l c h);
+  --color-nezumi-genji: oklch(from #888084 l c h);
+  --color-nezumi-koi: oklch(from #4f455c l c h);
+  --color-nezumi-bg: oklch(from #f5f4f1 l c h);
+  --color-nezumi-akatsuki: oklch(from #d3cfd9 l c h);
+  --color-nezumi-fukagawa: oklch(from #97a791 l c h);
+  --color-nezumi-fukagawa-deep: oklch(from #4d6e47 l c h);
+  --color-nezumi-cha: oklch(from #a99e93 l c h);
+  --color-nezumi-budo: oklch(from #705b67 l c h);
+  --color-nezumi-chigusa: oklch(from #bed3ca l c h);
+  --color-nezumi-paper: oklch(from #faf9f5 l c h);
+  --color-nezumi-line: oklch(from #d4d3cf l c h);
+  --color-nezumi-snow: oklch(from #ffffff l c h);
+  --color-nezumi-dark-bg: oklch(from #121014 l c h);
+  --color-nezumi-dark-raised: oklch(from #1a181c l c h);
+  --color-nezumi-dark-subtle: oklch(from #242226 l c h);
+  --color-nezumi-dark-muted: oklch(from #2a272b l c h);
+  --color-nezumi-dark-line: oklch(from #3a383c l c h);
+  --color-nezumi-dark-secondary-bg: oklch(from #4a3d42 l c h);
+  --color-nezumi-d-destructive: oklch(from #9c5246 l c h);
+  --color-nezumi-d-error-dark: oklch(from #e07a6b l c h);
 }

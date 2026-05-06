@@ -1,54 +1,39 @@
 @theme {
-  /* Backgrounds & Surfaces */
-  --color-background:         var(--color-neutral-50);
-  --color-background-subtle:  var(--color-neutral-100);
-  --color-surface:            oklch(1 0 0);              /* #ffffff */
-  --color-surface-elevated:   oklch(1 0 0);
-  --color-surface-overlay:    var(--color-neutral-100);
+  /* Semantic palette — DESIGN.md §2 (light = default) */
 
-  /* Text */
-  --color-foreground:         var(--color-neutral-900);
-  --color-foreground-muted:   var(--color-neutral-500);
-  --color-foreground-subtle:  var(--color-neutral-400);
-  --color-foreground-disabled:var(--color-neutral-300);
-  --color-foreground-inverse: oklch(0.98 0 0);
+  --color-brand: var(--color-nezumi-sabi);
+  --color-on-brand: var(--color-nezumi-paper);
+  --color-brand-bg: var(--color-nezumi-minato);
+  --color-on-brand-bg: var(--color-nezumi-koi);
 
-  /* Borders & Inputs */
-  --color-border:         var(--color-neutral-200);
-  --color-border-strong:  var(--color-neutral-300);
-  --color-input:          var(--color-neutral-200);
-  --color-ring:           var(--color-blue-500);
+  --color-secondary: var(--color-nezumi-ume);
+  --color-secondary-bg: var(--color-nezumi-sakura);
+  --color-accent: var(--color-nezumi-fuji);
 
-  /* Actions — Primary */
-  --color-action-primary:         var(--color-blue-500);
-  --color-action-primary-hover:   var(--color-blue-600);
-  --color-action-primary-active:  var(--color-blue-700);
-  --color-action-primary-fg:      oklch(0.98 0 0);
+  --color-text: var(--color-nezumi-koi);
+  --color-text-muted: var(--color-nezumi-genji);
 
-  /* Actions — Secondary */
-  --color-action-secondary:         var(--color-purple-500);
-  --color-action-secondary-hover:   var(--color-purple-600);
-  --color-action-secondary-fg:      oklch(0.98 0 0);
+  --color-surface: var(--color-nezumi-bg);
+  --color-surface-raised: var(--color-nezumi-snow);
+  --color-surface-raised-subtle: var(--color-nezumi-akatsuki);
+  --color-surface-muted: var(--color-nezumi-kinu);
 
-  /* Actions — Destructive */
-  --color-action-destructive:       var(--color-red-500);
-  --color-action-destructive-hover: var(--color-red-600);
-  --color-action-destructive-fg:    oklch(0.98 0 0);
+  --color-border: var(--color-nezumi-line);
 
-  /* State Colors */
-  --color-success:    var(--color-green-500);
-  --color-success-fg: var(--color-green-900);
-  --color-success-bg: var(--color-green-50);
+  --color-success: var(--color-nezumi-fukagawa-deep);
+  --color-warning: var(--color-nezumi-cha);
+  --color-error: var(--color-nezumi-d-destructive);
+  --color-info: var(--color-nezumi-minato);
 
-  --color-warning:    var(--color-amber-500);
-  --color-warning-fg: var(--color-amber-900);
-  --color-warning-bg: var(--color-amber-50);
+  /* Status surfaces — light: mixes per DESIGN.md §2 */
+  --color-success-bg: color-mix(in oklch, var(--color-success) 12%, var(--color-surface));
+  --color-warning-bg: color-mix(in oklch, var(--color-warning) 15%, var(--color-surface));
+  --color-error-bg: color-mix(in oklch, var(--color-error) 12%, var(--color-surface));
+  --color-info-bg: color-mix(in oklch, var(--color-info) 12%, var(--color-surface));
 
-  --color-error:      var(--color-red-500);
-  --color-error-fg:   var(--color-red-900);
-  --color-error-bg:   var(--color-red-50);
-
-  --color-info:       var(--color-blue-500);
-  --color-info-fg:    var(--color-blue-900);
-  --color-info-bg:    var(--color-blue-50);
+  /* Focus — DESIGN.md §2 */
+  --focus-ring-width: 1px;
+  --focus-ring-offset: 2px;
+  --focus-ring-color: var(--color-text);
+  --color-ring: var(--focus-ring-color);
 }

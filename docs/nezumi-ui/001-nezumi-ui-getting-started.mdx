@@ -53,14 +53,14 @@ Avoid importing from `atoms`, `molecules`, `organisms`, or `templates` in applic
 Use Tailwind utilities generated from `@theme`:
 
 ```tsx
-<div className="bg-background text-foreground p-16 rounded-lg" />
+<div className="bg-surface text-text p-16 rounded-lg" />
 ```
 
 Use CSS variables only when runtime CSS needs a raw value:
 
 ```css
 .panel {
-  background: var(--color-background);
+  background: var(--color-surface);
   padding: var(--spacing-16);
 }
 ```
