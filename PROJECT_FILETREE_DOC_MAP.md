@@ -17,7 +17,7 @@ Die **Links in der Spalte „→“** verweisen weiterhin auf passende Seiten un
 | Thema im Code | Offline unter `docs/`? | Online / Tooling |
 |---------------|-------------------------|-------------------|
 | pnpm workspaces / catalogs / lockfile | ⚠ Nein — nur Erwähnung in Turborepo-Handbuch möglich | pnpm.io |
-| Vitest (Konfiguration, APIs jenseits Turbo-Guide) | ⚠ nur [Vitest unter Turbo](docs/turbo/handbook/guides/tools/vitest.mdx) | vitest.dev |
+| Vitest (Konfiguration, APIs jenseits Turbo-Guide) | ⚠ nur [Vitest unter Turbo](docs/turbo/43-guides-tools-vitest.mdx) | vitest.dev |
 | **Radix UI** Komponenten-API dieses Stacks | ⚠ nicht als Markdown-Mirror eingecheckt | [radix primitives](https://www.radix-ui.com/primitives/docs) |
 
 ## Baum (`/` = Repo-Root)
@@ -48,7 +48,7 @@ Die **Links in der Spalte „→“** verweisen weiterhin auf passende Seiten un
     - **src/**
       - **atoms/**
         - **Button/**
-          - `Button.test.tsx` → [Vitest in Turbo](docs/turbo/handbook/guides/tools/vitest.mdx) ⚠ **Vitest Core-Doku offline fehlt**
+          - `Button.test.tsx` → [Vitest in Turbo](docs/turbo/43-guides-tools-vitest.mdx) ⚠ **Vitest Core-Doku offline fehlt**
           - `Button.tsx` → [Atomic Design nezumi](docs/nezumi-ui/03-atomic-design.md) · [shadcn radix](docs/shadcn-ui/components/radix/)
           - `index.ts` → [Atomic Design nezumi](docs/nezumi-ui/03-atomic-design.md) · [shadcn radix](docs/shadcn-ui/components/radix/)
         - `index.ts` → [Atomic Design nezumi](docs/nezumi-ui/03-atomic-design.md) · [shadcn radix](docs/shadcn-ui/components/radix/)
@@ -63,13 +63,13 @@ Die **Links in der Spalte „→“** verweisen weiterhin auf passende Seiten un
         - `index.ts` → [Public API / layout](docs/nezumi-ui/04-public-api.md) · [Tailwind utilities](docs/tailwind-css/INDEX.md)
         - `README.md` → [Public API / layout](docs/nezumi-ui/04-public-api.md) · [Tailwind utilities](docs/tailwind-css/INDEX.md)
         - `Section.tsx` → [Public API / layout](docs/nezumi-ui/04-public-api.md) · [Tailwind utilities](docs/tailwind-css/INDEX.md)
-        - `spacing.test.ts` → [Vitest in Turbo](docs/turbo/handbook/guides/tools/vitest.mdx) ⚠ **Vitest Core-Doku offline fehlt**
+        - `spacing.test.ts` → [Vitest in Turbo](docs/turbo/43-guides-tools-vitest.mdx) ⚠ **Vitest Core-Doku offline fehlt**
         - `spacing.ts` → [Public API / layout](docs/nezumi-ui/04-public-api.md) · [Tailwind utilities](docs/tailwind-css/INDEX.md)
         - `Stack.tsx` → [Public API / layout](docs/nezumi-ui/04-public-api.md) · [Tailwind utilities](docs/tailwind-css/INDEX.md)
         - `types.ts` → [Public API / layout](docs/nezumi-ui/04-public-api.md) · [Tailwind utilities](docs/tailwind-css/INDEX.md)
         - `utils.ts` → [Public API / layout](docs/nezumi-ui/04-public-api.md) · [Tailwind utilities](docs/tailwind-css/INDEX.md)
       - **lib/**
-        - `index.ts` → [TS Handbook](docs/typescript/handbook/handbook-v2/The%20Handbook.md) · [INDEX](docs/typescript/INDEX.md)
+        - `index.ts` → [TS Handbook](docs/typescript/035-handbook-handbook-v2-the-handbook.mdx) · [INDEX](docs/typescript/INDEX.md)
         - `utils.ts` → [cn INDEX](docs/cn/INDEX.md) · [nezumi customization](docs/nezumi-ui/customization.md)
       - **molecules/**
         - `index.ts` → [Atomic nezumi](docs/nezumi-ui/03-atomic-design.md)
@@ -95,17 +95,17 @@ Die **Links in der Spalte „→“** verweisen weiterhin auf passende Seiten un
         - `index.ts` → [Atomic nezumi](docs/nezumi-ui/03-atomic-design.md)
     - `.DS_Store` → [nezumi README](docs/nezumi-ui/README.md)
     - `components.json` → [components.json](docs/shadcn-ui/overview/components-json.mdx) · [ui.shadcn.com/…/components-json](https://ui.shadcn.com/docs/components-json)
-    - `package.json` → [pnpm package.json](https://pnpm.io/package_json) · [Turbo internal packages](docs/turbo/handbook/core-concepts/internal-packages.mdx)
-    - `tsconfig.json` → [compilerOptions](docs/typescript/tsconfig/sections/compilerOptions.md) · [TS INDEX](docs/typescript/INDEX.md) · **Root-Projekt ohne eigenes Turborepo-`turbo.json` – siehe** [pnpm-workspace.yaml](pnpm-workspace.yaml)
-    - `tsup.config.ts` → [Turbo publishing libraries](docs/turbo/handbook/guides/publishing-libraries.mdx) ⚠ **tsup** nur online · [tsup](https://tsup.egoist.dev)
-    - `vitest.config.ts` → [Vitest + Turbo](docs/turbo/handbook/guides/tools/vitest.mdx) ⚠ **Vitest-Handbuch offline fehlt** · [vitest](https://vitest.dev/guide/)
-  - `.DS_Store` → [MONOREPO](docs/nezumi-ui/MONOREPO_ARCHITECTURE.md) · [Turbo internal packages](docs/turbo/handbook/core-concepts/internal-packages.mdx)
+    - `package.json` → [pnpm package.json](https://pnpm.io/package_json) · [Turbo internal packages](docs/turbo/08-core-concepts-internal-packages.mdx)
+    - `tsconfig.json` → [compilerOptions](docs/typescript/297-tsconfig-sections-compileroptions.mdx) · [TS INDEX](docs/typescript/INDEX.md) · **Root-Projekt ohne eigenes Turborepo-`turbo.json` – siehe** [pnpm-workspace.yaml](pnpm-workspace.yaml)
+    - `tsup.config.ts` → [Turbo publishing libraries](docs/turbo/28-guides-publishing-libraries.mdx) ⚠ **tsup** nur online · [tsup](https://tsup.egoist.dev)
+    - `vitest.config.ts` → [Vitest + Turbo](docs/turbo/43-guides-tools-vitest.mdx) ⚠ **Vitest-Handbuch offline fehlt** · [vitest](https://vitest.dev/guide/)
+  - `.DS_Store` → [MONOREPO](docs/nezumi-ui/MONOREPO_ARCHITECTURE.md) · [Turbo internal packages](docs/turbo/08-core-concepts-internal-packages.mdx)
 - **tools/**
   - `generate-project-doc-map.py` → [docs/README.md](docs/README.md) · [AGENTS.md](AGENTS.md)
 - `.DS_Store` → [docs/README.md](docs/README.md) · [AGENTS.md](AGENTS.md)
 - `AGENTS.md` → `AGENTS.md` · [docs/README.md](docs/README.md)
 - `CLAUDE.md` → [AGENTS.md](AGENTS.md)
-- `package.json` → [Turbo — Tooling-Index](docs/turbo/handbook/guides/tools/index.mdx) · [pnpm workspaces](https://pnpm.io/workspaces) ⚠ **pnpm kein Offline-Mirror-Ordner**
+- `package.json` → [Turbo — Tooling-Index](docs/turbo/35-guides-tools-index.mdx) · [pnpm workspaces](https://pnpm.io/workspaces) ⚠ **pnpm kein Offline-Mirror-Ordner**
 - `pnpm-lock.yaml` → [pnpm lockfile](https://pnpm.io/git) ⚠
 - `pnpm-workspace.yaml` → [pnpm workspaces](https://pnpm.io/workspaces) · [catalogs](https://pnpm.io/catalogs) ⚠
 - `PROJECT_FILETREE_DOC_MAP.md` → *Ausgabe dieses Generators* · [docs/README.md](docs/README.md)

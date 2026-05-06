@@ -85,7 +85,7 @@ export interface BaseLayoutProps extends HTMLAttributes<HTMLElement> {
   // Polymorphic — rendert als beliebiges HTML-Element oder React-Komponente
   as?: ElementType
 
-  // React 19 — ref direkt als prop
+  // React 19.2.5 / react-dom 19.2.5 — ref direkt als prop
   ref?: Ref<HTMLElement>
 
   style?: CSSProperties

@@ -7,6 +7,8 @@ last_updated_note: Manifest-Datum siehe ../vendor-framework-docs.md
 
 # Next.js (offline Snapshot)
 
+**Nezumi-Template:** gebundene **`next`**: **16.2.4** (pnpm Catalog). Gesamter Stack: [`FRAMEWORK_VERSION_REFERENCES.md`](../../FRAMEWORK_VERSION_REFERENCES.md).
+
 **Wann diese Sektion lesen?**
 
 - Routing, Daten-Fetch oder Konfiguration in **Next.js App/Pages**.

@@ -3,6 +3,9 @@
   "private": true,
   "packageManager": "pnpm@10.33.3",
   "type": "module",
+  "engines": {
+    "node": "^24.0.0"
+  },
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
@@ -10,7 +13,7 @@
     "ui:build": "pnpm --filter @nezumi/ui build"
   },
   "devDependencies": {
-    "turbo": "^2.5.4",
+    "turbo": "^2.9.9",
     "typescript": "catalog:"
   }
 }

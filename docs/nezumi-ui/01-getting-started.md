@@ -10,7 +10,7 @@ pnpm --filter @nezumi/ui build
 pnpm --filter @nezumi/ui typecheck
 ```
 
-The workspace uses pnpm catalogs for shared framework versions.
+The workspace uses pnpm catalogs for shared framework versions. **Pins in this repo:** `react` & `react-dom` **19.2.5**, `typescript` **6.0.3**, `tailwindcss` & `@tailwindcss/postcss` **4.2.4**, `next` **16.2.4** (app); **pnpm** **10.33.3**; **Node** **24.x** (`^24.0.0`) — see root [`FRAMEWORK_VERSION_REFERENCES.md`](../../FRAMEWORK_VERSION_REFERENCES.md).
 
 ## Import Styles
 
@@ -20,7 +20,7 @@ Load the CSS entrypoint once in the consuming app shell:
 import "@nezumi/ui/globals.css"
 ```
 
-The CSS entrypoint imports Tailwind v4, primitive tokens, semantic tokens, component tokens, and base styles.
+The CSS entrypoint imports Tailwind CSS 4.2.4, primitive tokens, semantic tokens, component tokens, and base styles.
 
 ## Import Components
 

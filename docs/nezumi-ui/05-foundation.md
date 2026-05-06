@@ -1,6 +1,6 @@
 # Foundation And Design Tokens
 
-The foundation layer lives inside `packages/ui/src/styles/`. It is CSS-first and Tailwind v4 native.
+The foundation layer lives inside `packages/ui/src/styles/`. It is CSS-first and Tailwind CSS 4.2.4 native.
 
 ## File Layout
 

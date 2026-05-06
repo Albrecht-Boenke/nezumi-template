@@ -1,6 +1,6 @@
 # Monorepo Architecture
 
-**Tech Stack:** Next.js 16, React 19, TypeScript, Tailwind CSS v4, Radix UI, shadcn-compatible registry tooling, pnpm v10.
+**Tech Stack:** Next.js **16.2.4**, React **19.2.5**, react-dom **19.2.5**, TypeScript **6.0.3**, Tailwind CSS **4.2.4**, Radix UI, shadcn-compatible registry tooling, pnpm **10.33.3**, Node **24.x** (`^24.0.0`).
 
 ## Workspace
 
@@ -46,7 +46,7 @@ src/styles/
 
 ## Server Components
 
-For Next.js 16 and React 19, keep server and client boundaries explicit. Use `proxy.ts` for request interception, Cache Components with `cacheComponents`, and `"use cache"` only where stable cached output is intended.
+For Next.js 16.2.4 and React 19.2.5 / react-dom 19.2.5, keep server and client boundaries explicit. Use `proxy.ts` for request interception, Cache Components with `cacheComponents`, and `"use cache"` only where stable cached output is intended.
 
 ## Export Pattern
 

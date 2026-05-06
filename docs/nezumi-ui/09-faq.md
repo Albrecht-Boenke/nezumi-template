@@ -14,7 +14,7 @@ import { Container, Flex, Grid, Stack } from "@nezumi/ui/layout"
 
 ## Where do tokens live?
 
-In `packages/ui/src/styles/`, registered with Tailwind v4 `@theme`.
+In `packages/ui/src/styles/`, registered with Tailwind CSS 4.2.4 `@theme`.
 
 ## How do I add spacing?
 

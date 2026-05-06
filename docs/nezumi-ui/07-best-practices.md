@@ -27,7 +27,7 @@ Use raw CSS variables only in CSS files or inline runtime cases:
 }
 ```
 
-## React 19
+## React 19.2.5 & react-dom 19.2.5
 
 Use function components with `ref` as a prop when DOM access is part of the public contract.
 

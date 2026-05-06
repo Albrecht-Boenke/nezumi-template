@@ -25,7 +25,7 @@ export {
 import { Button } from "@nezumi/ui/components/button"
 ```
 
-## React 19 Component Pattern
+## React 19.2.5 & react-dom 19.2.5 Component Pattern
 
 ```tsx
 import * as React from "react"

@@ -1,6 +1,8 @@
 # Nezumi Template
 
-Monorepo template: **Next.js 16** (App Router, Turbopack) + **`@nezumi/ui`** — a small, Radix‑based, **shadcn‑compatible** UI package on **React 19** and **Tailwind CSS v4**.
+Monorepo template: **Next.js 16.2.4** (App Router, Turbopack) + **`@nezumi/ui`** — a small, Radix‑based, **shadcn‑compatible** UI package on **React 19.2.5**, **react-dom 19.2.5**, and **Tailwind CSS 4.2.4**.
+
+Verbindliche Versionsliste (Catalog / `package.json`): [`FRAMEWORK_VERSION_REFERENCES.md`](FRAMEWORK_VERSION_REFERENCES.md).
 
 ## Core ideas
 
@@ -13,7 +15,7 @@ Detailed architecture, workflows, and conventions: **[`docs/nezumi-ui/README.md`
 
 ## Stack
 
-pnpm v10 workspaces, Turbo 2.x, TypeScript, Tailwind v4 (`@tailwindcss/postcss`), Radix primitives, CVA/clsx/tailwind-merge patterns as in `@nezumi/ui`.
+**pnpm 10.33.3** workspaces, **Turbo 2.9.x** (`^2.9.9`), **TypeScript 6.0.3**, **Tailwind CSS 4.2.4** / **`@tailwindcss/postcss` 4.2.4**, **Node.js 24.x** (`engines`: `^24.0.0`), Radix primitives, CVA/clsx/tailwind-merge patterns as in `@nezumi/ui`.
 
 ## Getting started
 

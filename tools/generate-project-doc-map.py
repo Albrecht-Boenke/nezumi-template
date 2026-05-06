@@ -46,7 +46,7 @@ def docs_hint(rel_posix: str) -> str:
         return "*Ausgabe dieses Generators* · [docs/README.md](docs/README.md)"
 
     if rel == "package.json":
-        return "[Turbo — Tooling-Index](docs/turbo/handbook/guides/tools/index.mdx) · [pnpm workspaces](https://pnpm.io/workspaces) ⚠ **pnpm kein Offline-Mirror-Ordner**"
+        return "[Turbo — Tooling-Index](docs/turbo/35-guides-tools-index.mdx) · [pnpm workspaces](https://pnpm.io/workspaces) ⚠ **pnpm kein Offline-Mirror-Ordner**"
     if rel == "pnpm-workspace.yaml":
         return "[pnpm workspaces](https://pnpm.io/workspaces) · [catalogs](https://pnpm.io/catalogs) ⚠"
     if rel == "pnpm-lock.yaml":
@@ -60,20 +60,20 @@ def docs_hint(rel_posix: str) -> str:
     if rel == "packages/ui/components.json":
         return "[components.json](docs/shadcn-ui/overview/components-json.mdx) · [ui.shadcn.com/…/components-json](https://ui.shadcn.com/docs/components-json)"
     if rel == "packages/ui/package.json":
-        return "[pnpm package.json](https://pnpm.io/package_json) · [Turbo internal packages](docs/turbo/handbook/core-concepts/internal-packages.mdx)"
+        return "[pnpm package.json](https://pnpm.io/package_json) · [Turbo internal packages](docs/turbo/08-core-concepts-internal-packages.mdx)"
     if rel == "packages/ui/tsconfig.json":
         return "[compilerOptions](docs/typescript/tsconfig/sections/compilerOptions.md) · [TS INDEX](docs/typescript/INDEX.md) · **Root-Projekt ohne eigenes Turborepo-`turbo.json` – siehe** [pnpm-workspace.yaml](pnpm-workspace.yaml)"
 
     if rel == "packages/ui/tsup.config.ts":
-        return "[Turbo publishing libraries](docs/turbo/handbook/guides/publishing-libraries.mdx) ⚠ **tsup** nur online · [tsup](https://tsup.egoist.dev)"
+        return "[Turbo publishing libraries](docs/turbo/28-guides-publishing-libraries.mdx) ⚠ **tsup** nur online · [tsup](https://tsup.egoist.dev)"
     if rel == "packages/ui/vitest.config.ts":
-        return "[Vitest + Turbo](docs/turbo/handbook/guides/tools/vitest.mdx) ⚠ **Vitest-Handbuch offline fehlt** · [vitest](https://vitest.dev/guide/)"
+        return "[Vitest + Turbo](docs/turbo/43-guides-tools-vitest.mdx) ⚠ **Vitest-Handbuch offline fehlt** · [vitest](https://vitest.dev/guide/)"
 
     if "/src/lib/utils.ts" in rel:
         return "[cn INDEX](docs/cn/INDEX.md) · [nezumi customization](docs/nezumi-ui/customization.md)"
 
     if rel.endswith((".test.ts", ".test.tsx")):
-        return "[Vitest in Turbo](docs/turbo/handbook/guides/tools/vitest.mdx) ⚠ **Vitest Core-Doku offline fehlt**"
+        return "[Vitest in Turbo](docs/turbo/43-guides-tools-vitest.mdx) ⚠ **Vitest Core-Doku offline fehlt**"
 
     if "/src/components/" in rel:
         return "[shadcn components](docs/shadcn-ui/components/index.mdx) · [React DOM](docs/react/reference/react-dom/components/index.md) · [nezumi dev](docs/nezumi-ui/06-component-development.md)"
@@ -105,7 +105,7 @@ def docs_hint(rel_posix: str) -> str:
         return "[nezumi README](docs/nezumi-ui/README.md)"
 
     if rel.startswith("packages/"):
-        return "[MONOREPO](docs/nezumi-ui/MONOREPO_ARCHITECTURE.md) · [Turbo internal packages](docs/turbo/handbook/core-concepts/internal-packages.mdx)"
+        return "[MONOREPO](docs/nezumi-ui/MONOREPO_ARCHITECTURE.md) · [Turbo internal packages](docs/turbo/08-core-concepts-internal-packages.mdx)"
 
     return "[docs/README.md](docs/README.md) · [AGENTS.md](AGENTS.md)"
 
@@ -185,7 +185,7 @@ Die **Links in der Spalte „→“** verweisen weiterhin auf passende Seiten un
 | Thema im Code | Offline unter `docs/`? | Online / Tooling |
 |---------------|-------------------------|-------------------|
 | pnpm workspaces / catalogs / lockfile | ⚠ Nein — nur Erwähnung in Turborepo-Handbuch möglich | pnpm.io |
-| Vitest (Konfiguration, APIs jenseits Turbo-Guide) | ⚠ nur [Vitest unter Turbo](docs/turbo/handbook/guides/tools/vitest.mdx) | vitest.dev |
+| Vitest (Konfiguration, APIs jenseits Turbo-Guide) | ⚠ nur [Vitest unter Turbo](docs/turbo/43-guides-tools-vitest.mdx) | vitest.dev |
 | **Radix UI** Komponenten-API dieses Stacks | ⚠ nicht als Markdown-Mirror eingecheckt | [radix primitives](https://www.radix-ui.com/primitives/docs) |
 
 ## Baum (`/` = Repo-Root)

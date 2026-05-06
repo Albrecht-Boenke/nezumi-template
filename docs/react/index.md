@@ -13,6 +13,8 @@ last_updated_note: Manifest-Datum siehe ../vendor-framework-docs.md
 - Du arbeitest an **Tutorial-/Learn-Inhalten** des offiziellen Lehrplans.
 - Du suchst **Fehler- oder Warnmeldungen** aus dem gleichnamigen Doku-Korpus.
 
+**Nezumi-Template (dieses Repo):** Gebunden im pnpm Catalog u. a. **`react` 19.2.5**, **`react-dom` 19.2.5**, **`typescript` 6.0.3**, **`tailwindcss` / `@tailwindcss/postcss` 4.2.4**, **`next` 16.2.4**, **pnpm** 10.33.3, **Node** 24.x (`^24.0.0`). Übersicht: [`FRAMEWORK_VERSION_REFERENCES.md`](../../FRAMEWORK_VERSION_REFERENCES.md). Texte unterhalb dieses INDEX bleiben **react.dev**-Mirror — „React 19“ dort ist upstream-sprachlich, nicht immer auf 19.2.5 umgestellt.
+
 **MDX-Hinweis:** Viele Unterseiten sind `.md`/`.mdx` aus der Website; JSX in Dateien kann in reinen Markdown-Viewern gestört dargestellt werden—Inhalt gilt dennoch als authoritative Mirror-Text.
 
 Quelle der Dateien: [reactjs/react.dev](https://github.com/reactjs/react.dev) (`src/content` → hier flach unter `react/`).

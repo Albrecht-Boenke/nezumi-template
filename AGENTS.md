@@ -1,12 +1,29 @@
 # AGENTS.md
 
 **Instruction for AI Agents:**
-You MUST always verify architectural and implementation decisions against the official, current documentation of the frameworks and tools used in this repository. Do not rely on training data alone. Always reference the documentation index below for the most current, authoritative sources. This is critical for React 19, Next.js 16, Tailwind CSS v4, Motion, CVA, and all other technologies listed.
+You MUST always verify architectural and implementation decisions against the official, current documentation of the frameworks and tools used in this repository. Do not rely on training data alone. Always reference the documentation index below for the most current, authoritative sources.
+
+## Nezumi Template — verbindliche Haupt-Versionen
+
+Diese Versionen sind im Repo festgelegt (`pnpm-workspace.yaml` **Catalog**, Root `package.json` **`packageManager`** / **`engines`**). **Nicht** generisch „React 19“ / „Tailwind v4“ annehmen — für dieses Template gilt:
+
+| Paket / Runtime | Pin (Semver-Range im Repo) | Typische Auflösung (siehe `pnpm-lock.yaml`) |
+|-----------------|----------------------------|-----------------------------------------------|
+| **`react`** | `^19.2.5` (Catalog) | **19.2.5** |
+| **`react-dom`** | `^19.2.5` (Catalog) | **19.2.5** |
+| **`typescript`** | `^6.0.3` (Catalog) | **6.0.3** |
+| **`tailwindcss`** & **`@tailwindcss/postcss`** | je `^4.2.4` (Catalog) | **4.2.4** |
+| **`next`** | `^16.2.4` (Catalog) | **16.2.4** |
+| **pnpm** | `10.33.3` (`packageManager`) | exakt **10.33.3** |
+| **Node.js** | `^24.0.0` (`engines`) | **24.x** (kein Patch-Pin; Major-Reihe verbindlich) |
+
+Ausführliche Dateiverweise: [`FRAMEWORK_VERSION_REFERENCES.md`](FRAMEWORK_VERSION_REFERENCES.md).
 
 ### Offline Dokumentation in diesem Repo (Retrieval ohne Netz)
 
 - Zentraler Überblick: [`docs/README.md`](docs/README.md) und lokaler Index-Stil (llms.txt-format): [`docs/llms.txt`](docs/llms.txt).
-- Vendor-Snapshots (MD/MDX) haben **pro Bereich** eine `INDEX.md`: `docs/react/`, `docs/nextjs/`, `docs/tailwind-css/`, `docs/shadcn-ui/`, `docs/typescript/`, `docs/turbo/`, `docs/cn/`.
+- Vendor-Snapshots (MD/MDX) haben **pro Bereich** eine `INDEX.md`: `docs/react/`, `docs/nextjs/`, `docs/tailwind-css/`, `docs/shadcn-ui/`, `docs/typescript/`, `docs/turbo/`, `docs/cn/`. **Turborepo:** ausschließlich [`docs/turbo/INDEX.md`](docs/turbo/INDEX.md) — hierarchischer Index; danach gezielt **eine** MDX-Datei öffnen.
+- **TypeScript:** ausschließlich [`docs/typescript/INDEX.md`](docs/typescript/INDEX.md) — flache `NNN-*.mdx` im gleichen Ordner; Recherche-Regeln unter **Agent retrieval** in dieser `INDEX.md` (kein veraltetes `handbook/` / `tsconfig/`-Verzeichnis mehr annehmen).
 - Regel beim Lesen: **zuerst** die passende `INDEX.md` oder [`docs/nezumi-ui/README.md`](docs/nezumi-ui/README.md); **danach** erst gezielt einzelne Dateien öffnen (nicht `docs/` blind rekursiv durchsuchen).
 - Für Nezumi-Architektur und Konvention gilt **Projekt-Doku unter `docs/nezumi-ui/`** vor den Vendor-Spiegeln; Details: [`docs/vendor-framework-docs.md`](docs/vendor-framework-docs.md).
 - Vollständige Umsetzung der **Offline-Retrieval**-Org: Repo-Root [`OFFLINE_AGENT_RETRIEVAL_CHECKLIST.md`](OFFLINE_AGENT_RETRIEVAL_CHECKLIST.md).
@@ -17,7 +34,7 @@ Die folgende Liste **Framework Documentation Index** enthält weiterhin die **ak
 
 ## Framework Documentation Index
 
-### 1. React 19
+### 1. React 19.2.5 & react-dom 19.2.5
 - **Main Reference:** [react.dev/reference/react](https://react.dev/reference/react)
 - **Key Subpages:**
   - [Function Components & Refs](https://react.dev/reference/react/useRef)
@@ -32,7 +49,7 @@ Die folgende Liste **Framework Documentation Index** enthält weiterhin die **ak
   - [Async Request APIs (cookies, headers)](https://nextjs.org/docs/app/api-reference/functions/cookies)
   - [ESLint Flat Config Integration](https://nextjs.org/docs/app/building-your-application/configuring/eslint)
 
-### 3. Tailwind CSS v4 (Latest: v4.2.0)
+### 3. Tailwind CSS 4.2.4
 - **Main Reference:** [tailwindcss.com/docs](https://tailwindcss.com/docs)
 - **Key Subpages:**
   - [CSS-first Configuration (@theme)](https://tailwindcss.com/docs#css-first-configuration)
@@ -76,13 +93,13 @@ Die folgende Liste **Framework Documentation Index** enthält weiterhin die **ak
 - **Key Subpages:**
   - [TSConfig Reference](https://www.typescriptlang.org/tsconfig)
 
-### 9. pnpm v10
+### 9. pnpm 10.33.3
 - **Main Reference:** [pnpm.io/motivation](https://pnpm.io/motivation)
 - **Key Subpages:**
   - [Workspaces](https://pnpm.io/workspaces)
   - [Catalogs (pnpm 10 feature)](https://pnpm.io/catalogs)
 
-### 10. shadcn/ui (Latest: v4 with Tailwind v4 & React 19)
+### 10. shadcn/ui (Latest: v4 with Tailwind CSS 4.2.4 & React / react-dom 19.2.5)
 - **Main Reference:** [ui.shadcn.com/docs](https://ui.shadcn.com/docs)
 - **Key Subpages:**
   - [CLI & components.json](https://ui.shadcn.com/docs/components-json)

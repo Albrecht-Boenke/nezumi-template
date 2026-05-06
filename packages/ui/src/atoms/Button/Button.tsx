@@ -4,7 +4,7 @@
  * Primitiver Button mit CVA-Varianten.
  * Kein Business-Logic, reines UI.
  *
- * React 19: ref wird direkt als prop übergeben.
+ * React 19.2.5 / react-dom 19.2.5: ref wird direkt als prop übergeben.
  */
 
 import * as React from "react"

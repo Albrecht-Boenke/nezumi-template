@@ -1,3 +1,5 @@
+> **Nezumi-Template:** Tailwind CSS **4.2.4** (`tailwindcss` / `@tailwindcss/postcss`, pnpm Catalog). Downstream-Kapitel nutzen weiter „v4“ konzeptionell; die gebundene Minor/Patch-Version ist **4.2.4**.
+
 # Kapitel 10: Design Tokens & Tailwind v4 — Das 3-Layer-System
 
 > **Lernziel:** Verstehen, wie Design Tokens in Tailwind v4 mit der `@theme`-Direktive funktionieren, warum eine 3-schichtige Token-Hierarchie essentiell ist, und wie Motion Tokens das System vervollständigen.

@@ -37,7 +37,7 @@ The root package export is intentionally absent. This keeps dependency graphs sm
 
 ## Token Architecture
 
-Tailwind CSS v4 reads tokens from `@theme`:
+Tailwind CSS 4.2.4 reads tokens from `@theme`:
 
 ```css
 @theme {
@@ -55,9 +55,9 @@ Then components consume generated utilities:
 
 ## Framework Baseline
 
-- React 19.2: refs are regular props in function components; `<ViewTransition>`, `useEffectEvent`, and `<Activity>` are available for app-level interaction work.
-- Next.js 16: App Router, `proxy.ts` for request interception, Turbopack as the default bundler, `cacheComponents`, and `"use cache"` are the documented defaults for new app architecture.
-- Tailwind CSS v4: CSS-first configuration with `@theme`.
+- React 19.2.5 & react-dom 19.2.5: refs are regular props in function components; `<ViewTransition>`, `useEffectEvent`, and `<Activity>` are available for app-level interaction work.
+- Next.js 16.2.4: App Router, `proxy.ts` for request interception, Turbopack as the default bundler, `cacheComponents`, and `"use cache"` are the documented defaults for new app architecture.
+- Tailwind CSS 4.2.4: CSS-first configuration with `@theme`.
 - Radix UI: unified `radix-ui` package.
 - shadcn/ui: granular package exports and `components.json`.
 

@@ -7,6 +7,8 @@ last_updated_note: Manifest-Datum siehe ../vendor-framework-docs.md
 
 # Tailwind CSS (offline Snapshot)
 
+**Nezumi-Template:** gebundene **`tailwindcss`** & **`@tailwindcss/postcss`**: **4.2.4** (pnpm Catalog). Gesamter Stack: [`FRAMEWORK_VERSION_REFERENCES.md`](../../FRAMEWORK_VERSION_REFERENCES.md).
+
 **Wann diese Sektion lesen?**
 
 - Du brauchst **Utility-Referenz** (Spacing, Farben, Layout, …) oder **Theming / @theme**.
