@@ -1,3 +1,8 @@
+---
+title: Design Tokens & Tailwind v4
+description: Three-layer tokens, @theme, motion, OKLCH, theming, and packages/ui styles layout (Tailwind 4.2.4).
+---
+
 > **Nezumi-Template:** Tailwind CSS **4.2.4** (`tailwindcss` / `@tailwindcss/postcss`, pnpm Catalog). Downstream-Kapitel nutzen weiter „v4“ konzeptionell; die gebundene Minor/Patch-Version ist **4.2.4**.
 
 # Kapitel 10: Design Tokens & Tailwind v4 — Das 3-Layer-System
@@ -38,7 +43,7 @@ Tailwind v3 verwendete `tailwind.config.js`. Tailwind v4 bringt einen **paradigm
 ### Warum das wichtig ist: Performance
 
 - **5× schnellere** Full Builds
-- **100× schnellere** Incremental Builds  
+- **100× schnellere** Incremental Builds
 - HMR: nahezu sofort
 
 ### Die `@theme`-Direktive
@@ -373,8 +378,8 @@ packages/ui/src/styles/
 │   └── spacing.css      # --space-content etc.
 ├── components/          # Layer 3: Component (Specific)
 │   ├── button.css       # --button-radius etc.
-│   ├── card.css         
-│   └── input.css        
+│   ├── card.css
+│   └── input.css
 └── global.css           # Entry Point (Tailwind @import)
 ```
 

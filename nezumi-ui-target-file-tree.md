@@ -63,7 +63,7 @@ Optional (not required by the minimal shadcn example; add when you need them):
 - `packages/typescript-config/` and `packages/storybook/` are shown in the topology above when you adopt them; they are **not** mandated by the minimal shadcn example. Storybook: **no** Storybook content in `docs/` mirrors here—version and addons are **not** fixed by this vendor set—see Storybook’s own documentation.
 - `.nvmrc` — **not** required by Turborepo/Next vendor docs; optional team pin if it satisfies Next’s **minimum Node** (currently **≥ 20.9** per [001-01-app-01-getting-started-01-installation.mdx](docs/nextjs/001-01-app-01-getting-started-01-installation.mdx)).
 
-**Boundary rule (Nezumi):** apps may depend on `@nezumi/ui`; apps do not import each other; `@nezumi/ui` does not import apps ([MONOREPO_ARCHITECTURE.md](docs/nezumi-ui/MONOREPO_ARCHITECTURE.md)).
+**Boundary rule (Nezumi):** apps may depend on `@nezumi/ui`; apps do not import each other; `@nezumi/ui` does not import apps ([011-nezumi-ui-monorepo-architecture.mdx](docs/nezumi-ui/011-nezumi-ui-monorepo-architecture.mdx)).
 
 ---
 
@@ -203,7 +203,7 @@ Do **not** expose **internal** atomic folders as stable public imports unless yo
 - Apps and CLI-generated blocks resolve UI through **`package.json#exports`** and workspace aliases in **`components.json`**—not ad-hoc `compilerOptions.paths` for published paths ([monorepo.mdx](docs/shadcn-ui/overview/monorepo.mdx)).
 - **`"use client"`** where required ([188-reference-rsc-use-client.mdx](docs/react/188-reference-rsc-use-client.mdx)).
 
-**Docs:** [223-01-app-03-api-reference-05-config-01-next-config-js-transpilepackages.mdx](docs/nextjs/223-01-app-03-api-reference-05-config-01-next-config-js-transpilepackages.mdx) · [04-public-api.md](docs/nezumi-ui/04-public-api.md).
+**Docs:** [223-01-app-03-api-reference-05-config-01-next-config-js-transpilepackages.mdx](docs/nextjs/223-01-app-03-api-reference-05-config-01-next-config-js-transpilepackages.mdx) · [004-nezumi-ui-public-api.mdx](docs/nezumi-ui/004-nezumi-ui-public-api.mdx).
 
 ---
 
@@ -221,7 +221,7 @@ Expected **ingredients** (compose to taste):
 
 **App-level:** if classes in `packages/ui` are not scanned, add **`@source`** to the **app** stylesheet pointing at the UI package ([053-detecting-classes-in-source-files.mdx](docs/tailwind-css/053-detecting-classes-in-source-files.mdx)). **Never** build utility class strings dynamically ([053-detecting-classes-in-source-files.mdx](docs/tailwind-css/053-detecting-classes-in-source-files.mdx)).
 
-**Docs:** [172-theme.mdx](docs/tailwind-css/172-theme.mdx) · [052-dark-mode.mdx](docs/tailwind-css/052-dark-mode.mdx) · [053-detecting-classes-in-source-files.mdx](docs/tailwind-css/053-detecting-classes-in-source-files.mdx) · [tailwind-v4.mdx](docs/shadcn-ui/overview/tailwind-v4.mdx) · [10-design-tokens-tailwind-v4.md](docs/nezumi-ui/10-design-tokens-tailwind-v4.md) (Nezumi narrative layered on `@theme`).
+**Docs:** [172-theme.mdx](docs/tailwind-css/172-theme.mdx) · [052-dark-mode.mdx](docs/tailwind-css/052-dark-mode.mdx) · [053-detecting-classes-in-source-files.mdx](docs/tailwind-css/053-detecting-classes-in-source-files.mdx) · [tailwind-v4.mdx](docs/shadcn-ui/overview/tailwind-v4.mdx) · [010-nezumi-ui-design-tokens-tailwind-v4.mdx](docs/nezumi-ui/010-nezumi-ui-design-tokens-tailwind-v4.mdx) (Nezumi narrative layered on `@theme`).
 
 ---
 
@@ -277,7 +277,7 @@ apps/* -> app-specific code from another app
 2. **`packages/ui`** with **`components.json`**, **`src/styles/globals.css`**, **`lib/utils.ts`**, granular **`exports`** ([monorepo.mdx](docs/shadcn-ui/overview/monorepo.mdx)).
 3. **`apps/homepage`**, **`apps/members`**, **`apps/operations`** — each with **`app/globals.css`** (Tailwind + `@source` as needed), **`postcss.config.mjs`**, **`next.config.ts`** + `transpilePackages`, **`components.json`** ([011-01-app-01-getting-started-11-css.mdx](docs/nextjs/011-01-app-01-getting-started-11-css.mdx), [monorepo.mdx](docs/shadcn-ui/overview/monorepo.mdx)).
 4. Add components and token CSS layers following Tailwind **`@theme`** + **`@import`** ([172-theme.mdx](docs/tailwind-css/172-theme.mdx)).
-5. Optional: **`packages/typescript-config`**, **`packages/storybook`**, deeper Atomic layers per [docs/nezumi-ui/01-getting-started.md](docs/nezumi-ui/01-getting-started.md).
+5. Optional: **`packages/typescript-config`**, **`packages/storybook`**, deeper Atomic layers per [docs/nezumi-ui/001-nezumi-ui-getting-started.mdx](docs/nezumi-ui/001-nezumi-ui-getting-started.mdx).
 
 ---
 

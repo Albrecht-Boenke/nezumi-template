@@ -1,0 +1,39 @@
+---
+title: Base vs Radix (shadcn)
+description: How components.json `base` affects primitive APIs; verify with shadcn info and docs URLs.
+---
+
+# Base vs Radix (shadcn/ui)
+
+Projects using the shadcn CLI have a `components.json` file. The **`base`** field selects which primitive layer generated components target:
+
+- **`radix`** — Radix-style composition; many parts use **`asChild`** where documented.
+- **`base`** — Alternate primitive layer; some parts use **`render`** (or equivalent) where documented instead of `asChild`.
+
+Do not mix assumptions across bases — the installed source and official docs for your `base` are authoritative.
+
+## Verify in a project
+
+```bash
+npx shadcn@latest info
+```
+
+Read **`base`**, **`resolvedPaths`**, and aliases. For a specific control, fetch docs URLs:
+
+```bash
+npx shadcn@latest docs toggle-group select slider accordion
+```
+
+Open those URLs and compare props with the files on disk.
+
+## Practical rule
+
+1. Read **`base`** from `components.json` (or `npx shadcn@latest info`).
+2. When suggesting composition APIs, match that base (`asChild` vs `render`, etc.).
+3. When props differ (for example toggle groups or selects), prefer `npx shadcn@latest docs <component>` over memory.
+
+See also: [012 — shadcn CLI](./012-nezumi-ui-shadcn-cli.mdx) (`info` field reference).
+
+## ToggleGroup and related controls
+
+Props such as **`defaultValue`**, **`type`**, and **`multiple`** can differ between **`base`** and **`radix`** for the same high-level component name. Confirm against `npx shadcn@latest docs toggle-group` and the generated source in your repository before advising API usage.

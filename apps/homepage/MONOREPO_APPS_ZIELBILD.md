@@ -10,7 +10,7 @@ Dieses Dokument fasst die **maßgeblichen Repo-Quellen** zusammen und beschreibt
 |-----------|------|--------|
 | Einstieg | [`AGENTS.md`](../../AGENTS.md) | Verbindliche **Tool-Versionen**, Index zur Online-Verifikation, Verweis auf lokale Docs unter `docs/`. |
 | Projekt (Nezumi) | [`docs/nezumi-ui/README.md`](../../docs/nezumi-ui/README.md) | UI-Paket-Struktur, **Import-Contract** (`@nezumi/ui/...`), keine Root-Barrel-Exports. |
-| Monorepo-Grenzen | [`docs/nezumi-ui/MONOREPO_ARCHITECTURE.md`](../../docs/nezumi-ui/MONOREPO_ARCHITECTURE.md) | Erlaubte Import-Richtungen, Next/React-Defaults in diesem Repo. |
+| Monorepo-Grenzen | [`docs/nezumi-ui/011-nezumi-ui-monorepo-architecture.mdx`](../../docs/nezumi-ui/011-nezumi-ui-monorepo-architecture.mdx) | Erlaubte Import-Richtungen, Next/React-Defaults in diesem Repo. |
 | Zielbaum (Vendor + Nezumi) | [`nezumi-ui-target-file-tree.md`](../../nezumi-ui-target-file-tree.md) | Turborepo/shadcn/Next/Tailwind: **Dateibäume**, `transpilePackages`, `@source`, `components.json`. |
 
 **Hinweis:** Vendor-Spiegel liegen unter `docs/*/INDEX.md` (z. B. Turborepo, Next.js App Router, Tailwind v4, shadcn Monorepo). Für Architektur **dieses** Repos gewinnen `docs/nezumi-ui/` und der Code unter `packages/` gegenüber blindem Framework-Raten.
@@ -39,13 +39,13 @@ Details: [`FRAMEWORK_VERSION_REFERENCES.md`](../../FRAMEWORK_VERSION_REFERENCES.
 - [`pnpm-workspace.yaml`](../../pnpm-workspace.yaml): `apps/*` und `packages/*` — jeder Unterordner von `apps/` **mit eigener `package.json`** ist ein pnpm-Workspace-Paket.
 - [`turbo.json`](../../turbo.json): Tasks `build` (Outputs u. a. `.next/**`), `dev` (persistent, nicht gecacht), `typecheck` (hängt von `^build` ab). Neue Apps **ohne** eigene Scripts würden an der Root-Pipeline vorbei fallen; jede App sollte mindestens `dev`, `build`, `typecheck` wie die Referenz definieren.
 
-**Grenzregel (Nezumi):** Apps dürfen `@nezumi/ui` und eigene npm-Abhängigkeiten importieren. **Keine** Imports zwischen Apps (`app A → app B`). `@nezumi/ui` importiert **nicht** aus `apps/*`. Siehe [`MONOREPO_ARCHITECTURE.md`](../../docs/nezumi-ui/MONOREPO_ARCHITECTURE.md).
+**Grenzregel (Nezumi):** Apps dürfen `@nezumi/ui` und eigene npm-Abhängigkeiten importieren. **Keine** Imports zwischen Apps (`app A → app B`). `@nezumi/ui` importiert **nicht** aus `apps/*`. Siehe [`011-nezumi-ui-monorepo-architecture.mdx`](../../docs/nezumi-ui/011-nezumi-ui-monorepo-architecture.mdx).
 
 ---
 
 ## 4. Was „eine richtige App“ hier bedeutet (Next.js App Router)
 
-Aus [`nezumi-ui-target-file-tree.md`](../../nezumi-ui-target-file-tree.md) und [`MONOREPO_ARCHITECTURE.md`](../../docs/nezumi-ui/MONOREPO_ARCHITECTURE.md): Jede deploybare App ist eine **eigenständige** Next-**App-Router**-Anwendung mit eigenem Paketnamen, eigenem `app/`-Router und denselben technischen Mindestteilen wie die heutige Referenz unter `apps/web/`.
+Aus [`nezumi-ui-target-file-tree.md`](../../nezumi-ui-target-file-tree.md) und [`011-nezumi-ui-monorepo-architecture.mdx`](../../docs/nezumi-ui/011-nezumi-ui-monorepo-architecture.mdx): Jede deploybare App ist eine **eigenständige** Next-**App-Router**-Anwendung mit eigenem Paketnamen, eigenem `app/`-Router und denselben technischen Mindestteilen wie die heutige Referenz unter `apps/web/`.
 
 ### 4.1 Soll-Dateibaum pro App (orientiert an `apps/web` + shadcn/Turborepo-Doku)
 
@@ -71,7 +71,7 @@ apps/<name>/                    # z. B. homepage | members | operations
 - **`postcss.config.mjs`:** PostCSS-Plugin `@tailwindcss/postcss`.
 - **`app/globals.css`:** `@import "tailwindcss"`; **keine** dynamisch zusammengesetzten Klassenstrings; bei Bedarf **`@source`** auf Pfade unter `packages/ui` (Tailwind „detecting classes“); Import der Design-Tokens wie in `apps/web` über z. B. `@import "@nezumi/ui/design-tokens.css"` — Exportnamen immer an [`packages/ui/package.json`](../../packages/ui/package.json) **`exports`** halten.
 - **`app/layout.tsx`:** globales CSS importieren; `lang` auf `<html>` pro App setzen.
-- **Konsum von `@nezumi/ui`:** Nur **öffentliche** Subpaths (`@nezumi/ui/components/...`, `@nezumi/ui/layout`, `@nezumi/ui/lib/utils`, CSS-Exports) — siehe [`docs/nezumi-ui/01-getting-started.md`](../../docs/nezumi-ui/01-getting-started.md).
+- **Konsum von `@nezumi/ui`:** Nur **öffentliche** Subpaths (`@nezumi/ui/components/...`, `@nezumi/ui/layout`, `@nezumi/ui/lib/utils`, CSS-Exports) — siehe [`docs/nezumi-ui/001-nezumi-ui-getting-started.mdx`](../../docs/nezumi-ui/001-nezumi-ui-getting-started.mdx).
 - **UI-Paket vor dem Build der Apps:** `turbo.json` lässt `typecheck` von `^build` abhängen; `@nezumi/ui` sollte weiterhin über Root oder Filter gebaut werden (`pnpm --filter @nezumi/ui build`), falls `dist/` benötigt wird.
 
 ### 4.3 `components.json`
@@ -113,4 +113,4 @@ Die shadcn-Monorepo-Anleitung sieht **`components.json` in jeder** relevanten Wo
 
 ---
 
-*Stand der Auswertung: aus `AGENTS.md`, `docs/README.md`, `docs/nezumi-ui/README.md`, `docs/nezumi-ui/MONOREPO_ARCHITECTURE.md`, `docs/nezumi-ui/02-architecture-overview.md`, `docs/nezumi-ui/01-getting-started.md`, `nezumi-ui-target-file-tree.md` und dem Ist-Zustand von `apps/web/` sowie `packages/ui/package.json`.*
+*Stand der Auswertung: aus `AGENTS.md`, `docs/README.md`, `docs/nezumi-ui/README.md`, `docs/nezumi-ui/INDEX.md`, `docs/nezumi-ui/011-nezumi-ui-monorepo-architecture.mdx`, `docs/nezumi-ui/002-nezumi-ui-architecture-overview.mdx`, `docs/nezumi-ui/001-nezumi-ui-getting-started.mdx`, `nezumi-ui-target-file-tree.md` und dem Ist-Zustand von `apps/web/` sowie `packages/ui/package.json`.*
