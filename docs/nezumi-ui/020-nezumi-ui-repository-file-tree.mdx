@@ -1,0 +1,95 @@
+---
+title: Repository File Tree
+description: The normative file tree for the Nezumi monorepo (Next.js 16, Tailwind v4, shadcn v4).
+---
+
+# Kapitel 020: Repository File Tree
+
+Dieses Kapitel definiert den **perfekten File-Tree** für das Nezumi Monorepo. Er dient als Referenz für die Platzierung von Dateien, die Konfiguration von Workspaces und die Einhaltung der Architektur-Prinzipien (Next.js 16, Tailwind v4, shadcn/ui Monorepo-Pattern).
+
+---
+
+## Die Monorepo-Topologie
+
+Das System basiert auf einer klaren Trennung zwischen Applikationen (`apps/`) und geteilter Logik bzw. UI (`packages/`).
+
+```text
+/ (Root)
+├── package.json                # Root package (Scripts: dev, build, lint, typecheck)
+├── pnpm-workspace.yaml         # Definiert apps/* und packages/*
+├── turbo.json                  # Task-Pipeline (Pipeline-Caching für Next & tsup)
+├── pnpm-lock.yaml              # Single Lockfile (Catalog-driven)
+│
+├── apps/
+│   ├── homepage/               # Next.js 16 App Router (Marketing/Landing)
+│   │   ├── app/                # Next.js Routes & Layouts
+│   │   │   ├── globals.css     # @import "tailwindcss", @source ../../../packages/ui
+│   │   │   ├── layout.tsx      # Root Layout
+│   │   │   └── page.tsx        # Homepage
+│   │   ├── components/         # App-spezifische Molecules/Organisms
+│   │   ├── components.json     # shadcn/ui Config (UI-Alias zeigt auf @nezumi/ui)
+│   │   ├── next.config.ts      # transpilePackages: ["@nezumi/ui"]
+│   │   ├── postcss.config.mjs  # Tailwind v4 PostCSS Plugin
+│   │   └── package.json        # Deps: @nezumi/ui, next, react
+│   │
+│   ├── members/                # Next.js 16 App Router (User Dashboard)
+│   │   └── ...                 # Identische Struktur wie homepage
+│   │
+│   └── operations/             # Next.js 16 App Router (Internal Tooling)
+│       └── ...                 # Identische Struktur wie homepage
+│
+└── packages/
+    ├── ui/                     # Nezumi UI Design System (@nezumi/ui)
+    │   ├── package.json        # Granulare subpath exports (kein root-barrel)
+    │   ├── components.json     # shadcn/ui monorepo config
+    │   ├── tsconfig.json       # Erbt von @nezumi/typescript-config
+    │   ├── src/
+    │   │   ├── atoms/          # Primitive (Button, Badge, Input - Internal)
+    │   │   ├── molecules/      # Composed (FieldGroup, Alert - Internal)
+    │   │   ├── organisms/      # Complex (Navbar, Sidebar - Internal)
+    │   │   ├── templates/      # Reusable page structures (Internal)
+    │   │   ├── components/     # PUBLIC LEAVES (Re-exports aus atoms/mol/org)
+    │   │   │   ├── button.tsx  # export { Button } from "../atoms/Button"
+    │   │   │   └── card.tsx    # export { Card } from "../molecules/Card"
+    │   │   ├── lib/
+    │   │   │   └── utils.ts    # cn() helper (Tailwind Merge + Clsx)
+    │   │   └── styles/         # 3-Layer Token System
+    │   │       ├── tokens/     # Layer 1: Primitives (Scale)
+    │   │       ├── semantic/   # Layer 2: Semantic (Aliases)
+    │   │       ├── components/ # Layer 3: Component (Specific)
+    │   │       ├── globals.css # shadcn base entries
+    │   │       └── design-tokens.css # Public entry point for apps
+    │   └── dist/               # Build Output (via tsup)
+    │
+    └── typescript-config/      # Gemeinsame TS-Konfigurationen
+        ├── base.json
+        ├── nextjs.json
+        └── react-library.json
+```
+
+---
+
+## Kernprinzipien des Trees
+
+### 1. App-Isolierung
+Jede App (`homepage`, `members`, `operations`) ist technisch unabhängig. Sie teilen sich die UI-Package, können aber unterschiedliche Versionen von Komponenten (via Feature-Flags oder Props) oder eigene Business-Logik-Organismen besitzen.
+
+### 2. Granulare UI-Exports
+Wir vermeiden Barrel-Files im Root von `@nezumi/ui`. Der Import erfolgt immer spezifisch:
+`import { Button } from "@nezumi/ui/components/button"`. Dies optimiert Tree-Shaking und Fast-Refresh-Zeiten drastisch.
+
+### 3. Atomic Design Facades
+Der Ordner `src/components/` in der UI-Package dient als Fassade. Er versteckt die interne Komplexität des Atomic Designs (`atoms/`, `molecules/`) vor den Konsumenten. Dies erlaubt interne Refactorings, ohne die öffentliche API der UI-Package zu brechen.
+
+### 4. Tailwind v4 @source
+Da Tailwind v4 kein `content`-Array in einer JS-Config mehr nutzt, müssen die CSS-Dateien in den Apps (`globals.css`) explizit den Pfad zur UI-Package via `@source` scannen, damit Utility-Klassen für die geteilten Komponenten generiert werden.
+
+### 5. Single Source of Truth for Tokens
+Alle Design-Entscheidungen (Farben, Spacing, Radius) leben ausschließlich in `packages/ui/src/styles/`. Apps importieren diese via `@import "@nezumi/ui/design-tokens.css"`.
+
+---
+
+## Vergleichende Analyse bestehender Dokumentation
+
+> [!NOTE]
+> Dieser Tree ist die **Source of Truth (SSOT)**. Alle anderen Dokumente, die abweichende Strukturen zeigen, müssen gegen dieses Modell validiert oder aktualisiert werden.

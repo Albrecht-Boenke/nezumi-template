@@ -55,6 +55,7 @@ Use this file as the **single navigation root**. Do **not** assume nested `rules
 - [009 — FAQ](./009-nezumi-ui-faq.mdx) | Type: Reference | Summary: Short answers for common tasks
 - [010 — Design Tokens & Tailwind v4](./010-nezumi-ui-design-tokens-tailwind-v4.mdx) | Type: Conceptual | Summary: 3-layer tokens, `@theme`, motion, OKLCH, file layout
 - [011 — Monorepo Architecture](./011-nezumi-ui-monorepo-architecture.mdx) | Type: Conceptual | Summary: Workspace layout, exports, Next.js notes
+- [020 — Repository File Tree](./020-nezumi-ui-repository-file-tree.mdx) | Type: Reference | Summary: Normative monorepo layout for apps and packages
 
 ## Tooling — shadcn / MCP
 
