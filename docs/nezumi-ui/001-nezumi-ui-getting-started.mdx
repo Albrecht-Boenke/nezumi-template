@@ -26,8 +26,8 @@ source paths Tailwind must scan:
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-@source "../../../packages/ui/src/**/*.{ts,tsx}";
-@source "../**/*.{ts,tsx,mdx,css}";
+@source "../../../packages/ui/src";
+@source "../";
 
 @import "@nezumi/ui/design-tokens.css";
 ```

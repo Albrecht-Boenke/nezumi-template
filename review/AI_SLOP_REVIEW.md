@@ -7,7 +7,7 @@
 
 ### Packages UI
 
-- `packages/ui/src/atoms/Button/Button.test.tsx`: Tests nutzen weiter ein manuelles `createRoot`/`act`-Harness statt Testing Library. Risiko: weniger nutzernahe Queries und schwächerer Accessibility-Teststil.
+- `packages/ui/src/atoms/Button/Button.test.tsx`: Tests decken neue Button- und Token-Verträge ab, nutzen aber weiter ein manuelles `createRoot`/`act`-Harness statt Testing Library. Risiko: weniger nutzernahe Queries und schwächerer Accessibility-Teststil.
 - `packages/ui/src/styles/components/input.css`: Input-Tokens existieren ohne public `Input`-Komponente. Entscheidung nötig: Komponente ergänzen oder Token-Sheet entfernen.
 - `packages/ui/src/layout/*`: Dimension-/Responsive-Helper sind weiterhin teilweise dupliziert. Ein gemeinsamer Helper würde Wartungskosten senken.
 - `packages/ui/src/layout/types.ts`: Das polymorphe `as`-Typing ist noch zu breit über `HTMLAttributes<HTMLElement>` modelliert und bildet element-spezifische Props nicht sauber ab.

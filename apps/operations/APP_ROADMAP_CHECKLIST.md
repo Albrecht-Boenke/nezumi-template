@@ -100,7 +100,7 @@ apps/operations/
 - [ ] Festen Entwicklungsport setzen, z. B. `next dev --turbopack -p 3002`.
 - [ ] `next.config.ts` mit `transpilePackages: ["@nezumi/ui"]` anlegen.
 - [ ] `postcss.config.mjs` mit `@tailwindcss/postcss` anlegen.
-- [ ] `app/globals.css` mit Tailwind-v4-Import, explizitem `@source` fuer UI-Paket, `@source "../**/*.{ts,tsx,mdx,css}"` fuer nur diese App (nicht `../../**/*` ueber `apps/`), und `@nezumi/ui`-Tokenimport anlegen.
+- [ ] `app/globals.css` mit Tailwind-v4-Import, explizitem `@source` fuer UI-Paket, `@source "../"` fuer nur diese App (nicht `../../` ueber `apps/`), und `@nezumi/ui`-Tokenimport anlegen.
 - [ ] `app/layout.tsx` als Server Component halten; interne Shell, Navigation und globale Error-Recovery sauber trennen.
 - [ ] `loading.tsx`, `error.tsx` und `global-error.tsx` frueh anlegen, weil interne Tools bei Daten-/Backendfehlern kontrolliert degradieren muessen.
 - [ ] Request-time APIs und dynamisches Rendering bewusst einsetzen; teure Datenzugriffe parallelisieren und Streaming/Suspense fuer langsame Bereiche nutzen.

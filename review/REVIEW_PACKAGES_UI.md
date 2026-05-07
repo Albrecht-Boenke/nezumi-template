@@ -7,6 +7,7 @@ Abgearbeitete und widerlegte Findings wurden entfernt. Details zur Validierung s
 ## Erledigt
 
 - Button nutzt `@radix-ui/react-slot`, `data-slot="button"` und Default `type="button"`.
+- Button unterstützt DESIGN-kompatible Varianten (`default`, `tonal`, `elevated`) und hält `primary`/`secondary` als Aliase.
 - Die Radix-Monolith-Abhängigkeit wurde durch `@radix-ui/react-slot` ersetzt.
 - Nicht konsumierte generische Button-Tokens wurden entfernt; Button behält nur genutzte Interaction-Tokens.
 - Card nutzt Tailwind-v4-Theme-Namespaces (`bg-card`, `border-card-border`, `rounded-card`, `p-card`) und `data-slot`-Attribute.

@@ -29,7 +29,7 @@
 - URL-basierte Next-Metadata wird über `metadataBase` app-weit abgesichert.
 - Tabellarische Daten verwenden native Tabellen-Semantik; ARIA-Landmarks werden nur für tatsächlich vorhandene Funktionalität gesetzt; nicht funktionale Buttons sind disabled.
 - `@nezumi/ui` bietet stabile public leaf exports und baut alle exportierten Subpaths.
-- shadcn/Radix-Slot-Nutzung erfolgt über `@radix-ui/react-slot`, nicht über den Radix-Monolith.
+- shadcn/Radix-Slot-Nutzung erfolgt über `@radix-ui/react-slot`, nicht über den Radix-Monolith; shadcn-kompatible Farbaliase mappen auf Nezumi-Semantik.
 - Component-Tokens verwenden Tailwind-v4-Namensräume, aus denen Utilities entstehen (`--color-*`, `--radius-*`, `--spacing-*`, `--shadow-*`).
 - TypeScript/Turbo/ESLint sind über Root-Scripts und Turbo-Tasks verifizierbar.
 
@@ -50,7 +50,7 @@
 ### High
 
 - **Bestätigt und gefixt:** App-Metadata-, Tabellen-, Landmark-, Disabled-Button-, Umlaut-, App-`target`, Turbo-Task-, ESLint- und Radix-Monolith-Findings.
-- **Bestätigt und gefixt:** Card-Tokens/arbitrary values, redundante Card-Spacing-Tokens, App-`@source` auf `dist`, fehlendes `@custom-variant dark`, fehlende Font-Tokens, `html` `font-size: 16px`, Scrollbar-Pixelwerte.
+- **Bestätigt und gefixt:** Card-Tokens/arbitrary values, redundante Card-Spacing-Tokens, App-`@source` auf `dist`, fehlendes `@custom-variant dark`, fehlende Font-Tokens, `html` `font-size: 16px`, Scrollbar-Pixelwerte, shadcn-Farbaliase und Button-Variantensemantik.
 - **Widerlegt:** `ignoreDeprecations: "6.0"` entfernen. Der `@nezumi/ui` DTS-Build schlägt ohne dieses Flag unter TypeScript 6.0.3 fehl; das Flag bleibt als dokumentierte Übergangsmaßnahme.
 
 ### Medium
@@ -82,7 +82,7 @@
 ## Implementierte Fixes
 
 - Apps: Metadata, OG-Farben, Operations-Tabelle, CommandBar-Semantik, Disabled-Toolbar, Main-Landmark, Umlaute, Port 3003 für Playground, App-Targets `ES2022`.
-- UI: Radix Slot scoped package, Button default type/data-slot, Card-Tokens/utilities/data-slots, public leaf build entries.
+- UI: Radix Slot scoped package, Button default type/data-slot, DESIGN-kompatible Button-Varianten, Card-Tokens/utilities/data-slots, public leaf build entries.
 - Styles: `@custom-variant dark`, saubere App-`@source`-Pfade, Font-Tokens, Base-Font-Nutzung, `font-size: 100%`, scrollbar spacing token.
 - Config: `lint`/`test` Root-Scripts, Turbo-Tasks, ESLint Flat Config, `.gitignore` für `next-env.d.ts`, aktualisierte Dependencies/Lockfile.
 - Docs/Review: Abgearbeitete Findings aus Review-Dokumenten entfernt, Nezumi-Docs zu Imports, Exports und Tokens aktualisiert.

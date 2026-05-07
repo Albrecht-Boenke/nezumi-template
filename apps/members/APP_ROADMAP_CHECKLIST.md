@@ -93,7 +93,7 @@ apps/members/
 - [ ] Festen Entwicklungsport setzen, z. B. `next dev --turbopack -p 3001`.
 - [ ] `next.config.ts` mit `transpilePackages: ["@nezumi/ui"]` anlegen.
 - [ ] `postcss.config.mjs` mit `@tailwindcss/postcss` anlegen.
-- [ ] `app/globals.css` mit Tailwind-v4-Import, `@source` fuer `packages/ui/src`, optional `packages/ui/dist`, `@source "../**/*.{ts,tsx,mdx,css}"` fuer nur diese App (nicht `../../**/*` ueber `apps/`), und `@nezumi/ui`-Tokenimport anlegen.
+- [ ] `app/globals.css` mit Tailwind-v4-Import, `@source` fuer `packages/ui/src`, optional `packages/ui/dist`, `@source "../"` fuer nur diese App (nicht `../../` ueber `apps/`), und `@nezumi/ui`-Tokenimport anlegen.
 - [ ] `tsconfig.json` mit `strict`, `moduleResolution: "bundler"`, `jsx: "react-jsx"`, Next-Plugin und lokalem Alias nur fuer App-Code anlegen.
 - [ ] `app/layout.tsx` als Server Component behalten und nur shell-weite, nicht-sensitive UI dort platzieren.
 - [ ] Geschuetzte Route Groups wie `app/(account)/...` nutzen; nicht-routable Hilfsdateien in `_components`, `_lib` oder App-Root-`components/` colocaten.

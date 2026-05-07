@@ -83,7 +83,7 @@ apps/homepage/
 - [ ] Fuer paralleles Entwickeln einen festen Port verwenden, z. B. `next dev --turbopack -p 3000`.
 - [ ] `next.config.ts` mit `transpilePackages: ["@nezumi/ui"]` setzen.
 - [ ] `postcss.config.mjs` mit `@tailwindcss/postcss` setzen.
-- [ ] `app/globals.css` mit `@import "tailwindcss"`, `@source "../../../packages/ui/src/**/*.{ts,tsx}"`, optional `@source "../../../packages/ui/dist/**/*.{js,mjs}"`, `@source "../**/*.{ts,tsx,mdx,css}"` (nur diese App — **nicht** `../../**/*`, sonst wird ganz `apps/` gescannt) und `@import "@nezumi/ui/design-tokens.css"` anlegen.
+- [ ] `app/globals.css` mit `@import "tailwindcss"`, `@source "../../../packages/ui/src"`, optional `@source "../../../packages/ui/dist"`, `@source "../"` (nur diese App — **nicht** `../../`, sonst wird ganz `apps/` gescannt) und `@import "@nezumi/ui/design-tokens.css"` anlegen.
 - [ ] `app/layout.tsx` als Server Component belassen, `Metadata` exportieren, `lang="de"` setzen und globales CSS einmal importieren.
 - [ ] `app/page.tsx` als statische/teil-statische Landing Page starten; Request-time APIs wie `cookies`, `headers` oder unnoetige `searchParams` im Root vermeiden.
 - [ ] SEO-Dateien fuer oeffentliche App einplanen: `robots.ts`, `sitemap.ts`, `opengraph-image.tsx`, App-Icon/Favicon.

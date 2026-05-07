@@ -84,7 +84,7 @@ Der Ordner `src/components/` in der UI-Package dient als Fassade. Er versteckt d
 ### 4. Tailwind v4 @source
 Da Tailwind v4 kein `content`-Array in einer JS-Config mehr nutzt, müssen die CSS-Dateien in den Apps (`globals.css`) explizit den Pfad zur UI-Package via `@source` scannen, damit Utility-Klassen für die geteilten Komponenten generiert werden.
 
-**Pfad-Disziplin:** `app/globals.css` liegt unter `apps/<name>/app/`. Für `packages/ui` sind **drei** Ebenen zum Repo-Root nötig, z. B. `@source "../../../packages/ui/src/**/*.{ts,tsx}"`. Für **ausschließlich diese App** (nicht `apps/` insgesamt) reicht **eine** Ebene zur App-Wurzel: `@source "../**/*.{ts,tsx,mdx,css}"`. Verwendet man fälschlich `@source "../../**/*"`, landet Tailwind unter `apps/` und indexiert alle Geschwister-Apps — unerwünschte Kopplung, größere CSS-Ausgabe und langsamere Builds.
+**Pfad-Disziplin:** `app/globals.css` liegt unter `apps/<name>/app/`. Für `packages/ui` sind **drei** Ebenen zum Repo-Root nötig, z. B. `@source "../../../packages/ui/src"`. Für **ausschließlich diese App** (nicht `apps/` insgesamt) reicht **eine** Ebene zur App-Wurzel: `@source "../"`. Verwendet man fälschlich `@source "../../"`, landet Tailwind unter `apps/` und indexiert alle Geschwister-Apps — unerwünschte Kopplung, größere CSS-Ausgabe und langsamere Builds.
 
 ### 5. Single Source of Truth for Tokens
 Alle Design-Entscheidungen (Farben, Spacing, Radius) leben ausschließlich in `packages/ui/src/styles/`. Apps importieren diese via `@import "@nezumi/ui/design-tokens.css"`.
