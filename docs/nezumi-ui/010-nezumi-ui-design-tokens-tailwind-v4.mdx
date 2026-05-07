@@ -165,15 +165,16 @@ Tokens, die spezifisch für eine Komponente und ihre Varianten sind. Sie referen
 
 ```css
 @theme {
-  /* Button-Tokens */
-  --button-radius: var(--radius-md);
-  --button-padding-x: var(--spacing-16);
-  --button-padding-y: var(--spacing-8);
-  --button-font-size: var(--text-sm);
+  /* Button interaction tokens */
+  --color-button-brand-hover: color-mix(in oklch, var(--color-brand) 88%, var(--color-nezumi-koi));
+  --color-button-brand-active: color-mix(in oklch, var(--color-brand) 78%, var(--color-nezumi-koi));
 
-  /* Card-Tokens */
-  --card-radius: var(--radius-xl);
-  --card-padding: var(--spacing-24);
+  /* Card tokens map to Tailwind utility namespaces */
+  --radius-card: var(--radius-xl);
+  --spacing-card: var(--spacing-24);
+  --color-card: var(--color-surface-raised);
+  --color-card-border: var(--color-border);
+  --shadow-card: var(--shadow-none);
 
   /* Input-Tokens */
   --input-radius: var(--radius-md);
@@ -379,7 +380,7 @@ packages/ui/src/styles/
 │   ├── colors.css       # --color-primary etc.
 │   └── spacing.css      # --space-content etc.
 ├── components/          # Layer 3: Component (Specific)
-│   ├── button.css       # --button-radius etc.
+│   ├── button.css       # --color-button-* interaction tokens
 │   ├── card.css
 │   └── input.css
 └── global.css           # Entry Point (Tailwind @import)
@@ -472,8 +473,8 @@ Style Drift ist der schleichende Tod eines Design Systems.
 - [x] State-Farben (`success`, `warning`, `error`, `info`)
 
 ### Component Layer (Layer 3)
-- [x] Button-Tokens (`--button-radius`, `--button-padding-*`)
-- [x] Card-Tokens (`--card-radius`, `--card-padding`)
+- [x] Button-Interaction-Tokens (`--color-button-*`)
+- [x] Card-Tokens (`--color-card`, `--color-card-border`, `--radius-card`, `--spacing-card`, `--shadow-card`)
 - [x] Input-Tokens
 
 ### Theming

@@ -24,13 +24,22 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        default: [
+          "bg-brand text-on-brand",
+          "hover:bg-button-brand-hover",
+          "active:bg-button-brand-active",
+        ],
         primary: [
           "bg-brand text-on-brand",
           "hover:bg-button-brand-hover",
           "active:bg-button-brand-active",
         ],
+        tonal: [
+          "bg-secondary text-on-secondary",
+          "hover:bg-button-secondary-hover",
+        ],
         secondary: [
-          "bg-secondary text-text",
+          "bg-secondary text-on-secondary",
           "hover:bg-button-secondary-hover",
         ],
         destructive: [
@@ -44,6 +53,10 @@ const buttonVariants = cva(
         ghost: [
           "bg-transparent text-text",
           "hover:bg-surface-muted",
+        ],
+        elevated: [
+          "bg-surface-raised text-brand shadow-sm",
+          "hover:bg-surface-raised-subtle hover:shadow-md",
         ],
         link: [
           "bg-transparent text-brand underline-offset-4",
@@ -59,7 +72,7 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "primary",
+      variant: "default",
       size: "md",
     },
   }

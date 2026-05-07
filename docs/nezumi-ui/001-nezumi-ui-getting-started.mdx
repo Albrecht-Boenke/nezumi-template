@@ -19,13 +19,21 @@ The workspace uses pnpm catalogs for shared framework versions. **Pins in this r
 
 ## Import Styles
 
-Load the CSS entrypoint once in the consuming app shell:
+Apps own the Tailwind entry and import the shared tokens after declaring the
+source paths Tailwind must scan:
 
-```tsx
-import "@nezumi/ui/globals.css"
+```css
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@source "../../../packages/ui/src/**/*.{ts,tsx}";
+@source "../**/*.{ts,tsx,mdx,css}";
+
+@import "@nezumi/ui/design-tokens.css";
 ```
 
-The CSS entrypoint imports Tailwind CSS 4.2.4, primitive tokens, semantic tokens, component tokens, and base styles.
+Use `@nezumi/ui/globals.css` only for one-shot environments such as Storybook
+where the UI package owns the complete Tailwind entry.
 
 ## Import Components
 
@@ -33,7 +41,8 @@ Use public leaf exports:
 
 ```tsx
 import { Button } from "@nezumi/ui/components/button"
-import { Container, Flex } from "@nezumi/ui/layout"
+import { Container } from "@nezumi/ui/components/container"
+import { Flex } from "@nezumi/ui/components/flex"
 
 export function Example() {
   return (

@@ -91,45 +91,18 @@ Empfehlung: Spacing-Strategie entscheiden und testen:
 - Variante A: Tailwind-Basis `--spacing: 0.25rem` oder `4px` setzen und numerische Utilities bewusst auf dieser Basis nutzen.
 - Variante B: rein benannte Scale mit vollstaendig statisch generierten `--spacing-*` Tokens dokumentieren und per CSS-Build pruefen.
 
-### Hoch: shadcn-Standardtokens fehlen trotz shadcn-Konfiguration
-
-Dateien:
-
-- `packages/ui/components.json:3-18`
-- `packages/ui/src/styles/semantic/colors.css:1-39`
-
-`components.json` ist shadcn-kompatibel konfiguriert (`new-york`, `cssVariables: true`), aber das Theme definiert keine shadcn-Standardtokens wie `--color-background`, `--color-foreground`, `--color-primary`, `--color-primary-foreground`, `--color-muted`, `--color-muted-foreground`, `--color-card`, `--color-popover`, `--color-input`.
-
-Auswirkung: Neue shadcn-Komponenten oder Registry-Bloecke erwarten Klassen wie `bg-background`, `text-foreground`, `bg-primary`, `border-input`, `ring-ring`. Nezumi-Komponenten nutzen dagegen `bg-surface`, `text-text`, `bg-brand`. Ohne Alias-Layer brechen shadcn-Workflows oder erzeugen visuell falsche Komponenten.
-
-Empfehlung: shadcn-Alias-Tokens auf Nezumi-Semantik mappen, z. B. `--color-background: var(--color-surface)`, `--color-foreground: var(--color-text)`, `--color-primary: var(--color-brand)`, oder die shadcn-Kompatibilitaet bewusst als eingeschraenkt dokumentieren.
-
-### Hoch: Dark-Mode-Kontrakt ist unvollstaendig
+### Hoch: App-Dark-Mode-Aktivierung ist unvollstaendig
 
 Dateien:
 
 - `packages/ui/src/styles/design-tokens.css:16-60`
 - `apps/*/app/globals.css:1-8`
 
-Dark-Overrides existieren in `.dark`, aber es gibt keinen sichtbaren `@custom-variant dark (&:where(.dark, .dark *))` und in den untersuchten App-Layouts keine klare Stelle, die `.dark` setzt oder einen Theme-Provider einbindet.
+Dark-Overrides existieren in `.dark`, und Tailwind-`dark:` ist inzwischen class-basiert ueber `@custom-variant dark (&:where(.dark, .dark *))` angebunden. In den untersuchten App-Layouts bleibt aber offen, welche Stelle `.dark` setzt oder einen Theme-Provider einbindet.
 
-Auswirkung: Semantische Dark-Tokens greifen nur, wenn `.dark` tatsaechlich gesetzt wird. shadcn- oder Tailwind-`dark:*` Klassen koennen ausserdem vom gewuenschten class-basierten Verhalten abweichen.
+Auswirkung: Semantische Dark-Tokens greifen nur, wenn `.dark` tatsaechlich gesetzt wird.
 
-Empfehlung: `@custom-variant dark` im CSS-Entrypoint etablieren und App-seitig eine Root-Klassenstrategie dokumentieren oder implementieren.
-
-### Mittel: Button- und DESIGN-Semantik weichen sichtbar ab
-
-Dateien:
-
-- `DESIGN.md:351-365`
-- `packages/ui/src/atoms/Button/Button.tsx:27-39`
-- `packages/ui/src/styles/components/button.css:1-17`
-
-`DESIGN.md` beschreibt `default`, `tonal`, `outline`, `ghost`, `elevated`, `destructive`, `link`; der Code nutzt `primary`, `secondary`, `destructive`, `outline`, `ghost`, `link`. Zudem fehlen `text-on-secondary` und `text-on-error`; deshalb nutzt `secondary` `text-text` und `destructive` `text-on-brand`.
-
-Auswirkung: Die visuelle Semantik fuer Actions ist nicht vollstaendig tokenisiert. Varianten koennen nicht direkt aus DESIGN.md abgeleitet werden.
-
-Empfehlung: Erst semantische On-Color-Tokens ergaenzen, dann Button-Varianten an DESIGN.md angleichen. `primary` kann als API-Alias bestehen, sollte aber intern auf `default`/`brand` dokumentiert werden.
+Empfehlung: App-seitig eine Root-Klassenstrategie dokumentieren oder implementieren, z. B. Provider oder serverseitige Root-Klasse.
 
 ### Mittel: Component Tokens werden nicht konsequent konsumiert
 
@@ -144,19 +117,6 @@ Button-Component-Tokens wie `--button-radius`, `--button-padding-x`, `--button-f
 Auswirkung: Component Layer ist teilweise dekorativ statt steuernd. Aenderungen in `components/button.css` beeinflussen den Button nur begrenzt.
 
 Empfehlung: Component Tokens entweder entfernen, wenn CVA die SSOT sein soll, oder Button/Input/Card konsequent auf `rounded-[--button-radius]`, `px-[--button-padding-x]`, `text-[length:var(--button-font-size)]` bzw. stabile Tailwind-tokenisierte Klassen umstellen.
-
-### Mittel: Semantic Spacing wird im Component Layer dupliziert
-
-Dateien:
-
-- `packages/ui/src/styles/semantic/spacing.css:1-5`
-- `packages/ui/src/styles/components/card.css:7-9`
-
-`--space-content`, `--space-section`, `--space-page` werden im semantischen Layer definiert und in `card.css` erneut definiert.
-
-Auswirkung: Das verletzt das 3-Layer-Modell und kann spaeter Split-Brain-Verhalten erzeugen.
-
-Empfehlung: Semantische Spacing-Tokens nur in `semantic/spacing.css` halten. `card.css` sollte ausschliesslich `--card-*` Tokens definieren.
 
 ### Mittel: Public API und shadcn Monorepo-Aliase passen nicht zusammen
 
@@ -219,6 +179,9 @@ Empfehlung: Entweder als Homepage/OG-Ausnahme dokumentieren oder auf DESIGN.md-F
 
 - Farbprimitive `--color-nezumi-*` aus DESIGN.md Abschnitt 2.
 - Semantische Farben wie `brand`, `text`, `surface`, `border`, `success`, `warning`, `error`, `info`.
+- On-Color-Semantik fuer `secondary` und `error`.
+- shadcn-Kompatibilitaetsaliase fuer Background, Foreground, Primary, Secondary, Muted, Card, Popover, Input und Destructive.
+- Button-Varianten aus DESIGN.md: `default`, `tonal`, `outline`, `ghost`, `elevated`, `destructive`, `link`; bestehende `primary`/`secondary` bleiben als kompatible Aliase erhalten.
 - Status-Background-Mixes.
 - Focus-Tokens.
 - Motion-Basisskala.
@@ -226,22 +189,10 @@ Empfehlung: Entweder als Homepage/OG-Ausnahme dokumentieren oder auf DESIGN.md-F
 
 ### Sinnvoll als naechste Tokens uebernehmen
 
-- Fehlende On-Color-Semantik:
-  - `--color-on-secondary`
-  - `--color-on-error`
-  - optional `--color-on-success`, `--color-on-warning`, `--color-on-info`
-- shadcn-Kompatibilitaetsaliase:
-  - `--color-background`
-  - `--color-foreground`
-  - `--color-primary`
-  - `--color-primary-foreground`
-  - `--color-muted`
-  - `--color-muted-foreground`
-  - `--color-card`
-  - `--color-card-foreground`
-  - `--color-popover`
-  - `--color-popover-foreground`
-  - `--color-input`
+- Optionale On-Color-Semantik fuer Status-Flaechen:
+  - `--color-on-success`
+  - `--color-on-warning`
+  - `--color-on-info`
 - Service-Mode Typography Role Tokens:
   - `title-large`, `title-medium`, `title-small`
   - `body-large`, `body-medium`, `body-small`
@@ -278,24 +229,24 @@ Empfehlung: Entweder als Homepage/OG-Ausnahme dokumentieren oder auf DESIGN.md-F
 
 ### Phase 1: Token-Vertrag stabilisieren
 
-- [ ] Entscheidung dokumentieren: Nezumi-Semantik plus shadcn-Alias-Layer oder bewusster shadcn-Fork.
-- [ ] `@custom-variant dark (&:where(.dark, .dark *))` im CSS-Entrypoint ergaenzen.
+- [x] Entscheidung dokumentieren: Nezumi-Semantik plus shadcn-Alias-Layer oder bewusster shadcn-Fork.
+- [x] `@custom-variant dark (&:where(.dark, .dark *))` im CSS-Entrypoint ergaenzen.
 - [ ] App-Dark-Mode-Strategie festlegen: Provider oder serverseitige Root-Klasse.
 - [ ] Spacing-Modell festlegen und mit CSS-Build nachweisen: `--spacing` Basiswert vs. explizite `--spacing-*` Scale.
-- [ ] `components/card.css` von semantischen `--space-*` Duplikaten befreien.
+- [x] `components/card.css` von semantischen `--space-*` Duplikaten befreien.
 
 ### Phase 2: Sichere Token-Uebernahme aus DESIGN.md
 
-- [ ] `--color-on-secondary` und `--color-on-error` definieren, Light und Dark pruefen.
-- [ ] shadcn-Alias-Tokens auf Nezumi-Semantik mappen, falls Kompatibilitaet gewuenscht ist.
+- [x] `--color-on-secondary` und `--color-on-error` definieren, Light und Dark pruefen.
+- [x] shadcn-Alias-Tokens auf Nezumi-Semantik mappen, falls Kompatibilitaet gewuenscht ist.
 - [ ] fehlende Spacing-Werte `--spacing-80`, `--spacing-112`, `--spacing-128` nur aufnehmen, wenn Page/Layout-Tokens sie nutzen.
 - [ ] Radiuswerte mit DESIGN.md abgleichen: `xs=2px`, `sm=4px`, `md=8px`, `lg=12px`, `xl=16px`, `2xl=24px`; dabei Tailwind `--radius-*` als einzige Primitive-Namenswelt behalten.
 - [ ] Shadowwerte unter `--shadow-*` behalten; keine parallelen `--elevation-shadow-*` einfuehren.
 
 ### Phase 3: Komponenten an Tokens anbinden
 
-- [ ] Button-Varianten mit DESIGN.md abgleichen: `default/tonal/outline/ghost/elevated/destructive/link`.
-- [ ] Button-On-Colors korrigieren: `tonal` nicht `text-text`, `destructive` nicht `text-on-brand`.
+- [x] Button-Varianten mit DESIGN.md abgleichen: `default/tonal/outline/ghost/elevated/destructive/link`.
+- [x] Button-On-Colors korrigieren: `tonal` nicht `text-text`, `destructive` nicht `text-on-brand`.
 - [ ] Button-Component-Tokens tatsaechlich konsumieren oder entfernen.
 - [ ] Card-Token-Verwendung pruefen: arbitrary variable utilities bewusst halten oder auf stabilere CSS-/class patterns umstellen.
 - [ ] Input-Komponente/Primitive gegen `input.css` Tokens implementieren oder nicht genutzte Tokens entfernen.

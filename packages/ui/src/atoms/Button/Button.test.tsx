@@ -66,6 +66,24 @@ describe("Button", () => {
     expect(element.className).toContain("text-on-error")
   })
 
+  it("secondary variant uses on-secondary foreground token", () => {
+    const element = render(<Button variant="secondary">More</Button>)
+
+    expect(element.className).toContain("bg-secondary")
+    expect(element.className).toContain("text-on-secondary")
+  })
+
+  it("supports DESIGN.md action variant names", () => {
+    const tonal = render(<Button variant="tonal">Tonal</Button>)
+    expect(tonal.className).toContain("bg-secondary")
+    expect(tonal.className).toContain("text-on-secondary")
+
+    const elevated = render(<Button variant="elevated">Lifted</Button>)
+    expect(elevated.className).toContain("bg-surface-raised")
+    expect(elevated.className).toContain("text-brand")
+    expect(elevated.className).toContain("shadow-sm")
+  })
+
   it("forwards button props and ref", () => {
     const ref = React.createRef<HTMLButtonElement>()
     const element = render(

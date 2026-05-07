@@ -13,6 +13,8 @@
 @import "./components/card.css";
 @import "./components/input.css";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 .dark {
   --color-brand: var(--color-nezumi-minato);
   --color-on-brand: var(--color-nezumi-paper);
@@ -20,6 +22,7 @@
   --color-on-brand-bg: var(--color-nezumi-snow);
 
   --color-secondary: var(--color-nezumi-ume);
+  --color-on-secondary: var(--color-nezumi-dark-bg);
   --color-secondary-bg: var(--color-nezumi-dark-secondary-bg);
   --color-accent: var(--color-nezumi-fuji);
 

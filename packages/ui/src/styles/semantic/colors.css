@@ -7,6 +7,7 @@
   --color-on-brand-bg: var(--color-nezumi-koi);
 
   --color-secondary: var(--color-nezumi-ume);
+  --color-on-secondary: var(--color-nezumi-koi);
   --color-secondary-bg: var(--color-nezumi-sakura);
   --color-accent: var(--color-nezumi-fuji);
 
@@ -37,4 +38,21 @@
   --focus-ring-offset: 2px;
   --focus-ring-color: var(--color-text);
   --color-ring: var(--focus-ring-color);
+
+  /* shadcn/ui compatibility aliases — keep Nezumi semantics as the source of truth. */
+  --color-background: var(--color-surface);
+  --color-foreground: var(--color-text);
+  --color-card: var(--color-surface-raised);
+  --color-card-foreground: var(--color-text);
+  --color-popover: var(--color-surface-raised);
+  --color-popover-foreground: var(--color-text);
+  --color-primary: var(--color-brand);
+  --color-primary-foreground: var(--color-on-brand);
+  --color-secondary-foreground: var(--color-on-secondary);
+  --color-muted: var(--color-surface-muted);
+  --color-muted-foreground: var(--color-text-muted);
+  --color-accent-foreground: var(--color-text);
+  --color-destructive: var(--color-error);
+  --color-destructive-foreground: var(--color-on-error);
+  --color-input: var(--color-border);
 }
