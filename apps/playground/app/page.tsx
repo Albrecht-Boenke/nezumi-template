@@ -1,13 +1,206 @@
+import Link from "next/link"
+import { Box } from "@nezumi/ui/components/box"
+import { Button } from "@nezumi/ui/components/button"
+import { Container } from "@nezumi/ui/components/container"
+import { Flex } from "@nezumi/ui/components/flex"
+import { Grid } from "@nezumi/ui/components/grid"
+import { Section } from "@nezumi/ui/components/section"
+
+const components = [
+  {
+    name: "Grid",
+    href: "/tutorials/grid",
+    index: "01",
+    summary: "Responsive columns, rows, track templates, and axis gaps.",
+    props: ["cols", "rows", "gap", "autoFlow"],
+  },
+  {
+    name: "Flex",
+    href: "/tutorials/flex",
+    index: "02",
+    summary: "Direction, wrapping, alignment, and flex-item sizing.",
+    props: ["direction", "wrap", "gap", "align"],
+  },
+  {
+    name: "Box",
+    href: "/tutorials/box",
+    index: "03",
+    summary: "The neutral polymorphic wrapper shared by every layout primitive.",
+    props: ["as", "display", "p", "w"],
+  },
+  {
+    name: "Section",
+    href: "/tutorials/section",
+    index: "04",
+    summary: "Semantic page bands with vertical rhythm presets.",
+    props: ["size", "py", "as", "id"],
+  },
+  {
+    name: "Container",
+    href: "/tutorials/container",
+    index: "05",
+    summary: "Centered max-width wrapper with responsive page gutters.",
+    props: ["size", "centered", "px", "maxW"],
+  },
+]
+
+function MiniDashboard() {
+  return (
+    <Box className="overflow-hidden rounded-lg border border-border bg-surface-raised shadow-sm">
+      <Flex
+        align="center"
+        justify="between"
+        gap="16"
+        px="16"
+        py="12"
+        className="border-b border-border"
+      >
+        <Flex align="center" gap="8">
+          <Box className="size-8 rounded-md bg-brand" />
+          <span className="text-sm font-semibold">Preview</span>
+        </Flex>
+        <Flex gap="8" className="hidden md:flex">
+          <Box className="h-8 w-64 rounded-sm bg-surface-muted" />
+          <Box className="h-8 w-64 rounded-sm bg-surface-muted" />
+          <Box className="h-8 w-64 rounded-sm bg-surface-muted" />
+        </Flex>
+      </Flex>
+
+      <Box p="16">
+        <Grid cols={{ initial: 1, md: 4 }} gap="16">
+          {["Revenue", "Users", "Orders", "Active"].map((label, index) => (
+            <Box
+              key={label}
+              p="16"
+              className="rounded-lg border border-border bg-surface"
+            >
+              <Flex direction="column" gap="8">
+                <span className="text-xs text-text-muted">{label}</span>
+                <span className="text-xl font-semibold">
+                  {index === 0 ? "$45.2k" : index === 1 ? "2,340" : index === 2 ? "1,210" : "573"}
+                </span>
+                <span className="text-xs text-success">+{(index + 3) * 4}.2%</span>
+              </Flex>
+            </Box>
+          ))}
+        </Grid>
+
+        <Grid cols={{ initial: 1, lg: "2fr 1fr" }} gap="16" mt="16">
+          <Box p="16" className="rounded-lg border border-border bg-surface">
+            <Flex direction="column" gap="12">
+              <Flex justify="between" align="center">
+                <span className="text-sm font-medium">Layout composition</span>
+                <span className="text-xs text-text-muted">Grid + Flex + Box</span>
+              </Flex>
+              <Grid cols={12} gap="8" className="h-40 items-end">
+                {[34, 58, 42, 76, 64, 88, 52, 70, 92, 66, 84, 72].map((height, index) => (
+                  <Box
+                    key={`${height}-${index}`}
+                    className="rounded-sm bg-brand"
+                    style={{ height: `${height}%`, opacity: 0.35 + index * 0.035 }}
+                  />
+                ))}
+              </Grid>
+            </Flex>
+          </Box>
+
+          <Box p="16" className="rounded-lg border border-border bg-surface">
+            <Flex direction="column" gap="12">
+              {["Container", "Section", "Grid", "Flex"].map((label) => (
+                <Flex key={label} align="center" gap="12">
+                  <Box className="size-8 rounded-full bg-surface-muted" />
+                  <Box className="h-8 flex-1 rounded-sm bg-surface-muted" />
+                  <span className="min-w-24 text-xs text-text-muted">{label}</span>
+                </Flex>
+              ))}
+            </Flex>
+          </Box>
+        </Grid>
+      </Box>
+    </Box>
+  )
+}
+
 export default function PlaygroundPage() {
   return (
-    <main className="flex min-h-screen items-center justify-center px-6 py-16">
-      <section className="flex w-full max-w-2xl flex-col gap-4">
-        <p className="text-sm font-medium text-text-muted">Playground</p>
-        <h1 className="text-4xl font-semibold tracking-tight text-text">Nezumi Playground</h1>
-        <p className="max-w-xl text-base text-text-muted">
-          Minimal landing page for the playground app.
-        </p>
-      </section>
+    <main>
+      <Section size="xl" className="border-b border-border">
+        <Container size="2xl">
+          <Grid cols={{ initial: 1, lg: "minmax(0, 0.9fr) minmax(0, 1.1fr)" }} gap="48" align="center">
+            <Flex direction="column" gap="24">
+              <Flex direction="column" gap="12">
+                <p className="font-mono text-xs uppercase text-text-muted">
+                  Nezumi UI layout primitives
+                </p>
+                <h1 className="max-w-3xl text-4xl font-semibold leading-tight text-text md:text-6xl">
+                  Build pages from five predictable layout components.
+                </h1>
+                <p className="max-w-2xl text-lg leading-relaxed text-text-muted">
+                  A focused demo for `Box`, `Container`, `Flex`, `Grid`, and `Section`,
+                  adapted to the current Tailwind v4 and React 19 API in this repo.
+                </p>
+              </Flex>
+
+              <Flex gap="12" wrap="wrap">
+                <Button asChild>
+                  <Link href="/tutorials/grid">Start with Grid</Link>
+                </Button>
+                <Button asChild variant="outline">
+                  <Link href="#components">Browse components</Link>
+                </Button>
+              </Flex>
+            </Flex>
+
+            <MiniDashboard />
+          </Grid>
+        </Container>
+      </Section>
+
+      <Section id="components" size="lg">
+        <Container size="2xl">
+          <Flex direction="column" gap="24">
+            <Flex direction="column" gap="8">
+              <p className="font-mono text-xs uppercase text-text-muted">
+                Tutorials
+              </p>
+              <h2 className="text-3xl font-semibold leading-tight">Component guides</h2>
+            </Flex>
+
+            <Grid cols={{ initial: 1, md: 2, lg: 3 }} gap="16">
+              {components.map((component) => (
+                <Box
+                  key={component.name}
+                  p="24"
+                  className="rounded-lg border border-border bg-surface-raised"
+                >
+                  <Flex direction="column" gap="16">
+                    <Flex justify="between" align="start" gap="16">
+                      <Flex direction="column" gap="4">
+                        <span className="font-mono text-xs text-text-muted">{component.index}</span>
+                        <h3 className="text-xl font-semibold">{component.name}</h3>
+                      </Flex>
+                      <Button asChild variant="ghost" size="sm">
+                        <Link href={component.href}>Open</Link>
+                      </Button>
+                    </Flex>
+                    <p className="text-sm leading-relaxed text-text-muted">{component.summary}</p>
+                    <Flex gap="8" wrap="wrap">
+                      {component.props.map((prop) => (
+                        <code
+                          key={prop}
+                          className="rounded-sm bg-surface-muted px-8 py-4 font-mono text-xs text-text-muted"
+                        >
+                          {prop}
+                        </code>
+                      ))}
+                    </Flex>
+                  </Flex>
+                </Box>
+              ))}
+            </Grid>
+          </Flex>
+        </Container>
+      </Section>
     </main>
   )
 }
