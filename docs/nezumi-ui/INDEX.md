@@ -24,8 +24,8 @@ Use this file as the **single navigation root**. Do **not** assume nested `rules
 
 | Need | Where to look |
 |------|----------------|
-| Install, build, first imports | **Getting started** |
-| Package layers, tokens, build | **Architecture**, **Foundation**, **Design tokens** |
+| Install, verify, first imports | **Getting started** |
+| Package layers, source-first flow, tokens | **Architecture**, **Foundation**, **Design tokens** |
 | Atomic folders vs public API | **Atomic design**, **Public API** |
 | Adding components, exports | **Component development**, **Public API** |
 | Theming, CSS variables, presets | **Customization** |
@@ -44,7 +44,7 @@ Use this file as the **single navigation root**. Do **not** assume nested `rules
 
 ## Core — Nezumi UI package
 
-- [001 — Getting Started](./001-nezumi-ui-getting-started.mdx) | Type: Guide | Summary: Install, build, import CSS and public components
+- [001 — Getting Started](./001-nezumi-ui-getting-started.mdx) | Type: Guide | Summary: Install, verify, import CSS and public components
 - [002 — Architecture Overview](./002-nezumi-ui-architecture-overview.mdx) | Type: Conceptual | Summary: Layers, public API, tokens, framework baseline
 - [003 — Atomic Design](./003-nezumi-ui-atomic-design.mdx) | Type: Conceptual | Summary: Internal atoms–templates vs public `components/*` leaves
 - [004 — Public API](./004-nezumi-ui-public-api.mdx) | Type: Reference | Summary: Import paths, `package.json` exports, adding a leaf

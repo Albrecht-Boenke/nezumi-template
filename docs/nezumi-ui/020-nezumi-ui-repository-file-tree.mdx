@@ -17,7 +17,7 @@ Das System basiert auf einer klaren Trennung zwischen Applikationen (`apps/`) un
 / (Root)
 ├── package.json                # Root package (Scripts: dev, build, lint, typecheck)
 ├── pnpm-workspace.yaml         # Definiert apps/* und packages/*
-├── turbo.json                  # Task-Pipeline (Pipeline-Caching für Next & tsup)
+├── turbo.json                  # Task-Pipeline (Next-App-Builds; UI source-first)
 ├── pnpm-lock.yaml              # Single Lockfile (Catalog-driven)
 │
 ├── apps/
@@ -59,7 +59,6 @@ Das System basiert auf einer klaren Trennung zwischen Applikationen (`apps/`) un
     │   │       ├── components/ # Layer 3: Component (Specific)
     │   │       ├── globals.css # shadcn base entries
     │   │       └── design-tokens.css # Public entry point for apps
-    │   └── dist/               # Build Output (via tsup)
     │
     └── typescript-config/      # Gemeinsame TS-Konfigurationen
         ├── base.json

@@ -1,68 +1,34 @@
 {
   "name": "@nezumi/ui",
   "version": "1.0.0",
+  "private": true,
   "description": "Nezumi UI component library and design tokens for the Nezumi monorepo",
   "files": [
-    "dist",
+    "src",
     "src/styles"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "dev": "tsc --noEmit --watch",
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
     "test:ui": "vitest --ui"
   },
+  "imports": {
+    "#components/*": "./src/components/*.tsx",
+    "#lib/*": "./src/lib/*.ts"
+  },
   "exports": {
-    "./globals.css": {
-      "style": "./src/styles/global.css",
-      "default": "./src/styles/global.css"
-    },
-    "./design-tokens.css": {
-      "style": "./src/styles/design-tokens.css",
-      "default": "./src/styles/design-tokens.css"
-    },
-    "./components/button": {
-      "types": "./dist/components/button.d.ts",
-      "import": "./dist/components/button.mjs",
-      "require": "./dist/components/button.js"
-    },
-    "./components/container": {
-      "types": "./dist/components/container.d.ts",
-      "import": "./dist/components/container.mjs",
-      "require": "./dist/components/container.js"
-    },
-    "./components/grid": {
-      "types": "./dist/components/grid.d.ts",
-      "import": "./dist/components/grid.mjs",
-      "require": "./dist/components/grid.js"
-    },
-    "./components/flex": {
-      "types": "./dist/components/flex.d.ts",
-      "import": "./dist/components/flex.mjs",
-      "require": "./dist/components/flex.js"
-    },
-    "./components/box": {
-      "types": "./dist/components/box.d.ts",
-      "import": "./dist/components/box.mjs",
-      "require": "./dist/components/box.js"
-    },
-    "./components/section": {
-      "types": "./dist/components/section.d.ts",
-      "import": "./dist/components/section.mjs",
-      "require": "./dist/components/section.js"
-    },
-    "./layout": {
-      "types": "./dist/layout/index.d.ts",
-      "import": "./dist/layout/index.mjs",
-      "require": "./dist/layout/index.js"
-    },
-    "./lib/utils": {
-      "types": "./dist/lib/utils.d.ts",
-      "import": "./dist/lib/utils.mjs",
-      "require": "./dist/lib/utils.js"
-    },
+    "./globals.css": "./src/styles/global.css",
+    "./design-tokens.css": "./src/styles/design-tokens.css",
+    "./components/button": "./src/components/button.tsx",
+    "./components/container": "./src/components/container.tsx",
+    "./components/grid": "./src/components/grid.tsx",
+    "./components/flex": "./src/components/flex.tsx",
+    "./components/box": "./src/components/box.tsx",
+    "./components/section": "./src/components/section.tsx",
+    "./layout": "./src/layout/index.ts",
+    "./lib/utils": "./src/lib/utils.ts",
     "./package.json": "./package.json"
   },
   "sideEffects": [
@@ -92,7 +58,6 @@
     "react": "catalog:",
     "react-dom": "catalog:",
     "tailwindcss": "catalog:",
-    "tsup": "^8.5.1",
     "typescript": "catalog:",
     "vitest": "^4.1.5"
   }

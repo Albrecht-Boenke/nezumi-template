@@ -52,27 +52,22 @@ For Next.js 16.2.5 and React 19.2.6 / react-dom 19.2.6, keep server and client b
 
 ## Export Pattern
 
-Use package-map exports instead of a root barrel:
+Use package-map exports instead of a root barrel. `@nezumi/ui` is an internal
+source-first package, so public entries point at source files and app builds
+transpile them through `transpilePackages: ["@nezumi/ui"]`:
 
 ```json
 {
+  "imports": {
+    "#components/*": "./src/components/*.tsx",
+    "#lib/*": "./src/lib/*.ts"
+  },
   "exports": {
     "./globals.css": "./src/styles/global.css",
-    "./components/button": {
-      "types": "./dist/components/button.d.ts",
-      "import": "./dist/components/button.mjs",
-      "require": "./dist/components/button.js"
-    },
-    "./layout": {
-      "types": "./dist/layout/index.d.ts",
-      "import": "./dist/layout/index.mjs",
-      "require": "./dist/layout/index.js"
-    },
-    "./lib/utils": {
-      "types": "./dist/lib/utils.d.ts",
-      "import": "./dist/lib/utils.mjs",
-      "require": "./dist/lib/utils.js"
-    }
+    "./design-tokens.css": "./src/styles/design-tokens.css",
+    "./components/button": "./src/components/button.tsx",
+    "./layout": "./src/layout/index.ts",
+    "./lib/utils": "./src/lib/utils.ts"
   }
 }
 ```

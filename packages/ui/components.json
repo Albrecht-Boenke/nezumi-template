@@ -11,9 +11,9 @@
   },
   "iconLibrary": "lucide",
   "aliases": {
-    "components": "@nezumi/ui/components",
-    "ui": "@nezumi/ui/components",
-    "utils": "@nezumi/ui/lib/utils",
-    "lib": "@nezumi/ui/lib"
+    "components": "#components",
+    "ui": "#components",
+    "utils": "#lib/utils",
+    "lib": "#lib"
   }
 }

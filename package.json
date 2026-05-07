@@ -11,8 +11,7 @@
     "build": "turbo build",
     "lint": "turbo lint",
     "test": "turbo test",
-    "typecheck": "turbo typecheck",
-    "ui:build": "pnpm --filter @nezumi/ui build"
+    "typecheck": "turbo typecheck"
   },
   "devDependencies": {
     "eslint": "^9.39.2",

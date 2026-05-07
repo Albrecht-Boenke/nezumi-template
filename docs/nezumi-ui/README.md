@@ -46,6 +46,10 @@ import "@nezumi/ui/globals.css"
 
 Atomic folders remain implementation detail. When a component graduates to public API, add a leaf file in `packages/ui/src/components/<name>.tsx` and export that leaf through `package.json`.
 
+`@nezumi/ui` is source-first and internal to the monorepo. The public exports
+point at `src/` files, the package does not run a bundler build, and Next.js
+apps keep `transpilePackages: ["@nezumi/ui"]`.
+
 ## Source Of Truth
 
 Design tokens live in CSS under `packages/ui/src/styles/` and are registered with Tailwind CSS 4.2.4 `@theme`. TypeScript token objects are intentionally not part of the architecture.

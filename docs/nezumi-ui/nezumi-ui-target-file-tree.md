@@ -178,7 +178,7 @@ packages/ui/
 
 **Animations (vendor):** If following current shadcn Tailwind v4 guidance, add **`@import "tw-animate-css"`** to globals after installing `tw-animate-css` ([tailwind-v4.mdx](docs/shadcn-ui/overview/tailwind-v4.mdx)).
 
-**Build output:** shadcn’s `exports` may point at **source** `.tsx` ([package-imports.mdx](docs/shadcn-ui/overview/package-imports.mdx)). A library may instead ship **`dist/`** via a bundler (**tsup**, etc.) as long as **`exports`** and `transpilePackages` stay consistent—**this repo** uses **`tsup`** + `dist/` for `@nezumi/ui`. That is a **packaging** choice, not contradicted by Next when `transpilePackages` is set.
+**Build output:** shadcn’s monorepo guidance allows `exports` to point at **source** `.tsx` ([package-imports.mdx](docs/shadcn-ui/overview/package-imports.mdx)). **This repo** uses that source-first / Just-in-Time package model for `@nezumi/ui`: there is no package-local bundler output, and Next consumes the source via `transpilePackages`.
 
 ---
 

@@ -20,7 +20,7 @@ This file is the repo-level source of truth for framework and tooling versions u
 | `react-dom` | `^19.2.6` | `19.2.6` | Apps and `@nezumi/ui` dev dependency consume via `catalog:` |
 | `tailwindcss` | `^4.2.4` | `4.2.4` | CSS-first Tailwind v4 setup |
 | `@tailwindcss/postcss` | `^4.2.4` | `4.2.4` | App PostCSS integration |
-| `typescript` | `^6.0.3` | `6.0.3` | `@nezumi/ui` currently keeps `ignoreDeprecations: "6.0"` for the DTS build transition |
+| `typescript` | `^6.0.3` | `6.0.3` | `@nezumi/ui` typechecks source directly with `tsc --noEmit` |
 | `@types/node` | `^24.12.2` | `24.12.2` | Shared app/UI type dependency |
 | `@types/react` | `^19.2.14` | `19.2.14` | Shared app/UI type dependency |
 | `@types/react-dom` | `^19.2.3` | `19.2.3` | Shared app/UI type dependency |
@@ -52,4 +52,4 @@ This file is the repo-level source of truth for framework and tooling versions u
 
 - Update this file in the same change as any catalog or framework package bump.
 - Do not edit mirrored vendor pages just to replace every upstream version mention; keep repo-specific pins prominent in each `INDEX.md` instead.
-- For publishable packages, keep `peerDependencies` concrete semver ranges rather than `catalog:`.
+- `@nezumi/ui` is source-first and internal to this monorepo. If it becomes publishable, reintroduce an explicit package build and concrete `peerDependencies` ranges.

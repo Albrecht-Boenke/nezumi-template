@@ -30,13 +30,12 @@ Keine. Die lokalen Vendor-Dokumentationssets waren fuer diese Cleanup-Entscheidu
 - Next.js Apps behalten nur die minimalen App-Router-Quellen und ihre App-Konfiguration.
 - Tailwind CSS bleibt CSS-first konfiguriert; nur tatsaechlich verwendete Component-Token-Sheets werden importiert.
 - shadcn/ui-Monorepo-Aliase in `components.json` bleiben als Tooling-Konfiguration erhalten, auch wenn kein Barrel-Import existiert.
-- `@nezumi/ui` exponiert nur die in `package.json` und `tsup.config.ts` definierten granularen Leaf-Entrypoints.
+- `@nezumi/ui` exponiert nur die in `package.json` definierten granularen Source-Leaf-Entrypoints.
 - Interne Placeholder-Barrels, doppelte Implementierungen und stale Review-/Report-Artefakte gehoeren nicht in den produktiven Source-Tree.
 
 ## Analysierte Dateien
 
 - `packages/ui/package.json`
-- `packages/ui/tsup.config.ts`
 - `packages/ui/tsconfig.json`
 - `packages/ui/components.json`
 - `packages/ui/src/components/*`
@@ -63,7 +62,7 @@ Keine verbleibenden High-Severity-Findings nach Cleanup und Verifikation.
 - Entfernt: doppelte, nicht referenzierte Layout-Implementierungen unter `packages/ui/src/layout/{Box,Container,Flex,Grid,Section}/`.
   Risiko vorher: parallele Implementierungen konnten auseinanderlaufen, obwohl der public `@nezumi/ui/layout` Entrypoint nur die top-level Layout-Dateien baut.
 - Entfernt: unexported `packages/ui/src/atoms/Card/card.tsx` plus Card/Input-Component-Token-Sheets.
-  Risiko vorher: Tailwind-Token und Komponenten wirkten produktiv, waren aber nicht ueber `package.json`/`tsup.config.ts` erreichbar.
+  Risiko vorher: Tailwind-Token und Komponenten wirkten produktiv, waren aber nicht ueber `package.json` erreichbar.
 
 ### Niedrig
 
@@ -74,14 +73,14 @@ Keine verbleibenden High-Severity-Findings nach Cleanup und Verifikation.
 
 ## Konkrete Empfehlungen
 
-- Neue UI-Komponenten erst dann mit Component-Tokens anlegen, wenn ein public Leaf-Entrypoint in `src/components/<name>.tsx`, `tsup.config.ts` und `package.json` existiert.
+- Neue UI-Komponenten erst dann mit Component-Tokens anlegen, wenn ein public Leaf-Entrypoint in `src/components/<name>.tsx` existiert und in `package.json#exports` auf die Source-Datei zeigt.
 - Keine neuen packageweiten Barrels fuer `@nezumi/ui/components` oder `@nezumi/ui/lib` einfuehren; die dokumentierte API bleibt granular.
 - Review-Artefakte kuenftig in einem klaren Report-Namen ablegen und veraltete Zwischenberichte nach Abschluss entfernen.
 
 ## Offene Fragen oder Restrisiken
 
 - Die Architektur-Dokumentation beschreibt weiterhin `src/atoms/` als interne Implementierungsschicht. Das ist aktuell korrekt, aber weitere Atomic-Design-Stufen sollten erst wieder als echte Ordner angelegt werden, wenn sie produktive Dateien enthalten.
-- Ignorierte Build-Artefakte wie `.next`, `.turbo` und `dist` bleiben lokal vorhanden, werden aber nicht versioniert.
+- Ignorierte Build-Artefakte wie `.next` und `.turbo` bleiben lokal vorhanden, werden aber nicht versioniert.
 
 ## Verifikation
 

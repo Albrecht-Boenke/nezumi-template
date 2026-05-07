@@ -37,6 +37,10 @@ import { cn } from "@nezumi/ui/lib/utils"
 
 The root package export is intentionally absent. This keeps dependency graphs small and matches the shadcn monorepo model.
 
+The package exports TypeScript source files directly. This follows the
+source-first / Just-in-Time package model: app bundlers compile the UI package as
+part of the app build, while package-local checks use `tsc --noEmit`.
+
 ## Token Architecture
 
 Tailwind CSS 4.2.4 reads tokens from `@theme`. Semantic color names follow **[`DESIGN.md`](../../../DESIGN.md) §2** (e.g. `--color-surface`, `--color-text`, `--color-brand`); primitives are **`--color-nezumi-*`** in `tokens/colors.css` (`@theme`, OKLCH from DESIGN hex).
@@ -64,10 +68,10 @@ Then components consume generated utilities:
 - Radix UI: unified `radix-ui` package.
 - shadcn/ui: granular package exports and `components.json`.
 
-## Build Flow
+## Verification Flow
 
 ```bash
 pnpm install
-pnpm --filter @nezumi/ui build
 pnpm --filter @nezumi/ui typecheck
+pnpm turbo build
 ```

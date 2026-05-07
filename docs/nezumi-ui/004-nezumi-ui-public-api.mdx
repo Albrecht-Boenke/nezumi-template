@@ -23,52 +23,28 @@ import { cn } from "@nezumi/ui/lib/utils"
 
 ```json
 {
+  "imports": {
+    "#components/*": "./src/components/*.tsx",
+    "#lib/*": "./src/lib/*.ts"
+  },
   "exports": {
     "./globals.css": "./src/styles/global.css",
     "./design-tokens.css": "./src/styles/design-tokens.css",
-    "./components/button": {
-      "types": "./dist/components/button.d.ts",
-      "import": "./dist/components/button.mjs",
-      "require": "./dist/components/button.js"
-    },
-    "./components/box": {
-      "types": "./dist/components/box.d.ts",
-      "import": "./dist/components/box.mjs",
-      "require": "./dist/components/box.js"
-    },
-    "./components/container": {
-      "types": "./dist/components/container.d.ts",
-      "import": "./dist/components/container.mjs",
-      "require": "./dist/components/container.js"
-    },
-    "./components/flex": {
-      "types": "./dist/components/flex.d.ts",
-      "import": "./dist/components/flex.mjs",
-      "require": "./dist/components/flex.js"
-    },
-    "./components/grid": {
-      "types": "./dist/components/grid.d.ts",
-      "import": "./dist/components/grid.mjs",
-      "require": "./dist/components/grid.js"
-    },
-    "./components/section": {
-      "types": "./dist/components/section.d.ts",
-      "import": "./dist/components/section.mjs",
-      "require": "./dist/components/section.js"
-    },
-    "./layout": {
-      "types": "./dist/layout/index.d.ts",
-      "import": "./dist/layout/index.mjs",
-      "require": "./dist/layout/index.js"
-    },
-    "./lib/utils": {
-      "types": "./dist/lib/utils.d.ts",
-      "import": "./dist/lib/utils.mjs",
-      "require": "./dist/lib/utils.js"
-    }
+    "./components/button": "./src/components/button.tsx",
+    "./components/box": "./src/components/box.tsx",
+    "./components/container": "./src/components/container.tsx",
+    "./components/flex": "./src/components/flex.tsx",
+    "./components/grid": "./src/components/grid.tsx",
+    "./components/section": "./src/components/section.tsx",
+    "./layout": "./src/layout/index.ts",
+    "./lib/utils": "./src/lib/utils.ts"
   }
 }
 ```
+
+Because `@nezumi/ui` is internal to this monorepo, package exports point at
+source files. Next.js apps keep `transpilePackages: ["@nezumi/ui"]`, and
+TypeScript resolves package imports/exports through `moduleResolution: "Bundler"`.
 
 ## Why Granular Exports
 
@@ -81,10 +57,9 @@ import { cn } from "@nezumi/ui/lib/utils"
 
 1. Implement internally where it belongs.
 2. Add `src/components/<name>.tsx`.
-3. Add the matching `tsup.config.ts` entry.
-4. Add the matching conditional export that points at `dist/`.
-5. Re-export the public component and public types from that leaf.
-6. Document the consumer import path.
+3. Add the matching source export in `packages/ui/package.json`.
+4. Re-export the public component and public types from that leaf.
+5. Document the consumer import path.
 
 Example:
 
