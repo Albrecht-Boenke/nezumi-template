@@ -21,8 +21,7 @@
       "@nezumi/ui/layout": ["./src/layout/index.ts"],
       "@nezumi/ui/lib": ["./src/lib"],
       "@nezumi/ui/lib/*": ["./src/lib/*"]
-    },
-    "ignoreDeprecations": "6.0"
+    }
   },
   "include": ["src"],
   "exclude": ["dist", "node_modules"]

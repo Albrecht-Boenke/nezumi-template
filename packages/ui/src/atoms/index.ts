@@ -9,6 +9,11 @@
 
 // Re-export atoms (don't export directly from here in apps!)
 export { Button, buttonVariants, type ButtonProps } from "./Button"
+export { Container, type ContainerProps } from "./Container"
+export { Flex, type FlexProps } from "./Flex"
+export { Grid, type GridProps } from "./Grid"
+export { Box, type BoxProps } from "./Box"
+export { Section, type SectionProps } from "./Section"
 
 // Placeholder exports for other atoms
 // export { Input, inputVariants, type InputProps } from "./Input"

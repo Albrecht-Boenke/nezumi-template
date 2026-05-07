@@ -27,6 +27,31 @@
       "import": "./dist/components/button.mjs",
       "require": "./dist/components/button.js"
     },
+    "./components/container": {
+      "types": "./dist/components/container.d.ts",
+      "import": "./dist/components/container.mjs",
+      "require": "./dist/components/container.js"
+    },
+    "./components/grid": {
+      "types": "./dist/components/grid.d.ts",
+      "import": "./dist/components/grid.mjs",
+      "require": "./dist/components/grid.js"
+    },
+    "./components/flex": {
+      "types": "./dist/components/flex.d.ts",
+      "import": "./dist/components/flex.mjs",
+      "require": "./dist/components/flex.js"
+    },
+    "./components/box": {
+      "types": "./dist/components/box.d.ts",
+      "import": "./dist/components/box.mjs",
+      "require": "./dist/components/box.js"
+    },
+    "./components/section": {
+      "types": "./dist/components/section.d.ts",
+      "import": "./dist/components/section.mjs",
+      "require": "./dist/components/section.js"
+    },
     "./layout": {
       "types": "./dist/layout/index.d.ts",
       "import": "./dist/layout/index.mjs",
