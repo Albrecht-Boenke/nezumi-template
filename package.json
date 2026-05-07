@@ -9,10 +9,14 @@
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
+    "lint": "turbo lint",
+    "test": "turbo test",
     "typecheck": "turbo typecheck",
     "ui:build": "pnpm --filter @nezumi/ui build"
   },
   "devDependencies": {
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.1.0",
     "turbo": "^2.9.9",
     "typescript": "catalog:"
   }

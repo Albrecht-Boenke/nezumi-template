@@ -1,8 +1,8 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
-/* Tailwind @source: ../../../packages/ui = repo root. ../**/* = this app only; ../../** would scan all of apps/. */
+/* Tailwind @source paths are relative to this CSS file. ../**/* = this app only; ../../** would scan all of apps/. */
 @source "../../../packages/ui/src/**/*.{ts,tsx}";
-@source "../../../packages/ui/dist/**/*.{js,mjs}";
 @source "../**/*.{ts,tsx,mdx,css}";
 
 @import "@nezumi/ui/design-tokens.css";

@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Slot } from "radix-ui"
+import { Slot } from "@radix-ui/react-slot"
 import { cn, getResponsiveClasses, type Responsive } from "../../lib/utils"
 
 // -----------------------------------------------------------------------------
@@ -87,7 +87,7 @@ function Flex({
   ref,
   ...props
 }: FlexProps) {
-  const Comp = asChild ? Slot.Root : "div"
+  const Comp = asChild ? Slot : "div"
 
   return (
     <Comp

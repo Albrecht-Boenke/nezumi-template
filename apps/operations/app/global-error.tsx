@@ -37,7 +37,7 @@ export default function GlobalError({
       >
         <div style={{ maxWidth: "28rem", textAlign: "center" }}>
           <h1 style={{ fontSize: "1rem", fontWeight: 600, margin: "0 0 0.75rem" }}>
-            Operations-Konsole nicht verfuegbar
+            Operations-Konsole nicht verfügbar
           </h1>
           <p
             style={{

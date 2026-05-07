@@ -93,7 +93,7 @@ export interface BaseLayoutProps extends HTMLAttributes<HTMLElement> {
 
 // ---- Komponent-spezifische Props ----
 
-export interface BoxProps extends BaseLayoutProps {}
+export type BoxProps = BaseLayoutProps
 
 export interface FlexProps extends BaseLayoutProps {
   direction?: ResponsiveValue<FlexDirection>

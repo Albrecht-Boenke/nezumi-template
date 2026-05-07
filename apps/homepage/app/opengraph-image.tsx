@@ -15,8 +15,8 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(145deg, #0f172a 0%, #1e3a5f 55%, #2563eb 100%)",
-          color: "#f8fafc",
+          background: "linear-gradient(145deg, #121014 0%, #1a181c 58%, #47585c 100%)",
+          color: "#faf9f5",
           fontFamily:
             'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
         }}
@@ -25,7 +25,7 @@ export default function OpenGraphImage() {
           style={{
             fontSize: 72,
             fontWeight: 700,
-            letterSpacing: "-0.04em",
+            letterSpacing: 0,
             marginBottom: 16,
           }}
         >

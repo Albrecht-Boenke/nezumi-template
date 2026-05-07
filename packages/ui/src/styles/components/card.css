@@ -1,10 +1,7 @@
 @theme {
-  --card-radius: var(--radius-xl);
-  --card-padding: var(--spacing-24);
-  --card-border: var(--color-border);
-  --card-bg: var(--color-surface-raised);
-  --card-shadow: var(--shadow-none);
-  --space-content: var(--spacing-16);
-  --space-section: var(--spacing-48);
-  --space-page: var(--spacing-64);
+  --radius-card: var(--radius-xl);
+  --spacing-card: var(--spacing-24);
+  --color-card: var(--color-surface-raised);
+  --color-card-border: var(--color-border);
+  --shadow-card: var(--shadow-none);
 }

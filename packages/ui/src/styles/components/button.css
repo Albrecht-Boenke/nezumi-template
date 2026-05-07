@@ -1,10 +1,4 @@
 @theme {
-  --button-radius: var(--radius-md);
-  --button-padding-x: var(--spacing-16);
-  --button-padding-y: var(--spacing-8);
-  --button-font-size: var(--text-sm);
-  --button-font-weight: var(--font-weight-medium);
-
   /* Interactive (not in DESIGN table; derived via color-mix from semantic + primitives) */
   --color-button-brand-hover: color-mix(in oklch, var(--color-brand) 88%, var(--color-nezumi-koi));
   --color-button-brand-active: color-mix(in oklch, var(--color-brand) 78%, var(--color-nezumi-koi));

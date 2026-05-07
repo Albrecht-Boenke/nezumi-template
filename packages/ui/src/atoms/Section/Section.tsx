@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Slot } from "radix-ui"
+import { Slot } from "@radix-ui/react-slot"
 import { cn, getResponsiveClasses, type Responsive } from "../../lib/utils"
 
 const sizeMap = {
@@ -32,7 +32,7 @@ function Section({
   ref,
   ...props
 }: SectionProps) {
-  const Comp = asChild ? Slot.Root : "section"
+  const Comp = asChild ? Slot : "section"
 
   return (
     <Comp
