@@ -1,7 +1,2 @@
-/**
- * @nezumi/ui — Public Leaf: Flex
- *
- * Public export for the Flex component.
- */
-
-export { Flex, type FlexProps } from "../layout/Flex/Flex2"
+export { Flex } from "../layout/Flex"
+export type { FlexProps } from "../layout/types"

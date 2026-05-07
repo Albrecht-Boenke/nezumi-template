@@ -1,7 +1,2 @@
-/**
- * @nezumi/ui — Public Leaf: Grid
- *
- * Public export for the Grid component.
- */
-
-export { Grid, type GridProps } from "../atoms/Grid"
+export { Grid } from "../layout/Grid"
+export type { GridProps } from "../layout/types"

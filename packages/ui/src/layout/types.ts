@@ -32,7 +32,9 @@ export type AlignItems     = "start" | "center" | "end" | "stretch" | "baseline"
 export type JustifyContent = "start" | "center" | "end" | "between" | "around" | "evenly"
 export type FlexDirection  = "row" | "column" | "row-reverse" | "column-reverse"
 export type FlexWrap       = "nowrap" | "wrap" | "wrap-reverse"
-export type GridAutoFlow   = "row" | "column" | "dense"
+export type GridAutoFlow   = "row" | "column" | "dense" | "row-dense" | "column-dense"
+export type FlexDisplayValue = "flex" | "inline-flex" | "none"
+export type GridDisplayValue = "grid" | "inline-grid" | "none"
 
 /** Erlaubte display-Werte für das display-Prop */
 export type DisplayValue =
@@ -85,7 +87,7 @@ export interface BaseLayoutProps extends HTMLAttributes<HTMLElement> {
   // Polymorphic — rendert als beliebiges HTML-Element oder React-Komponente
   as?: ElementType
 
-  // React 19.2.5 / react-dom 19.2.5 — ref direkt als prop
+  // React 19.2.6 / react-dom 19.2.6 — ref direkt als prop
   ref?: Ref<HTMLElement>
 
   style?: CSSProperties
@@ -95,7 +97,8 @@ export interface BaseLayoutProps extends HTMLAttributes<HTMLElement> {
 
 export type BoxProps = BaseLayoutProps
 
-export interface FlexProps extends BaseLayoutProps {
+export interface FlexProps extends Omit<BaseLayoutProps, "display"> {
+  display?: ResponsiveValue<FlexDisplayValue>
   direction?: ResponsiveValue<FlexDirection>
   wrap?:      ResponsiveValue<FlexWrap>
   gap?:       ResponsiveValue<SpacingValue>
@@ -111,7 +114,8 @@ export interface FlexProps extends BaseLayoutProps {
   shrink?: "0" | "1"
 }
 
-export interface GridProps extends BaseLayoutProps {
+export interface GridProps extends Omit<BaseLayoutProps, "display"> {
+  display?: ResponsiveValue<GridDisplayValue>
   /**
    * Anzahl Spalten (Zahl → repeat(n, 1fr)) oder CSS-String:
    *   cols={3}                     → grid-cols-3

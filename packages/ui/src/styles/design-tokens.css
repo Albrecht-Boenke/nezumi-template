@@ -1,4 +1,11 @@
 /* Nezumi design tokens + base — import after @import "tailwindcss" in the app */
+@source inline("{sm:,md:,lg:,xl:,2xl:,}{block,inline-block,inline,hidden,flex,inline-flex,grid,inline-grid}");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}{p,px,py,pt,pr,pb,pl,m,mx,my,mt,mr,mb,ml,gap,gap-x,gap-y}-{0,1,2,4,8,12,16,24,32,40,48,56,64,96}");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}{m,mx,my,mt,mr,mb,ml}-auto");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}{flex-row,flex-col,flex-row-reverse,flex-col-reverse,flex-nowrap,flex-wrap,flex-wrap-reverse,items-start,items-center,items-end,items-stretch,items-baseline,justify-start,justify-center,justify-end,justify-between,justify-around,justify-evenly}");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}max-w-{md,2xl,4xl,6xl,7xl}");
+@source inline("{w,h,min-w,max-w,min-h,max-h}-{0,1,2,4,8,12,16,24,32,40,48,56,64,96,auto,full,screen,svh,dvh}");
+
 @import "./tokens/colors.css";
 @import "./tokens/spacing.css";
 @import "./tokens/typography.css";

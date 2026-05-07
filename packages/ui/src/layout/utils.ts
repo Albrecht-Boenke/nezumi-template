@@ -4,11 +4,13 @@
  * Responsive Tailwind-Klassen-Generierung für das Spacing-System.
  * Alle Funktionen sind pure und haben keine Side Effects.
  */
+import type { CSSProperties } from "react"
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 import type { SpacingValue } from "./spacing"
 import type {
   AlignItems,
+  BaseLayoutProps,
   DisplayValue,
   JustifyContent,
   ResponsiveValue,
@@ -193,6 +195,34 @@ export function getSpacingClasses(
   return parts.filter(Boolean).join(" ")
 }
 
+type LayoutSpacingProps = Pick<
+  BaseLayoutProps,
+  | "p" | "px" | "py" | "pt" | "pr" | "pb" | "pl"
+  | "m" | "mx" | "my" | "mt" | "mr" | "mb" | "ml"
+>
+
+export function getLayoutSpacingClasses({
+  p, px, py, pt, pr, pb, pl,
+  m, mx, my, mt, mr, mb, ml,
+}: LayoutSpacingProps): string {
+  return cn(
+    getSpacingClasses("p",  p),
+    getSpacingClasses("px", px),
+    getSpacingClasses("py", py),
+    getSpacingClasses("pt", pt),
+    getSpacingClasses("pr", pr),
+    getSpacingClasses("pb", pb),
+    getSpacingClasses("pl", pl),
+    getSpacingClasses("m",  m),
+    getSpacingClasses("mx", mx),
+    getSpacingClasses("my", my),
+    getSpacingClasses("mt", mt),
+    getSpacingClasses("mr", mr),
+    getSpacingClasses("mb", mb),
+    getSpacingClasses("ml", ml),
+  )
+}
+
 // ---- Dimension Helpers ----
 
 const W_H_KEYWORDS = ["auto", "full", "screen", "svh", "dvh"] as const
@@ -227,4 +257,36 @@ export function resolveDimension(
     .replace(/^w$/, "width")
     .replace(/^h$/, "height")
   return { style: { [styleKey]: value } }
+}
+
+type DimensionProps = Pick<
+  BaseLayoutProps,
+  "w" | "h" | "minW" | "maxW" | "minH" | "maxH"
+>
+
+export function getDimensionClassesAndStyles({
+  w,
+  h,
+  minW,
+  maxW,
+  minH,
+  maxH,
+}: DimensionProps): { className: string; style: CSSProperties } {
+  const style: CSSProperties = {}
+  const classNames: string[] = []
+
+  for (const [prefix, value] of [
+    ["w", w],
+    ["h", h],
+    ["min-w", minW],
+    ["max-w", maxW],
+    ["min-h", minH],
+    ["max-h", maxH],
+  ] as const) {
+    const resolved = resolveDimension(prefix, value)
+    if (resolved.className) classNames.push(resolved.className)
+    if (resolved.style) Object.assign(style, resolved.style)
+  }
+
+  return { className: classNames.join(" "), style }
 }

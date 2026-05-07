@@ -1,1 +1,2 @@
-export { Box, type BoxProps } from "../atoms/Box"
+export { Box } from "../layout/Box"
+export type { BoxProps } from "../layout/types"
