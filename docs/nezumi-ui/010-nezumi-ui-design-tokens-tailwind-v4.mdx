@@ -168,19 +168,6 @@ Tokens, die spezifisch für eine Komponente und ihre Varianten sind. Sie referen
   /* Button interaction tokens */
   --color-button-brand-hover: color-mix(in oklch, var(--color-brand) 88%, var(--color-nezumi-koi));
   --color-button-brand-active: color-mix(in oklch, var(--color-brand) 78%, var(--color-nezumi-koi));
-
-  /* Card tokens map to Tailwind utility namespaces */
-  --radius-card: var(--radius-xl);
-  --spacing-card: var(--spacing-24);
-  --color-card: var(--color-surface-raised);
-  --color-card-border: var(--color-border);
-  --shadow-card: var(--shadow-none);
-
-  /* Input-Tokens */
-  --input-radius: var(--radius-md);
-  --input-border-width: 1px;
-  --input-padding-x: var(--spacing-12);
-  --input-padding-y: var(--spacing-8);
 }
 ```
 
@@ -474,8 +461,7 @@ Style Drift ist der schleichende Tod eines Design Systems.
 
 ### Component Layer (Layer 3)
 - [x] Button-Interaction-Tokens (`--color-button-*`)
-- [x] Card-Tokens (`--color-card`, `--color-card-border`, `--radius-card`, `--spacing-card`, `--shadow-card`)
-- [x] Input-Tokens
+- [ ] Weitere Component-Tokens erst mit der jeweiligen Komponente anlegen
 
 ### Theming
 - [x] `.dark`-Klasse für Dark Mode (nicht `@media prefers-color-scheme`)

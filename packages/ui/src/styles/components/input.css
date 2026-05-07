@@ -1,7 +1,0 @@
-@theme {
-  --input-radius:        var(--radius-md);
-  --input-border-width:  1px;
-  --input-padding-x:     var(--spacing-12);
-  --input-padding-y:     var(--spacing-8);
-  --input-font-size:     var(--text-sm);
-}

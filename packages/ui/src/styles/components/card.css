@@ -1,7 +1,0 @@
-@theme {
-  --radius-card: var(--radius-xl);
-  --spacing-card: var(--spacing-24);
-  --color-card: var(--color-surface-raised);
-  --color-card-border: var(--color-border);
-  --shadow-card: var(--shadow-none);
-}
