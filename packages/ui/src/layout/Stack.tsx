@@ -18,7 +18,7 @@
  *     responsive gap
  *   </Stack>
  */
-import { Flex } from "./Flex"
+import { Flex } from "./Flex/Flex2"
 import type { StackProps } from "./types"
 
 export function Stack({

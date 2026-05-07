@@ -4,4 +4,4 @@
  * Public export for the Flex component.
  */
 
-export { Flex, type FlexProps } from "../atoms/Flex"
+export { Flex, type FlexProps } from "../layout/Flex/Flex2"

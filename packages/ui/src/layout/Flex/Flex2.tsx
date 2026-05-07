@@ -26,8 +26,8 @@ import {
   getResponsiveAlignmentClasses,
   getResponsiveDirection,
   resolveDimension,
-} from "./utils"
-import type { DisplayValue, FlexProps, FlexWrap, ResponsiveValue } from "./types"
+} from "../utils"
+import type { DisplayValue, FlexProps, FlexWrap, ResponsiveValue } from "../types"
 
 // ---- Wrap ----
 
