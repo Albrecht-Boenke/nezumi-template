@@ -2,39 +2,31 @@
 
 ## Aufgabenstellung
 
-Dieses Dokument beschreibt, wie `apps/members` als eigenstaendige Next.js-App-Router-Anwendung im Nezumi-Monorepo eingerichtet werden sollte. Ziel ist ein geschuetzter Mitgliederbereich bzw. Customer Portal mit klarer Trennung von App-Code, geteilter UI und spaeterer Auth-/Datenzugriffsschicht.
+Dieses Dokument beschreibt den aktuellen IST-/SOLL-Stand von `apps/members`.
+Ziel ist ein geschuetzter Mitgliederbereich bzw. Customer Portal mit klarer
+Trennung von App-Code, geteilter UI und spaeterer Auth-/Datenzugriffsschicht.
 
 ## Gelesene lokale Dokumentation
 
 - `AGENTS.md`
 - `docs/nextjs/INDEX.md`
 - `docs/nextjs/002-01-app-01-getting-started-02-project-structure.mdx`
-- `docs/nextjs/005-01-app-01-getting-started-05-server-and-client-components.mdx`
-- `docs/nextjs/022-01-app-02-guides-authentication.mdx`
-- `docs/nextjs/030-01-app-02-guides-data-security.mdx`
-- `docs/nextjs/035-01-app-02-guides-forms.mdx`
-- `docs/nextjs/061-01-app-02-guides-production-checklist.mdx`
-- `docs/nextjs/074-01-app-02-guides-testing-index.mdx`
-- `docs/nextjs/077-01-app-02-guides-testing-vitest.mdx`
-- `docs/nextjs/091-01-app-03-api-reference-01-directives-use-server.mdx`
-- `docs/nextjs/223-01-app-03-api-reference-05-config-01-next-config-js-transpilepackages.mdx`
-- `docs/turbo/INDEX.md`
-- `docs/turbo/17-crafting-your-repository-developing-applications.mdx`
-- `docs/typescript/INDEX.md`
+- `docs/nextjs/003-01-app-01-getting-started-03-layouts-and-pages.mdx`
+- `docs/nextjs/010-01-app-01-getting-started-10-error-handling.mdx`
+- `docs/nextjs/011-01-app-01-getting-started-11-css.mdx`
 - `docs/tailwind-css/INDEX.md`
 - `docs/tailwind-css/053-detecting-classes-in-source-files.mdx`
+- `docs/tailwind-css/184-upgrade-guide.mdx`
 - `docs/shadcn-ui/INDEX.md`
-- `docs/shadcn-ui/overview/monorepo.mdx`
 - `docs/shadcn-ui/overview/components-json.mdx`
-- `docs/shadcn-ui/forms/next.mdx`
+- `docs/shadcn-ui/overview/tailwind-v4.mdx`
+- `docs/turbo/INDEX.md`
+- `docs/typescript/INDEX.md`
+- `docs/typescript/062-handbook-project-config-tsconfig.json.mdx`
 - `docs/nezumi-ui/INDEX.md`
 - `docs/nezumi-ui/001-nezumi-ui-getting-started.mdx`
 - `docs/nezumi-ui/004-nezumi-ui-public-api.mdx`
-- `docs/nezumi-ui/010-nezumi-ui-design-tokens-tailwind-v4.mdx`
 - `docs/nezumi-ui/011-nezumi-ui-monorepo-architecture.mdx`
-- `docs/nezumi-ui/015-nezumi-ui-styling.mdx`
-- `docs/nezumi-ui/017-nezumi-ui-forms-inputs.mdx`
-- `docs/nezumi-ui/018-nezumi-ui-composition.mdx`
 - `docs/nezumi-ui/020-nezumi-ui-repository-file-tree.mdx`
 
 ## Gelesene externe Quellen
@@ -43,35 +35,50 @@ Keine. Die lokalen Projekt- und Vendor-Spiegel klaeren die Aufgabe ausreichend.
 
 ## Abgeleiteter Soll-Zustand
 
-`apps/members` soll eine deploybare, geschuetzte Next.js-16-App fuer angemeldete Nutzer werden. Die App konsumiert `@nezumi/ui` ueber oeffentliche Subpath-Exports, laesst Business-/Auth-Entscheidungen lokal oder in dedizierten Shared-Paketen, und importiert nicht aus anderen Apps.
-
-Server Components bleiben Standard fuer datengetriebene Seiten. Client Components werden auf interaktive Inseln wie Form Controls, Tabs, Menues oder optimistische UI begrenzt. Zugriffsschutz darf nicht nur ueber Layout-UI erfolgen; Server Actions und serverseitige Datenzugriffe muessen Autorisierung selbst pruefen.
+`apps/members` soll als eigenstaendiges Workspace-Paket lauffaehig sein und als
+Server-first Next.js-App geschuetzte Nutzeroberflaechen vorbereiten. Setup,
+App-Router-Dateien, Tailwind-v4/PostCSS, TypeScript und shadcn-CLI-Konfiguration
+liegen lokal in der App. Zugriffsschutz darf spaeter nicht nur ueber Layout-UI
+oder Client-State erfolgen; Server Actions und serverseitige Datenzugriffe
+muessen Autorisierung selbst pruefen. Client-Grenzen sollen nur freigegebene DTOs
+erhalten.
 
 ## Analysierte Dateien
 
 - `package.json`
 - `pnpm-workspace.yaml`
 - `turbo.json`
-- `apps/playground/package.json`
-- `apps/playground/next.config.ts`
-- `apps/playground/app/globals.css`
+- `apps/members/package.json`
+- `apps/members/next.config.ts`
+- `apps/members/postcss.config.mjs`
+- `apps/members/tsconfig.json`
+- `apps/members/components.json`
+- `apps/members/app/globals.css`
+- `apps/members/app/layout.tsx`
+- `apps/members/app/loading.tsx`
+- `apps/members/app/error.tsx`
+- `apps/members/app/(account)/layout.tsx`
+- `apps/members/app/(account)/page.tsx`
+- `apps/members/components/account-nav.tsx`
+- `apps/members/components/member-shell.tsx`
+- `apps/members/lib/auth/.gitkeep`
+- `apps/members/lib/data/.gitkeep`
+- `apps/members/lib/server/.gitkeep`
+- `apps/members/lib/validation/.gitkeep`
 - `packages/ui/package.json`
-- `packages/ui/components.json`
-- `packages/ui/src/components/button.tsx`
-- `packages/ui/src/layout/index.ts`
-- `packages/ui/src/lib/utils.ts`
 
-## Empfohlener Zielbaum
+## Aktueller Zielbaum
 
 ```text
 apps/members/
 ├── app/
 │   ├── globals.css
 │   ├── layout.tsx
-│   ├── page.tsx
 │   ├── loading.tsx
 │   ├── error.tsx
 │   └── (account)/
+│       ├── layout.tsx
+│       └── page.tsx
 ├── components/
 │   ├── account-nav.tsx
 │   └── member-shell.tsx
@@ -89,59 +96,67 @@ apps/members/
 
 ## Setup-Checklist
 
-- [ ] `package.json` mit `name: "members"`, `private: true`, Scripts `dev`, `build`, `start`, `typecheck` und Dependencies analog `apps/playground` anlegen.
-- [ ] Festen Entwicklungsport setzen, z. B. `next dev --turbopack -p 3001`.
-- [ ] `next.config.ts` mit `transpilePackages: ["@nezumi/ui"]` anlegen.
-- [ ] `postcss.config.mjs` mit `@tailwindcss/postcss` anlegen.
-- [ ] `app/globals.css` mit Tailwind-v4-Import, `@source` fuer `packages/ui/src`, optional `packages/ui/dist`, `@source "../"` fuer nur diese App (nicht `../../` ueber `apps/`), und `@nezumi/ui`-Tokenimport anlegen.
-- [ ] `tsconfig.json` mit `strict`, `moduleResolution: "bundler"`, `jsx: "react-jsx"`, Next-Plugin und lokalem Alias nur fuer App-Code anlegen.
-- [ ] `app/layout.tsx` als Server Component behalten und nur shell-weite, nicht-sensitive UI dort platzieren.
-- [ ] Geschuetzte Route Groups wie `app/(account)/...` nutzen; nicht-routable Hilfsdateien in `_components`, `_lib` oder App-Root-`components/` colocaten.
-- [ ] `loading.tsx`, `error.tsx` und leere/fehlende Zustandsoberflaechen frueh vorsehen, da Members-Flows stark datenabhaengig sind.
-- [ ] Server Actions und Datenzugriffe mit eigener Auth-/Authorization-Pruefung planen; nicht auf Proxy, Layout oder Client-State allein verlassen.
-- [ ] `lib/data/*` als server-only Data Access Layer planen; keine rohen User-, Membership-, Billing- oder Entitlement-Records an Client Components weiterreichen.
-- [ ] Explizite DTOs fuer Client-Grenzen definieren; nur minimale, freigegebene Felder serialisieren.
-- [ ] Formulare mit Server Actions oder einem bewusst gewaehlten Form-Stack aufbauen; Validierung serverseitig absichern.
-- [ ] Forms mit `useActionState`, serverseitiger Validierung und Field-/FieldGroup-Pattern planen; Fehlerzustand ueber `aria-invalid` und `data-invalid` ausdruecken.
-- [ ] Member-Domaenenbereiche schneiden: Account/Profile, Membership/Plan, Billing/Documents, Support/Requests, Notifications/Preferences, Consent/Privacy.
-- [ ] `components.json` fuer shadcn-CLI-Nutzung anlegen und mit `packages/ui/components.json` bei `style`, `iconLibrary`, `baseColor` synchron halten.
-- [ ] Keine Imports aus `homepage`, `operations` oder `playground`; geteilte UI/Logik ueber `packages/*`.
-- [ ] Teststrategie festlegen: Unit-/Component-Tests fuer Validierung und synchrone UI; E2E fuer Login-Gate, Dashboard, Profilmutation und sensitive Dokumentzugriffe.
-- [ ] Member-spezifische Env Vars in Turbo-Hashing und Deployment-Umgebung beruecksichtigen; Secrets nie mit `NEXT_PUBLIC_` exponieren.
-- [ ] Production-Gates definieren: `pnpm --filter @nezumi/ui build`, `pnpm --filter members typecheck`, `pnpm --filter members build`.
+- [x] `package.json` mit `name: "members"`, `private: true`, Scripts `dev`, `build`, `lint`, `start`, `typecheck` und Dependencies vorhanden.
+- [x] Fester Entwicklungsport ist gesetzt: `next dev --turbopack -p 3001`.
+- [x] `next.config.ts` setzt `transpilePackages: ["@nezumi/ui"]`.
+- [x] `postcss.config.mjs` nutzt `@tailwindcss/postcss`.
+- [x] `app/globals.css` importiert Tailwind v4, scannt `../../../packages/ui/src` und nur diese App via `@source "../"`, und importiert `@nezumi/ui/design-tokens.css`.
+- [x] `tsconfig.json` ist als striktes Next-/TypeScript-Projekt mit `moduleResolution: "bundler"` und Next-Plugin vorhanden.
+- [x] `components.json` ist fuer shadcn-CLI-Nutzung vorhanden; Tailwind-v4-`config` ist leer, `style`, `baseColor`, `cssVariables` und `iconLibrary` sind gesetzt.
+- [x] Root Layout, Loading- und Error-UI sind vorhanden.
+- [x] Account Route Group `app/(account)` ist vorhanden.
+- [x] Lokale Shell-Komponenten `member-shell.tsx` und `account-nav.tsx` sind vorhanden.
+- [x] Platzhalterordner fuer `lib/auth`, `lib/data`, `lib/server` und `lib/validation` sind vorhanden.
+- [ ] Auth-Anbieter, Session-Modell und serverseitige Authorization-Regeln festlegen.
+- [ ] Data Access Layer und DTO-Kontrakte implementieren; aktuell existieren nur Platzhalterordner.
+- [ ] Form-/Validation-Pattern konkretisieren und serverseitig absichern.
+- [ ] Teststrategie fuer Login-Gate, Dashboard, Profilmutation und sensitive Datenzugriffe definieren.
+- [ ] Build- und Typecheck-Gates nach relevanten Aenderungen laufen lassen: `pnpm --filter @nezumi/ui build`, `pnpm --filter members typecheck`, `pnpm --filter members build`.
 
 ## Findings nach Schweregrad
 
 ### High
 
-- `apps/members` ist aktuell nur ein Zielordner ohne App-Manifest und ohne Next-Struktur. Dadurch ist es kein ausfuehrbares Workspace-Paket und wird von Turbo nicht als App mit eigenen Tasks behandelt.
+Keine gesicherten High-Findings im aktuellen Scope. Manifest, Scripts,
+App-Router-Struktur und Konfiguration existieren.
 
 ### Medium
 
-- Fuer einen geschuetzten Mitgliederbereich fehlt ein explizites Auth-/Authorization-Zielbild. Next.js-Produktionsdoku fordert, Autorisierung in Server Actions und serverseitigen Zugriffen zu pruefen; Layout- oder Proxy-Schutz allein reicht als Enterprise-Standard nicht.
-- Es gibt noch keine Member-spezifische Data Access Layer und keine DTO-Kontrakte. Fuer ein Portal mit personenbezogenen Daten ist das vor Feature-Implementierung ein Architektur-Blocker.
-- Die UI-Package exportiert aktuell nur wenige oeffentliche Leaves (`button`, `layout`, `lib/utils`, CSS). Members-spezifische UI darf deshalb nicht direkt aus internen Atomic-Ordnern importieren, sondern braucht entweder lokale Kompositionen oder neue oeffentliche UI-Exports.
+- Auth-/Authorization ist noch nicht implementiert. Risiko: Der aktuelle
+  Mitgliederbereich ist eine Shell und darf nicht als geschuetzter Datenbereich
+  bewertet werden.
+- DAL-/DTO-Kontrakte sind noch nicht implementiert. Risiko: Spaetere Features
+  koennten personenbezogene Daten zu breit an Client Components serialisieren,
+  wenn diese Grenze nicht vor den ersten Datenfluesse festgelegt wird.
+- Es gibt in diesem Scope keinen aktuellen Nachweis, dass `members` nach den
+  letzten parallelen Aenderungen erfolgreich typecheckt und baut.
 
 ### Low
 
-- Ein `components.json` ist fuer Runtime nicht erforderlich, aber fuer shadcn-CLI-Workflows im Monorepo empfohlen/erforderlich. Ohne diese Datei werden spaetere CLI-Adds wahrscheinlich falsche Zielpfade oder Aliase erzeugen.
+- `components.json` ist fuer Runtime nicht erforderlich, bleibt aber fuer
+  shadcn-CLI-Workflows korrekt vorbereitet.
 
 ## Konkrete Empfehlungen
 
-- Members zuerst als Shell mit Auth-Grenzen, Loading/Error States und sauberer Datenzugriffskonvention anlegen; erst danach fachliche Screens ausbauen.
-- Strikte App-Isolation beibehalten: alles Wiederverwendbare entweder nach `packages/ui` oder in ein spaeteres Domain-Package, nicht zwischen Apps kopieren.
-- Client Components auf Bedienoberflaechen begrenzen; Seiten, Layouts und Datenladen bleiben Server-first.
+- Das technische Setup von Members nicht wiederholen; die naechste Arbeit sollte Auth, DAL/DTOs,
+  Validierung und Verifikation betreffen.
+- Client Components auf interaktive Inseln begrenzen; Seiten, Layouts und
+  Datenladen bleiben Server-first.
+- Keine Imports aus `homepage`, `operations` oder `playground`; geteilte UI oder
+  Logik gehoert in `packages/*`.
 
 ## Offene Fragen / Restrisiken
 
 - Welcher Auth-Anbieter und welches Session-Modell sollen verwendet werden?
-- Welche Datenquelle ist verbindlich, und gibt es Row-Level- oder rollenbasierte Autorisierung?
-- Braucht `members` eigene Domain/Subdomain, eigene Env-Variablen und eigene Observability-Signale?
-- Welche Compliance-Anforderungen gelten fuer PII, Billing-Dokumente, Export und Loeschung?
+- Welche Datenquelle ist verbindlich, und gibt es Row-Level- oder rollenbasierte
+  Autorisierung?
+- Braucht `members` eigene Domain/Subdomain, eigene Env-Variablen und eigene
+  Observability-Signale?
+- Welche Compliance-Anforderungen gelten fuer PII, Billing-Dokumente, Export und
+  Loeschung?
 
 ## Vorgeschlagene naechste Schritte
 
-1. `apps/members` technisch scaffolden.
-2. Auth-/Authorization-Entscheidung dokumentieren, bevor geschuetzte Datenfluesse implementiert werden.
-3. DAL-/DTO-Kontrakte fuer die ersten Member-Flows festlegen.
-4. Erste Build-/Typecheck-Pipeline mit `pnpm --filter members build` absichern.
+1. Auth-/Authorization-Entscheidung dokumentieren.
+2. DAL-/DTO-Kontrakte fuer die ersten Member-Flows festlegen.
+3. Typecheck und Build im Turbo-/Workspace-Kontext verifizieren.

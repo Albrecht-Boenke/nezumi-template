@@ -1,6 +1,6 @@
 # Nezumi Template
 
-Monorepo template: **Next.js 16.2.4** (App Router, Turbopack) + **`@nezumi/ui`** — a small, Radix‑based, **shadcn‑compatible** UI package on **React 19.2.5**, **react-dom 19.2.5**, and **Tailwind CSS 4.2.4**.
+Monorepo template: **Next.js 16.2.5** (App Router, Turbopack) + **`@nezumi/ui`** — a small, Radix‑based, **shadcn‑compatible** UI package on **React 19.2.6**, **react-dom 19.2.6**, and **Tailwind CSS 4.2.4**.
 
 Verbindliche Versionsliste (Catalog / `package.json`): [`FRAMEWORK_VERSION_REFERENCES.md`](FRAMEWORK_VERSION_REFERENCES.md).
 

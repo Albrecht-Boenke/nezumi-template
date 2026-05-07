@@ -33,7 +33,7 @@ Subagents haben zusaetzlich relevante Ausschnitte aus `docs/tailwind-css/047-col
 
 ## Gelesene externe Quellen
 
-Keine. Die lokale Vendor- und Projektdokumentation war fuer diese Review-Frage ausreichend. Die lokalen Indizes referenzieren `FRAMEWORK_VERSION_REFERENCES.md`; diese Datei war im Checkout nicht auffindbar.
+Keine. Die lokale Vendor- und Projektdokumentation war fuer diese Review-Frage ausreichend. Historischer Hinweis: Zum Zeitpunkt dieser Review war `FRAMEWORK_VERSION_REFERENCES.md` im Checkout nicht auffindbar; dieses Docs-/Config-Finding wurde am 2026-05-07 geschlossen, siehe `DOCS_UPDATE_REPORT.md`.
 
 ## Abgeleiteter SOLL-Zustand
 

@@ -5,7 +5,18 @@ description: Handbook and TSConfig mirrors; flat numbered `NNN-*.mdx` files; see
 
 # TypeScript documentation
 
-Offline mirror: flat files `NNN-slug.mdx` in this directory (`NNN` is three digits). Stack pins: [`FRAMEWORK_VERSION_REFERENCES.md`](../../FRAMEWORK_VERSION_REFERENCES.md).
+## Project pins (read first)
+
+Project Catalog pins from `pnpm-workspace.yaml`:
+
+- `typescript`: `^6.0.3`
+- `@types/node`: `^24.12.2`
+- `@types/react`: `^19.2.14`
+- `@types/react-dom`: `^19.2.3`
+
+The root `package.json` declares `typescript` as `catalog:`. These are workspace Catalog ranges, not proof of the exact installed version. The offline mirror in this directory is reference text from typescriptlang.org and does not prove the installed project version. For an exact resolved version, verify the lockfile or the active install. If present, the cross-framework stack summary is [`../../FRAMEWORK_VERSION_REFERENCES.md`](../../FRAMEWORK_VERSION_REFERENCES.md).
+
+Offline mirror: flat files `NNN-slug.mdx` in this directory (`NNN` is three digits).
 
 ## Purpose
 

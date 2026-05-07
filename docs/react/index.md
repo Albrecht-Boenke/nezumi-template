@@ -5,7 +5,18 @@ description: Offline react.dev mirror; flat numbered `NNN-*.mdx` files; see “A
 
 # React documentation
 
-Offline mirror: flat files `NNN-slug.mdx` in this directory (`NNN` is three digits). Stack pins: [`FRAMEWORK_VERSION_REFERENCES.md`](../../FRAMEWORK_VERSION_REFERENCES.md).
+## Project pins (read first)
+
+Project Catalog pins from `pnpm-workspace.yaml`:
+
+- `react`: `^19.2.6`
+- `react-dom`: `^19.2.6`
+- `@types/react`: `^19.2.14`
+- `@types/react-dom`: `^19.2.3`
+
+These are the workspace Catalog ranges used by packages that declare `catalog:`. The offline mirror in this directory is reference text from react.dev and does not prove the installed project version. For an exact resolved version, verify the lockfile or the active install. If present, the cross-framework stack summary is [`../../FRAMEWORK_VERSION_REFERENCES.md`](../../FRAMEWORK_VERSION_REFERENCES.md).
+
+Offline mirror: flat files `NNN-slug.mdx` in this directory (`NNN` is three digits).
 
 ## Purpose
 
@@ -20,7 +31,7 @@ It is not intended to replace individual docs.
 
 ### Nezumi Template (repo context)
 
-This workspace pins **`react`** and **`react-dom` to `^19.2.5` (typically resolved to **19.2.5**). Text in the mirrored pages may say “React 19” in the general sense; stack truth is in `FRAMEWORK_VERSION_REFERENCES.md`.
+Text in the mirrored pages may say "React 19" in the general sense. Treat the project Catalog above as the local version constraint, and verify resolved versions separately when behavior depends on an exact patch version.
 
 **MDX note:** Pages may contain JSX and custom tags from react.dev; plain Markdown viewers might render them oddly. The text is still authoritative mirror content.
 
@@ -296,4 +307,3 @@ Use this file as the **single navigation root**. All pages are **flat** `NNN-keb
 |------|------|
 | `INDEX.md` | This navigation file |
 | `NNN-*.mdx` | Mirror pages (number + path-derived slug) |
-

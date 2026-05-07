@@ -59,7 +59,7 @@
 - **Offen:** `input.css` ohne public Input-Komponente.
 - **Offen:** Layout-Helper-Deduplizierung und präziseres polymorphes Typing.
 - **Offen:** Shared App-/Next-/TypeScript-Config statt duplizierter App-Konfiguration.
-- **Offen:** `FRAMEWORK_VERSION_REFERENCES.md`, Root-`tsconfig.json`, `CLAUDE.md` und stale App-Roadmaps.
+- **Gefixt am 2026-05-07:** `FRAMEWORK_VERSION_REFERENCES.md`, Root-`tsconfig.json`-Entscheidung, `CLAUDE.md` und stale App-Roadmaps; siehe `DOCS_UPDATE_REPORT.md`.
 
 ### Low
 

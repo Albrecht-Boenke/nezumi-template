@@ -5,6 +5,19 @@ description: Hierarchical index (v4 docs mirror; local `.mdx` under `overview/`,
 
 # shadcn/ui documentation
 
+## Project pins (read first)
+
+Project Catalog pins from `pnpm-workspace.yaml` relevant to this doc set:
+
+- `next`: `^16.2.5`
+- `react`: `^19.2.6`
+- `react-dom`: `^19.2.6`
+- `tailwindcss`: `^4.2.4`
+- `@tailwindcss/postcss`: `^4.2.4`
+- `typescript`: `^6.0.3`
+
+There is no workspace Catalog pin for a `shadcn` package in this repository. Generated shadcn/ui-style code and component dependencies must be checked in the actual app or package files, for example `packages/ui/package.json`. The offline mirror in this directory is reference text from ui.shadcn.com and does not prove the installed project version. For exact resolved versions, verify the lockfile or the active install. If present, the cross-framework stack summary is [`../../FRAMEWORK_VERSION_REFERENCES.md`](../../FRAMEWORK_VERSION_REFERENCES.md).
+
 ## Purpose
 
 This file is a high-level semantic index of the documentation.

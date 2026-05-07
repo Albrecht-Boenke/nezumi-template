@@ -5,7 +5,20 @@ description: Handbook mirror; flat numbered `NNN-*.mdx` files; see "Agent retrie
 
 # Next.js documentation
 
-Offline mirror: flat files `NNN-slug.mdx` in this directory (`NNN` is three digits). Stack pins: [`FRAMEWORK_VERSION_REFERENCES.md`](../../FRAMEWORK_VERSION_REFERENCES.md).
+## Project pins (read first)
+
+Project Catalog pins from `pnpm-workspace.yaml`:
+
+- `next`: `^16.2.5`
+- `react`: `^19.2.6`
+- `react-dom`: `^19.2.6`
+- `typescript`: `^6.0.3`
+- `tailwindcss`: `^4.2.4`
+- `@tailwindcss/postcss`: `^4.2.4`
+
+These are the workspace Catalog ranges used by packages that declare `catalog:`. The offline mirror in this directory is reference text from nextjs.org and does not prove the installed project version. For an exact resolved version, verify the lockfile or the active install. If present, the cross-framework stack summary is [`../../FRAMEWORK_VERSION_REFERENCES.md`](../../FRAMEWORK_VERSION_REFERENCES.md).
+
+Offline mirror: flat files `NNN-slug.mdx` in this directory (`NNN` is three digits).
 
 ## Purpose
 

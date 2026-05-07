@@ -5,6 +5,19 @@ description: Hierarchical index
 
 # Turborepo documentation
 
+## Project pins (read first)
+
+Project Catalog pins from `pnpm-workspace.yaml` that affect Turborepo-managed tasks:
+
+- `next`: `^16.2.5`
+- `react`: `^19.2.6`
+- `react-dom`: `^19.2.6`
+- `tailwindcss`: `^4.2.4`
+- `@tailwindcss/postcss`: `^4.2.4`
+- `typescript`: `^6.0.3`
+
+The root `package.json` pins `turbo` directly as `^2.9.9`; it is not a workspace Catalog entry. These are version ranges, not proof of exact installed versions. The offline mirror in this directory is reference text from turbo.build and does not prove the installed project version. For exact resolved versions, verify the lockfile or the active install. If present, the cross-framework stack summary is [`../../FRAMEWORK_VERSION_REFERENCES.md`](../../FRAMEWORK_VERSION_REFERENCES.md).
+
 ## Purpose
 
 This file is a high-level semantic index of the documentation.
@@ -96,4 +109,3 @@ It is not intended to replace individual docs.
 - [75 — Package task in single-package workspace error](./75-messages-package-task-in-single-package-workspace.mdx) | Type: Conceptual | Summary: Learn more about errors with package tasks in single-package workspaces. | Topics: messages, package-task-in-single-package-workspace
 - [76 — Recursive `turbo` invocations](./76-messages-recursive-turbo-invocations.mdx) | Type: Conceptual | Summary: Learn more about errors with recursive scripts and tasks in Turborepo. | Topics: messages, recursive-turbo-invocations
 - [77 — Unnecessary package task syntax error](./77-messages-unnecessary-package-task-syntax.mdx) | Type: Conceptual | Summary: Learn more about errors with unnecessary package task syntax in Turborepo. | Topics: messages, unnecessary-package-task-syntax
-

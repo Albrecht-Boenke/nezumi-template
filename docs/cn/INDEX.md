@@ -5,7 +5,18 @@ description: Offline mirror: flat files `NNN-slug.mdx`; clsx + tailwind-merge; s
 
 # Class merging (`cn`) documentation
 
-Offline mirror: flat files `NNN-kebab-slug.mdx` in this directory (`NNN` is three digits). Use with [`tailwind-merge`](https://www.npmjs.com/package/tailwind-merge) / [`clsx`](https://www.npmjs.com/package/clsx) versions pinned in your app (see root `package.json` / lockfile).
+## Project pins (read first)
+
+Project Catalog pins from `pnpm-workspace.yaml` relevant to class merging:
+
+- `tailwindcss`: `^4.2.4`
+- `react`: `^19.2.6`
+- `react-dom`: `^19.2.6`
+- `typescript`: `^6.0.3`
+
+There are no workspace Catalog pins for `clsx` or `tailwind-merge` in this repository. `packages/ui/package.json` currently declares `clsx` as `^2.1.1`, `tailwind-merge` as `^3.5.0`, and `class-variance-authority` as `^0.7.1`. These are package ranges, not proof of exact installed versions. The offline mirror in this directory is reference text and does not prove the installed project version. For exact resolved versions, verify the lockfile or the active install. If present, the cross-framework stack summary is [`../../FRAMEWORK_VERSION_REFERENCES.md`](../../FRAMEWORK_VERSION_REFERENCES.md).
+
+Offline mirror: flat files `NNN-kebab-slug.mdx` in this directory (`NNN` is three digits).
 
 ## Purpose
 

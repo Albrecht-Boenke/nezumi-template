@@ -6,6 +6,9 @@ Abgearbeitete und widerlegte Findings wurden entfernt. Details zur Validierung s
 
 ## Erledigt
 
+- `FRAMEWORK_VERSION_REFERENCES.md` wurde als Root-SSOT fuer Catalog-/Lockfile-Versionen ergaenzt.
+- Vendor-Doc-INDEX-Dateien nennen die Projekt-Catalog-Pins prominent und unterscheiden Offline-Mirror von installierter Version.
+- App-Roadmap-Checklisten wurden mit dem aktuellen App-Scaffold-Stand synchronisiert; erledigte Setup-Punkte sind markiert und verbleibende Risiken app-spezifisch eingegrenzt.
 - Root-Scripts `lint` und `test` wurden ergänzt.
 - `turbo.json` enthält `lint` und `test`.
 - ESLint Flat Config mit `eslint-config-next` wurde angelegt.
@@ -13,12 +16,9 @@ Abgearbeitete und widerlegte Findings wurden entfernt. Details zur Validierung s
 - `next-env.d.ts` ist in `.gitignore` aufgenommen.
 - `@radix-ui/react-slot` ersetzt den Radix-Monolith im UI-Package.
 - `docs/nezumi-ui/001`, `004` und `010` wurden an den aktuellen Import-, Export- und Token-Stand angepasst.
+- Root-`tsconfig.json`-Finding ist geschlossen: Die bewusste Alternative ist in [`../ROOT_TSCONFIG_DECISION.md`](../ROOT_TSCONFIG_DECISION.md) dokumentiert. Next-App-Configs bleiben aktuell explizit pro App; `packages/ui` behaelt eine eigene TS-Build-Konfiguration fuer Declaration-/Export-Ausgaben.
+- `CLAUDE.md` ist als klarer Verweis auf `AGENTS.md` repariert.
 
 ## Noch offen
 
-- `FRAMEWORK_VERSION_REFERENCES.md` wird referenziert, existiert aber nicht.
-- Root-`tsconfig.json` oder eine dokumentierte bewusste Alternative fehlt.
-- `CLAUDE.md` sollte repariert oder als klarer Verweis auf `AGENTS.md` dokumentiert werden.
-- App-Roadmap-Checklisten sind stale und sollten separat synchronisiert oder archiviert werden.
-- Vendor-Doku-Spiegel enthalten naturgemäß ältere Framework-Versionen; die Projekt-Catalog-Pins sollten prominenter in den INDEX-Dateien genannt werden.
 - `ignoreDeprecations: "6.0"` bleibt bewusst gesetzt, bis das TS6/tsup-DTS-`baseUrl`-Thema vor TypeScript 7 migriert ist.

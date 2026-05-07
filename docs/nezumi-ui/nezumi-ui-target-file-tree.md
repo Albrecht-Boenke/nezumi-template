@@ -2,7 +2,7 @@
 
 This document describes a **target** monorepo layout and responsibilities. **Normative behavior and structure for frameworks and tools** come from the **offline vendor mirrors** under `docs/` (Turborepo, Next.js, Tailwind CSS, shadcn/ui, TypeScript). Where the vendors are silent (naming-only choices, optional packages), **this repository’s current tree** is used as the tie-breaker.
 
-**Pinned tool versions** (Next.js 16.2.4, React 19.2.x, Tailwind 4.2.4, pnpm 10.x, TypeScript 6.x, etc.) should follow your workspace **catalog / lockfile**; they are not repeated here as architecture rules.
+**Pinned tool versions** (Next.js 16.2.5, React 19.2.x, Tailwind 4.2.4, pnpm 10.x, TypeScript 6.x, etc.) should follow your workspace **catalog / lockfile**; they are not repeated here as architecture rules.
 
 ---
 

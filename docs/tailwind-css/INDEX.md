@@ -5,9 +5,17 @@ description: Offline mirror; flat numbered `NNN-*.mdx` files; see "Agent retriev
 
 # Tailwind CSS documentation
 
-Offline mirror: flat files `NNN-slug.mdx` in this directory (`NNN` is three digits). Stack pins: [`FRAMEWORK_VERSION_REFERENCES.md`](../../FRAMEWORK_VERSION_REFERENCES.md).
+## Project pins (read first)
 
-**Bundled versions (Nezumi Template):** `tailwindcss` and `@tailwindcss/postcss` resolve to **4.2.4** (pnpm Catalog).
+Project Catalog pins from `pnpm-workspace.yaml`:
+
+- `tailwindcss`: `^4.2.4`
+- `@tailwindcss/postcss`: `^4.2.4`
+- `typescript`: `^6.0.3`
+
+These are the workspace Catalog ranges used by packages that declare `catalog:`. The offline mirror in this directory is reference text from tailwindcss.com and does not prove the installed project version. For an exact resolved version, verify the lockfile or the active install. If present, the cross-framework stack summary is [`../../FRAMEWORK_VERSION_REFERENCES.md`](../../FRAMEWORK_VERSION_REFERENCES.md).
+
+Offline mirror: flat files `NNN-slug.mdx` in this directory (`NNN` is three digits).
 
 ## Purpose
 
@@ -245,4 +253,3 @@ Use this file as the **single navigation root**. All pages are **flat** `NNN-keb
 | `INDEX.md` | This navigation file |
 | `README.md` | Upstream readme from the documentation project |
 | `NNN-*.mdx` | Mirror pages (see numbering in sections above) |
-
