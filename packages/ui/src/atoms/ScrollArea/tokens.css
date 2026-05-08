@@ -25,10 +25,7 @@
   --ease-scroll-area-exit: var(--ease-in);
 
   /* Layout geometry tokens */
-  --spacing-scroll-area-inline-size: 100%;
-  --spacing-scroll-area-block-size: auto;
   --spacing-scroll-area-min-size: var(--spacing-0);
-  --spacing-scroll-area-max-size: 100%;
   --spacing-scroll-area-handle-size: var(--spacing-8);
   --color-scroll-area-handle: var(--color-border);
   --color-scroll-area-handle-hover: var(--color-text-muted);
@@ -44,7 +41,6 @@
   --color-scroll-area-disabled-surface: var(--color-surface-muted);
   --color-scroll-area-disabled-text: var(--color-text-muted);
   --color-scroll-area-focus-ring: var(--color-ring);
-  --opacity-scroll-area-disabled: 0.5;
   --spacing-scroll-area-action-height-sm: var(--spacing-32);
   --spacing-scroll-area-action-height-md: var(--spacing-40);
   --spacing-scroll-area-action-height-lg: var(--spacing-48);

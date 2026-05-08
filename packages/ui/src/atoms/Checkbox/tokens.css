@@ -53,7 +53,6 @@
   --color-checkbox-disabled-surface: var(--color-surface-muted);
   --color-checkbox-disabled-text: var(--color-text-muted);
   --color-checkbox-focus-ring: var(--color-ring);
-  --opacity-checkbox-disabled: 0.5;
   --spacing-checkbox-action-height-sm: var(--spacing-32);
   --spacing-checkbox-action-height-md: var(--spacing-40);
   --spacing-checkbox-action-height-lg: var(--spacing-48);

@@ -6,8 +6,8 @@
   --color-sidebar-surface-muted: var(--color-surface-muted);
   --color-sidebar-text: var(--color-text);
   --color-sidebar-text-muted: var(--color-text-muted);
-  --color-sidebar-border: var(--color-border);
-  --color-sidebar-ring: var(--color-ring);
+  --color-sidebar-component-border: var(--color-border);
+  --color-sidebar-component-ring: var(--color-ring);
   --spacing-sidebar-gap: var(--spacing-8);
   --spacing-sidebar-padding-x: var(--spacing-16);
   --spacing-sidebar-padding-y: var(--spacing-12);
@@ -26,11 +26,11 @@
 
   /* Panel slots */
   --color-sidebar-panel-surface: var(--color-surface-raised);
-  --color-sidebar-panel-header-surface: transparent;
+  --color-sidebar-panel-header-surface: var(--color-surface-raised);
   --color-sidebar-panel-header-text: var(--color-text);
   --color-sidebar-panel-description-text: var(--color-text-muted);
-  --color-sidebar-panel-content-surface: transparent;
-  --color-sidebar-panel-footer-surface: transparent;
+  --color-sidebar-panel-content-surface: var(--color-surface-raised);
+  --color-sidebar-panel-footer-surface: var(--color-surface-raised);
   --spacing-sidebar-panel-header-gap: var(--spacing-8);
   --spacing-sidebar-panel-header-padding-x: var(--spacing-24);
   --spacing-sidebar-panel-header-padding-y: var(--spacing-24);
@@ -72,7 +72,6 @@
   --color-sidebar-disabled-surface: var(--color-surface-muted);
   --color-sidebar-disabled-text: var(--color-text-muted);
   --color-sidebar-focus-ring: var(--color-ring);
-  --opacity-sidebar-disabled: 0.5;
   --spacing-sidebar-action-height-sm: var(--spacing-32);
   --spacing-sidebar-action-height-md: var(--spacing-40);
   --spacing-sidebar-action-height-lg: var(--spacing-48);

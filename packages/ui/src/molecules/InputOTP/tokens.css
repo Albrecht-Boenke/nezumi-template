@@ -53,7 +53,6 @@
   --color-input-otp-disabled-surface: var(--color-surface-muted);
   --color-input-otp-disabled-text: var(--color-text-muted);
   --color-input-otp-focus-ring: var(--color-ring);
-  --opacity-input-otp-disabled: 0.5;
   --spacing-input-otp-action-height-sm: var(--spacing-32);
   --spacing-input-otp-action-height-md: var(--spacing-40);
   --spacing-input-otp-action-height-lg: var(--spacing-48);

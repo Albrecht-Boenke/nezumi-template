@@ -53,7 +53,6 @@
   --color-input-group-disabled-surface: var(--color-surface-muted);
   --color-input-group-disabled-text: var(--color-text-muted);
   --color-input-group-focus-ring: var(--color-ring);
-  --opacity-input-group-disabled: 0.5;
   --spacing-input-group-action-height-sm: var(--spacing-32);
   --spacing-input-group-action-height-md: var(--spacing-40);
   --spacing-input-group-action-height-lg: var(--spacing-48);

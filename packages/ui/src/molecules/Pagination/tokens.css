@@ -50,7 +50,6 @@
   --color-pagination-disabled-surface: var(--color-surface-muted);
   --color-pagination-disabled-text: var(--color-text-muted);
   --color-pagination-focus-ring: var(--color-ring);
-  --opacity-pagination-disabled: 0.5;
   --spacing-pagination-action-height-sm: var(--spacing-32);
   --spacing-pagination-action-height-md: var(--spacing-40);
   --spacing-pagination-action-height-lg: var(--spacing-48);

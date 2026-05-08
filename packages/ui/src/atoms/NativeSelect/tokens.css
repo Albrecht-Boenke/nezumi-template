@@ -53,7 +53,6 @@
   --color-native-select-disabled-surface: var(--color-surface-muted);
   --color-native-select-disabled-text: var(--color-text-muted);
   --color-native-select-focus-ring: var(--color-ring);
-  --opacity-native-select-disabled: 0.5;
   --spacing-native-select-action-height-sm: var(--spacing-32);
   --spacing-native-select-action-height-md: var(--spacing-40);
   --spacing-native-select-action-height-lg: var(--spacing-48);

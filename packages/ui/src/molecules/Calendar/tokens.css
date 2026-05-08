@@ -26,11 +26,11 @@
 
   /* Panel slots */
   --color-calendar-panel-surface: var(--color-surface-raised);
-  --color-calendar-panel-header-surface: transparent;
+  --color-calendar-panel-header-surface: var(--color-surface-raised);
   --color-calendar-panel-header-text: var(--color-text);
   --color-calendar-panel-description-text: var(--color-text-muted);
-  --color-calendar-panel-content-surface: transparent;
-  --color-calendar-panel-footer-surface: transparent;
+  --color-calendar-panel-content-surface: var(--color-surface-raised);
+  --color-calendar-panel-footer-surface: var(--color-surface-raised);
   --spacing-calendar-panel-header-gap: var(--spacing-8);
   --spacing-calendar-panel-header-padding-x: var(--spacing-24);
   --spacing-calendar-panel-header-padding-y: var(--spacing-24);
@@ -56,7 +56,6 @@
   --color-calendar-disabled-surface: var(--color-surface-muted);
   --color-calendar-disabled-text: var(--color-text-muted);
   --color-calendar-focus-ring: var(--color-ring);
-  --opacity-calendar-disabled: 0.5;
   --spacing-calendar-action-height-sm: var(--spacing-32);
   --spacing-calendar-action-height-md: var(--spacing-40);
   --spacing-calendar-action-height-lg: var(--spacing-48);

@@ -44,7 +44,6 @@
   --color-avatar-disabled-surface: var(--color-surface-muted);
   --color-avatar-disabled-text: var(--color-text-muted);
   --color-avatar-focus-ring: var(--color-ring);
-  --opacity-avatar-disabled: 0.5;
   --spacing-avatar-action-height-sm: var(--spacing-32);
   --spacing-avatar-action-height-md: var(--spacing-40);
   --spacing-avatar-action-height-lg: var(--spacing-48);

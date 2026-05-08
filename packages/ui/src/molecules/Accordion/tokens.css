@@ -26,11 +26,11 @@
 
   /* Panel slots */
   --color-accordion-panel-surface: var(--color-surface-raised);
-  --color-accordion-panel-header-surface: transparent;
+  --color-accordion-panel-header-surface: var(--color-surface-raised);
   --color-accordion-panel-header-text: var(--color-text);
   --color-accordion-panel-description-text: var(--color-text-muted);
-  --color-accordion-panel-content-surface: transparent;
-  --color-accordion-panel-footer-surface: transparent;
+  --color-accordion-panel-content-surface: var(--color-surface-raised);
+  --color-accordion-panel-footer-surface: var(--color-surface-raised);
   --spacing-accordion-panel-header-gap: var(--spacing-8);
   --spacing-accordion-panel-header-padding-x: var(--spacing-24);
   --spacing-accordion-panel-header-padding-y: var(--spacing-24);
@@ -56,7 +56,6 @@
   --color-accordion-disabled-surface: var(--color-surface-muted);
   --color-accordion-disabled-text: var(--color-text-muted);
   --color-accordion-focus-ring: var(--color-ring);
-  --opacity-accordion-disabled: 0.5;
   --spacing-accordion-action-height-sm: var(--spacing-32);
   --spacing-accordion-action-height-md: var(--spacing-40);
   --spacing-accordion-action-height-lg: var(--spacing-48);

@@ -53,7 +53,6 @@
   --color-textarea-disabled-surface: var(--color-surface-muted);
   --color-textarea-disabled-text: var(--color-text-muted);
   --color-textarea-focus-ring: var(--color-ring);
-  --opacity-textarea-disabled: 0.5;
   --spacing-textarea-action-height-sm: var(--spacing-32);
   --spacing-textarea-action-height-md: var(--spacing-40);
   --spacing-textarea-action-height-lg: var(--spacing-48);

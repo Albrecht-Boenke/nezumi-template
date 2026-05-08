@@ -26,11 +26,11 @@
 
   /* Panel slots */
   --color-empty-panel-surface: var(--color-surface-raised);
-  --color-empty-panel-header-surface: transparent;
+  --color-empty-panel-header-surface: var(--color-surface-raised);
   --color-empty-panel-header-text: var(--color-text);
   --color-empty-panel-description-text: var(--color-text-muted);
-  --color-empty-panel-content-surface: transparent;
-  --color-empty-panel-footer-surface: transparent;
+  --color-empty-panel-content-surface: var(--color-surface-raised);
+  --color-empty-panel-footer-surface: var(--color-surface-raised);
   --spacing-empty-panel-header-gap: var(--spacing-8);
   --spacing-empty-panel-header-padding-x: var(--spacing-24);
   --spacing-empty-panel-header-padding-y: var(--spacing-24);

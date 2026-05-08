@@ -53,7 +53,6 @@
   --color-radio-group-disabled-surface: var(--color-surface-muted);
   --color-radio-group-disabled-text: var(--color-text-muted);
   --color-radio-group-focus-ring: var(--color-ring);
-  --opacity-radio-group-disabled: 0.5;
   --spacing-radio-group-action-height-sm: var(--spacing-32);
   --spacing-radio-group-action-height-md: var(--spacing-40);
   --spacing-radio-group-action-height-lg: var(--spacing-48);

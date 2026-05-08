@@ -25,10 +25,7 @@
   --ease-aspect-ratio-exit: var(--ease-in);
 
   /* Layout geometry tokens */
-  --spacing-aspect-ratio-inline-size: 100%;
-  --spacing-aspect-ratio-block-size: auto;
   --spacing-aspect-ratio-min-size: var(--spacing-0);
-  --spacing-aspect-ratio-max-size: 100%;
   --spacing-aspect-ratio-handle-size: var(--spacing-8);
   --color-aspect-ratio-handle: var(--color-border);
   --color-aspect-ratio-handle-hover: var(--color-text-muted);

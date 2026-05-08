@@ -25,10 +25,7 @@
   --ease-separator-exit: var(--ease-in);
 
   /* Layout geometry tokens */
-  --spacing-separator-inline-size: 100%;
-  --spacing-separator-block-size: auto;
   --spacing-separator-min-size: var(--spacing-0);
-  --spacing-separator-max-size: 100%;
   --spacing-separator-handle-size: var(--spacing-8);
   --color-separator-handle: var(--color-border);
   --color-separator-handle-hover: var(--color-text-muted);

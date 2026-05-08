@@ -8,14 +8,14 @@
   --color-button-text-muted: var(--color-text-muted);
   --color-button-border: var(--color-border);
   --color-button-ring: var(--color-ring);
-  --spacing-button-gap: var(--spacing-8);
+  --spacing-button-component-gap: var(--spacing-8);
   --spacing-button-padding-x: var(--spacing-16);
   --spacing-button-padding-y: var(--spacing-12);
-  --spacing-button-icon: var(--spacing-16);
-  --radius-button: var(--radius-md);
+  --spacing-button-component-icon: var(--spacing-16);
+  --radius-button-component: var(--radius-md);
   --shadow-button: var(--shadow-none);
   --text-button: var(--text-sm);
-  --font-weight-button: var(--font-weight-normal);
+  --font-weight-button-component: var(--font-weight-normal);
   --leading-button: var(--leading-normal);
   --duration-button-hover: var(--duration-fast);
   --duration-button-enter: var(--duration-normal);
@@ -34,7 +34,6 @@
   --color-button-disabled-surface: var(--color-surface-muted);
   --color-button-disabled-text: var(--color-text-muted);
   --color-button-focus-ring: var(--color-ring);
-  --opacity-button-disabled: 0.5;
   --spacing-button-action-height-sm: var(--spacing-32);
   --spacing-button-action-height-md: var(--spacing-40);
   --spacing-button-action-height-lg: var(--spacing-48);

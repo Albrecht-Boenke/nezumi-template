@@ -53,7 +53,6 @@
   --color-slider-disabled-surface: var(--color-surface-muted);
   --color-slider-disabled-text: var(--color-text-muted);
   --color-slider-focus-ring: var(--color-ring);
-  --opacity-slider-disabled: 0.5;
   --spacing-slider-action-height-sm: var(--spacing-32);
   --spacing-slider-action-height-md: var(--spacing-40);
   --spacing-slider-action-height-lg: var(--spacing-48);

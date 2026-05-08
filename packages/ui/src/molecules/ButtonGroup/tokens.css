@@ -34,7 +34,6 @@
   --color-button-group-disabled-surface: var(--color-surface-muted);
   --color-button-group-disabled-text: var(--color-text-muted);
   --color-button-group-focus-ring: var(--color-ring);
-  --opacity-button-group-disabled: 0.5;
   --spacing-button-group-action-height-sm: var(--spacing-32);
   --spacing-button-group-action-height-md: var(--spacing-40);
   --spacing-button-group-action-height-lg: var(--spacing-48);

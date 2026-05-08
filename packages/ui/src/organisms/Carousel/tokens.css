@@ -26,11 +26,11 @@
 
   /* Panel slots */
   --color-carousel-panel-surface: var(--color-surface-raised);
-  --color-carousel-panel-header-surface: transparent;
+  --color-carousel-panel-header-surface: var(--color-surface-raised);
   --color-carousel-panel-header-text: var(--color-text);
   --color-carousel-panel-description-text: var(--color-text-muted);
-  --color-carousel-panel-content-surface: transparent;
-  --color-carousel-panel-footer-surface: transparent;
+  --color-carousel-panel-content-surface: var(--color-surface-raised);
+  --color-carousel-panel-footer-surface: var(--color-surface-raised);
   --spacing-carousel-panel-header-gap: var(--spacing-8);
   --spacing-carousel-panel-header-padding-x: var(--spacing-24);
   --spacing-carousel-panel-header-padding-y: var(--spacing-24);
@@ -56,7 +56,6 @@
   --color-carousel-disabled-surface: var(--color-surface-muted);
   --color-carousel-disabled-text: var(--color-text-muted);
   --color-carousel-focus-ring: var(--color-ring);
-  --opacity-carousel-disabled: 0.5;
   --spacing-carousel-action-height-sm: var(--spacing-32);
   --spacing-carousel-action-height-md: var(--spacing-40);
   --spacing-carousel-action-height-lg: var(--spacing-48);

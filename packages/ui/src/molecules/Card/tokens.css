@@ -26,11 +26,11 @@
 
   /* Panel slots */
   --color-card-panel-surface: var(--color-surface-raised);
-  --color-card-panel-header-surface: transparent;
+  --color-card-panel-header-surface: var(--color-surface-raised);
   --color-card-panel-header-text: var(--color-text);
   --color-card-panel-description-text: var(--color-text-muted);
-  --color-card-panel-content-surface: transparent;
-  --color-card-panel-footer-surface: transparent;
+  --color-card-panel-content-surface: var(--color-surface-raised);
+  --color-card-panel-footer-surface: var(--color-surface-raised);
   --spacing-card-panel-header-gap: var(--spacing-8);
   --spacing-card-panel-header-padding-x: var(--spacing-24);
   --spacing-card-panel-header-padding-y: var(--spacing-24);

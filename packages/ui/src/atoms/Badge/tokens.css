@@ -34,7 +34,6 @@
   --color-badge-disabled-surface: var(--color-surface-muted);
   --color-badge-disabled-text: var(--color-text-muted);
   --color-badge-focus-ring: var(--color-ring);
-  --opacity-badge-disabled: 0.5;
   --spacing-badge-action-height-sm: var(--spacing-32);
   --spacing-badge-action-height-md: var(--spacing-40);
   --spacing-badge-action-height-lg: var(--spacing-48);

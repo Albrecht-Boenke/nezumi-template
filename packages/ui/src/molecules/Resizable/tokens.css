@@ -25,10 +25,7 @@
   --ease-resizable-exit: var(--ease-in);
 
   /* Layout geometry tokens */
-  --spacing-resizable-inline-size: 100%;
-  --spacing-resizable-block-size: auto;
   --spacing-resizable-min-size: var(--spacing-0);
-  --spacing-resizable-max-size: 100%;
   --spacing-resizable-handle-size: var(--spacing-8);
   --color-resizable-handle: var(--color-border);
   --color-resizable-handle-hover: var(--color-text-muted);
@@ -44,7 +41,6 @@
   --color-resizable-disabled-surface: var(--color-surface-muted);
   --color-resizable-disabled-text: var(--color-text-muted);
   --color-resizable-focus-ring: var(--color-ring);
-  --opacity-resizable-disabled: 0.5;
   --spacing-resizable-action-height-sm: var(--spacing-32);
   --spacing-resizable-action-height-md: var(--spacing-40);
   --spacing-resizable-action-height-lg: var(--spacing-48);

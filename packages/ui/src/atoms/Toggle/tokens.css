@@ -34,7 +34,6 @@
   --color-toggle-disabled-surface: var(--color-surface-muted);
   --color-toggle-disabled-text: var(--color-text-muted);
   --color-toggle-focus-ring: var(--color-ring);
-  --opacity-toggle-disabled: 0.5;
   --spacing-toggle-action-height-sm: var(--spacing-32);
   --spacing-toggle-action-height-md: var(--spacing-40);
   --spacing-toggle-action-height-lg: var(--spacing-48);

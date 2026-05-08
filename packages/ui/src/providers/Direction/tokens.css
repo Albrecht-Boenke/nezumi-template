@@ -30,10 +30,7 @@
   --ease-direction-scope-transition: var(--ease-in-out);
 
   /* Layout geometry tokens */
-  --spacing-direction-inline-size: 100%;
-  --spacing-direction-block-size: auto;
   --spacing-direction-min-size: var(--spacing-0);
-  --spacing-direction-max-size: 100%;
   --spacing-direction-handle-size: var(--spacing-8);
   --color-direction-handle: var(--color-border);
   --color-direction-handle-hover: var(--color-text-muted);
