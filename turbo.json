@@ -5,10 +5,6 @@
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
-    "@packages/ui#build": {
-      "dependsOn": [],
-      "outputs": []
-    },
     "dev": {
       "cache": false,
       "persistent": true

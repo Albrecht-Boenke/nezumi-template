@@ -47,8 +47,8 @@ import "@packages/ui/globals.css"
 Atomic folders remain implementation detail. When a component graduates to public API, add a leaf file in `packages/ui/src/components/<name>.tsx` and export that leaf through `package.json`.
 
 `@packages/ui` is source-first and internal to the monorepo. The public exports
-point at `src/` files, the package `build` script is a TypeScript no-emit
-validation step rather than a bundler build, and Next.js apps keep
+point at `src/` files, package validation remains a typecheck concern rather
+than a root build script, and Next.js apps keep
 `transpilePackages: ["@packages/ui"]`.
 
 ## Source Of Truth

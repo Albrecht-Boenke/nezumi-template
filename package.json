@@ -7,11 +7,9 @@
     "node": "^24.0.0"
   },
   "scripts": {
-    "build": "turbo build",
     "build:homepage": "next build apps/homepage",
     "build:members": "next build apps/members",
     "build:operations": "next build apps/operations",
-    "build:packages": "turbo build --filter='./packages/*'",
     "build:playground": "next build apps/playground",
     "dev:homepage": "next dev apps/homepage --turbopack -p 3000",
     "dev:members": "next dev apps/members --turbopack -p 3001",

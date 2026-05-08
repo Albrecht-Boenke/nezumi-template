@@ -2,7 +2,7 @@
 
 ## Aufgabenstellung
 
-Das Monorepo wurde auf den internen Package-Scope `@packages/ui` umgestellt. Der gemeldete Turbo-Aufruf `pnpm build --filter @packages/ui` soll funktionieren. Root-Scripts sollen nur noch die angeforderten Install-, Build- und Dev-Flows abbilden. Alle Next.js Apps sollen `logging.browserToTerminal: true` erhalten, und die Apps sollen mit `next-browser` auf Dev-Server-, Error- und Debugging-Funktionalitaet geprueft werden.
+Das Monorepo wurde auf den internen Package-Scope `@packages/ui` umgestellt. Root-Scripts sollen ausschliesslich konkrete Next.js App-Builds und App-Dev-Server abbilden. Alle Next.js Apps sollen `logging.browserToTerminal: true` erhalten, und die Apps sollen mit `next-browser` auf Dev-Server-, Error- und Debugging-Funktionalitaet geprueft werden.
 
 ## Gelesene lokale Dokumentation
 
@@ -25,11 +25,11 @@ Das Monorepo wurde auf den internen Package-Scope `@packages/ui` umgestellt. Der
 
 ## Abgeleiteter SOLL-Zustand
 
-- Turbo-Filter muessen echte Workspace-Package-Namen treffen. Das UI-Package muss daher als `@packages/ui` in `packages/ui/package.json` deklariert sein.
-- `@packages/ui` bleibt source-first; ein Package-`build` ist eine TypeScript-no-emit-Validierung, kein Bundler-Output.
+- Das UI-Package muss als `@packages/ui` in `packages/ui/package.json` deklariert sein.
+- `@packages/ui` bleibt source-first; es gibt keinen Root-Build-Pfad fuer das Package, sondern die Next.js Apps kompilieren die exportierten Quellen.
 - Next.js Apps muessen `transpilePackages: ["@packages/ui"]` behalten, weil die Apps die UI-Quellen direkt kompilieren.
 - `logging.browserToTerminal: true` ist laut Next.js 16.2 fuer Dev-Debugging gueltig und leitet Browser-Logs in das Terminal weiter.
-- Root-Scripts sollen die expliziten App-Builds, Package-Builds und App-Dev-Server starten. Ein Root-`install`-Lifecycle-Script wurde bewusst nicht angelegt, weil `pnpm install` bereits der Package-Manager-Befehl ist und ein gleichnamiges Script rekursives Install-Verhalten riskieren wuerde.
+- Root-Scripts sollen nur explizite `next build apps/*` und `next dev apps/*` App-Flows starten. Ein Root-`install`-Lifecycle-Script wurde bewusst nicht angelegt, weil `pnpm install` bereits der Package-Manager-Befehl ist und ein gleichnamiges Script rekursives Install-Verhalten riskieren wuerde.
 - `next-browser` muss eine laufende App inspizieren koennen: `errors`, `logs`, `browser-logs`, `tree` und Screenshots muessen pro App verwertbare Ausgabe liefern.
 
 ## Analysierte Dateien
@@ -59,33 +59,33 @@ Das Monorepo wurde auf den internen Package-Scope `@packages/ui` umgestellt. Der
 
 ### Mittel
 
-- Resolved: Der gefilterte Build haette nach der Scope-Umstellung ohne UI-`build`-Script keine belastbare Validierung ausgefuehrt. Korrektur: `packages/ui/package.json:10` bis `packages/ui/package.json:16` enthaelt nun `build: tsc --noEmit`; `turbo.json:8` bis `turbo.json:10` definiert fuer diesen Package-Build keine Artefakt-Outputs.
-- Resolved: Die Root-Scripts waren breiter als die gewuenschten Build-/Dev-Flows. Korrektur: `package.json:9` bis `package.json:20` enthaelt nur noch `build`, konkrete `build:*` App-/Package-Scripts und konkrete `dev:*` App-Scripts.
+- Resolved: Die Root-Scripts waren breiter als die gewuenschten Build-/Dev-Flows. Korrektur: `package.json:9` bis `package.json:18` enthaelt nur konkrete `build:*` App-Scripts mit `next build apps/*` und konkrete `dev:*` App-Scripts mit `next dev apps/*`.
 - Resolved: Browser-zu-Terminal-Logging war in den App-Konfigurationen nicht aktiviert. Korrektur: alle `apps/*/next.config.ts` Dateien enthalten `logging.browserToTerminal: true` und behalten `transpilePackages: ["@packages/ui"]`; Beispiel `apps/homepage/next.config.ts:3` bis `apps/homepage/next.config.ts:12`.
 
 ### Niedrig
 
-- Hinweis: `next-browser` startete im ersten Headed-Versuch keinen Daemon-Socket. Headless mit `NEXT_BROWSER_HEADLESS=1` startete stabil. Die App-Diagnosen wurden deshalb headless ausgefuehrt.
+- Hinweis: Der erste `next-browser` Socket-Fehler war kein App-Fehler. Er entstand durch parallele CLI-Kommandos gegen einen kalt gestarteten `next-browser` Daemon. Der Daemon verwendet einen einzelnen festen Socket unter `~/.next-browser/default.sock`; parallele Erststarts koennen sich gegenseitig Socket/PID-Zustand stoeren. Einzelne, sequenzielle Headed- und Headless-Aufrufe starten den Socket.
 - Hinweis: Beim ersten Homepage-Dev-Aufruf meldete Next/Turbopack, dass ein vorheriger interner Filesystem-Cache-Fehler den Cache geloescht hatte. Der Seitenaufruf, Error-Check und die spaeteren Builds waren erfolgreich.
 
 ## Konkrete Empfehlungen
 
-- Fuer UI-Package-Validierung `pnpm build --filter @packages/ui` oder `pnpm build:packages` verwenden.
 - Fuer App-Produktion-Builds die Root-Scripts `pnpm build:homepage`, `pnpm build:members`, `pnpm build:operations` und `pnpm build:playground` verwenden.
 - Fuer App-Dev-Debugging die Root-Scripts `pnpm dev:homepage`, `pnpm dev:members`, `pnpm dev:operations` und `pnpm dev:playground` verwenden.
-- Fuer Agent-Diagnose mit `next-browser` in dieser Umgebung `NEXT_BROWSER_HEADLESS=1` setzen.
+- Fuer Agent-Diagnose mit `next-browser` erst einen einzelnen `next-browser open ...` ausfuehren und danach weitere `next-browser` Kommandos sequenziell absetzen. Parallele Erststarts vermeiden.
 
 ## Verifikation
 
 - `pnpm install`: erfolgreich; Root-`next` wurde als `catalog:` Dev-Dependency aufgeloest.
-- `pnpm build --filter @packages/ui`: erfolgreich; Turbo fuehrte `@packages/ui:build` mit `tsc --noEmit` aus.
+- Root-Script-Inventar: erfolgreich; alle Script-Werte sind konkrete `next build apps/*` oder `next dev apps/*` Kommandos, kein Root-`build` und kein `build:packages`.
 - `pnpm build:homepage`: erfolgreich.
 - `pnpm build:members`: erfolgreich.
 - `pnpm build:operations`: erfolgreich.
 - `pnpm build:playground`: erfolgreich.
-- `pnpm build:packages`: erfolgreich, Turbo-Cache-Hit nach dem ersten UI-Build.
-- `pnpm build`: erfolgreich; Turbo fuehrte alle 5 Package/App-Builds aus.
 - `next-browser --version`: `0.7.1`.
+- Sequenzieller Headed-Start mit `next-browser open http://localhost:3000`: erfolgreich; `~/.next-browser/default.sock` und `default.pid` wurden erzeugt.
+- `next-browser errors`: keine `configErrors`, keine `sessionErrors`.
+- `next-browser browser-logs`, `next-browser tree` und `next-browser screenshot`: erfolgreich.
+- Browser-zu-Terminal-Probe: `[browser] next-browser headed console forwarding probe` erschien im Next-Dev-Server-Terminal.
 - `next-browser` Dev-Diagnose:
   - Homepage `http://localhost:3000`: keine `errors`, React-Tree lesbar, Screenshot erstellt, Browser-Log-Probe im Dev-Terminal sichtbar.
   - Members `http://localhost:3001`: keine `errors`, React-Tree lesbar, Screenshot erstellt, Browser-Log-Probe im Dev-Terminal sichtbar.
@@ -94,10 +94,10 @@ Das Monorepo wurde auf den internen Package-Scope `@packages/ui` umgestellt. Der
 
 ## Offene Fragen oder Restrisiken
 
-- `next-browser` funktioniert in dieser lokalen Umgebung headless stabil; der Headed-Daemon-Start sollte separat untersucht werden, falls sichtbare Browserfenster fuer den Workflow zwingend sind.
+- `next-browser` funktioniert sequenziell stabil. Der bekannte Restrisiko-Punkt ist paralleler Cold-Start desselben globalen Daemons.
 - Die bisherigen Root-Analyseberichte wurden per Scope-Rewrite aktualisiert. Inhaltliche historische Aussagen wurden nicht neu bewertet.
 
 ## Vorgeschlagene naechste Schritte
 
-- Bei Bedarf ein kleines npm Script fuer `NEXT_BROWSER_HEADLESS=1 next-browser ...` ergaenzen, damit Agent-Diagnosen reproduzierbar denselben Modus verwenden.
+- Keine parallelen `next-browser` Kommandos gegen einen kalten Daemon starten; erst `next-browser open ...`, danach Diagnosebefehle.
 - Optional die aelteren Root-Analyseberichte archivieren oder als historisch markieren, damit sie nicht mit aktueller Projekt-Dokumentation verwechselt werden.

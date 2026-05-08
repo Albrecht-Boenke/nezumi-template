@@ -11,12 +11,15 @@ From the workspace root:
 
 ```bash
 pnpm install
-pnpm build --filter @packages/ui
+pnpm build:homepage
+pnpm build:members
+pnpm build:operations
+pnpm build:playground
 ```
 
-`@packages/ui` is an internal source-first package. Its package build is a
-TypeScript no-emit validation step, not a bundler build; consuming apps
-transpile the exported source files through their Next.js build.
+`@packages/ui` is an internal source-first package. It does not expose a
+package-local build script in the root workflow; consuming apps transpile the
+exported source files through their Next.js build.
 
 The workspace uses pnpm catalogs for shared framework versions. **Pins in this repo:** `react` & `react-dom` **19.2.6**, `typescript` **6.0.3**, `tailwindcss` & `@tailwindcss/postcss` **4.2.4**, `next` **16.2.5** (app); **pnpm** **10.33.3**; **Node** **24.x** (`^24.0.0`) — see root [`FRAMEWORK_VERSION_REFERENCES.md`](../../FRAMEWORK_VERSION_REFERENCES.md).
 

@@ -26,13 +26,6 @@ pnpm build:homepage
 pnpm build:members
 pnpm build:operations
 pnpm build:playground
-pnpm build:packages
-```
-
-Run a single package build with Turbo filtering:
-
-```bash
-pnpm build --filter @packages/ui
 ```
 
 Start a specific app dev server:
