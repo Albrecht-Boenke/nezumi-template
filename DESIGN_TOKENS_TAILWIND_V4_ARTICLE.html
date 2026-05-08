@@ -339,6 +339,84 @@
         color: var(--color-text-muted);
       }
 
+      .stack {
+        display: grid;
+        gap: var(--space-12);
+        margin-top: var(--space-24);
+      }
+
+      .step {
+        display: grid;
+        grid-template-columns: 96px minmax(0, 1fr);
+        gap: var(--space-16);
+        align-items: stretch;
+      }
+
+      .step-num {
+        display: grid;
+        place-items: center;
+        padding: var(--space-12);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        background: var(--color-surface-muted);
+        color: var(--color-text);
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 1.4rem;
+        font-weight: 700;
+      }
+
+      .step-body {
+        padding: var(--space-16) var(--space-24);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        background: var(--color-surface-raised);
+      }
+
+      .step-body h4 {
+        margin: 0 0 var(--space-8);
+        font-size: 1.05rem;
+      }
+
+      .step-body p {
+        margin: 0;
+        color: var(--color-text-muted);
+        font-size: 0.95rem;
+      }
+
+      .step-body pre.code {
+        margin: var(--space-12) 0 0;
+        padding: var(--space-16);
+        font-size: 0.82rem;
+      }
+
+      .pin-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--space-12);
+        margin: var(--space-24) 0;
+      }
+
+      .pin {
+        padding: var(--space-12) var(--space-16);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        background: var(--color-surface-raised);
+      }
+
+      .pin small {
+        display: block;
+        color: var(--color-text-muted);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 4px;
+      }
+
+      .pin strong {
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 0.95rem;
+      }
+
       @media (max-width: 860px) {
         .layout {
           display: block;
@@ -350,11 +428,13 @@
         }
 
         .grid,
-        .token-strip {
+        .token-strip,
+        .pin-grid {
           grid-template-columns: 1fr 1fr;
         }
 
-        .flow-row {
+        .flow-row,
+        .step {
           grid-template-columns: 1fr;
         }
       }
@@ -388,6 +468,7 @@
           <a href="#hands-on">Hands-on</a>
           <a href="#flow">Data Flow</a>
           <a href="#best-practices">Best Practices</a>
+          <a href="#monorepo">Monorepo Hands-on</a>
         </nav>
 
         <article>
@@ -579,6 +660,244 @@
               dynamische Grid-Spans und Komponenten, die Primitive direkt statt
               semantischer Tokens nutzen.
             </p>
+          </section>
+
+          <section id="monorepo">
+            <h2>Hands-on: Tailwind v4 im Monorepo (Stand Mai 2026)</h2>
+            <p>
+              Diese Kurzanleitung zeigt das im Repo etablierte Setup fuer
+              <strong>Next.js 16 + React 19.2 + Tailwind v4</strong> in einem pnpm-Workspace mit
+              Turborepo. Jeder Schritt verweist auf eine konkret existierende Datei im
+              Template und hebt nur die wirklich relevanten v4-Workarounds hervor.
+            </p>
+
+            <div class="pin-grid" aria-label="Stack-Versionen">
+              <div class="pin"><small>Next.js</small><strong>16.2.5</strong></div>
+              <div class="pin"><small>React / react-dom</small><strong>19.2.6</strong></div>
+              <div class="pin"><small>Tailwind CSS</small><strong>4.2.4</strong></div>
+              <div class="pin"><small>@tailwindcss/postcss</small><strong>4.2.4</strong></div>
+              <div class="pin"><small>TypeScript</small><strong>6.0.3</strong></div>
+              <div class="pin"><small>pnpm / Node</small><strong>10.33.3 / 24.x</strong></div>
+            </div>
+
+            <p>
+              Versionen kommen ueber <code>catalog:</code> aus
+              <code>pnpm-workspace.yaml</code>. Ein Bump passiert dadurch nur an einer Stelle.
+            </p>
+
+            <div class="stack">
+              <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                  <h4>Tailwind CSS-first installieren</h4>
+                  <p>Kein <code>tailwind.config.{js,ts}</code>, kein v3-Plugin <code>tailwindcss</code>. Nur der v4-PostCSS-Plugin:</p>
+                  <pre class="code"><code>// apps/homepage/postcss.config.mjs
+export default {
+  plugins: { "@tailwindcss/postcss": {} },
+}</code></pre>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-body">
+                  <h4>Single CSS-Entry pro App</h4>
+                  <p>
+                    <code>@source</code> ist im Monorepo Pflicht: Tailwind scannt nicht von sich
+                    aus ausserhalb des CSS-Verzeichnisses. <code>@custom-variant dark</code>
+                    ersetzt den v3-Schalter <code>darkMode: "class"</code>.
+                  </p>
+                  <pre class="code"><code>// apps/homepage/app/globals.css
+@import "tailwindcss";
+@custom-variant dark (&amp;:where(.dark, .dark *));
+
+@source "../../../packages/ui/src";
+@source "../";
+
+@import "@packages/ui/design-tokens.css";</code></pre>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-body">
+                  <h4>Tokens im UI-Paket buendeln</h4>
+                  <p>
+                    Subpath-Exports + <code>sideEffects</code> verhindern Tree-Shaking der CSS.
+                    Tailwind als optionaler Peer, weil das Paket selbst nicht bundled.
+                  </p>
+                  <pre class="code"><code>// packages/ui/package.json (Auszug)
+{
+  "exports": {
+    "./design-tokens.css":  "./src/styles/design-tokens.css",
+    "./components/button":  "./src/components/button.tsx",
+    "./layout":             "./src/layout/index.ts"
+  },
+  "sideEffects": ["./src/styles/**/*.css"],
+  "peerDependencies": {
+    "react": "^19.2.6",
+    "tailwindcss": "^4.2.4"
+  },
+  "peerDependenciesMeta": { "tailwindcss": { "optional": true } }
+}</code></pre>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-num">4</div>
+                <div class="step-body">
+                  <h4>Next.js fuer das Workspace-Paket vorbereiten</h4>
+                  <p>
+                    Ohne <code>transpilePackages</code> scheitert Next 16 mit Turbopack daran,
+                    dass <code>packages/ui/src</code> rohes TSX enthaelt.
+                  </p>
+                  <pre class="code"><code>// apps/homepage/next.config.ts
+import type { NextConfig } from "next"
+
+const nextConfig: NextConfig = {
+  transpilePackages: ["@packages/ui"],
+}
+
+export default nextConfig</code></pre>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-num">5</div>
+                <div class="step-body">
+                  <h4>Turborepo-Pipeline</h4>
+                  <p>
+                    <code>dependsOn: ["^build"]</code> sorgt dafuer, dass <code>@packages/ui</code>
+                    erst durchlaeuft, bevor eine App gebaut wird.
+                  </p>
+                  <pre class="code"><code>// turbo.json
+{
+  "tasks": {
+    "build": { "dependsOn": ["^build"], "outputs": [".next/**", "!.next/cache/**"] },
+    "dev":   { "cache": false, "persistent": true }
+  }
+}</code></pre>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-num">6</div>
+                <div class="step-body">
+                  <h4>Dynamische Klassen sicher machen</h4>
+                  <p>
+                    Tailwind erkennt nur Klassennamen, die als zusammenhaengende Strings im
+                    Quelltext stehen. Drei Workarounds in absteigender Praeferenz:
+                  </p>
+                  <pre class="code"><code>// a) Static Map — bevorzugt
+const TONE = { brand: "bg-brand", error: "bg-error" } as const
+&lt;div className={TONE[tone]} /&gt;
+
+// b) @source inline() fuer wirklich dynamische Klassen
+@source inline("{md:,lg:,}grid-cols-{1,2,3,4,5,6,7,8,9,10,11,12}");
+@source inline("basis-{0,1,2,4,8,12,16,24,32,40,48,56,64,80,96,112,128,1/2,1/3,2/3,1/4,3/4,auto,full}");
+
+// c) NIEMALS:
+&lt;div className={`bg-${color}-500`} /&gt;  // wird nie generiert</code></pre>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-num">7</div>
+                <div class="step-body">
+                  <h4>cn() + tailwind-merge ≥ 3</h4>
+                  <p>
+                    Eine zentrale <code>cn()</code>-Funktion bleibt der saubere Override-Pfad.
+                    <code>tailwind-merge</code> muss ≥ 3.x sein — Versionen darunter kennen die
+                    v4-Utility-Familien nicht und mergen falsch.
+                  </p>
+                  <pre class="code"><code>// packages/ui/src/lib/utils.ts
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export const cn = (...inputs: ClassValue[]) =&gt; twMerge(clsx(inputs))</code></pre>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-num">8</div>
+                <div class="step-body">
+                  <h4>React 19.2: ref als Prop</h4>
+                  <p>
+                    Kein <code>forwardRef</code>-Wrapper mehr. Das spart Boilerplate und passt zur
+                    polymorphen <code>as</code>-Prop der Layout-Primitives.
+                  </p>
+                  <pre class="code"><code>export function Button({ ref, ...props }: React.ComponentProps&lt;"button"&gt;) {
+  return &lt;button ref={ref} {...props} /&gt;
+}</code></pre>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-num">9</div>
+                <div class="step-body">
+                  <h4>Breakpoints bewusst kuerzen</h4>
+                  <p>
+                    <code>--breakpoint-*: initial</code> loescht alle Tailwind-Defaults. Danach
+                    bleiben nur die explizit deklarierten — die generierten Utility-Permutationen
+                    bleiben so klein.
+                  </p>
+                  <pre class="code"><code>// packages/ui/src/styles/tokens/breakpoints.css
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-md: 48rem;  /* 768px */
+  --breakpoint-lg: 64rem;  /* 1024px */
+}</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <h3>Stolperfallen Mai 2026</h3>
+            <table>
+              <thead>
+                <tr><th>Symptom</th><th>Ursache</th><th>Fix</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Klassen aus <code>packages/ui</code> fehlen im Build</td>
+                  <td><code>@source</code> zeigt nicht auf das Paket</td>
+                  <td><code>@source "../../../packages/ui/src"</code> in <code>app/globals.css</code></td>
+                </tr>
+                <tr>
+                  <td><code>Cannot find module 'tailwindcss'</code> im Paket</td>
+                  <td><code>tailwindcss</code> als <code>dependency</code> deklariert</td>
+                  <td>nach <code>peerDependencies</code> (optional) verschieben</td>
+                </tr>
+                <tr>
+                  <td>Dunkelmodus reagiert nicht auf <code>.dark</code>-Toggle</td>
+                  <td>Default-v4-Variante <code>prefers-color-scheme</code> aktiv</td>
+                  <td><code>@custom-variant dark (&amp;:where(.dark, .dark *));</code> setzen</td>
+                </tr>
+                <tr>
+                  <td><code>@apply</code> schlaegt in RSC fehl</td>
+                  <td>RSC kann CSS-Cascade nicht serialisieren</td>
+                  <td>Utilities direkt in JSX, <code>@apply</code> nur in <code>.css</code>-Dateien</td>
+                </tr>
+                <tr>
+                  <td>TSX im UI-Paket laedt nicht</td>
+                  <td><code>transpilePackages</code> fehlt</td>
+                  <td><code>transpilePackages: ["@packages/ui"]</code> in <code>next.config.ts</code></td>
+                </tr>
+                <tr>
+                  <td>Bundle groesser als erwartet</td>
+                  <td>Vergessenes <code>@source inline</code> oder zu breite Safelist</td>
+                  <td>Auf Static Maps zurueckfuehren oder Safelist eingrenzen</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="callout">
+              Checkliste fuer eine neue App: <code>postcss.config.mjs</code>,
+              <code>app/globals.css</code> mit <code>@import "tailwindcss"</code> +
+              <code>@custom-variant dark</code> + <code>@source</code> +
+              <code>@import "@packages/ui/design-tokens.css"</code>,
+              <code>next.config.ts</code> mit <code>transpilePackages</code>, dann
+              <code>pnpm --filter &lt;name&gt; dev</code>.
+            </div>
           </section>
         </article>
       </div>

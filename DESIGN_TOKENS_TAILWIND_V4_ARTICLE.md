@@ -423,3 +423,210 @@ Keine Code-Findings im Sinne einer Bug-Review; diese Aufgabe erzeugt Dokumentati
 - Dokumentationslink in `docs/nezumi-ui/INDEX.md` von `.mdx` auf `.md` korrigieren.
 - Token-Audit für App-TSX auf Raw Hex, Default-Palette und Arbitrary Values durchführen.
 - Typografie-SOLL aus `DESIGN.md` gegen `packages/ui/src/styles/tokens/typography.css` prüfen.
+
+---
+
+## Hands-on: Tailwind v4 im Monorepo (Stand Mai 2026)
+
+Diese kurze Anleitung beschreibt die im Repo bewährte Konfiguration und hebt die Workarounds hervor, die mit Tailwind v4 + Next.js 16 + React 19 in einem pnpm-Monorepo wirklich relevant sind. Sie ist als Kopiervorlage gedacht: jeder Schritt bezieht sich auf existierende Dateien dieses Templates.
+
+### Stack-Pins
+
+| Tooling | Version | Quelle |
+|---|---|---|
+| Next.js | 16.2.5 | `catalog:` → `apps/*/package.json` |
+| React / react-dom | 19.2.6 | `catalog:` |
+| Tailwind CSS | 4.2.4 | `catalog:` (peer in `@packages/ui`) |
+| `@tailwindcss/postcss` | 4.2.4 | `catalog:` → App-devDeps |
+| TypeScript | 6.0.3 | `catalog:` |
+| pnpm / Node | 10.33.3 / 24.x | `pnpm-workspace.yaml` |
+
+`catalog:` in einer `package.json` zieht den Wert aus `pnpm-workspace.yaml`. Ein Versions-Bump passiert dadurch nur an einer Stelle — kein Drift zwischen Apps.
+
+### Workspace-Layout
+
+```text
+nezumi-template/
+├── apps/
+│   ├── homepage/         # Marketing
+│   ├── members/          # Auth-Bereich
+│   ├── operations/       # Internes Tooling
+│   └── playground/       # Demos der Layout-Primitives
+├── packages/
+│   ├── ui/               # @packages/ui — Tokens, Komponenten, Layout
+│   └── typescript-config/
+├── pnpm-workspace.yaml
+└── turbo.json
+```
+
+### Schritt 1 — Tailwind als CSS-first installieren
+
+Tailwind v4 hat **keine** JS-Konfigurationsdatei mehr. Es gibt kein `tailwind.config.{js,ts}` und keinen `tailwindcss`-PostCSS-Plugin. Nur:
+
+```js
+// apps/homepage/postcss.config.mjs
+/** @type {import("postcss-load-config").Config} */
+export default {
+  plugins: { "@tailwindcss/postcss": {} },
+}
+```
+
+Der alte v3-Plugin (`tailwindcss`) ist v4-inkompatibel. Wer aus v3 migriert, muss `tailwind.config.*` löschen und alle JS-basierten Theme-Inhalte als `@theme`-CSS portieren.
+
+### Schritt 2 — Single CSS-Entry pro App
+
+```css
+/* apps/homepage/app/globals.css */
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* @source-Pfade sind relativ zu dieser CSS-Datei.
+   Jedes Verzeichnis, aus dem Klassen kommen, muss explizit opt-in machen. */
+@source "../../../packages/ui/src";
+@source "../";
+
+@import "@packages/ui/design-tokens.css";
+```
+
+Drei v4-spezifische Punkte:
+
+1. **`@source` ist im Monorepo Pflicht.** Tailwind scannt nicht automatisch außerhalb des CSS-Verzeichnisses. Ohne den Verweis auf `packages/ui/src` verschwinden alle Klassen aus geteilten Komponenten lautlos.
+2. **`@import "@packages/ui/design-tokens.css"`** funktioniert über einen `exports`-Subpath im Paket — Apps müssen den Pfad nicht kennen.
+3. **`@custom-variant dark`** ersetzt den v3-Konfig-Schalter `darkMode: "class"`. Ohne diese Zeile zieht Tailwind v4 standardmäßig `prefers-color-scheme`, was sich nicht über einen JS-Toggle steuern lässt.
+
+### Schritt 3 — Tokens im UI-Paket bündeln
+
+```jsonc
+// packages/ui/package.json (Auszug)
+{
+  "name": "@packages/ui",
+  "exports": {
+    "./design-tokens.css":  "./src/styles/design-tokens.css",
+    "./components/button":  "./src/components/button.tsx",
+    "./layout":             "./src/layout/index.ts",
+    "./lib/utils":          "./src/lib/utils.ts"
+  },
+  "sideEffects": ["./src/styles/**/*.css"],
+  "peerDependencies": {
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "tailwindcss": "^4.2.4"
+  },
+  "peerDependenciesMeta": { "tailwindcss": { "optional": true } }
+}
+```
+
+- **`sideEffects: ["…css"]`** verhindert, dass Tree-Shaking die Token-CSS rauswirft.
+- **Tailwind als optionaler Peer**, weil das Paket selbst nichts bundled — es wird in der App prozessiert.
+- **Subpath-Exports statt Barrel.** `import { Button } from "@packages/ui/components/button"` lädt nur diese Datei; `import { … } from "@packages/ui"` würde alles ziehen.
+
+### Schritt 4 — Next.js darauf vorbereiten
+
+```ts
+// apps/homepage/next.config.ts
+import type { NextConfig } from "next"
+
+const nextConfig: NextConfig = {
+  transpilePackages: ["@packages/ui"],
+}
+
+export default nextConfig
+```
+
+Ohne `transpilePackages` versucht Next, das TSX aus `packages/ui` als rohes ESM zu importieren und scheitert an JSX. Für Next 16 mit Turbopack ist das weiterhin der einzige unterstützte Weg.
+
+### Schritt 5 — Turborepo-Pipeline
+
+```jsonc
+// turbo.json
+{
+  "tasks": {
+    "build":     { "dependsOn": ["^build"], "outputs": [".next/**", "!.next/cache/**"] },
+    "dev":       { "cache": false, "persistent": true },
+    "lint":      { "outputs": [] },
+    "test":      { "outputs": [] },
+    "typecheck": { "outputs": [] }
+  }
+}
+```
+
+`dependsOn: ["^build"]` sorgt dafür, dass `@packages/ui` durchläuft, bevor eine App gebaut wird — wichtig, sobald im Paket ein eigener `tsc`-Build-Step entsteht.
+
+### Schritt 6 — Dynamische Klassen sicher machen
+
+Tailwind erkennt nur Klassennamen, die als zusammenhängende Zeichenkette im Quelltext stehen. Drei Workarounds in absteigender Präferenz:
+
+**a) Static Map** — bevorzugt, weil Klassen weiterhin als Literale auftauchen:
+
+```tsx
+const TONE = { brand: "bg-brand", error: "bg-error" } as const
+return <div className={TONE[tone]} />
+```
+
+**b) `@source inline()` für rein dynamisch generierte Klassen.** Aktiviert für die Layout-Primitives in diesem Repo, damit lange TS-Lookup-Tabellen verschwinden:
+
+```css
+/* packages/ui/src/styles/design-tokens.css */
+@source inline("{md:,lg:,}grid-cols-{1,2,3,4,5,6,7,8,9,10,11,12}");
+@source inline("basis-{0,1,2,4,8,12,16,24,32,40,48,56,64,80,96,112,128,1/2,1/3,2/3,1/4,3/4,auto,full}");
+```
+
+Dadurch reicht `${prefix}grid-cols-${n}` im TSX, weil die Safelist alle Permutationen erzeugt.
+
+**c) Verboten:** `className={`bg-${color}-500`}` ohne a oder b. Tailwind sieht den Wert nie und generiert keine CSS-Regel.
+
+### Schritt 7 — `cn()` als Override-Helper
+
+```ts
+// packages/ui/src/lib/utils.ts
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
+```
+
+`tailwind-merge` muss ≥ 3.x sein — Versionen < 3 kennen die v4-Utility-Familien (`size-*`, `inset-*`, neue `grid-*`-Token) nicht und mergen falsch.
+
+### Schritt 8 — React 19: `ref` als Prop
+
+```tsx
+// keine forwardRef-Wrapper mehr ab React 19.2:
+export function Button({ ref, ...props }: React.ComponentProps<"button">) {
+  return <button ref={ref} {...props} />
+}
+```
+
+Das spart einen Wrapper pro Komponente und harmoniert mit der polymorphen `as`-Prop der Layout-Primitives.
+
+### Schritt 9 — Breakpoints bewusst kürzen
+
+```css
+/* packages/ui/src/styles/tokens/breakpoints.css */
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-md: 48rem;  /* 768px */
+  --breakpoint-lg: 64rem;  /* 1024px */
+}
+```
+
+`--breakpoint-*: initial` löscht alle Tailwind-Defaults; danach bleiben nur die explizit deklarierten. Das hält die generierten Utility-Permutationen klein und zwingt Designentscheidungen auf zwei Stellen, die wirklich benutzt werden.
+
+### Stolperfallen Mai 2026
+
+| Symptom | Ursache | Fix |
+|---|---|---|
+| Klassen aus `packages/ui` fehlen im Build | `@source` zeigt nicht auf das Paket | `@source "../../../packages/ui/src"` in `app/globals.css` ergänzen |
+| `Cannot find module 'tailwindcss'` im Paket | `tailwindcss` als `dependency` deklariert | nach `peerDependencies` (optional) verschieben |
+| Dunkelmodus reagiert nicht auf `.dark`-Toggle | Default-v4-Variante `prefers-color-scheme` aktiv | `@custom-variant dark (&:where(.dark, .dark *));` setzen |
+| `@apply` schlägt in RSC fehl | RSC kann CSS-Cascade nicht serialisieren | Utilities direkt in JSX schreiben; `@apply` nur in `.css`-Dateien |
+| Bundle größer als erwartet | Vergessenes `@source inline` plus zu breite Safelist | dynamisch generierte Klassen auf Static Maps zurückführen |
+| TSX in `packages/ui` lädt nicht in einer App | `transpilePackages` fehlt in `next.config.ts` | `transpilePackages: ["@packages/ui"]` ergänzen |
+
+### Checkliste für eine neue App im Monorepo
+
+1. `apps/<name>/package.json` mit `next`, `react`, `react-dom` aus `catalog:` und `@packages/ui` als `workspace:*`.
+2. `apps/<name>/postcss.config.mjs` mit `@tailwindcss/postcss`.
+3. `apps/<name>/app/globals.css` mit `@import "tailwindcss"`, `@custom-variant dark`, `@source` auf `packages/ui/src` und `../`, anschließend `@import "@packages/ui/design-tokens.css"`.
+4. `apps/<name>/next.config.ts` mit `transpilePackages: ["@packages/ui"]`.
+5. `app/layout.tsx` importiert `./globals.css` und setzt Defaults via `<body className="bg-surface text-text">`.
+6. `pnpm install` ausführen, `pnpm --filter <name> dev` starten — Klassen aus dem UI-Paket sollten sofort greifen.
