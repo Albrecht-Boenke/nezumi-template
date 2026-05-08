@@ -1,0 +1,97 @@
+/* Sidebar component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-sidebar-surface: var(--color-surface-raised);
+  --color-sidebar-surface-muted: var(--color-surface-muted);
+  --color-sidebar-text: var(--color-text);
+  --color-sidebar-text-muted: var(--color-text-muted);
+  --color-sidebar-border: var(--color-border);
+  --color-sidebar-ring: var(--color-ring);
+  --spacing-sidebar-gap: var(--spacing-8);
+  --spacing-sidebar-padding-x: var(--spacing-16);
+  --spacing-sidebar-padding-y: var(--spacing-12);
+  --spacing-sidebar-icon: var(--spacing-16);
+  --radius-sidebar: var(--radius-md);
+  --shadow-sidebar: var(--shadow-none);
+  --text-sidebar: var(--text-sm);
+  --font-weight-sidebar: var(--font-weight-normal);
+  --leading-sidebar: var(--leading-normal);
+  --duration-sidebar-hover: var(--duration-fast);
+  --duration-sidebar-enter: var(--duration-normal);
+  --duration-sidebar-exit: var(--duration-fast);
+  --ease-sidebar-standard: var(--ease-in-out);
+  --ease-sidebar-enter: var(--ease-out);
+  --ease-sidebar-exit: var(--ease-in);
+
+  /* Panel slots */
+  --color-sidebar-panel-surface: var(--color-surface-raised);
+  --color-sidebar-panel-header-surface: transparent;
+  --color-sidebar-panel-header-text: var(--color-text);
+  --color-sidebar-panel-description-text: var(--color-text-muted);
+  --color-sidebar-panel-content-surface: transparent;
+  --color-sidebar-panel-footer-surface: transparent;
+  --spacing-sidebar-panel-header-gap: var(--spacing-8);
+  --spacing-sidebar-panel-header-padding-x: var(--spacing-24);
+  --spacing-sidebar-panel-header-padding-y: var(--spacing-24);
+  --spacing-sidebar-panel-content-gap: var(--spacing-16);
+  --spacing-sidebar-panel-content-padding-x: var(--spacing-24);
+  --spacing-sidebar-panel-content-padding-y: var(--spacing-16);
+  --spacing-sidebar-panel-footer-gap: var(--spacing-8);
+  --spacing-sidebar-panel-footer-padding-x: var(--spacing-24);
+  --spacing-sidebar-panel-footer-padding-y: var(--spacing-24);
+  --radius-sidebar-panel-header: var(--radius-md);
+  --radius-sidebar-panel-content: var(--radius-md);
+  --radius-sidebar-panel-footer: var(--radius-md);
+  --shadow-sidebar-panel-elevated: var(--shadow-sm);
+  --shadow-sidebar-panel-floating: var(--shadow-md);
+
+  /* Navigation tokens */
+  --color-sidebar-link-text: var(--color-text);
+  --color-sidebar-link-muted-text: var(--color-text-muted);
+  --color-sidebar-link-hover-surface: var(--color-accent);
+  --color-sidebar-link-hover-text: var(--color-accent-foreground);
+  --color-sidebar-link-active-surface: var(--color-primary);
+  --color-sidebar-link-active-text: var(--color-primary-foreground);
+  --color-sidebar-indicator: var(--color-primary);
+  --spacing-sidebar-nav-gap: var(--spacing-4);
+  --spacing-sidebar-nav-trigger-height: var(--spacing-40);
+  --spacing-sidebar-nav-trigger-padding-x: var(--spacing-12);
+  --spacing-sidebar-nav-trigger-padding-y: var(--spacing-8);
+  --radius-sidebar-nav-trigger: var(--radius-md);
+  --text-sidebar-nav-trigger: var(--text-sm);
+  --font-weight-sidebar-nav-trigger: var(--font-weight-medium);
+
+  /* Interaction states */
+  --color-sidebar-hover-surface: var(--color-surface-muted);
+  --color-sidebar-hover-text: var(--color-text);
+  --color-sidebar-active-surface: var(--color-surface-raised-subtle);
+  --color-sidebar-active-text: var(--color-text);
+  --color-sidebar-selected-surface: var(--color-brand);
+  --color-sidebar-selected-text: var(--color-on-brand);
+  --color-sidebar-disabled-surface: var(--color-surface-muted);
+  --color-sidebar-disabled-text: var(--color-text-muted);
+  --color-sidebar-focus-ring: var(--color-ring);
+  --opacity-sidebar-disabled: 0.5;
+  --spacing-sidebar-action-height-sm: var(--spacing-32);
+  --spacing-sidebar-action-height-md: var(--spacing-40);
+  --spacing-sidebar-action-height-lg: var(--spacing-48);
+  --spacing-sidebar-action-padding-x-sm: var(--spacing-12);
+  --spacing-sidebar-action-padding-x-md: var(--spacing-16);
+  --spacing-sidebar-action-padding-x-lg: var(--spacing-24);
+  --radius-sidebar-action: var(--radius-md);
+
+  /* Collection structure */
+  --spacing-sidebar-collection-list-gap: var(--spacing-4);
+  --spacing-sidebar-collection-group-gap: var(--spacing-8);
+  --spacing-sidebar-collection-group-padding-x: var(--spacing-8);
+  --spacing-sidebar-collection-group-padding-y: var(--spacing-8);
+  --spacing-sidebar-collection-item-gap: var(--spacing-8);
+  --spacing-sidebar-collection-item-padding-x: var(--spacing-12);
+  --spacing-sidebar-collection-item-padding-y: var(--spacing-8);
+  --spacing-sidebar-collection-separator-size: var(--spacing-1);
+  --color-sidebar-collection-separator: var(--color-border);
+  --color-sidebar-collection-label-text: var(--color-text-muted);
+  --text-sidebar-collection-label: var(--text-xs);
+  --font-weight-sidebar-collection-label: var(--font-weight-medium);
+}

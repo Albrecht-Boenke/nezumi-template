@@ -1,0 +1,64 @@
+/* Kbd component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-kbd-surface: var(--color-surface-raised);
+  --color-kbd-surface-muted: var(--color-surface-muted);
+  --color-kbd-text: var(--color-text);
+  --color-kbd-text-muted: var(--color-text-muted);
+  --color-kbd-border: var(--color-border);
+  --color-kbd-ring: var(--color-ring);
+  --spacing-kbd-gap: var(--spacing-8);
+  --spacing-kbd-padding-x: var(--spacing-16);
+  --spacing-kbd-padding-y: var(--spacing-12);
+  --spacing-kbd-icon: var(--spacing-16);
+  --radius-kbd: var(--radius-md);
+  --shadow-kbd: var(--shadow-none);
+  --text-kbd: var(--text-sm);
+  --font-weight-kbd: var(--font-weight-normal);
+  --leading-kbd: var(--leading-normal);
+  --duration-kbd-hover: var(--duration-fast);
+  --duration-kbd-enter: var(--duration-normal);
+  --duration-kbd-exit: var(--duration-fast);
+  --ease-kbd-standard: var(--ease-in-out);
+  --ease-kbd-enter: var(--ease-out);
+  --ease-kbd-exit: var(--ease-in);
+
+  /* Panel slots */
+  --color-kbd-panel-surface: var(--color-surface-raised);
+  --color-kbd-panel-header-surface: transparent;
+  --color-kbd-panel-header-text: var(--color-text);
+  --color-kbd-panel-description-text: var(--color-text-muted);
+  --color-kbd-panel-content-surface: transparent;
+  --color-kbd-panel-footer-surface: transparent;
+  --spacing-kbd-panel-header-gap: var(--spacing-8);
+  --spacing-kbd-panel-header-padding-x: var(--spacing-24);
+  --spacing-kbd-panel-header-padding-y: var(--spacing-24);
+  --spacing-kbd-panel-content-gap: var(--spacing-16);
+  --spacing-kbd-panel-content-padding-x: var(--spacing-24);
+  --spacing-kbd-panel-content-padding-y: var(--spacing-16);
+  --spacing-kbd-panel-footer-gap: var(--spacing-8);
+  --spacing-kbd-panel-footer-padding-x: var(--spacing-24);
+  --spacing-kbd-panel-footer-padding-y: var(--spacing-24);
+  --radius-kbd-panel-header: var(--radius-md);
+  --radius-kbd-panel-content: var(--radius-md);
+  --radius-kbd-panel-footer: var(--radius-md);
+  --shadow-kbd-panel-elevated: var(--shadow-sm);
+  --shadow-kbd-panel-floating: var(--shadow-md);
+
+  /* Typography tokens */
+  --color-kbd-body-text: var(--color-text);
+  --color-kbd-muted-text: var(--color-text-muted);
+  --color-kbd-link-text: var(--color-primary);
+  --text-kbd-h1: var(--text-4xl);
+  --text-kbd-h2: var(--text-3xl);
+  --text-kbd-h3: var(--text-2xl);
+  --text-kbd-body: var(--text-base);
+  --text-kbd-small: var(--text-sm);
+  --font-weight-kbd-heading: var(--font-weight-semibold);
+  --font-weight-kbd-body: var(--font-weight-normal);
+  --leading-kbd-heading: var(--leading-tight);
+  --leading-kbd-body: var(--leading-relaxed);
+  --tracking-kbd-heading: var(--tracking-normal);
+  --spacing-kbd-paragraph-gap: var(--spacing-16);
+}

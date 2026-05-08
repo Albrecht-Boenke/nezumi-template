@@ -1,0 +1,58 @@
+/* Badge component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-badge-surface: var(--color-surface-raised);
+  --color-badge-surface-muted: var(--color-surface-muted);
+  --color-badge-text: var(--color-text);
+  --color-badge-text-muted: var(--color-text-muted);
+  --color-badge-border: var(--color-border);
+  --color-badge-ring: var(--color-ring);
+  --spacing-badge-gap: var(--spacing-8);
+  --spacing-badge-padding-x: var(--spacing-16);
+  --spacing-badge-padding-y: var(--spacing-12);
+  --spacing-badge-icon: var(--spacing-16);
+  --radius-badge: var(--radius-md);
+  --shadow-badge: var(--shadow-none);
+  --text-badge: var(--text-sm);
+  --font-weight-badge: var(--font-weight-normal);
+  --leading-badge: var(--leading-normal);
+  --duration-badge-hover: var(--duration-fast);
+  --duration-badge-enter: var(--duration-normal);
+  --duration-badge-exit: var(--duration-fast);
+  --ease-badge-standard: var(--ease-in-out);
+  --ease-badge-enter: var(--ease-out);
+  --ease-badge-exit: var(--ease-in);
+
+  /* Interaction states */
+  --color-badge-hover-surface: var(--color-surface-muted);
+  --color-badge-hover-text: var(--color-text);
+  --color-badge-active-surface: var(--color-surface-raised-subtle);
+  --color-badge-active-text: var(--color-text);
+  --color-badge-selected-surface: var(--color-brand);
+  --color-badge-selected-text: var(--color-on-brand);
+  --color-badge-disabled-surface: var(--color-surface-muted);
+  --color-badge-disabled-text: var(--color-text-muted);
+  --color-badge-focus-ring: var(--color-ring);
+  --opacity-badge-disabled: 0.5;
+  --spacing-badge-action-height-sm: var(--spacing-32);
+  --spacing-badge-action-height-md: var(--spacing-40);
+  --spacing-badge-action-height-lg: var(--spacing-48);
+  --spacing-badge-action-padding-x-sm: var(--spacing-12);
+  --spacing-badge-action-padding-x-md: var(--spacing-16);
+  --spacing-badge-action-padding-x-lg: var(--spacing-24);
+  --radius-badge-action: var(--radius-md);
+
+  /* Feedback and status tokens */
+  --color-badge-info-surface: var(--color-info-bg);
+  --color-badge-info-text: var(--color-info);
+  --color-badge-success-surface: var(--color-success-bg);
+  --color-badge-success-text: var(--color-success);
+  --color-badge-warning-surface: var(--color-warning-bg);
+  --color-badge-warning-text: var(--color-warning);
+  --color-badge-error-surface: var(--color-error-bg);
+  --color-badge-error-text: var(--color-error);
+  --color-badge-error-border: var(--color-error);
+  --spacing-badge-status-icon: var(--spacing-16);
+  --spacing-badge-status-gap: var(--spacing-8);
+}

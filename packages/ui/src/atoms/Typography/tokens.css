@@ -1,0 +1,42 @@
+/* Typography component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-typography-surface: var(--color-surface-raised);
+  --color-typography-surface-muted: var(--color-surface-muted);
+  --color-typography-text: var(--color-text);
+  --color-typography-text-muted: var(--color-text-muted);
+  --color-typography-border: var(--color-border);
+  --color-typography-ring: var(--color-ring);
+  --spacing-typography-gap: var(--spacing-8);
+  --spacing-typography-padding-x: var(--spacing-16);
+  --spacing-typography-padding-y: var(--spacing-12);
+  --spacing-typography-icon: var(--spacing-16);
+  --radius-typography: var(--radius-md);
+  --shadow-typography: var(--shadow-none);
+  --text-typography: var(--text-sm);
+  --font-weight-typography: var(--font-weight-normal);
+  --leading-typography: var(--leading-normal);
+  --duration-typography-hover: var(--duration-fast);
+  --duration-typography-enter: var(--duration-normal);
+  --duration-typography-exit: var(--duration-fast);
+  --ease-typography-standard: var(--ease-in-out);
+  --ease-typography-enter: var(--ease-out);
+  --ease-typography-exit: var(--ease-in);
+
+  /* Typography tokens */
+  --color-typography-body-text: var(--color-text);
+  --color-typography-muted-text: var(--color-text-muted);
+  --color-typography-link-text: var(--color-primary);
+  --text-typography-h1: var(--text-4xl);
+  --text-typography-h2: var(--text-3xl);
+  --text-typography-h3: var(--text-2xl);
+  --text-typography-body: var(--text-base);
+  --text-typography-small: var(--text-sm);
+  --font-weight-typography-heading: var(--font-weight-semibold);
+  --font-weight-typography-body: var(--font-weight-normal);
+  --leading-typography-heading: var(--leading-tight);
+  --leading-typography-body: var(--leading-relaxed);
+  --tracking-typography-heading: var(--tracking-normal);
+  --spacing-typography-paragraph-gap: var(--spacing-16);
+}

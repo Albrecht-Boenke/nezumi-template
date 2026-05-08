@@ -1,0 +1,59 @@
+/* ToggleGroup component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-toggle-group-surface: var(--color-surface-raised);
+  --color-toggle-group-surface-muted: var(--color-surface-muted);
+  --color-toggle-group-text: var(--color-text);
+  --color-toggle-group-text-muted: var(--color-text-muted);
+  --color-toggle-group-border: var(--color-border);
+  --color-toggle-group-ring: var(--color-ring);
+  --spacing-toggle-group-gap: var(--spacing-8);
+  --spacing-toggle-group-padding-x: var(--spacing-16);
+  --spacing-toggle-group-padding-y: var(--spacing-12);
+  --spacing-toggle-group-icon: var(--spacing-16);
+  --radius-toggle-group: var(--radius-md);
+  --shadow-toggle-group: var(--shadow-none);
+  --text-toggle-group: var(--text-sm);
+  --font-weight-toggle-group: var(--font-weight-normal);
+  --leading-toggle-group: var(--leading-normal);
+  --duration-toggle-group-hover: var(--duration-fast);
+  --duration-toggle-group-enter: var(--duration-normal);
+  --duration-toggle-group-exit: var(--duration-fast);
+  --ease-toggle-group-standard: var(--ease-in-out);
+  --ease-toggle-group-enter: var(--ease-out);
+  --ease-toggle-group-exit: var(--ease-in);
+
+  /* Interaction states */
+  --color-toggle-group-hover-surface: var(--color-surface-muted);
+  --color-toggle-group-hover-text: var(--color-text);
+  --color-toggle-group-active-surface: var(--color-surface-raised-subtle);
+  --color-toggle-group-active-text: var(--color-text);
+  --color-toggle-group-selected-surface: var(--color-brand);
+  --color-toggle-group-selected-text: var(--color-on-brand);
+  --color-toggle-group-disabled-surface: var(--color-surface-muted);
+  --color-toggle-group-disabled-text: var(--color-text-muted);
+  --color-toggle-group-focus-ring: var(--color-ring);
+  --opacity-toggle-group-disabled: 0.5;
+  --spacing-toggle-group-action-height-sm: var(--spacing-32);
+  --spacing-toggle-group-action-height-md: var(--spacing-40);
+  --spacing-toggle-group-action-height-lg: var(--spacing-48);
+  --spacing-toggle-group-action-padding-x-sm: var(--spacing-12);
+  --spacing-toggle-group-action-padding-x-md: var(--spacing-16);
+  --spacing-toggle-group-action-padding-x-lg: var(--spacing-24);
+  --radius-toggle-group-action: var(--radius-md);
+
+  /* Collection structure */
+  --spacing-toggle-group-collection-list-gap: var(--spacing-4);
+  --spacing-toggle-group-collection-group-gap: var(--spacing-8);
+  --spacing-toggle-group-collection-group-padding-x: var(--spacing-8);
+  --spacing-toggle-group-collection-group-padding-y: var(--spacing-8);
+  --spacing-toggle-group-collection-item-gap: var(--spacing-8);
+  --spacing-toggle-group-collection-item-padding-x: var(--spacing-12);
+  --spacing-toggle-group-collection-item-padding-y: var(--spacing-8);
+  --spacing-toggle-group-collection-separator-size: var(--spacing-1);
+  --color-toggle-group-collection-separator: var(--color-border);
+  --color-toggle-group-collection-label-text: var(--color-text-muted);
+  --text-toggle-group-collection-label: var(--text-xs);
+  --font-weight-toggle-group-collection-label: var(--font-weight-medium);
+}

@@ -1,0 +1,61 @@
+/* Label component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-label-surface: var(--color-surface-raised);
+  --color-label-surface-muted: var(--color-surface-muted);
+  --color-label-text: var(--color-text);
+  --color-label-text-muted: var(--color-text-muted);
+  --color-label-border: var(--color-border);
+  --color-label-ring: var(--color-ring);
+  --spacing-label-gap: var(--spacing-8);
+  --spacing-label-padding-x: var(--spacing-16);
+  --spacing-label-padding-y: var(--spacing-12);
+  --spacing-label-icon: var(--spacing-16);
+  --radius-label: var(--radius-md);
+  --shadow-label: var(--shadow-none);
+  --text-label: var(--text-sm);
+  --font-weight-label: var(--font-weight-normal);
+  --leading-label: var(--leading-normal);
+  --duration-label-hover: var(--duration-fast);
+  --duration-label-enter: var(--duration-normal);
+  --duration-label-exit: var(--duration-fast);
+  --ease-label-standard: var(--ease-in-out);
+  --ease-label-enter: var(--ease-out);
+  --ease-label-exit: var(--ease-in);
+
+  /* Typography tokens */
+  --color-label-body-text: var(--color-text);
+  --color-label-muted-text: var(--color-text-muted);
+  --color-label-link-text: var(--color-primary);
+  --text-label-h1: var(--text-4xl);
+  --text-label-h2: var(--text-3xl);
+  --text-label-h3: var(--text-2xl);
+  --text-label-body: var(--text-base);
+  --text-label-small: var(--text-sm);
+  --font-weight-label-heading: var(--font-weight-semibold);
+  --font-weight-label-body: var(--font-weight-normal);
+  --leading-label-heading: var(--leading-tight);
+  --leading-label-body: var(--leading-relaxed);
+  --tracking-label-heading: var(--tracking-normal);
+  --spacing-label-paragraph-gap: var(--spacing-16);
+
+  /* Form control tokens */
+  --color-label-control-surface: var(--color-surface);
+  --color-label-control-text: var(--color-text);
+  --color-label-control-border: var(--color-input);
+  --color-label-control-placeholder: var(--color-text-muted);
+  --color-label-control-ring: var(--color-ring);
+  --color-label-control-invalid-border: var(--color-error);
+  --color-label-control-invalid-text: var(--color-error);
+  --color-label-control-invalid-surface: var(--color-error-bg);
+  --spacing-label-control-height: var(--spacing-40);
+  --spacing-label-control-min-height: var(--spacing-40);
+  --spacing-label-control-width: var(--spacing-128);
+  --spacing-label-control-padding-x: var(--spacing-12);
+  --spacing-label-control-padding-y: var(--spacing-8);
+  --spacing-label-control-gap: var(--spacing-8);
+  --radius-label-control: var(--radius-md);
+  --text-label-placeholder: var(--text-sm);
+  --font-weight-label-placeholder: var(--font-weight-normal);
+}

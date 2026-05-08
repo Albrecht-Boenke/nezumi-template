@@ -1,0 +1,59 @@
+/* ButtonGroup component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-button-group-surface: var(--color-surface-raised);
+  --color-button-group-surface-muted: var(--color-surface-muted);
+  --color-button-group-text: var(--color-text);
+  --color-button-group-text-muted: var(--color-text-muted);
+  --color-button-group-border: var(--color-border);
+  --color-button-group-ring: var(--color-ring);
+  --spacing-button-group-gap: var(--spacing-8);
+  --spacing-button-group-padding-x: var(--spacing-16);
+  --spacing-button-group-padding-y: var(--spacing-12);
+  --spacing-button-group-icon: var(--spacing-16);
+  --radius-button-group: var(--radius-md);
+  --shadow-button-group: var(--shadow-none);
+  --text-button-group: var(--text-sm);
+  --font-weight-button-group: var(--font-weight-normal);
+  --leading-button-group: var(--leading-normal);
+  --duration-button-group-hover: var(--duration-fast);
+  --duration-button-group-enter: var(--duration-normal);
+  --duration-button-group-exit: var(--duration-fast);
+  --ease-button-group-standard: var(--ease-in-out);
+  --ease-button-group-enter: var(--ease-out);
+  --ease-button-group-exit: var(--ease-in);
+
+  /* Interaction states */
+  --color-button-group-hover-surface: var(--color-surface-muted);
+  --color-button-group-hover-text: var(--color-text);
+  --color-button-group-active-surface: var(--color-surface-raised-subtle);
+  --color-button-group-active-text: var(--color-text);
+  --color-button-group-selected-surface: var(--color-brand);
+  --color-button-group-selected-text: var(--color-on-brand);
+  --color-button-group-disabled-surface: var(--color-surface-muted);
+  --color-button-group-disabled-text: var(--color-text-muted);
+  --color-button-group-focus-ring: var(--color-ring);
+  --opacity-button-group-disabled: 0.5;
+  --spacing-button-group-action-height-sm: var(--spacing-32);
+  --spacing-button-group-action-height-md: var(--spacing-40);
+  --spacing-button-group-action-height-lg: var(--spacing-48);
+  --spacing-button-group-action-padding-x-sm: var(--spacing-12);
+  --spacing-button-group-action-padding-x-md: var(--spacing-16);
+  --spacing-button-group-action-padding-x-lg: var(--spacing-24);
+  --radius-button-group-action: var(--radius-md);
+
+  /* Collection structure */
+  --spacing-button-group-collection-list-gap: var(--spacing-4);
+  --spacing-button-group-collection-group-gap: var(--spacing-8);
+  --spacing-button-group-collection-group-padding-x: var(--spacing-8);
+  --spacing-button-group-collection-group-padding-y: var(--spacing-8);
+  --spacing-button-group-collection-item-gap: var(--spacing-8);
+  --spacing-button-group-collection-item-padding-x: var(--spacing-12);
+  --spacing-button-group-collection-item-padding-y: var(--spacing-8);
+  --spacing-button-group-collection-separator-size: var(--spacing-1);
+  --color-button-group-collection-separator: var(--color-border);
+  --color-button-group-collection-label-text: var(--color-text-muted);
+  --text-button-group-collection-label: var(--text-xs);
+  --font-weight-button-group-collection-label: var(--font-weight-medium);
+}

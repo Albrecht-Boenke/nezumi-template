@@ -1,0 +1,88 @@
+/* Sonner component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-sonner-surface: var(--color-surface-raised);
+  --color-sonner-surface-muted: var(--color-surface-muted);
+  --color-sonner-text: var(--color-text);
+  --color-sonner-text-muted: var(--color-text-muted);
+  --color-sonner-border: var(--color-border);
+  --color-sonner-ring: var(--color-ring);
+  --spacing-sonner-gap: var(--spacing-8);
+  --spacing-sonner-padding-x: var(--spacing-16);
+  --spacing-sonner-padding-y: var(--spacing-12);
+  --spacing-sonner-icon: var(--spacing-16);
+  --radius-sonner: var(--radius-md);
+  --shadow-sonner: var(--shadow-none);
+  --text-sonner: var(--text-sm);
+  --font-weight-sonner: var(--font-weight-normal);
+  --leading-sonner: var(--leading-normal);
+  --duration-sonner-hover: var(--duration-fast);
+  --duration-sonner-enter: var(--duration-normal);
+  --duration-sonner-exit: var(--duration-fast);
+  --ease-sonner-standard: var(--ease-in-out);
+  --ease-sonner-enter: var(--ease-out);
+  --ease-sonner-exit: var(--ease-in);
+
+  /* Overlay and portal tokens */
+  --color-sonner-overlay: color-mix(in oklch, var(--color-text) 55%, transparent);
+  --opacity-sonner-overlay: 0.72;
+  --blur-sonner-overlay: 4px;
+  --color-sonner-portal-surface: var(--color-popover);
+  --color-sonner-portal-text: var(--color-popover-foreground);
+  --color-sonner-portal-border: var(--color-border);
+  --color-sonner-portal-ring: var(--color-ring);
+  --shadow-sonner-portal: var(--shadow-lg);
+  --radius-sonner-portal: var(--radius-lg);
+  --spacing-sonner-portal-gap: var(--spacing-16);
+  --spacing-sonner-portal-padding-x: var(--spacing-24);
+  --spacing-sonner-portal-padding-y: var(--spacing-24);
+  --spacing-sonner-portal-min-width: var(--spacing-40);
+  --spacing-sonner-portal-max-width: 32rem;
+  --spacing-sonner-arrow-size: var(--spacing-8);
+  --spacing-sonner-close-size: var(--spacing-32);
+  --duration-sonner-portal-enter: var(--duration-slow);
+  --duration-sonner-portal-exit: var(--duration-fast);
+  --ease-sonner-portal-enter: var(--ease-out);
+  --ease-sonner-portal-exit: var(--ease-in);
+
+  /* Panel slots */
+  --color-sonner-panel-surface: var(--color-surface-raised);
+  --color-sonner-panel-header-surface: transparent;
+  --color-sonner-panel-header-text: var(--color-text);
+  --color-sonner-panel-description-text: var(--color-text-muted);
+  --color-sonner-panel-content-surface: transparent;
+  --color-sonner-panel-footer-surface: transparent;
+  --spacing-sonner-panel-header-gap: var(--spacing-8);
+  --spacing-sonner-panel-header-padding-x: var(--spacing-24);
+  --spacing-sonner-panel-header-padding-y: var(--spacing-24);
+  --spacing-sonner-panel-content-gap: var(--spacing-16);
+  --spacing-sonner-panel-content-padding-x: var(--spacing-24);
+  --spacing-sonner-panel-content-padding-y: var(--spacing-16);
+  --spacing-sonner-panel-footer-gap: var(--spacing-8);
+  --spacing-sonner-panel-footer-padding-x: var(--spacing-24);
+  --spacing-sonner-panel-footer-padding-y: var(--spacing-24);
+  --radius-sonner-panel-header: var(--radius-md);
+  --radius-sonner-panel-content: var(--radius-md);
+  --radius-sonner-panel-footer: var(--radius-md);
+  --shadow-sonner-panel-elevated: var(--shadow-sm);
+  --shadow-sonner-panel-floating: var(--shadow-md);
+
+  /* Feedback and status tokens */
+  --color-sonner-info-surface: var(--color-info-bg);
+  --color-sonner-info-text: var(--color-info);
+  --color-sonner-success-surface: var(--color-success-bg);
+  --color-sonner-success-text: var(--color-success);
+  --color-sonner-warning-surface: var(--color-warning-bg);
+  --color-sonner-warning-text: var(--color-warning);
+  --color-sonner-error-surface: var(--color-error-bg);
+  --color-sonner-error-text: var(--color-error);
+  --color-sonner-error-border: var(--color-error);
+  --spacing-sonner-status-icon: var(--spacing-16);
+  --spacing-sonner-status-gap: var(--spacing-8);
+}
+
+:root {
+  --z-sonner-overlay: 50;
+  --z-sonner-content: 51;
+}

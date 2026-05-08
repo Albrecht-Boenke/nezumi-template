@@ -1,0 +1,64 @@
+/* Input component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-input-surface: var(--color-surface-raised);
+  --color-input-surface-muted: var(--color-surface-muted);
+  --color-input-text: var(--color-text);
+  --color-input-text-muted: var(--color-text-muted);
+  --color-input-border: var(--color-border);
+  --color-input-ring: var(--color-ring);
+  --spacing-input-gap: var(--spacing-8);
+  --spacing-input-padding-x: var(--spacing-16);
+  --spacing-input-padding-y: var(--spacing-12);
+  --spacing-input-icon: var(--spacing-16);
+  --radius-input: var(--radius-md);
+  --shadow-input: var(--shadow-none);
+  --text-input: var(--text-sm);
+  --font-weight-input: var(--font-weight-normal);
+  --leading-input: var(--leading-normal);
+  --duration-input-hover: var(--duration-fast);
+  --duration-input-enter: var(--duration-normal);
+  --duration-input-exit: var(--duration-fast);
+  --ease-input-standard: var(--ease-in-out);
+  --ease-input-enter: var(--ease-out);
+  --ease-input-exit: var(--ease-in);
+
+  /* Form control tokens */
+  --color-input-control-surface: var(--color-surface);
+  --color-input-control-text: var(--color-text);
+  --color-input-control-border: var(--color-input);
+  --color-input-control-placeholder: var(--color-text-muted);
+  --color-input-control-ring: var(--color-ring);
+  --color-input-control-invalid-border: var(--color-error);
+  --color-input-control-invalid-text: var(--color-error);
+  --color-input-control-invalid-surface: var(--color-error-bg);
+  --spacing-input-control-height: var(--spacing-40);
+  --spacing-input-control-min-height: var(--spacing-40);
+  --spacing-input-control-width: var(--spacing-128);
+  --spacing-input-control-padding-x: var(--spacing-12);
+  --spacing-input-control-padding-y: var(--spacing-8);
+  --spacing-input-control-gap: var(--spacing-8);
+  --radius-input-control: var(--radius-md);
+  --text-input-placeholder: var(--text-sm);
+  --font-weight-input-placeholder: var(--font-weight-normal);
+
+  /* Interaction states */
+  --color-input-hover-surface: var(--color-surface-muted);
+  --color-input-hover-text: var(--color-text);
+  --color-input-active-surface: var(--color-surface-raised-subtle);
+  --color-input-active-text: var(--color-text);
+  --color-input-selected-surface: var(--color-brand);
+  --color-input-selected-text: var(--color-on-brand);
+  --color-input-disabled-surface: var(--color-surface-muted);
+  --color-input-disabled-text: var(--color-text-muted);
+  --color-input-focus-ring: var(--color-ring);
+  --opacity-input-disabled: 0.5;
+  --spacing-input-action-height-sm: var(--spacing-32);
+  --spacing-input-action-height-md: var(--spacing-40);
+  --spacing-input-action-height-lg: var(--spacing-48);
+  --spacing-input-action-padding-x-sm: var(--spacing-12);
+  --spacing-input-action-padding-x-md: var(--spacing-16);
+  --spacing-input-action-padding-x-lg: var(--spacing-24);
+  --radius-input-action: var(--radius-md);
+}

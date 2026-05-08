@@ -1,0 +1,88 @@
+/* AlertDialog component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-alert-dialog-surface: var(--color-surface-raised);
+  --color-alert-dialog-surface-muted: var(--color-surface-muted);
+  --color-alert-dialog-text: var(--color-text);
+  --color-alert-dialog-text-muted: var(--color-text-muted);
+  --color-alert-dialog-border: var(--color-border);
+  --color-alert-dialog-ring: var(--color-ring);
+  --spacing-alert-dialog-gap: var(--spacing-8);
+  --spacing-alert-dialog-padding-x: var(--spacing-16);
+  --spacing-alert-dialog-padding-y: var(--spacing-12);
+  --spacing-alert-dialog-icon: var(--spacing-16);
+  --radius-alert-dialog: var(--radius-md);
+  --shadow-alert-dialog: var(--shadow-none);
+  --text-alert-dialog: var(--text-sm);
+  --font-weight-alert-dialog: var(--font-weight-normal);
+  --leading-alert-dialog: var(--leading-normal);
+  --duration-alert-dialog-hover: var(--duration-fast);
+  --duration-alert-dialog-enter: var(--duration-normal);
+  --duration-alert-dialog-exit: var(--duration-fast);
+  --ease-alert-dialog-standard: var(--ease-in-out);
+  --ease-alert-dialog-enter: var(--ease-out);
+  --ease-alert-dialog-exit: var(--ease-in);
+
+  /* Overlay and portal tokens */
+  --color-alert-dialog-overlay: color-mix(in oklch, var(--color-text) 55%, transparent);
+  --opacity-alert-dialog-overlay: 0.72;
+  --blur-alert-dialog-overlay: 4px;
+  --color-alert-dialog-portal-surface: var(--color-popover);
+  --color-alert-dialog-portal-text: var(--color-popover-foreground);
+  --color-alert-dialog-portal-border: var(--color-border);
+  --color-alert-dialog-portal-ring: var(--color-ring);
+  --shadow-alert-dialog-portal: var(--shadow-lg);
+  --radius-alert-dialog-portal: var(--radius-lg);
+  --spacing-alert-dialog-portal-gap: var(--spacing-16);
+  --spacing-alert-dialog-portal-padding-x: var(--spacing-24);
+  --spacing-alert-dialog-portal-padding-y: var(--spacing-24);
+  --spacing-alert-dialog-portal-min-width: var(--spacing-40);
+  --spacing-alert-dialog-portal-max-width: 32rem;
+  --spacing-alert-dialog-arrow-size: var(--spacing-8);
+  --spacing-alert-dialog-close-size: var(--spacing-32);
+  --duration-alert-dialog-portal-enter: var(--duration-slow);
+  --duration-alert-dialog-portal-exit: var(--duration-fast);
+  --ease-alert-dialog-portal-enter: var(--ease-out);
+  --ease-alert-dialog-portal-exit: var(--ease-in);
+
+  /* Panel slots */
+  --color-alert-dialog-panel-surface: var(--color-surface-raised);
+  --color-alert-dialog-panel-header-surface: transparent;
+  --color-alert-dialog-panel-header-text: var(--color-text);
+  --color-alert-dialog-panel-description-text: var(--color-text-muted);
+  --color-alert-dialog-panel-content-surface: transparent;
+  --color-alert-dialog-panel-footer-surface: transparent;
+  --spacing-alert-dialog-panel-header-gap: var(--spacing-8);
+  --spacing-alert-dialog-panel-header-padding-x: var(--spacing-24);
+  --spacing-alert-dialog-panel-header-padding-y: var(--spacing-24);
+  --spacing-alert-dialog-panel-content-gap: var(--spacing-16);
+  --spacing-alert-dialog-panel-content-padding-x: var(--spacing-24);
+  --spacing-alert-dialog-panel-content-padding-y: var(--spacing-16);
+  --spacing-alert-dialog-panel-footer-gap: var(--spacing-8);
+  --spacing-alert-dialog-panel-footer-padding-x: var(--spacing-24);
+  --spacing-alert-dialog-panel-footer-padding-y: var(--spacing-24);
+  --radius-alert-dialog-panel-header: var(--radius-md);
+  --radius-alert-dialog-panel-content: var(--radius-md);
+  --radius-alert-dialog-panel-footer: var(--radius-md);
+  --shadow-alert-dialog-panel-elevated: var(--shadow-sm);
+  --shadow-alert-dialog-panel-floating: var(--shadow-md);
+
+  /* Feedback and status tokens */
+  --color-alert-dialog-info-surface: var(--color-info-bg);
+  --color-alert-dialog-info-text: var(--color-info);
+  --color-alert-dialog-success-surface: var(--color-success-bg);
+  --color-alert-dialog-success-text: var(--color-success);
+  --color-alert-dialog-warning-surface: var(--color-warning-bg);
+  --color-alert-dialog-warning-text: var(--color-warning);
+  --color-alert-dialog-error-surface: var(--color-error-bg);
+  --color-alert-dialog-error-text: var(--color-error);
+  --color-alert-dialog-error-border: var(--color-error);
+  --spacing-alert-dialog-status-icon: var(--spacing-16);
+  --spacing-alert-dialog-status-gap: var(--spacing-8);
+}
+
+:root {
+  --z-alert-dialog-overlay: 50;
+  --z-alert-dialog-content: 51;
+}

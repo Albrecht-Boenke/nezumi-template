@@ -1,0 +1,45 @@
+/* Button component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-button-surface: var(--color-surface-raised);
+  --color-button-surface-muted: var(--color-surface-muted);
+  --color-button-text: var(--color-text);
+  --color-button-text-muted: var(--color-text-muted);
+  --color-button-border: var(--color-border);
+  --color-button-ring: var(--color-ring);
+  --spacing-button-gap: var(--spacing-8);
+  --spacing-button-padding-x: var(--spacing-16);
+  --spacing-button-padding-y: var(--spacing-12);
+  --spacing-button-icon: var(--spacing-16);
+  --radius-button: var(--radius-md);
+  --shadow-button: var(--shadow-none);
+  --text-button: var(--text-sm);
+  --font-weight-button: var(--font-weight-normal);
+  --leading-button: var(--leading-normal);
+  --duration-button-hover: var(--duration-fast);
+  --duration-button-enter: var(--duration-normal);
+  --duration-button-exit: var(--duration-fast);
+  --ease-button-standard: var(--ease-in-out);
+  --ease-button-enter: var(--ease-out);
+  --ease-button-exit: var(--ease-in);
+
+  /* Interaction states */
+  --color-button-hover-surface: var(--color-surface-muted);
+  --color-button-hover-text: var(--color-text);
+  --color-button-active-surface: var(--color-surface-raised-subtle);
+  --color-button-active-text: var(--color-text);
+  --color-button-selected-surface: var(--color-brand);
+  --color-button-selected-text: var(--color-on-brand);
+  --color-button-disabled-surface: var(--color-surface-muted);
+  --color-button-disabled-text: var(--color-text-muted);
+  --color-button-focus-ring: var(--color-ring);
+  --opacity-button-disabled: 0.5;
+  --spacing-button-action-height-sm: var(--spacing-32);
+  --spacing-button-action-height-md: var(--spacing-40);
+  --spacing-button-action-height-lg: var(--spacing-48);
+  --spacing-button-action-padding-x-sm: var(--spacing-12);
+  --spacing-button-action-padding-x-md: var(--spacing-16);
+  --spacing-button-action-padding-x-lg: var(--spacing-24);
+  --radius-button-action: var(--radius-md);
+}

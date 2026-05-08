@@ -1,0 +1,49 @@
+/* Progress component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-progress-surface: var(--color-surface-raised);
+  --color-progress-surface-muted: var(--color-surface-muted);
+  --color-progress-text: var(--color-text);
+  --color-progress-text-muted: var(--color-text-muted);
+  --color-progress-border: var(--color-border);
+  --color-progress-ring: var(--color-ring);
+  --spacing-progress-gap: var(--spacing-8);
+  --spacing-progress-padding-x: var(--spacing-16);
+  --spacing-progress-padding-y: var(--spacing-12);
+  --spacing-progress-icon: var(--spacing-16);
+  --radius-progress: var(--radius-md);
+  --shadow-progress: var(--shadow-none);
+  --text-progress: var(--text-sm);
+  --font-weight-progress: var(--font-weight-normal);
+  --leading-progress: var(--leading-normal);
+  --duration-progress-hover: var(--duration-fast);
+  --duration-progress-enter: var(--duration-normal);
+  --duration-progress-exit: var(--duration-fast);
+  --ease-progress-standard: var(--ease-in-out);
+  --ease-progress-enter: var(--ease-out);
+  --ease-progress-exit: var(--ease-in);
+
+  /* Feedback and status tokens */
+  --color-progress-info-surface: var(--color-info-bg);
+  --color-progress-info-text: var(--color-info);
+  --color-progress-success-surface: var(--color-success-bg);
+  --color-progress-success-text: var(--color-success);
+  --color-progress-warning-surface: var(--color-warning-bg);
+  --color-progress-warning-text: var(--color-warning);
+  --color-progress-error-surface: var(--color-error-bg);
+  --color-progress-error-text: var(--color-error);
+  --color-progress-error-border: var(--color-error);
+  --spacing-progress-status-icon: var(--spacing-16);
+  --spacing-progress-status-gap: var(--spacing-8);
+
+  /* Loading state tokens */
+  --color-progress-loading-track: var(--color-surface-muted);
+  --color-progress-loading-indicator: var(--color-primary);
+  --color-progress-loading-highlight: var(--color-surface-raised-subtle);
+  --spacing-progress-loading-size-sm: var(--spacing-16);
+  --spacing-progress-loading-size-md: var(--spacing-24);
+  --spacing-progress-loading-size-lg: var(--spacing-32);
+  --duration-progress-loading-cycle: var(--duration-slower);
+  --ease-progress-loading-cycle: var(--ease-linear);
+}

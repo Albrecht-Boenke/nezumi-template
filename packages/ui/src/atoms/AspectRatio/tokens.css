@@ -1,0 +1,46 @@
+/* AspectRatio component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-aspect-ratio-surface: var(--color-surface-raised);
+  --color-aspect-ratio-surface-muted: var(--color-surface-muted);
+  --color-aspect-ratio-text: var(--color-text);
+  --color-aspect-ratio-text-muted: var(--color-text-muted);
+  --color-aspect-ratio-border: var(--color-border);
+  --color-aspect-ratio-ring: var(--color-ring);
+  --spacing-aspect-ratio-gap: var(--spacing-8);
+  --spacing-aspect-ratio-padding-x: var(--spacing-16);
+  --spacing-aspect-ratio-padding-y: var(--spacing-12);
+  --spacing-aspect-ratio-icon: var(--spacing-16);
+  --radius-aspect-ratio: var(--radius-md);
+  --shadow-aspect-ratio: var(--shadow-none);
+  --text-aspect-ratio: var(--text-sm);
+  --font-weight-aspect-ratio: var(--font-weight-normal);
+  --leading-aspect-ratio: var(--leading-normal);
+  --duration-aspect-ratio-hover: var(--duration-fast);
+  --duration-aspect-ratio-enter: var(--duration-normal);
+  --duration-aspect-ratio-exit: var(--duration-fast);
+  --ease-aspect-ratio-standard: var(--ease-in-out);
+  --ease-aspect-ratio-enter: var(--ease-out);
+  --ease-aspect-ratio-exit: var(--ease-in);
+
+  /* Layout geometry tokens */
+  --spacing-aspect-ratio-inline-size: 100%;
+  --spacing-aspect-ratio-block-size: auto;
+  --spacing-aspect-ratio-min-size: var(--spacing-0);
+  --spacing-aspect-ratio-max-size: 100%;
+  --spacing-aspect-ratio-handle-size: var(--spacing-8);
+  --color-aspect-ratio-handle: var(--color-border);
+  --color-aspect-ratio-handle-hover: var(--color-text-muted);
+  --radius-aspect-ratio-container: var(--radius-md);
+
+  /* Media slot tokens */
+  --color-aspect-ratio-media-surface: var(--color-surface-muted);
+  --color-aspect-ratio-media-text: var(--color-text-muted);
+  --spacing-aspect-ratio-media-size-sm: var(--spacing-32);
+  --spacing-aspect-ratio-media-size-md: var(--spacing-40);
+  --spacing-aspect-ratio-media-size-lg: var(--spacing-56);
+  --spacing-aspect-ratio-media-gap: var(--spacing-12);
+  --radius-aspect-ratio-media: var(--radius-md);
+  --shadow-aspect-ratio-media: var(--shadow-none);
+}

@@ -1,0 +1,78 @@
+/* InputGroup component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-input-group-surface: var(--color-surface-raised);
+  --color-input-group-surface-muted: var(--color-surface-muted);
+  --color-input-group-text: var(--color-text);
+  --color-input-group-text-muted: var(--color-text-muted);
+  --color-input-group-border: var(--color-border);
+  --color-input-group-ring: var(--color-ring);
+  --spacing-input-group-gap: var(--spacing-8);
+  --spacing-input-group-padding-x: var(--spacing-16);
+  --spacing-input-group-padding-y: var(--spacing-12);
+  --spacing-input-group-icon: var(--spacing-16);
+  --radius-input-group: var(--radius-md);
+  --shadow-input-group: var(--shadow-none);
+  --text-input-group: var(--text-sm);
+  --font-weight-input-group: var(--font-weight-normal);
+  --leading-input-group: var(--leading-normal);
+  --duration-input-group-hover: var(--duration-fast);
+  --duration-input-group-enter: var(--duration-normal);
+  --duration-input-group-exit: var(--duration-fast);
+  --ease-input-group-standard: var(--ease-in-out);
+  --ease-input-group-enter: var(--ease-out);
+  --ease-input-group-exit: var(--ease-in);
+
+  /* Form control tokens */
+  --color-input-group-control-surface: var(--color-surface);
+  --color-input-group-control-text: var(--color-text);
+  --color-input-group-control-border: var(--color-input);
+  --color-input-group-control-placeholder: var(--color-text-muted);
+  --color-input-group-control-ring: var(--color-ring);
+  --color-input-group-control-invalid-border: var(--color-error);
+  --color-input-group-control-invalid-text: var(--color-error);
+  --color-input-group-control-invalid-surface: var(--color-error-bg);
+  --spacing-input-group-control-height: var(--spacing-40);
+  --spacing-input-group-control-min-height: var(--spacing-40);
+  --spacing-input-group-control-width: var(--spacing-128);
+  --spacing-input-group-control-padding-x: var(--spacing-12);
+  --spacing-input-group-control-padding-y: var(--spacing-8);
+  --spacing-input-group-control-gap: var(--spacing-8);
+  --radius-input-group-control: var(--radius-md);
+  --text-input-group-placeholder: var(--text-sm);
+  --font-weight-input-group-placeholder: var(--font-weight-normal);
+
+  /* Interaction states */
+  --color-input-group-hover-surface: var(--color-surface-muted);
+  --color-input-group-hover-text: var(--color-text);
+  --color-input-group-active-surface: var(--color-surface-raised-subtle);
+  --color-input-group-active-text: var(--color-text);
+  --color-input-group-selected-surface: var(--color-brand);
+  --color-input-group-selected-text: var(--color-on-brand);
+  --color-input-group-disabled-surface: var(--color-surface-muted);
+  --color-input-group-disabled-text: var(--color-text-muted);
+  --color-input-group-focus-ring: var(--color-ring);
+  --opacity-input-group-disabled: 0.5;
+  --spacing-input-group-action-height-sm: var(--spacing-32);
+  --spacing-input-group-action-height-md: var(--spacing-40);
+  --spacing-input-group-action-height-lg: var(--spacing-48);
+  --spacing-input-group-action-padding-x-sm: var(--spacing-12);
+  --spacing-input-group-action-padding-x-md: var(--spacing-16);
+  --spacing-input-group-action-padding-x-lg: var(--spacing-24);
+  --radius-input-group-action: var(--radius-md);
+
+  /* Collection structure */
+  --spacing-input-group-collection-list-gap: var(--spacing-4);
+  --spacing-input-group-collection-group-gap: var(--spacing-8);
+  --spacing-input-group-collection-group-padding-x: var(--spacing-8);
+  --spacing-input-group-collection-group-padding-y: var(--spacing-8);
+  --spacing-input-group-collection-item-gap: var(--spacing-8);
+  --spacing-input-group-collection-item-padding-x: var(--spacing-12);
+  --spacing-input-group-collection-item-padding-y: var(--spacing-8);
+  --spacing-input-group-collection-separator-size: var(--spacing-1);
+  --color-input-group-collection-separator: var(--color-border);
+  --color-input-group-collection-label-text: var(--color-text-muted);
+  --text-input-group-collection-label: var(--text-xs);
+  --font-weight-input-group-collection-label: var(--font-weight-medium);
+}

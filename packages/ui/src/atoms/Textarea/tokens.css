@@ -1,0 +1,64 @@
+/* Textarea component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-textarea-surface: var(--color-surface-raised);
+  --color-textarea-surface-muted: var(--color-surface-muted);
+  --color-textarea-text: var(--color-text);
+  --color-textarea-text-muted: var(--color-text-muted);
+  --color-textarea-border: var(--color-border);
+  --color-textarea-ring: var(--color-ring);
+  --spacing-textarea-gap: var(--spacing-8);
+  --spacing-textarea-padding-x: var(--spacing-16);
+  --spacing-textarea-padding-y: var(--spacing-12);
+  --spacing-textarea-icon: var(--spacing-16);
+  --radius-textarea: var(--radius-md);
+  --shadow-textarea: var(--shadow-none);
+  --text-textarea: var(--text-sm);
+  --font-weight-textarea: var(--font-weight-normal);
+  --leading-textarea: var(--leading-normal);
+  --duration-textarea-hover: var(--duration-fast);
+  --duration-textarea-enter: var(--duration-normal);
+  --duration-textarea-exit: var(--duration-fast);
+  --ease-textarea-standard: var(--ease-in-out);
+  --ease-textarea-enter: var(--ease-out);
+  --ease-textarea-exit: var(--ease-in);
+
+  /* Form control tokens */
+  --color-textarea-control-surface: var(--color-surface);
+  --color-textarea-control-text: var(--color-text);
+  --color-textarea-control-border: var(--color-input);
+  --color-textarea-control-placeholder: var(--color-text-muted);
+  --color-textarea-control-ring: var(--color-ring);
+  --color-textarea-control-invalid-border: var(--color-error);
+  --color-textarea-control-invalid-text: var(--color-error);
+  --color-textarea-control-invalid-surface: var(--color-error-bg);
+  --spacing-textarea-control-height: var(--spacing-40);
+  --spacing-textarea-control-min-height: var(--spacing-40);
+  --spacing-textarea-control-width: var(--spacing-128);
+  --spacing-textarea-control-padding-x: var(--spacing-12);
+  --spacing-textarea-control-padding-y: var(--spacing-8);
+  --spacing-textarea-control-gap: var(--spacing-8);
+  --radius-textarea-control: var(--radius-md);
+  --text-textarea-placeholder: var(--text-sm);
+  --font-weight-textarea-placeholder: var(--font-weight-normal);
+
+  /* Interaction states */
+  --color-textarea-hover-surface: var(--color-surface-muted);
+  --color-textarea-hover-text: var(--color-text);
+  --color-textarea-active-surface: var(--color-surface-raised-subtle);
+  --color-textarea-active-text: var(--color-text);
+  --color-textarea-selected-surface: var(--color-brand);
+  --color-textarea-selected-text: var(--color-on-brand);
+  --color-textarea-disabled-surface: var(--color-surface-muted);
+  --color-textarea-disabled-text: var(--color-text-muted);
+  --color-textarea-focus-ring: var(--color-ring);
+  --opacity-textarea-disabled: 0.5;
+  --spacing-textarea-action-height-sm: var(--spacing-32);
+  --spacing-textarea-action-height-md: var(--spacing-40);
+  --spacing-textarea-action-height-lg: var(--spacing-48);
+  --spacing-textarea-action-padding-x-sm: var(--spacing-12);
+  --spacing-textarea-action-padding-x-md: var(--spacing-16);
+  --spacing-textarea-action-padding-x-lg: var(--spacing-24);
+  --radius-textarea-action: var(--radius-md);
+}
