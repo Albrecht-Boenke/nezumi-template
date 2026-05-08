@@ -1,0 +1,93 @@
+# Calendar — Component Tokens
+
+> Design-token contract for the `Calendar` component.
+
+## Token Definitions
+
+```css
+/* Calendar component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-calendar-surface: var(--color-surface-raised);
+  --color-calendar-surface-muted: var(--color-surface-muted);
+  --color-calendar-text: var(--color-text);
+  --color-calendar-text-muted: var(--color-text-muted);
+  --color-calendar-border: var(--color-border);
+  --color-calendar-ring: var(--color-ring);
+  --spacing-calendar-gap: var(--spacing-8);
+  --spacing-calendar-padding-x: var(--spacing-16);
+  --spacing-calendar-padding-y: var(--spacing-12);
+  --spacing-calendar-icon: var(--spacing-16);
+  --radius-calendar: var(--radius-md);
+  --shadow-calendar: var(--shadow-none);
+  --text-calendar: 0.875rem;
+  --font-weight-calendar: var(--font-weight-regular);
+  --leading-calendar: 1.5;
+  --duration-calendar-hover: var(--duration-fast);
+  --duration-calendar-enter: var(--duration-normal);
+  --duration-calendar-exit: var(--duration-fast);
+  --ease-calendar-standard: var(--ease-in-out);
+  --ease-calendar-enter: var(--ease-out);
+  --ease-calendar-exit: var(--ease-in);
+
+  /* Panel slots */
+  --color-calendar-panel-surface: var(--color-surface-raised);
+  --color-calendar-panel-header-surface: var(--color-surface-raised);
+  --color-calendar-panel-header-text: var(--color-text);
+  --color-calendar-panel-description-text: var(--color-text-muted);
+  --color-calendar-panel-content-surface: var(--color-surface-raised);
+  --color-calendar-panel-footer-surface: var(--color-surface-raised);
+  --spacing-calendar-panel-header-gap: var(--spacing-8);
+  --spacing-calendar-panel-header-padding-x: var(--spacing-24);
+  --spacing-calendar-panel-header-padding-y: var(--spacing-24);
+  --spacing-calendar-panel-content-gap: var(--spacing-16);
+  --spacing-calendar-panel-content-padding-x: var(--spacing-24);
+  --spacing-calendar-panel-content-padding-y: var(--spacing-16);
+  --spacing-calendar-panel-footer-gap: var(--spacing-8);
+  --spacing-calendar-panel-footer-padding-x: var(--spacing-24);
+  --spacing-calendar-panel-footer-padding-y: var(--spacing-24);
+  --radius-calendar-panel-header: var(--radius-md);
+  --radius-calendar-panel-content: var(--radius-md);
+  --radius-calendar-panel-footer: var(--radius-md);
+  --shadow-calendar-panel-elevated: var(--shadow-sm);
+  --shadow-calendar-panel-floating: var(--shadow-md);
+
+  /* Interaction states */
+  --color-calendar-hover-surface: var(--color-surface-muted);
+  --color-calendar-hover-text: var(--color-text);
+  --color-calendar-active-surface: var(--color-surface-raised-subtle);
+  --color-calendar-active-text: var(--color-text);
+  --color-calendar-selected-surface: var(--color-brand);
+  --color-calendar-selected-text: var(--color-on-brand);
+  --color-calendar-disabled-surface: var(--color-surface-muted);
+  --color-calendar-disabled-text: var(--color-text-muted);
+  --color-calendar-focus-ring: var(--color-ring);
+  --spacing-calendar-action-height-sm: var(--spacing-32);
+  --spacing-calendar-action-height-md: var(--spacing-40);
+  --spacing-calendar-action-height-lg: var(--spacing-48);
+  --spacing-calendar-action-padding-x-sm: var(--spacing-12);
+  --spacing-calendar-action-padding-x-md: var(--spacing-16);
+  --spacing-calendar-action-padding-x-lg: var(--spacing-24);
+  --radius-calendar-action: var(--radius-md);
+
+  /* Collection structure */
+  --spacing-calendar-collection-list-gap: var(--spacing-4);
+  --spacing-calendar-collection-group-gap: var(--spacing-8);
+  --spacing-calendar-collection-group-padding-x: var(--spacing-8);
+  --spacing-calendar-collection-group-padding-y: var(--spacing-8);
+  --spacing-calendar-collection-item-gap: var(--spacing-8);
+  --spacing-calendar-collection-item-padding-x: var(--spacing-12);
+  --spacing-calendar-collection-item-padding-y: var(--spacing-8);
+  --spacing-calendar-collection-separator-size: var(--spacing-1);
+  --color-calendar-collection-separator: var(--color-border);
+  --color-calendar-collection-label-text: var(--color-text-muted);
+  --text-calendar-collection-label: 0.75rem;
+  --font-weight-calendar-collection-label: var(--font-weight-medium);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

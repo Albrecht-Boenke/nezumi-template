@@ -1,0 +1,85 @@
+# Field — Component Tokens
+
+> Design-token contract for the `Field` component.
+
+## Token Definitions
+
+```css
+/* Field component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-field-surface: var(--color-surface-raised);
+  --color-field-surface-muted: var(--color-surface-muted);
+  --color-field-text: var(--color-text);
+  --color-field-text-muted: var(--color-text-muted);
+  --color-field-border: var(--color-border);
+  --color-field-ring: var(--color-ring);
+  --spacing-field-gap: var(--spacing-8);
+  --spacing-field-padding-x: var(--spacing-16);
+  --spacing-field-padding-y: var(--spacing-12);
+  --spacing-field-icon: var(--spacing-16);
+  --radius-field: var(--radius-md);
+  --shadow-field: var(--shadow-none);
+  --text-field: 0.875rem;
+  --font-weight-field: var(--font-weight-regular);
+  --leading-field: 1.5;
+  --duration-field-hover: var(--duration-fast);
+  --duration-field-enter: var(--duration-normal);
+  --duration-field-exit: var(--duration-fast);
+  --ease-field-standard: var(--ease-in-out);
+  --ease-field-enter: var(--ease-out);
+  --ease-field-exit: var(--ease-in);
+
+  /* Form control tokens */
+  --color-field-control-surface: var(--color-surface);
+  --color-field-control-text: var(--color-text);
+  --color-field-control-border: var(--color-input);
+  --color-field-control-placeholder: var(--color-text-muted);
+  --color-field-control-ring: var(--color-ring);
+  --color-field-control-invalid-border: var(--color-error);
+  --color-field-control-invalid-text: var(--color-error);
+  --color-field-control-invalid-surface: var(--color-error-bg);
+  --spacing-field-control-height: var(--spacing-40);
+  --spacing-field-control-min-height: var(--spacing-40);
+  --spacing-field-control-width: var(--spacing-128);
+  --spacing-field-control-padding-x: var(--spacing-12);
+  --spacing-field-control-padding-y: var(--spacing-8);
+  --spacing-field-control-gap: var(--spacing-8);
+  --radius-field-control: var(--radius-md);
+  --text-field-placeholder: 0.875rem;
+  --font-weight-field-placeholder: var(--font-weight-regular);
+
+  /* Collection structure */
+  --spacing-field-collection-list-gap: var(--spacing-4);
+  --spacing-field-collection-group-gap: var(--spacing-8);
+  --spacing-field-collection-group-padding-x: var(--spacing-8);
+  --spacing-field-collection-group-padding-y: var(--spacing-8);
+  --spacing-field-collection-item-gap: var(--spacing-8);
+  --spacing-field-collection-item-padding-x: var(--spacing-12);
+  --spacing-field-collection-item-padding-y: var(--spacing-8);
+  --spacing-field-collection-separator-size: var(--spacing-1);
+  --color-field-collection-separator: var(--color-border);
+  --color-field-collection-label-text: var(--color-text-muted);
+  --text-field-collection-label: 0.75rem;
+  --font-weight-field-collection-label: var(--font-weight-medium);
+
+  /* Feedback and status tokens */
+  --color-field-info-surface: var(--color-info-bg);
+  --color-field-info-text: var(--color-info);
+  --color-field-success-surface: var(--color-success-bg);
+  --color-field-success-text: var(--color-success);
+  --color-field-warning-surface: var(--color-warning-bg);
+  --color-field-warning-text: var(--color-warning);
+  --color-field-error-surface: var(--color-error-bg);
+  --color-field-error-text: var(--color-error);
+  --color-field-error-border: var(--color-error);
+  --spacing-field-status-icon: var(--spacing-16);
+  --spacing-field-status-gap: var(--spacing-8);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

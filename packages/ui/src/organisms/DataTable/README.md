@@ -1,0 +1,96 @@
+# DataTable — Component Tokens
+
+> Design-token contract for the `DataTable` component.
+
+## Token Definitions
+
+```css
+/* DataTable component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-data-table-surface: var(--color-surface-raised);
+  --color-data-table-surface-muted: var(--color-surface-muted);
+  --color-data-table-text: var(--color-text);
+  --color-data-table-text-muted: var(--color-text-muted);
+  --color-data-table-border: var(--color-border);
+  --color-data-table-ring: var(--color-ring);
+  --spacing-data-table-gap: var(--spacing-8);
+  --spacing-data-table-padding-x: var(--spacing-16);
+  --spacing-data-table-padding-y: var(--spacing-12);
+  --spacing-data-table-icon: var(--spacing-16);
+  --radius-data-table: var(--radius-md);
+  --shadow-data-table: var(--shadow-none);
+  --text-data-table: 0.875rem;
+  --font-weight-data-table: var(--font-weight-regular);
+  --leading-data-table: 1.5;
+  --duration-data-table-hover: var(--duration-fast);
+  --duration-data-table-enter: var(--duration-normal);
+  --duration-data-table-exit: var(--duration-fast);
+  --ease-data-table-standard: var(--ease-in-out);
+  --ease-data-table-enter: var(--ease-out);
+  --ease-data-table-exit: var(--ease-in);
+
+  /* Panel slots */
+  --color-data-table-panel-surface: var(--color-surface-raised);
+  --color-data-table-panel-header-surface: var(--color-surface-raised);
+  --color-data-table-panel-header-text: var(--color-text);
+  --color-data-table-panel-description-text: var(--color-text-muted);
+  --color-data-table-panel-content-surface: var(--color-surface-raised);
+  --color-data-table-panel-footer-surface: var(--color-surface-raised);
+  --spacing-data-table-panel-header-gap: var(--spacing-8);
+  --spacing-data-table-panel-header-padding-x: var(--spacing-24);
+  --spacing-data-table-panel-header-padding-y: var(--spacing-24);
+  --spacing-data-table-panel-content-gap: var(--spacing-16);
+  --spacing-data-table-panel-content-padding-x: var(--spacing-24);
+  --spacing-data-table-panel-content-padding-y: var(--spacing-16);
+  --spacing-data-table-panel-footer-gap: var(--spacing-8);
+  --spacing-data-table-panel-footer-padding-x: var(--spacing-24);
+  --spacing-data-table-panel-footer-padding-y: var(--spacing-24);
+  --radius-data-table-panel-header: var(--radius-md);
+  --radius-data-table-panel-content: var(--radius-md);
+  --radius-data-table-panel-footer: var(--radius-md);
+  --shadow-data-table-panel-elevated: var(--shadow-sm);
+  --shadow-data-table-panel-floating: var(--shadow-md);
+
+  /* Data display tokens */
+  --color-data-table-head-surface: var(--color-surface-muted);
+  --color-data-table-head-text: var(--color-text);
+  --color-data-table-row-surface: var(--color-surface);
+  --color-data-table-row-hover-surface: var(--color-surface-muted);
+  --color-data-table-row-selected-surface: var(--color-accent);
+  --color-data-table-cell-text: var(--color-text);
+  --color-data-table-cell-muted-text: var(--color-text-muted);
+  --color-data-table-cell-border: var(--color-border);
+  --spacing-data-table-row-height: var(--spacing-48);
+  --spacing-data-table-cell-padding-x: var(--spacing-16);
+  --spacing-data-table-cell-padding-y: var(--spacing-12);
+  --spacing-data-table-caption-gap: var(--spacing-8);
+  --text-data-table-head: 0.875rem;
+  --font-weight-data-table-head: var(--font-weight-medium);
+  --text-data-table-cell: 0.875rem;
+
+  /* Interaction states */
+  --color-data-table-hover-surface: var(--color-surface-muted);
+  --color-data-table-hover-text: var(--color-text);
+  --color-data-table-active-surface: var(--color-surface-raised-subtle);
+  --color-data-table-active-text: var(--color-text);
+  --color-data-table-selected-surface: var(--color-brand);
+  --color-data-table-selected-text: var(--color-on-brand);
+  --color-data-table-disabled-surface: var(--color-surface-muted);
+  --color-data-table-disabled-text: var(--color-text-muted);
+  --color-data-table-focus-ring: var(--color-ring);
+  --spacing-data-table-action-height-sm: var(--spacing-32);
+  --spacing-data-table-action-height-md: var(--spacing-40);
+  --spacing-data-table-action-height-lg: var(--spacing-48);
+  --spacing-data-table-action-padding-x-sm: var(--spacing-12);
+  --spacing-data-table-action-padding-x-md: var(--spacing-16);
+  --spacing-data-table-action-padding-x-lg: var(--spacing-24);
+  --radius-data-table-action: var(--radius-md);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

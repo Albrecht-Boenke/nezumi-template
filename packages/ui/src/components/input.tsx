@@ -1,4 +1,4 @@
 export {
   Input,
   type InputProps,
-} from "../atoms/Input"
+} from "../atoms/Input/input"

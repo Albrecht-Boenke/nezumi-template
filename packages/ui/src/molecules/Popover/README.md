@@ -1,0 +1,82 @@
+# Popover — Component Tokens
+
+> Design-token contract for the `Popover` component.
+
+## Token Definitions
+
+```css
+/* Popover component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-popover-surface: var(--color-surface-raised);
+  --color-popover-surface-muted: var(--color-surface-muted);
+  --color-popover-text: var(--color-text);
+  --color-popover-text-muted: var(--color-text-muted);
+  --color-popover-border: var(--color-border);
+  --color-popover-ring: var(--color-ring);
+  --spacing-popover-gap: var(--spacing-8);
+  --spacing-popover-padding-x: var(--spacing-16);
+  --spacing-popover-padding-y: var(--spacing-12);
+  --spacing-popover-icon: var(--spacing-16);
+  --radius-popover: var(--radius-md);
+  --shadow-popover: var(--shadow-none);
+  --text-popover: 0.875rem;
+  --font-weight-popover: var(--font-weight-regular);
+  --leading-popover: 1.5;
+  --duration-popover-hover: var(--duration-fast);
+  --duration-popover-enter: var(--duration-normal);
+  --duration-popover-exit: var(--duration-fast);
+  --ease-popover-standard: var(--ease-in-out);
+  --ease-popover-enter: var(--ease-out);
+  --ease-popover-exit: var(--ease-in);
+
+  /* Overlay and portal tokens */
+  --color-popover-overlay: color-mix(in oklch, var(--color-text) 55%, var(--color-surface));
+  --blur-popover-overlay: var(--blur-xs);
+  --color-popover-portal-surface: var(--color-popover);
+  --color-popover-portal-text: var(--color-popover-foreground);
+  --color-popover-portal-border: var(--color-border);
+  --color-popover-portal-ring: var(--color-ring);
+  --shadow-popover-portal: var(--shadow-lg);
+  --radius-popover-portal: var(--radius-lg);
+  --spacing-popover-portal-gap: var(--spacing-16);
+  --spacing-popover-portal-padding-x: var(--spacing-24);
+  --spacing-popover-portal-padding-y: var(--spacing-24);
+  --spacing-popover-portal-min-width: var(--spacing-40);
+  --spacing-popover-portal-max-width: var(--container-lg);
+  --spacing-popover-arrow-size: var(--spacing-8);
+  --spacing-popover-close-size: var(--spacing-32);
+  --duration-popover-portal-enter: var(--duration-slow);
+  --duration-popover-portal-exit: var(--duration-fast);
+  --ease-popover-portal-enter: var(--ease-out);
+  --ease-popover-portal-exit: var(--ease-in);
+
+  /* Panel slots */
+  --color-popover-panel-surface: var(--color-surface-raised);
+  --color-popover-panel-header-surface: var(--color-surface-raised);
+  --color-popover-panel-header-text: var(--color-text);
+  --color-popover-panel-description-text: var(--color-text-muted);
+  --color-popover-panel-content-surface: var(--color-surface-raised);
+  --color-popover-panel-footer-surface: var(--color-surface-raised);
+  --spacing-popover-panel-header-gap: var(--spacing-8);
+  --spacing-popover-panel-header-padding-x: var(--spacing-24);
+  --spacing-popover-panel-header-padding-y: var(--spacing-24);
+  --spacing-popover-panel-content-gap: var(--spacing-16);
+  --spacing-popover-panel-content-padding-x: var(--spacing-24);
+  --spacing-popover-panel-content-padding-y: var(--spacing-16);
+  --spacing-popover-panel-footer-gap: var(--spacing-8);
+  --spacing-popover-panel-footer-padding-x: var(--spacing-24);
+  --spacing-popover-panel-footer-padding-y: var(--spacing-24);
+  --radius-popover-panel-header: var(--radius-md);
+  --radius-popover-panel-content: var(--radius-md);
+  --radius-popover-panel-footer: var(--radius-md);
+  --shadow-popover-panel-elevated: var(--shadow-sm);
+  --shadow-popover-panel-floating: var(--shadow-md);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

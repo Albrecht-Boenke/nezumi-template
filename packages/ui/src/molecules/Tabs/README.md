@@ -1,0 +1,93 @@
+# Tabs — Component Tokens
+
+> Design-token contract for the `Tabs` component.
+
+## Token Definitions
+
+```css
+/* Tabs component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-tabs-surface: var(--color-surface-raised);
+  --color-tabs-surface-muted: var(--color-surface-muted);
+  --color-tabs-text: var(--color-text);
+  --color-tabs-text-muted: var(--color-text-muted);
+  --color-tabs-border: var(--color-border);
+  --color-tabs-ring: var(--color-ring);
+  --spacing-tabs-gap: var(--spacing-8);
+  --spacing-tabs-padding-x: var(--spacing-16);
+  --spacing-tabs-padding-y: var(--spacing-12);
+  --spacing-tabs-icon: var(--spacing-16);
+  --radius-tabs: var(--radius-md);
+  --shadow-tabs: var(--shadow-none);
+  --text-tabs: 0.875rem;
+  --font-weight-tabs: var(--font-weight-regular);
+  --leading-tabs: 1.5;
+  --duration-tabs-hover: var(--duration-fast);
+  --duration-tabs-enter: var(--duration-normal);
+  --duration-tabs-exit: var(--duration-fast);
+  --ease-tabs-standard: var(--ease-in-out);
+  --ease-tabs-enter: var(--ease-out);
+  --ease-tabs-exit: var(--ease-in);
+
+  /* Panel slots */
+  --color-tabs-panel-surface: var(--color-surface-raised);
+  --color-tabs-panel-header-surface: var(--color-surface-raised);
+  --color-tabs-panel-header-text: var(--color-text);
+  --color-tabs-panel-description-text: var(--color-text-muted);
+  --color-tabs-panel-content-surface: var(--color-surface-raised);
+  --color-tabs-panel-footer-surface: var(--color-surface-raised);
+  --spacing-tabs-panel-header-gap: var(--spacing-8);
+  --spacing-tabs-panel-header-padding-x: var(--spacing-24);
+  --spacing-tabs-panel-header-padding-y: var(--spacing-24);
+  --spacing-tabs-panel-content-gap: var(--spacing-16);
+  --spacing-tabs-panel-content-padding-x: var(--spacing-24);
+  --spacing-tabs-panel-content-padding-y: var(--spacing-16);
+  --spacing-tabs-panel-footer-gap: var(--spacing-8);
+  --spacing-tabs-panel-footer-padding-x: var(--spacing-24);
+  --spacing-tabs-panel-footer-padding-y: var(--spacing-24);
+  --radius-tabs-panel-header: var(--radius-md);
+  --radius-tabs-panel-content: var(--radius-md);
+  --radius-tabs-panel-footer: var(--radius-md);
+  --shadow-tabs-panel-elevated: var(--shadow-sm);
+  --shadow-tabs-panel-floating: var(--shadow-md);
+
+  /* Interaction states */
+  --color-tabs-hover-surface: var(--color-surface-muted);
+  --color-tabs-hover-text: var(--color-text);
+  --color-tabs-active-surface: var(--color-surface-raised-subtle);
+  --color-tabs-active-text: var(--color-text);
+  --color-tabs-selected-surface: var(--color-brand);
+  --color-tabs-selected-text: var(--color-on-brand);
+  --color-tabs-disabled-surface: var(--color-surface-muted);
+  --color-tabs-disabled-text: var(--color-text-muted);
+  --color-tabs-focus-ring: var(--color-ring);
+  --spacing-tabs-action-height-sm: var(--spacing-32);
+  --spacing-tabs-action-height-md: var(--spacing-40);
+  --spacing-tabs-action-height-lg: var(--spacing-48);
+  --spacing-tabs-action-padding-x-sm: var(--spacing-12);
+  --spacing-tabs-action-padding-x-md: var(--spacing-16);
+  --spacing-tabs-action-padding-x-lg: var(--spacing-24);
+  --radius-tabs-action: var(--radius-md);
+
+  /* Collection structure */
+  --spacing-tabs-collection-list-gap: var(--spacing-4);
+  --spacing-tabs-collection-group-gap: var(--spacing-8);
+  --spacing-tabs-collection-group-padding-x: var(--spacing-8);
+  --spacing-tabs-collection-group-padding-y: var(--spacing-8);
+  --spacing-tabs-collection-item-gap: var(--spacing-8);
+  --spacing-tabs-collection-item-padding-x: var(--spacing-12);
+  --spacing-tabs-collection-item-padding-y: var(--spacing-8);
+  --spacing-tabs-collection-separator-size: var(--spacing-1);
+  --color-tabs-collection-separator: var(--color-border);
+  --color-tabs-collection-label-text: var(--color-text-muted);
+  --text-tabs-collection-label: 0.75rem;
+  --font-weight-tabs-collection-label: var(--font-weight-medium);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

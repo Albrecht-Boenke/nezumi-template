@@ -1,0 +1,76 @@
+# Switch — Component Tokens
+
+> Design-token contract for the `Switch` component.
+
+## Token Definitions
+
+```css
+/* Switch component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-switch-surface: var(--color-surface-raised);
+  --color-switch-surface-muted: var(--color-surface-muted);
+  --color-switch-text: var(--color-text);
+  --color-switch-text-muted: var(--color-text-muted);
+  --color-switch-border: var(--color-border);
+  --color-switch-ring: var(--color-ring);
+  --spacing-switch-gap: var(--spacing-8);
+  --spacing-switch-padding-x: var(--spacing-16);
+  --spacing-switch-padding-y: var(--spacing-12);
+  --spacing-switch-icon: var(--spacing-16);
+  --radius-switch: var(--radius-md);
+  --shadow-switch: var(--shadow-none);
+  --text-switch: 0.875rem;
+  --font-weight-switch: var(--font-weight-regular);
+  --leading-switch: 1.5;
+  --duration-switch-hover: var(--duration-fast);
+  --duration-switch-enter: var(--duration-normal);
+  --duration-switch-exit: var(--duration-fast);
+  --ease-switch-standard: var(--ease-in-out);
+  --ease-switch-enter: var(--ease-out);
+  --ease-switch-exit: var(--ease-in);
+
+  /* Form control tokens */
+  --color-switch-control-surface: var(--color-surface);
+  --color-switch-control-text: var(--color-text);
+  --color-switch-control-border: var(--color-input);
+  --color-switch-control-placeholder: var(--color-text-muted);
+  --color-switch-control-ring: var(--color-ring);
+  --color-switch-control-invalid-border: var(--color-error);
+  --color-switch-control-invalid-text: var(--color-error);
+  --color-switch-control-invalid-surface: var(--color-error-bg);
+  --spacing-switch-control-height: var(--spacing-40);
+  --spacing-switch-control-min-height: var(--spacing-40);
+  --spacing-switch-control-width: var(--spacing-128);
+  --spacing-switch-control-padding-x: var(--spacing-12);
+  --spacing-switch-control-padding-y: var(--spacing-8);
+  --spacing-switch-control-gap: var(--spacing-8);
+  --radius-switch-control: var(--radius-md);
+  --text-switch-placeholder: 0.875rem;
+  --font-weight-switch-placeholder: var(--font-weight-regular);
+
+  /* Interaction states */
+  --color-switch-hover-surface: var(--color-surface-muted);
+  --color-switch-hover-text: var(--color-text);
+  --color-switch-active-surface: var(--color-surface-raised-subtle);
+  --color-switch-active-text: var(--color-text);
+  --color-switch-selected-surface: var(--color-brand);
+  --color-switch-selected-text: var(--color-on-brand);
+  --color-switch-disabled-surface: var(--color-surface-muted);
+  --color-switch-disabled-text: var(--color-text-muted);
+  --color-switch-focus-ring: var(--color-ring);
+  --spacing-switch-action-height-sm: var(--spacing-32);
+  --spacing-switch-action-height-md: var(--spacing-40);
+  --spacing-switch-action-height-lg: var(--spacing-48);
+  --spacing-switch-action-padding-x-sm: var(--spacing-12);
+  --spacing-switch-action-padding-x-md: var(--spacing-16);
+  --spacing-switch-action-padding-x-lg: var(--spacing-24);
+  --radius-switch-action: var(--radius-md);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

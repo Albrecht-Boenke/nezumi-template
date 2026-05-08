@@ -1,1 +1,1 @@
-export { Switch } from "../atoms/Switch"
+export { Switch } from "../atoms/Switch/switch"

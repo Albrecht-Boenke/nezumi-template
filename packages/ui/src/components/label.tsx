@@ -1,1 +1,1 @@
-export { Label } from "../atoms/Label"
+export { Label } from "../atoms/Label/label"

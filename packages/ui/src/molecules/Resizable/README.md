@@ -1,0 +1,78 @@
+# Resizable — Component Tokens
+
+> Design-token contract for the `Resizable` component.
+
+## Token Definitions
+
+```css
+/* Resizable component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-resizable-surface: var(--color-surface-raised);
+  --color-resizable-surface-muted: var(--color-surface-muted);
+  --color-resizable-text: var(--color-text);
+  --color-resizable-text-muted: var(--color-text-muted);
+  --color-resizable-border: var(--color-border);
+  --color-resizable-ring: var(--color-ring);
+  --spacing-resizable-gap: var(--spacing-8);
+  --spacing-resizable-padding-x: var(--spacing-16);
+  --spacing-resizable-padding-y: var(--spacing-12);
+  --spacing-resizable-icon: var(--spacing-16);
+  --radius-resizable: var(--radius-md);
+  --shadow-resizable: var(--shadow-none);
+  --text-resizable: 0.875rem;
+  --font-weight-resizable: var(--font-weight-regular);
+  --leading-resizable: 1.5;
+  --duration-resizable-hover: var(--duration-fast);
+  --duration-resizable-enter: var(--duration-normal);
+  --duration-resizable-exit: var(--duration-fast);
+  --ease-resizable-standard: var(--ease-in-out);
+  --ease-resizable-enter: var(--ease-out);
+  --ease-resizable-exit: var(--ease-in);
+
+  /* Layout geometry tokens */
+  --spacing-resizable-min-size: var(--spacing-0);
+  --spacing-resizable-handle-size: var(--spacing-8);
+  --color-resizable-handle: var(--color-border);
+  --color-resizable-handle-hover: var(--color-text-muted);
+  --radius-resizable-container: var(--radius-md);
+
+  /* Interaction states */
+  --color-resizable-hover-surface: var(--color-surface-muted);
+  --color-resizable-hover-text: var(--color-text);
+  --color-resizable-active-surface: var(--color-surface-raised-subtle);
+  --color-resizable-active-text: var(--color-text);
+  --color-resizable-selected-surface: var(--color-brand);
+  --color-resizable-selected-text: var(--color-on-brand);
+  --color-resizable-disabled-surface: var(--color-surface-muted);
+  --color-resizable-disabled-text: var(--color-text-muted);
+  --color-resizable-focus-ring: var(--color-ring);
+  --spacing-resizable-action-height-sm: var(--spacing-32);
+  --spacing-resizable-action-height-md: var(--spacing-40);
+  --spacing-resizable-action-height-lg: var(--spacing-48);
+  --spacing-resizable-action-padding-x-sm: var(--spacing-12);
+  --spacing-resizable-action-padding-x-md: var(--spacing-16);
+  --spacing-resizable-action-padding-x-lg: var(--spacing-24);
+  --radius-resizable-action: var(--radius-md);
+
+  /* Collection structure */
+  --spacing-resizable-collection-list-gap: var(--spacing-4);
+  --spacing-resizable-collection-group-gap: var(--spacing-8);
+  --spacing-resizable-collection-group-padding-x: var(--spacing-8);
+  --spacing-resizable-collection-group-padding-y: var(--spacing-8);
+  --spacing-resizable-collection-item-gap: var(--spacing-8);
+  --spacing-resizable-collection-item-padding-x: var(--spacing-12);
+  --spacing-resizable-collection-item-padding-y: var(--spacing-8);
+  --spacing-resizable-collection-separator-size: var(--spacing-1);
+  --color-resizable-collection-separator: var(--color-border);
+  --color-resizable-collection-label-text: var(--color-text-muted);
+  --text-resizable-collection-label: 0.75rem;
+  --font-weight-resizable-collection-label: var(--font-weight-medium);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

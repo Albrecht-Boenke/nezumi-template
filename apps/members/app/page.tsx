@@ -1,17 +1,10 @@
-import { Container } from "@packages/ui/components/container"
-import { Section } from "@packages/ui/components/section"
+import { Container, Stack } from "@packages/ui/layout"
 import { Typography } from "@packages/ui/components/typography"
 
 export default function MembersPage() {
   return (
-    <Container
-      as="main"
-      display="flex"
-      size="md"
-      className="min-h-screen flex-col justify-center"
-      py="16"
-    >
-      <Section className="flex flex-col gap-16" px="0" py="0">
+    <Container as="main" size="md" py="16">
+      <Stack as="section" spacing="16">
         <Typography variant="label-large" tone="muted">
           Members
         </Typography>
@@ -21,7 +14,7 @@ export default function MembersPage() {
         <Typography variant="body-medium" tone="muted" pretty className="max-w-xl">
           Minimale Startseite der Members-App.
         </Typography>
-      </Section>
+      </Stack>
     </Container>
   )
 }

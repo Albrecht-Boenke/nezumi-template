@@ -3,4 +3,4 @@ export {
   type TypographyProps,
   type TypographyTone,
   type TypographyVariant,
-} from "../atoms/Typography"
+} from "../atoms/Typography/typography"

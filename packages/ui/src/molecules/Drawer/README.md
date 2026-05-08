@@ -1,0 +1,82 @@
+# Drawer — Component Tokens
+
+> Design-token contract for the `Drawer` component.
+
+## Token Definitions
+
+```css
+/* Drawer component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-drawer-surface: var(--color-surface-raised);
+  --color-drawer-surface-muted: var(--color-surface-muted);
+  --color-drawer-text: var(--color-text);
+  --color-drawer-text-muted: var(--color-text-muted);
+  --color-drawer-border: var(--color-border);
+  --color-drawer-ring: var(--color-ring);
+  --spacing-drawer-gap: var(--spacing-8);
+  --spacing-drawer-padding-x: var(--spacing-16);
+  --spacing-drawer-padding-y: var(--spacing-12);
+  --spacing-drawer-icon: var(--spacing-16);
+  --radius-drawer: var(--radius-md);
+  --shadow-drawer: var(--shadow-none);
+  --text-drawer: 0.875rem;
+  --font-weight-drawer: var(--font-weight-regular);
+  --leading-drawer: 1.5;
+  --duration-drawer-hover: var(--duration-fast);
+  --duration-drawer-enter: var(--duration-normal);
+  --duration-drawer-exit: var(--duration-fast);
+  --ease-drawer-standard: var(--ease-in-out);
+  --ease-drawer-enter: var(--ease-out);
+  --ease-drawer-exit: var(--ease-in);
+
+  /* Overlay and portal tokens */
+  --color-drawer-overlay: color-mix(in oklch, var(--color-text) 55%, var(--color-surface));
+  --blur-drawer-overlay: var(--blur-xs);
+  --color-drawer-portal-surface: var(--color-popover);
+  --color-drawer-portal-text: var(--color-popover-foreground);
+  --color-drawer-portal-border: var(--color-border);
+  --color-drawer-portal-ring: var(--color-ring);
+  --shadow-drawer-portal: var(--shadow-lg);
+  --radius-drawer-portal: var(--radius-lg);
+  --spacing-drawer-portal-gap: var(--spacing-16);
+  --spacing-drawer-portal-padding-x: var(--spacing-24);
+  --spacing-drawer-portal-padding-y: var(--spacing-24);
+  --spacing-drawer-portal-min-width: var(--spacing-40);
+  --spacing-drawer-portal-max-width: var(--container-lg);
+  --spacing-drawer-arrow-size: var(--spacing-8);
+  --spacing-drawer-close-size: var(--spacing-32);
+  --duration-drawer-portal-enter: var(--duration-slow);
+  --duration-drawer-portal-exit: var(--duration-fast);
+  --ease-drawer-portal-enter: var(--ease-out);
+  --ease-drawer-portal-exit: var(--ease-in);
+
+  /* Panel slots */
+  --color-drawer-panel-surface: var(--color-surface-raised);
+  --color-drawer-panel-header-surface: var(--color-surface-raised);
+  --color-drawer-panel-header-text: var(--color-text);
+  --color-drawer-panel-description-text: var(--color-text-muted);
+  --color-drawer-panel-content-surface: var(--color-surface-raised);
+  --color-drawer-panel-footer-surface: var(--color-surface-raised);
+  --spacing-drawer-panel-header-gap: var(--spacing-8);
+  --spacing-drawer-panel-header-padding-x: var(--spacing-24);
+  --spacing-drawer-panel-header-padding-y: var(--spacing-24);
+  --spacing-drawer-panel-content-gap: var(--spacing-16);
+  --spacing-drawer-panel-content-padding-x: var(--spacing-24);
+  --spacing-drawer-panel-content-padding-y: var(--spacing-16);
+  --spacing-drawer-panel-footer-gap: var(--spacing-8);
+  --spacing-drawer-panel-footer-padding-x: var(--spacing-24);
+  --spacing-drawer-panel-footer-padding-y: var(--spacing-24);
+  --radius-drawer-panel-header: var(--radius-md);
+  --radius-drawer-panel-content: var(--radius-md);
+  --radius-drawer-panel-footer: var(--radius-md);
+  --shadow-drawer-panel-elevated: var(--shadow-sm);
+  --shadow-drawer-panel-floating: var(--shadow-md);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

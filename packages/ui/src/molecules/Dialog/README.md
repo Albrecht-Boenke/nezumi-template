@@ -1,0 +1,82 @@
+# Dialog — Component Tokens
+
+> Design-token contract for the `Dialog` component.
+
+## Token Definitions
+
+```css
+/* Dialog component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-dialog-surface: var(--color-surface-raised);
+  --color-dialog-surface-muted: var(--color-surface-muted);
+  --color-dialog-text: var(--color-text);
+  --color-dialog-text-muted: var(--color-text-muted);
+  --color-dialog-border: var(--color-border);
+  --color-dialog-ring: var(--color-ring);
+  --spacing-dialog-gap: var(--spacing-8);
+  --spacing-dialog-padding-x: var(--spacing-16);
+  --spacing-dialog-padding-y: var(--spacing-12);
+  --spacing-dialog-icon: var(--spacing-16);
+  --radius-dialog: var(--radius-md);
+  --shadow-dialog: var(--shadow-none);
+  --text-dialog: 0.875rem;
+  --font-weight-dialog: var(--font-weight-regular);
+  --leading-dialog: 1.5;
+  --duration-dialog-hover: var(--duration-fast);
+  --duration-dialog-enter: var(--duration-normal);
+  --duration-dialog-exit: var(--duration-fast);
+  --ease-dialog-standard: var(--ease-in-out);
+  --ease-dialog-enter: var(--ease-out);
+  --ease-dialog-exit: var(--ease-in);
+
+  /* Overlay and portal tokens */
+  --color-dialog-overlay: color-mix(in oklch, var(--color-text) 55%, var(--color-surface));
+  --blur-dialog-overlay: var(--blur-xs);
+  --color-dialog-portal-surface: var(--color-popover);
+  --color-dialog-portal-text: var(--color-popover-foreground);
+  --color-dialog-portal-border: var(--color-border);
+  --color-dialog-portal-ring: var(--color-ring);
+  --shadow-dialog-portal: var(--shadow-lg);
+  --radius-dialog-portal: var(--radius-lg);
+  --spacing-dialog-portal-gap: var(--spacing-16);
+  --spacing-dialog-portal-padding-x: var(--spacing-24);
+  --spacing-dialog-portal-padding-y: var(--spacing-24);
+  --spacing-dialog-portal-min-width: var(--spacing-40);
+  --spacing-dialog-portal-max-width: var(--container-lg);
+  --spacing-dialog-arrow-size: var(--spacing-8);
+  --spacing-dialog-close-size: var(--spacing-32);
+  --duration-dialog-portal-enter: var(--duration-slow);
+  --duration-dialog-portal-exit: var(--duration-fast);
+  --ease-dialog-portal-enter: var(--ease-out);
+  --ease-dialog-portal-exit: var(--ease-in);
+
+  /* Panel slots */
+  --color-dialog-panel-surface: var(--color-surface-raised);
+  --color-dialog-panel-header-surface: var(--color-surface-raised);
+  --color-dialog-panel-header-text: var(--color-text);
+  --color-dialog-panel-description-text: var(--color-text-muted);
+  --color-dialog-panel-content-surface: var(--color-surface-raised);
+  --color-dialog-panel-footer-surface: var(--color-surface-raised);
+  --spacing-dialog-panel-header-gap: var(--spacing-8);
+  --spacing-dialog-panel-header-padding-x: var(--spacing-24);
+  --spacing-dialog-panel-header-padding-y: var(--spacing-24);
+  --spacing-dialog-panel-content-gap: var(--spacing-16);
+  --spacing-dialog-panel-content-padding-x: var(--spacing-24);
+  --spacing-dialog-panel-content-padding-y: var(--spacing-16);
+  --spacing-dialog-panel-footer-gap: var(--spacing-8);
+  --spacing-dialog-panel-footer-padding-x: var(--spacing-24);
+  --spacing-dialog-panel-footer-padding-y: var(--spacing-24);
+  --radius-dialog-panel-header: var(--radius-md);
+  --radius-dialog-panel-content: var(--radius-md);
+  --radius-dialog-panel-footer: var(--radius-md);
+  --shadow-dialog-panel-elevated: var(--shadow-sm);
+  --shadow-dialog-panel-floating: var(--shadow-md);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

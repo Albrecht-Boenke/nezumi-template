@@ -1,0 +1,104 @@
+# Accordion — Component Tokens
+
+> Design-token contract for the `Accordion` component.
+
+## Token Definitions
+
+```css
+/* Accordion component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-accordion-surface: var(--color-surface-raised);
+  --color-accordion-surface-muted: var(--color-surface-muted);
+  --color-accordion-text: var(--color-text);
+  --color-accordion-text-muted: var(--color-text-muted);
+  --color-accordion-border: var(--color-border);
+  --color-accordion-ring: var(--color-ring);
+  --spacing-accordion-gap: var(--spacing-8);
+  --spacing-accordion-padding-x: var(--spacing-16);
+  --spacing-accordion-padding-y: var(--spacing-12);
+  --spacing-accordion-icon: var(--spacing-16);
+  --radius-accordion: var(--radius-md);
+  --shadow-accordion: var(--shadow-none);
+  --text-accordion: 0.875rem;
+  --font-weight-accordion: var(--font-weight-regular);
+  --leading-accordion: 1.5;
+  --duration-accordion-hover: var(--duration-fast);
+  --duration-accordion-enter: var(--duration-normal);
+  --duration-accordion-exit: var(--duration-fast);
+  --ease-accordion-standard: var(--ease-in-out);
+  --ease-accordion-enter: var(--ease-out);
+  --ease-accordion-exit: var(--ease-in);
+
+  /* Panel slots */
+  --color-accordion-panel-surface: var(--color-surface-raised);
+  --color-accordion-panel-header-surface: var(--color-surface-raised);
+  --color-accordion-panel-header-text: var(--color-text);
+  --color-accordion-panel-description-text: var(--color-text-muted);
+  --color-accordion-panel-content-surface: var(--color-surface-raised);
+  --color-accordion-panel-footer-surface: var(--color-surface-raised);
+  --spacing-accordion-panel-header-gap: var(--spacing-8);
+  --spacing-accordion-panel-header-padding-x: var(--spacing-24);
+  --spacing-accordion-panel-header-padding-y: var(--spacing-24);
+  --spacing-accordion-panel-content-gap: var(--spacing-16);
+  --spacing-accordion-panel-content-padding-x: var(--spacing-24);
+  --spacing-accordion-panel-content-padding-y: var(--spacing-16);
+  --spacing-accordion-panel-footer-gap: var(--spacing-8);
+  --spacing-accordion-panel-footer-padding-x: var(--spacing-24);
+  --spacing-accordion-panel-footer-padding-y: var(--spacing-24);
+  --radius-accordion-panel-header: var(--radius-md);
+  --radius-accordion-panel-content: var(--radius-md);
+  --radius-accordion-panel-footer: var(--radius-md);
+  --shadow-accordion-panel-elevated: var(--shadow-sm);
+  --shadow-accordion-panel-floating: var(--shadow-md);
+
+  /* Interaction states */
+  --color-accordion-hover-surface: var(--color-surface-muted);
+  --color-accordion-hover-text: var(--color-text);
+  --color-accordion-active-surface: var(--color-surface-raised-subtle);
+  --color-accordion-active-text: var(--color-text);
+  --color-accordion-selected-surface: var(--color-brand);
+  --color-accordion-selected-text: var(--color-on-brand);
+  --color-accordion-disabled-surface: var(--color-surface-muted);
+  --color-accordion-disabled-text: var(--color-text-muted);
+  --color-accordion-focus-ring: var(--color-ring);
+  --spacing-accordion-action-height-sm: var(--spacing-32);
+  --spacing-accordion-action-height-md: var(--spacing-40);
+  --spacing-accordion-action-height-lg: var(--spacing-48);
+  --spacing-accordion-action-padding-x-sm: var(--spacing-12);
+  --spacing-accordion-action-padding-x-md: var(--spacing-16);
+  --spacing-accordion-action-padding-x-lg: var(--spacing-24);
+  --radius-accordion-action: var(--radius-md);
+
+  /* Collection structure */
+  --spacing-accordion-collection-list-gap: var(--spacing-4);
+  --spacing-accordion-collection-group-gap: var(--spacing-8);
+  --spacing-accordion-collection-group-padding-x: var(--spacing-8);
+  --spacing-accordion-collection-group-padding-y: var(--spacing-8);
+  --spacing-accordion-collection-item-gap: var(--spacing-8);
+  --spacing-accordion-collection-item-padding-x: var(--spacing-12);
+  --spacing-accordion-collection-item-padding-y: var(--spacing-8);
+  --spacing-accordion-collection-separator-size: var(--spacing-1);
+  --color-accordion-collection-separator: var(--color-border);
+  --color-accordion-collection-label-text: var(--color-text-muted);
+  --text-accordion-collection-label: 0.75rem;
+  --font-weight-accordion-collection-label: var(--font-weight-medium);
+
+  /* Expand and collapse tokens */
+  --spacing-accordion-trigger-height: var(--spacing-40);
+  --spacing-accordion-trigger-padding-x: var(--spacing-16);
+  --spacing-accordion-trigger-padding-y: var(--spacing-12);
+  --spacing-accordion-collapsible-content-padding-x: var(--spacing-16);
+  --spacing-accordion-collapsible-content-padding-y: var(--spacing-12);
+  --duration-accordion-expand: var(--duration-normal);
+  --duration-accordion-collapse: var(--duration-fast);
+  --ease-accordion-expand: var(--ease-out);
+  --ease-accordion-collapse: var(--ease-in);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

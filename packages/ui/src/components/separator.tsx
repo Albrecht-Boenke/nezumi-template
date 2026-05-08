@@ -1,1 +1,1 @@
-export { Separator } from "../atoms/Separator"
+export { Separator } from "../atoms/Separator/separator"

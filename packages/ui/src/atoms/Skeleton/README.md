@@ -1,0 +1,49 @@
+# Skeleton — Component Tokens
+
+> Design-token contract for the `Skeleton` component.
+
+## Token Definitions
+
+```css
+/* Skeleton component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-skeleton-surface: var(--color-surface-raised);
+  --color-skeleton-surface-muted: var(--color-surface-muted);
+  --color-skeleton-text: var(--color-text);
+  --color-skeleton-text-muted: var(--color-text-muted);
+  --color-skeleton-border: var(--color-border);
+  --color-skeleton-ring: var(--color-ring);
+  --spacing-skeleton-gap: var(--spacing-8);
+  --spacing-skeleton-padding-x: var(--spacing-16);
+  --spacing-skeleton-padding-y: var(--spacing-12);
+  --spacing-skeleton-icon: var(--spacing-16);
+  --radius-skeleton: var(--radius-md);
+  --shadow-skeleton: var(--shadow-none);
+  --text-skeleton: 0.875rem;
+  --font-weight-skeleton: var(--font-weight-regular);
+  --leading-skeleton: 1.5;
+  --duration-skeleton-hover: var(--duration-fast);
+  --duration-skeleton-enter: var(--duration-normal);
+  --duration-skeleton-exit: var(--duration-fast);
+  --ease-skeleton-standard: var(--ease-in-out);
+  --ease-skeleton-enter: var(--ease-out);
+  --ease-skeleton-exit: var(--ease-in);
+
+  /* Loading state tokens */
+  --color-skeleton-loading-track: var(--color-surface-muted);
+  --color-skeleton-loading-indicator: var(--color-primary);
+  --color-skeleton-loading-highlight: var(--color-surface-raised-subtle);
+  --spacing-skeleton-loading-size-sm: var(--spacing-16);
+  --spacing-skeleton-loading-size-md: var(--spacing-24);
+  --spacing-skeleton-loading-size-lg: var(--spacing-32);
+  --duration-skeleton-loading-cycle: var(--duration-slower);
+  --ease-skeleton-loading-cycle: var(--ease-linear);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

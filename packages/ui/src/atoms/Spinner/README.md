@@ -1,0 +1,49 @@
+# Spinner — Component Tokens
+
+> Design-token contract for the `Spinner` component.
+
+## Token Definitions
+
+```css
+/* Spinner component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-spinner-surface: var(--color-surface-raised);
+  --color-spinner-surface-muted: var(--color-surface-muted);
+  --color-spinner-text: var(--color-text);
+  --color-spinner-text-muted: var(--color-text-muted);
+  --color-spinner-border: var(--color-border);
+  --color-spinner-ring: var(--color-ring);
+  --spacing-spinner-gap: var(--spacing-8);
+  --spacing-spinner-padding-x: var(--spacing-16);
+  --spacing-spinner-padding-y: var(--spacing-12);
+  --spacing-spinner-icon: var(--spacing-16);
+  --radius-spinner: var(--radius-md);
+  --shadow-spinner: var(--shadow-none);
+  --text-spinner: 0.875rem;
+  --font-weight-spinner: var(--font-weight-regular);
+  --leading-spinner: 1.5;
+  --duration-spinner-hover: var(--duration-fast);
+  --duration-spinner-enter: var(--duration-normal);
+  --duration-spinner-exit: var(--duration-fast);
+  --ease-spinner-standard: var(--ease-in-out);
+  --ease-spinner-enter: var(--ease-out);
+  --ease-spinner-exit: var(--ease-in);
+
+  /* Loading state tokens */
+  --color-spinner-loading-track: var(--color-surface-muted);
+  --color-spinner-loading-indicator: var(--color-primary);
+  --color-spinner-loading-highlight: var(--color-surface-raised-subtle);
+  --spacing-spinner-loading-size-sm: var(--spacing-16);
+  --spacing-spinner-loading-size-md: var(--spacing-24);
+  --spacing-spinner-loading-size-lg: var(--spacing-32);
+  --duration-spinner-loading-cycle: var(--duration-slower);
+  --ease-spinner-loading-cycle: var(--ease-linear);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

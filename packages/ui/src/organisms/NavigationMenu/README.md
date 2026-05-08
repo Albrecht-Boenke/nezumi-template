@@ -1,0 +1,90 @@
+# NavigationMenu — Component Tokens
+
+> Design-token contract for the `NavigationMenu` component.
+
+## Token Definitions
+
+```css
+/* NavigationMenu component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-navigation-menu-surface: var(--color-surface-raised);
+  --color-navigation-menu-surface-muted: var(--color-surface-muted);
+  --color-navigation-menu-text: var(--color-text);
+  --color-navigation-menu-text-muted: var(--color-text-muted);
+  --color-navigation-menu-border: var(--color-border);
+  --color-navigation-menu-ring: var(--color-ring);
+  --spacing-navigation-menu-gap: var(--spacing-8);
+  --spacing-navigation-menu-padding-x: var(--spacing-16);
+  --spacing-navigation-menu-padding-y: var(--spacing-12);
+  --spacing-navigation-menu-icon: var(--spacing-16);
+  --radius-navigation-menu: var(--radius-md);
+  --shadow-navigation-menu: var(--shadow-none);
+  --text-navigation-menu: 0.875rem;
+  --font-weight-navigation-menu: var(--font-weight-regular);
+  --leading-navigation-menu: 1.5;
+  --duration-navigation-menu-hover: var(--duration-fast);
+  --duration-navigation-menu-enter: var(--duration-normal);
+  --duration-navigation-menu-exit: var(--duration-fast);
+  --ease-navigation-menu-standard: var(--ease-in-out);
+  --ease-navigation-menu-enter: var(--ease-out);
+  --ease-navigation-menu-exit: var(--ease-in);
+
+  /* Overlay and portal tokens */
+  --color-navigation-menu-overlay: color-mix(in oklch, var(--color-text) 55%, var(--color-surface));
+  --blur-navigation-menu-overlay: var(--blur-xs);
+  --color-navigation-menu-portal-surface: var(--color-popover);
+  --color-navigation-menu-portal-text: var(--color-popover-foreground);
+  --color-navigation-menu-portal-border: var(--color-border);
+  --color-navigation-menu-portal-ring: var(--color-ring);
+  --shadow-navigation-menu-portal: var(--shadow-lg);
+  --radius-navigation-menu-portal: var(--radius-lg);
+  --spacing-navigation-menu-portal-gap: var(--spacing-16);
+  --spacing-navigation-menu-portal-padding-x: var(--spacing-24);
+  --spacing-navigation-menu-portal-padding-y: var(--spacing-24);
+  --spacing-navigation-menu-portal-min-width: var(--spacing-40);
+  --spacing-navigation-menu-portal-max-width: var(--container-lg);
+  --spacing-navigation-menu-arrow-size: var(--spacing-8);
+  --spacing-navigation-menu-close-size: var(--spacing-32);
+  --duration-navigation-menu-portal-enter: var(--duration-slow);
+  --duration-navigation-menu-portal-exit: var(--duration-fast);
+  --ease-navigation-menu-portal-enter: var(--ease-out);
+  --ease-navigation-menu-portal-exit: var(--ease-in);
+
+  /* Navigation tokens */
+  --color-navigation-menu-link-text: var(--color-text);
+  --color-navigation-menu-link-muted-text: var(--color-text-muted);
+  --color-navigation-menu-link-hover-surface: var(--color-accent);
+  --color-navigation-menu-link-hover-text: var(--color-accent-foreground);
+  --color-navigation-menu-link-active-surface: var(--color-primary);
+  --color-navigation-menu-link-active-text: var(--color-primary-foreground);
+  --color-navigation-menu-indicator: var(--color-primary);
+  --spacing-navigation-menu-nav-gap: var(--spacing-4);
+  --spacing-navigation-menu-nav-trigger-height: var(--spacing-40);
+  --spacing-navigation-menu-nav-trigger-padding-x: var(--spacing-12);
+  --spacing-navigation-menu-nav-trigger-padding-y: var(--spacing-8);
+  --radius-navigation-menu-nav-trigger: var(--radius-md);
+  --text-navigation-menu-nav-trigger: 0.875rem;
+  --font-weight-navigation-menu-nav-trigger: var(--font-weight-medium);
+
+  /* Collection structure */
+  --spacing-navigation-menu-collection-list-gap: var(--spacing-4);
+  --spacing-navigation-menu-collection-group-gap: var(--spacing-8);
+  --spacing-navigation-menu-collection-group-padding-x: var(--spacing-8);
+  --spacing-navigation-menu-collection-group-padding-y: var(--spacing-8);
+  --spacing-navigation-menu-collection-item-gap: var(--spacing-8);
+  --spacing-navigation-menu-collection-item-padding-x: var(--spacing-12);
+  --spacing-navigation-menu-collection-item-padding-y: var(--spacing-8);
+  --spacing-navigation-menu-collection-separator-size: var(--spacing-1);
+  --color-navigation-menu-collection-separator: var(--color-border);
+  --color-navigation-menu-collection-label-text: var(--color-text-muted);
+  --text-navigation-menu-collection-label: 0.75rem;
+  --font-weight-navigation-menu-collection-label: var(--font-weight-medium);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

@@ -1,1 +1,1 @@
-export { AspectRatio, type AspectRatioProps } from "../atoms/AspectRatio"
+export { AspectRatio, type AspectRatioProps } from "../atoms/AspectRatio/AspectRatio"

@@ -1,0 +1,90 @@
+# Collapsible — Component Tokens
+
+> Design-token contract for the `Collapsible` component.
+
+## Token Definitions
+
+```css
+/* Collapsible component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-collapsible-surface: var(--color-surface-raised);
+  --color-collapsible-surface-muted: var(--color-surface-muted);
+  --color-collapsible-text: var(--color-text);
+  --color-collapsible-text-muted: var(--color-text-muted);
+  --color-collapsible-border: var(--color-border);
+  --color-collapsible-ring: var(--color-ring);
+  --spacing-collapsible-gap: var(--spacing-8);
+  --spacing-collapsible-padding-x: var(--spacing-16);
+  --spacing-collapsible-padding-y: var(--spacing-12);
+  --spacing-collapsible-icon: var(--spacing-16);
+  --radius-collapsible: var(--radius-md);
+  --shadow-collapsible: var(--shadow-none);
+  --text-collapsible: 0.875rem;
+  --font-weight-collapsible: var(--font-weight-regular);
+  --leading-collapsible: 1.5;
+  --duration-collapsible-hover: var(--duration-fast);
+  --duration-collapsible-enter: var(--duration-normal);
+  --duration-collapsible-exit: var(--duration-fast);
+  --ease-collapsible-standard: var(--ease-in-out);
+  --ease-collapsible-enter: var(--ease-out);
+  --ease-collapsible-exit: var(--ease-in);
+
+  /* Panel slots */
+  --color-collapsible-panel-surface: var(--color-surface-raised);
+  --color-collapsible-panel-header-surface: var(--color-surface-raised);
+  --color-collapsible-panel-header-text: var(--color-text);
+  --color-collapsible-panel-description-text: var(--color-text-muted);
+  --color-collapsible-panel-content-surface: var(--color-surface-raised);
+  --color-collapsible-panel-footer-surface: var(--color-surface-raised);
+  --spacing-collapsible-panel-header-gap: var(--spacing-8);
+  --spacing-collapsible-panel-header-padding-x: var(--spacing-24);
+  --spacing-collapsible-panel-header-padding-y: var(--spacing-24);
+  --spacing-collapsible-panel-content-gap: var(--spacing-16);
+  --spacing-collapsible-panel-content-padding-x: var(--spacing-24);
+  --spacing-collapsible-panel-content-padding-y: var(--spacing-16);
+  --spacing-collapsible-panel-footer-gap: var(--spacing-8);
+  --spacing-collapsible-panel-footer-padding-x: var(--spacing-24);
+  --spacing-collapsible-panel-footer-padding-y: var(--spacing-24);
+  --radius-collapsible-panel-header: var(--radius-md);
+  --radius-collapsible-panel-content: var(--radius-md);
+  --radius-collapsible-panel-footer: var(--radius-md);
+  --shadow-collapsible-panel-elevated: var(--shadow-sm);
+  --shadow-collapsible-panel-floating: var(--shadow-md);
+
+  /* Interaction states */
+  --color-collapsible-hover-surface: var(--color-surface-muted);
+  --color-collapsible-hover-text: var(--color-text);
+  --color-collapsible-active-surface: var(--color-surface-raised-subtle);
+  --color-collapsible-active-text: var(--color-text);
+  --color-collapsible-selected-surface: var(--color-brand);
+  --color-collapsible-selected-text: var(--color-on-brand);
+  --color-collapsible-disabled-surface: var(--color-surface-muted);
+  --color-collapsible-disabled-text: var(--color-text-muted);
+  --color-collapsible-focus-ring: var(--color-ring);
+  --spacing-collapsible-action-height-sm: var(--spacing-32);
+  --spacing-collapsible-action-height-md: var(--spacing-40);
+  --spacing-collapsible-action-height-lg: var(--spacing-48);
+  --spacing-collapsible-action-padding-x-sm: var(--spacing-12);
+  --spacing-collapsible-action-padding-x-md: var(--spacing-16);
+  --spacing-collapsible-action-padding-x-lg: var(--spacing-24);
+  --radius-collapsible-action: var(--radius-md);
+
+  /* Expand and collapse tokens */
+  --spacing-collapsible-trigger-height: var(--spacing-40);
+  --spacing-collapsible-trigger-padding-x: var(--spacing-16);
+  --spacing-collapsible-trigger-padding-y: var(--spacing-12);
+  --spacing-collapsible-collapsible-content-padding-x: var(--spacing-16);
+  --spacing-collapsible-collapsible-content-padding-y: var(--spacing-12);
+  --duration-collapsible-expand: var(--duration-normal);
+  --duration-collapsible-collapse: var(--duration-fast);
+  --ease-collapsible-expand: var(--ease-out);
+  --ease-collapsible-collapse: var(--ease-in);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

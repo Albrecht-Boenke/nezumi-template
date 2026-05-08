@@ -1,0 +1,119 @@
+# DatePicker — Component Tokens
+
+> Design-token contract for the `DatePicker` component.
+
+## Token Definitions
+
+```css
+/* DatePicker component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-date-picker-surface: var(--color-surface-raised);
+  --color-date-picker-surface-muted: var(--color-surface-muted);
+  --color-date-picker-text: var(--color-text);
+  --color-date-picker-text-muted: var(--color-text-muted);
+  --color-date-picker-border: var(--color-border);
+  --color-date-picker-ring: var(--color-ring);
+  --spacing-date-picker-gap: var(--spacing-8);
+  --spacing-date-picker-padding-x: var(--spacing-16);
+  --spacing-date-picker-padding-y: var(--spacing-12);
+  --spacing-date-picker-icon: var(--spacing-16);
+  --radius-date-picker: var(--radius-md);
+  --shadow-date-picker: var(--shadow-none);
+  --text-date-picker: 0.875rem;
+  --font-weight-date-picker: var(--font-weight-regular);
+  --leading-date-picker: 1.5;
+  --duration-date-picker-hover: var(--duration-fast);
+  --duration-date-picker-enter: var(--duration-normal);
+  --duration-date-picker-exit: var(--duration-fast);
+  --ease-date-picker-standard: var(--ease-in-out);
+  --ease-date-picker-enter: var(--ease-out);
+  --ease-date-picker-exit: var(--ease-in);
+
+  /* Form control tokens */
+  --color-date-picker-control-surface: var(--color-surface);
+  --color-date-picker-control-text: var(--color-text);
+  --color-date-picker-control-border: var(--color-input);
+  --color-date-picker-control-placeholder: var(--color-text-muted);
+  --color-date-picker-control-ring: var(--color-ring);
+  --color-date-picker-control-invalid-border: var(--color-error);
+  --color-date-picker-control-invalid-text: var(--color-error);
+  --color-date-picker-control-invalid-surface: var(--color-error-bg);
+  --spacing-date-picker-control-height: var(--spacing-40);
+  --spacing-date-picker-control-min-height: var(--spacing-40);
+  --spacing-date-picker-control-width: var(--spacing-128);
+  --spacing-date-picker-control-padding-x: var(--spacing-12);
+  --spacing-date-picker-control-padding-y: var(--spacing-8);
+  --spacing-date-picker-control-gap: var(--spacing-8);
+  --radius-date-picker-control: var(--radius-md);
+  --text-date-picker-placeholder: 0.875rem;
+  --font-weight-date-picker-placeholder: var(--font-weight-regular);
+
+  /* Overlay and portal tokens */
+  --color-date-picker-overlay: color-mix(in oklch, var(--color-text) 55%, var(--color-surface));
+  --blur-date-picker-overlay: var(--blur-xs);
+  --color-date-picker-portal-surface: var(--color-popover);
+  --color-date-picker-portal-text: var(--color-popover-foreground);
+  --color-date-picker-portal-border: var(--color-border);
+  --color-date-picker-portal-ring: var(--color-ring);
+  --shadow-date-picker-portal: var(--shadow-lg);
+  --radius-date-picker-portal: var(--radius-lg);
+  --spacing-date-picker-portal-gap: var(--spacing-16);
+  --spacing-date-picker-portal-padding-x: var(--spacing-24);
+  --spacing-date-picker-portal-padding-y: var(--spacing-24);
+  --spacing-date-picker-portal-min-width: var(--spacing-40);
+  --spacing-date-picker-portal-max-width: var(--container-lg);
+  --spacing-date-picker-arrow-size: var(--spacing-8);
+  --spacing-date-picker-close-size: var(--spacing-32);
+  --duration-date-picker-portal-enter: var(--duration-slow);
+  --duration-date-picker-portal-exit: var(--duration-fast);
+  --ease-date-picker-portal-enter: var(--ease-out);
+  --ease-date-picker-portal-exit: var(--ease-in);
+
+  /* Panel slots */
+  --color-date-picker-panel-surface: var(--color-surface-raised);
+  --color-date-picker-panel-header-surface: var(--color-surface-raised);
+  --color-date-picker-panel-header-text: var(--color-text);
+  --color-date-picker-panel-description-text: var(--color-text-muted);
+  --color-date-picker-panel-content-surface: var(--color-surface-raised);
+  --color-date-picker-panel-footer-surface: var(--color-surface-raised);
+  --spacing-date-picker-panel-header-gap: var(--spacing-8);
+  --spacing-date-picker-panel-header-padding-x: var(--spacing-24);
+  --spacing-date-picker-panel-header-padding-y: var(--spacing-24);
+  --spacing-date-picker-panel-content-gap: var(--spacing-16);
+  --spacing-date-picker-panel-content-padding-x: var(--spacing-24);
+  --spacing-date-picker-panel-content-padding-y: var(--spacing-16);
+  --spacing-date-picker-panel-footer-gap: var(--spacing-8);
+  --spacing-date-picker-panel-footer-padding-x: var(--spacing-24);
+  --spacing-date-picker-panel-footer-padding-y: var(--spacing-24);
+  --radius-date-picker-panel-header: var(--radius-md);
+  --radius-date-picker-panel-content: var(--radius-md);
+  --radius-date-picker-panel-footer: var(--radius-md);
+  --shadow-date-picker-panel-elevated: var(--shadow-sm);
+  --shadow-date-picker-panel-floating: var(--shadow-md);
+
+  /* Interaction states */
+  --color-date-picker-hover-surface: var(--color-surface-muted);
+  --color-date-picker-hover-text: var(--color-text);
+  --color-date-picker-active-surface: var(--color-surface-raised-subtle);
+  --color-date-picker-active-text: var(--color-text);
+  --color-date-picker-selected-surface: var(--color-brand);
+  --color-date-picker-selected-text: var(--color-on-brand);
+  --color-date-picker-disabled-surface: var(--color-surface-muted);
+  --color-date-picker-disabled-text: var(--color-text-muted);
+  --color-date-picker-focus-ring: var(--color-ring);
+  --spacing-date-picker-action-height-sm: var(--spacing-32);
+  --spacing-date-picker-action-height-md: var(--spacing-40);
+  --spacing-date-picker-action-height-lg: var(--spacing-48);
+  --spacing-date-picker-action-padding-x-sm: var(--spacing-12);
+  --spacing-date-picker-action-padding-x-md: var(--spacing-16);
+  --spacing-date-picker-action-padding-x-lg: var(--spacing-24);
+  --radius-date-picker-action: var(--radius-md);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

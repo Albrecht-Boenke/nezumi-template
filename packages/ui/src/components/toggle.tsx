@@ -2,4 +2,4 @@ export {
   Toggle,
   toggleVariants,
   type ToggleProps,
-} from "../atoms/Toggle"
+} from "../atoms/Toggle/toggle"

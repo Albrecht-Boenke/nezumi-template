@@ -1,8 +1,4 @@
-import { Box } from "@packages/ui/components/box"
-import { Container } from "@packages/ui/components/container"
-import { Flex } from "@packages/ui/components/flex"
-import { Grid } from "@packages/ui/components/grid"
-import { Section } from "@packages/ui/components/section"
+import { Box, Container, Flex, Grid, Section } from "@packages/ui/layout"
 import {
   Typography,
   type TypographyTone,
@@ -257,10 +253,9 @@ function TokenCard({
 
 export default function HomePage() {
   return (
-    <Box as="main" minH="screen" className="bg-surface text-text">
-      <Section size={{ initial: "md", md: "lg" }}>
-        <Container size="2xl">
-          <Flex direction="column" gap="48">
+    <Section size={{ initial: "md", md: "lg" }}>
+      <Container size="2xl">
+        <Flex direction="column" gap="48">
             <Grid
               as="section"
               align={{ initial: "stretch", lg: "end" }}
@@ -466,6 +461,5 @@ export default function HomePage() {
           </Flex>
         </Container>
       </Section>
-    </Box>
   )
 }

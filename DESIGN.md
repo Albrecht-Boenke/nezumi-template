@@ -287,8 +287,8 @@ Overrides in `packages/ui/src/styles/design-tokens.css`.
 @theme {
   --font-family-sans: var(--font-urbanist, "Urbanist"), system-ui,
     -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-family-accent: var(--font-space-grotesk, "Space Grotesk"),
-    var(--font-family-sans);
+  --font-family-accent: var(--font-fraunces, "Fraunces"),
+    Georgia, "Times New Roman", Times, serif;
 
   --font-sans: var(--font-family-sans);
   --font-accent: var(--font-family-accent);

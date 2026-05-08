@@ -1,0 +1,69 @@
+# Breadcrumb — Component Tokens
+
+> Design-token contract for the `Breadcrumb` component.
+
+## Token Definitions
+
+```css
+/* Breadcrumb component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-breadcrumb-surface: var(--color-surface-raised);
+  --color-breadcrumb-surface-muted: var(--color-surface-muted);
+  --color-breadcrumb-text: var(--color-text);
+  --color-breadcrumb-text-muted: var(--color-text-muted);
+  --color-breadcrumb-border: var(--color-border);
+  --color-breadcrumb-ring: var(--color-ring);
+  --spacing-breadcrumb-gap: var(--spacing-8);
+  --spacing-breadcrumb-padding-x: var(--spacing-16);
+  --spacing-breadcrumb-padding-y: var(--spacing-12);
+  --spacing-breadcrumb-icon: var(--spacing-16);
+  --radius-breadcrumb: var(--radius-md);
+  --shadow-breadcrumb: var(--shadow-none);
+  --text-breadcrumb: 0.875rem;
+  --font-weight-breadcrumb: var(--font-weight-regular);
+  --leading-breadcrumb: 1.5;
+  --duration-breadcrumb-hover: var(--duration-fast);
+  --duration-breadcrumb-enter: var(--duration-normal);
+  --duration-breadcrumb-exit: var(--duration-fast);
+  --ease-breadcrumb-standard: var(--ease-in-out);
+  --ease-breadcrumb-enter: var(--ease-out);
+  --ease-breadcrumb-exit: var(--ease-in);
+
+  /* Navigation tokens */
+  --color-breadcrumb-link-text: var(--color-text);
+  --color-breadcrumb-link-muted-text: var(--color-text-muted);
+  --color-breadcrumb-link-hover-surface: var(--color-accent);
+  --color-breadcrumb-link-hover-text: var(--color-accent-foreground);
+  --color-breadcrumb-link-active-surface: var(--color-primary);
+  --color-breadcrumb-link-active-text: var(--color-primary-foreground);
+  --color-breadcrumb-indicator: var(--color-primary);
+  --spacing-breadcrumb-nav-gap: var(--spacing-4);
+  --spacing-breadcrumb-nav-trigger-height: var(--spacing-40);
+  --spacing-breadcrumb-nav-trigger-padding-x: var(--spacing-12);
+  --spacing-breadcrumb-nav-trigger-padding-y: var(--spacing-8);
+  --radius-breadcrumb-nav-trigger: var(--radius-md);
+  --text-breadcrumb-nav-trigger: 0.875rem;
+  --font-weight-breadcrumb-nav-trigger: var(--font-weight-medium);
+
+  /* Collection structure */
+  --spacing-breadcrumb-collection-list-gap: var(--spacing-4);
+  --spacing-breadcrumb-collection-group-gap: var(--spacing-8);
+  --spacing-breadcrumb-collection-group-padding-x: var(--spacing-8);
+  --spacing-breadcrumb-collection-group-padding-y: var(--spacing-8);
+  --spacing-breadcrumb-collection-item-gap: var(--spacing-8);
+  --spacing-breadcrumb-collection-item-padding-x: var(--spacing-12);
+  --spacing-breadcrumb-collection-item-padding-y: var(--spacing-8);
+  --spacing-breadcrumb-collection-separator-size: var(--spacing-1);
+  --color-breadcrumb-collection-separator: var(--color-border);
+  --color-breadcrumb-collection-label-text: var(--color-text-muted);
+  --text-breadcrumb-collection-label: 0.75rem;
+  --font-weight-breadcrumb-collection-label: var(--font-weight-medium);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

@@ -6,4 +6,4 @@ export {
   CardContent,
   CardFooter,
   CardAction,
-} from "../molecules/Card"
+} from "../molecules/Card/card"

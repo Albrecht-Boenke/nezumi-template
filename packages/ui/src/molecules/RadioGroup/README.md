@@ -1,0 +1,90 @@
+# RadioGroup — Component Tokens
+
+> Design-token contract for the `RadioGroup` component.
+
+## Token Definitions
+
+```css
+/* RadioGroup component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-radio-group-surface: var(--color-surface-raised);
+  --color-radio-group-surface-muted: var(--color-surface-muted);
+  --color-radio-group-text: var(--color-text);
+  --color-radio-group-text-muted: var(--color-text-muted);
+  --color-radio-group-border: var(--color-border);
+  --color-radio-group-ring: var(--color-ring);
+  --spacing-radio-group-gap: var(--spacing-8);
+  --spacing-radio-group-padding-x: var(--spacing-16);
+  --spacing-radio-group-padding-y: var(--spacing-12);
+  --spacing-radio-group-icon: var(--spacing-16);
+  --radius-radio-group: var(--radius-md);
+  --shadow-radio-group: var(--shadow-none);
+  --text-radio-group: 0.875rem;
+  --font-weight-radio-group: var(--font-weight-regular);
+  --leading-radio-group: 1.5;
+  --duration-radio-group-hover: var(--duration-fast);
+  --duration-radio-group-enter: var(--duration-normal);
+  --duration-radio-group-exit: var(--duration-fast);
+  --ease-radio-group-standard: var(--ease-in-out);
+  --ease-radio-group-enter: var(--ease-out);
+  --ease-radio-group-exit: var(--ease-in);
+
+  /* Form control tokens */
+  --color-radio-group-control-surface: var(--color-surface);
+  --color-radio-group-control-text: var(--color-text);
+  --color-radio-group-control-border: var(--color-input);
+  --color-radio-group-control-placeholder: var(--color-text-muted);
+  --color-radio-group-control-ring: var(--color-ring);
+  --color-radio-group-control-invalid-border: var(--color-error);
+  --color-radio-group-control-invalid-text: var(--color-error);
+  --color-radio-group-control-invalid-surface: var(--color-error-bg);
+  --spacing-radio-group-control-height: var(--spacing-40);
+  --spacing-radio-group-control-min-height: var(--spacing-40);
+  --spacing-radio-group-control-width: var(--spacing-128);
+  --spacing-radio-group-control-padding-x: var(--spacing-12);
+  --spacing-radio-group-control-padding-y: var(--spacing-8);
+  --spacing-radio-group-control-gap: var(--spacing-8);
+  --radius-radio-group-control: var(--radius-md);
+  --text-radio-group-placeholder: 0.875rem;
+  --font-weight-radio-group-placeholder: var(--font-weight-regular);
+
+  /* Interaction states */
+  --color-radio-group-hover-surface: var(--color-surface-muted);
+  --color-radio-group-hover-text: var(--color-text);
+  --color-radio-group-active-surface: var(--color-surface-raised-subtle);
+  --color-radio-group-active-text: var(--color-text);
+  --color-radio-group-selected-surface: var(--color-brand);
+  --color-radio-group-selected-text: var(--color-on-brand);
+  --color-radio-group-disabled-surface: var(--color-surface-muted);
+  --color-radio-group-disabled-text: var(--color-text-muted);
+  --color-radio-group-focus-ring: var(--color-ring);
+  --spacing-radio-group-action-height-sm: var(--spacing-32);
+  --spacing-radio-group-action-height-md: var(--spacing-40);
+  --spacing-radio-group-action-height-lg: var(--spacing-48);
+  --spacing-radio-group-action-padding-x-sm: var(--spacing-12);
+  --spacing-radio-group-action-padding-x-md: var(--spacing-16);
+  --spacing-radio-group-action-padding-x-lg: var(--spacing-24);
+  --radius-radio-group-action: var(--radius-md);
+
+  /* Collection structure */
+  --spacing-radio-group-collection-list-gap: var(--spacing-4);
+  --spacing-radio-group-collection-group-gap: var(--spacing-8);
+  --spacing-radio-group-collection-group-padding-x: var(--spacing-8);
+  --spacing-radio-group-collection-group-padding-y: var(--spacing-8);
+  --spacing-radio-group-collection-item-gap: var(--spacing-8);
+  --spacing-radio-group-collection-item-padding-x: var(--spacing-12);
+  --spacing-radio-group-collection-item-padding-y: var(--spacing-8);
+  --spacing-radio-group-collection-separator-size: var(--spacing-1);
+  --color-radio-group-collection-separator: var(--color-border);
+  --color-radio-group-collection-label-text: var(--color-text-muted);
+  --text-radio-group-collection-label: 0.75rem;
+  --font-weight-radio-group-collection-label: var(--font-weight-medium);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

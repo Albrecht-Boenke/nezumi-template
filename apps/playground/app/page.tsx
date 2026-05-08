@@ -1,10 +1,6 @@
 import Link from "next/link"
-import { Box } from "@packages/ui/components/box"
+import { Box, Container, Flex, Grid, Section } from "@packages/ui/layout"
 import { Button } from "@packages/ui/components/button"
-import { Container } from "@packages/ui/components/container"
-import { Flex } from "@packages/ui/components/flex"
-import { Grid } from "@packages/ui/components/grid"
-import { Section } from "@packages/ui/components/section"
 import { Typography } from "@packages/ui/components/typography"
 
 const components = [
@@ -57,15 +53,15 @@ function MiniDashboard() {
         className="border-b border-border"
       >
         <Flex align="center" gap="8">
-          <Box className="size-8 rounded-md bg-brand" />
+          <Box w="8" h="8" className="rounded-md bg-brand" />
           <Typography variant="label-large" as="span">
             Preview
           </Typography>
         </Flex>
-        <Flex gap="8" className="hidden md:flex">
-          <Box className="h-8 w-64 rounded-sm bg-surface-muted" />
-          <Box className="h-8 w-64 rounded-sm bg-surface-muted" />
-          <Box className="h-8 w-64 rounded-sm bg-surface-muted" />
+        <Flex gap="8" display={{ initial: "none", md: "flex" }}>
+          <Box h="8" w="64" className="rounded-sm bg-surface-muted" />
+          <Box h="8" w="64" className="rounded-sm bg-surface-muted" />
+          <Box h="8" w="64" className="rounded-sm bg-surface-muted" />
         </Flex>
       </Flex>
 
@@ -92,7 +88,7 @@ function MiniDashboard() {
           ))}
         </Grid>
 
-        <Grid cols={{ initial: 1, lg: "2fr 1fr" }} gap="16" mt="16">
+        <Grid cols={{ initial: 1, lg: "2fr 1fr" }} gap="16" pt="16">
           <Box p="16" className="rounded-lg border border-border bg-surface">
             <Flex direction="column" gap="12">
               <Flex justify="between" align="center">
@@ -103,7 +99,7 @@ function MiniDashboard() {
                   Grid + Flex + Box
                 </Typography>
               </Flex>
-              <Grid cols={12} gap="8" className="h-40 items-end">
+              <Grid cols={12} gap="8" h="40" align="end">
                 {[34, 58, 42, 76, 64, 88, 52, 70, 92, 66, 84, 72].map((height, index) => (
                   <Box
                     key={`${height}-${index}`}
@@ -119,8 +115,8 @@ function MiniDashboard() {
             <Flex direction="column" gap="12">
               {["Container", "Section", "Grid", "Flex"].map((label) => (
                 <Flex key={label} align="center" gap="12">
-                  <Box className="size-8 rounded-full bg-surface-muted" />
-                  <Box className="h-8 flex-1 rounded-sm bg-surface-muted" />
+                  <Box w="8" h="8" className="rounded-full bg-surface-muted" />
+                  <Box h="8" flex="1" className="rounded-sm bg-surface-muted" />
                   <Typography variant="body-medium" tone="muted" className="min-w-24 shrink-0" as="span">
                     {label}
                   </Typography>
@@ -136,7 +132,7 @@ function MiniDashboard() {
 
 export default function PlaygroundPage() {
   return (
-    <Container as="main" className="w-full">
+    <Container as="main">
       <Section size={{ initial: "lg", lg: "xl" }} className="border-b border-border">
         <Container size="2xl">
           <Grid cols={{ initial: 1, lg: "minmax(0, 0.9fr) minmax(0, 1.1fr)" }} gap="48" align="center">

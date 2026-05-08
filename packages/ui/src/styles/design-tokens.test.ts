@@ -59,7 +59,7 @@ describe("design tokens", () => {
     const css = await readFile(resolve(stylesDir, "tokens/typography.css"), "utf8")
 
     expect(css).toMatch(tokenDeclaration("--font-family-sans", 'var(--font-urbanist, "Urbanist"), system-ui,\n    -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'))
-    expect(css).toMatch(tokenDeclaration("--font-family-accent", 'var(--font-space-grotesk, "Space Grotesk"),\n    var(--font-family-sans)'))
+    expect(css).toMatch(tokenDeclaration("--font-family-accent", 'var(--font-fraunces, "Fraunces"),\n    Georgia, "Times New Roman", Times, serif'))
     expect(css).toMatch(tokenDeclaration("--font-accent", "var(--font-family-accent)"))
     expect(css).toMatch(tokenDeclaration("--font-weight-regular", "400"))
     expect(css).not.toContain("--text-sm:")
@@ -92,9 +92,9 @@ describe("design tokens", () => {
     expect(css).toMatch(tokenDeclaration("--typography-clamp-medium-weight", "var(--font-weight-bold)"))
     expect(css).toMatch(tokenDeclaration("--typography-clamp-small-weight", "var(--font-weight-bold)"))
     expect(css).toMatch(tokenDeclaration("--typography-clamp-text-weight", "var(--font-weight-bold)"))
-    expect(css).toMatch(tokenDeclaration("--typography-body-medium-size", "16px"))
+    expect(css).toMatch(tokenDeclaration("--typography-body-medium-size", "1rem"))
     expect(css).toMatch(tokenDeclaration("--typography-label-medium-weight", "var(--font-weight-bold)"))
-    expect(css).toMatch(tokenDeclaration("--typography-accent-small-size", "13px"))
+    expect(css).toMatch(tokenDeclaration("--typography-accent-small-size", "0.8125rem"))
   })
 
   it("documents current color and typography tokens in DESIGN.md", async () => {

@@ -1,0 +1,113 @@
+# Select — Component Tokens
+
+> Design-token contract for the `Select` component.
+
+## Token Definitions
+
+```css
+/* Select component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-select-surface: var(--color-surface-raised);
+  --color-select-surface-muted: var(--color-surface-muted);
+  --color-select-text: var(--color-text);
+  --color-select-text-muted: var(--color-text-muted);
+  --color-select-border: var(--color-border);
+  --color-select-ring: var(--color-ring);
+  --spacing-select-gap: var(--spacing-8);
+  --spacing-select-padding-x: var(--spacing-16);
+  --spacing-select-padding-y: var(--spacing-12);
+  --spacing-select-icon: var(--spacing-16);
+  --radius-select: var(--radius-md);
+  --shadow-select: var(--shadow-none);
+  --text-select: 0.875rem;
+  --font-weight-select: var(--font-weight-regular);
+  --leading-select: 1.5;
+  --duration-select-hover: var(--duration-fast);
+  --duration-select-enter: var(--duration-normal);
+  --duration-select-exit: var(--duration-fast);
+  --ease-select-standard: var(--ease-in-out);
+  --ease-select-enter: var(--ease-out);
+  --ease-select-exit: var(--ease-in);
+
+  /* Form control tokens */
+  --color-select-control-surface: var(--color-surface);
+  --color-select-control-text: var(--color-text);
+  --color-select-control-border: var(--color-input);
+  --color-select-control-placeholder: var(--color-text-muted);
+  --color-select-control-ring: var(--color-ring);
+  --color-select-control-invalid-border: var(--color-error);
+  --color-select-control-invalid-text: var(--color-error);
+  --color-select-control-invalid-surface: var(--color-error-bg);
+  --spacing-select-control-height: var(--spacing-40);
+  --spacing-select-control-min-height: var(--spacing-40);
+  --spacing-select-control-width: var(--spacing-128);
+  --spacing-select-control-padding-x: var(--spacing-12);
+  --spacing-select-control-padding-y: var(--spacing-8);
+  --spacing-select-control-gap: var(--spacing-8);
+  --radius-select-control: var(--radius-md);
+  --text-select-placeholder: 0.875rem;
+  --font-weight-select-placeholder: var(--font-weight-regular);
+
+  /* Overlay and portal tokens */
+  --color-select-overlay: color-mix(in oklch, var(--color-text) 55%, var(--color-surface));
+  --blur-select-overlay: var(--blur-xs);
+  --color-select-portal-surface: var(--color-popover);
+  --color-select-portal-text: var(--color-popover-foreground);
+  --color-select-portal-border: var(--color-border);
+  --color-select-portal-ring: var(--color-ring);
+  --shadow-select-portal: var(--shadow-lg);
+  --radius-select-portal: var(--radius-lg);
+  --spacing-select-portal-gap: var(--spacing-16);
+  --spacing-select-portal-padding-x: var(--spacing-24);
+  --spacing-select-portal-padding-y: var(--spacing-24);
+  --spacing-select-portal-min-width: var(--spacing-40);
+  --spacing-select-portal-max-width: var(--container-lg);
+  --spacing-select-arrow-size: var(--spacing-8);
+  --spacing-select-close-size: var(--spacing-32);
+  --duration-select-portal-enter: var(--duration-slow);
+  --duration-select-portal-exit: var(--duration-fast);
+  --ease-select-portal-enter: var(--ease-out);
+  --ease-select-portal-exit: var(--ease-in);
+
+  /* Menu item tokens */
+  --color-select-menu-surface: var(--color-popover);
+  --color-select-menu-text: var(--color-popover-foreground);
+  --color-select-menu-border: var(--color-border);
+  --color-select-menu-item-hover-surface: var(--color-accent);
+  --color-select-menu-item-hover-text: var(--color-accent-foreground);
+  --color-select-menu-item-active-surface: var(--color-surface-muted);
+  --color-select-menu-item-selected-surface: var(--color-primary);
+  --color-select-menu-item-selected-text: var(--color-primary-foreground);
+  --color-select-menu-item-danger-text: var(--color-destructive);
+  --spacing-select-menu-item-height: var(--spacing-32);
+  --spacing-select-menu-item-padding-x: var(--spacing-8);
+  --spacing-select-menu-item-padding-y: var(--spacing-8);
+  --spacing-select-menu-item-gap: var(--spacing-8);
+  --spacing-select-menu-item-inset: var(--spacing-24);
+  --spacing-select-menu-separator-size: var(--spacing-1);
+  --text-select-menu-label: 0.75rem;
+  --font-weight-select-menu-label: var(--font-weight-medium);
+  --radius-select-menu-item: var(--radius-sm);
+
+  /* Collection structure */
+  --spacing-select-collection-list-gap: var(--spacing-4);
+  --spacing-select-collection-group-gap: var(--spacing-8);
+  --spacing-select-collection-group-padding-x: var(--spacing-8);
+  --spacing-select-collection-group-padding-y: var(--spacing-8);
+  --spacing-select-collection-item-gap: var(--spacing-8);
+  --spacing-select-collection-item-padding-x: var(--spacing-12);
+  --spacing-select-collection-item-padding-y: var(--spacing-8);
+  --spacing-select-collection-separator-size: var(--spacing-1);
+  --color-select-collection-separator: var(--color-border);
+  --color-select-collection-label-text: var(--color-text-muted);
+  --text-select-collection-label: 0.75rem;
+  --font-weight-select-collection-label: var(--font-weight-medium);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

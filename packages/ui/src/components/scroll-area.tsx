@@ -1,1 +1,1 @@
-export { ScrollArea, ScrollBar } from "../atoms/ScrollArea"
+export { ScrollArea, ScrollBar } from "../atoms/ScrollArea/scrollarea"

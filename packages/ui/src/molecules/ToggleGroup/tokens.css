@@ -1,6 +1,0 @@
-/* ToggleGroup component tokens — used as implementation reference.
-   Component-layer registration lives in styles/components/toggle-group.css */
-@theme {
-  /* Geometry */
-  --spacing-toggle-group-gap: var(--spacing-8);
-}

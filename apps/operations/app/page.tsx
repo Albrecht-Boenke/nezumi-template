@@ -8,7 +8,7 @@ export default function OperationsPage() {
       as="main"
       display="flex"
       size="md"
-      className="min-h-screen flex-col justify-center"
+      className="min-h-dvh flex-col justify-center"
       py="16"
     >
       <Section className="flex flex-col gap-16" px="0" py="0">

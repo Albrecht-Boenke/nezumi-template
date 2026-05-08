@@ -1,0 +1,110 @@
+# Menubar — Component Tokens
+
+> Design-token contract for the `Menubar` component.
+
+## Token Definitions
+
+```css
+/* Menubar component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-menubar-surface: var(--color-surface-raised);
+  --color-menubar-surface-muted: var(--color-surface-muted);
+  --color-menubar-text: var(--color-text);
+  --color-menubar-text-muted: var(--color-text-muted);
+  --color-menubar-border: var(--color-border);
+  --color-menubar-ring: var(--color-ring);
+  --spacing-menubar-gap: var(--spacing-8);
+  --spacing-menubar-padding-x: var(--spacing-16);
+  --spacing-menubar-padding-y: var(--spacing-12);
+  --spacing-menubar-icon: var(--spacing-16);
+  --radius-menubar: var(--radius-md);
+  --shadow-menubar: var(--shadow-none);
+  --text-menubar: 0.875rem;
+  --font-weight-menubar: var(--font-weight-regular);
+  --leading-menubar: 1.5;
+  --duration-menubar-hover: var(--duration-fast);
+  --duration-menubar-enter: var(--duration-normal);
+  --duration-menubar-exit: var(--duration-fast);
+  --ease-menubar-standard: var(--ease-in-out);
+  --ease-menubar-enter: var(--ease-out);
+  --ease-menubar-exit: var(--ease-in);
+
+  /* Overlay and portal tokens */
+  --color-menubar-overlay: color-mix(in oklch, var(--color-text) 55%, var(--color-surface));
+  --blur-menubar-overlay: var(--blur-xs);
+  --color-menubar-portal-surface: var(--color-popover);
+  --color-menubar-portal-text: var(--color-popover-foreground);
+  --color-menubar-portal-border: var(--color-border);
+  --color-menubar-portal-ring: var(--color-ring);
+  --shadow-menubar-portal: var(--shadow-lg);
+  --radius-menubar-portal: var(--radius-lg);
+  --spacing-menubar-portal-gap: var(--spacing-16);
+  --spacing-menubar-portal-padding-x: var(--spacing-24);
+  --spacing-menubar-portal-padding-y: var(--spacing-24);
+  --spacing-menubar-portal-min-width: var(--spacing-40);
+  --spacing-menubar-portal-max-width: var(--container-lg);
+  --spacing-menubar-arrow-size: var(--spacing-8);
+  --spacing-menubar-close-size: var(--spacing-32);
+  --duration-menubar-portal-enter: var(--duration-slow);
+  --duration-menubar-portal-exit: var(--duration-fast);
+  --ease-menubar-portal-enter: var(--ease-out);
+  --ease-menubar-portal-exit: var(--ease-in);
+
+  /* Menu item tokens */
+  --color-menubar-menu-surface: var(--color-popover);
+  --color-menubar-menu-text: var(--color-popover-foreground);
+  --color-menubar-menu-border: var(--color-border);
+  --color-menubar-menu-item-hover-surface: var(--color-accent);
+  --color-menubar-menu-item-hover-text: var(--color-accent-foreground);
+  --color-menubar-menu-item-active-surface: var(--color-surface-muted);
+  --color-menubar-menu-item-selected-surface: var(--color-primary);
+  --color-menubar-menu-item-selected-text: var(--color-primary-foreground);
+  --color-menubar-menu-item-danger-text: var(--color-destructive);
+  --spacing-menubar-menu-item-height: var(--spacing-32);
+  --spacing-menubar-menu-item-padding-x: var(--spacing-8);
+  --spacing-menubar-menu-item-padding-y: var(--spacing-8);
+  --spacing-menubar-menu-item-gap: var(--spacing-8);
+  --spacing-menubar-menu-item-inset: var(--spacing-24);
+  --spacing-menubar-menu-separator-size: var(--spacing-1);
+  --text-menubar-menu-label: 0.75rem;
+  --font-weight-menubar-menu-label: var(--font-weight-medium);
+  --radius-menubar-menu-item: var(--radius-sm);
+
+  /* Navigation tokens */
+  --color-menubar-link-text: var(--color-text);
+  --color-menubar-link-muted-text: var(--color-text-muted);
+  --color-menubar-link-hover-surface: var(--color-accent);
+  --color-menubar-link-hover-text: var(--color-accent-foreground);
+  --color-menubar-link-active-surface: var(--color-primary);
+  --color-menubar-link-active-text: var(--color-primary-foreground);
+  --color-menubar-indicator: var(--color-primary);
+  --spacing-menubar-nav-gap: var(--spacing-4);
+  --spacing-menubar-nav-trigger-height: var(--spacing-40);
+  --spacing-menubar-nav-trigger-padding-x: var(--spacing-12);
+  --spacing-menubar-nav-trigger-padding-y: var(--spacing-8);
+  --radius-menubar-nav-trigger: var(--radius-md);
+  --text-menubar-nav-trigger: 0.875rem;
+  --font-weight-menubar-nav-trigger: var(--font-weight-medium);
+
+  /* Collection structure */
+  --spacing-menubar-collection-list-gap: var(--spacing-4);
+  --spacing-menubar-collection-group-gap: var(--spacing-8);
+  --spacing-menubar-collection-group-padding-x: var(--spacing-8);
+  --spacing-menubar-collection-group-padding-y: var(--spacing-8);
+  --spacing-menubar-collection-item-gap: var(--spacing-8);
+  --spacing-menubar-collection-item-padding-x: var(--spacing-12);
+  --spacing-menubar-collection-item-padding-y: var(--spacing-8);
+  --spacing-menubar-collection-separator-size: var(--spacing-1);
+  --color-menubar-collection-separator: var(--color-border);
+  --color-menubar-collection-label-text: var(--color-text-muted);
+  --text-menubar-collection-label: 0.75rem;
+  --font-weight-menubar-collection-label: var(--font-weight-medium);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

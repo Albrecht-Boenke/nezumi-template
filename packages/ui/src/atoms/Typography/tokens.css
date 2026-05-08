@@ -1,3 +1,4 @@
+/* Typography atom — local token mirror (must stay in sync with styles/components/typography.css). */
 @theme {
   --typography-clamp-large-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
   --typography-clamp-large-line-height: 0.98;
@@ -19,40 +20,44 @@
   --typography-clamp-text-tracking: -0.055em;
   --typography-clamp-text-weight: var(--font-weight-bold);
 
-  --typography-title-large-size: 22px;
-  --typography-title-large-line-height: 28px;
+  --typography-title-large-size: 1.375rem;
+  --typography-title-large-line-height: 1.75rem;
   --typography-title-large-tracking: 0;
   --typography-title-large-weight: var(--font-weight-bold);
 
-  --typography-title-medium-size: 18px;
-  --typography-title-medium-line-height: 24px;
+  --typography-title-medium-size: 1.125rem;
+  --typography-title-medium-line-height: 1.5rem;
   --typography-title-medium-tracking: 0;
   --typography-title-medium-weight: var(--font-weight-medium);
 
-  --typography-body-medium-size: 16px;
-  --typography-body-medium-line-height: 24px;
+  --typography-body-medium-size: 1rem;
+  --typography-body-medium-line-height: 1.5rem;
   --typography-body-medium-tracking: 0.012em;
   --typography-body-medium-weight: var(--font-weight-regular);
 
-  --typography-label-large-size: 14px;
-  --typography-label-large-line-height: 20px;
+  --typography-label-large-size: 0.875rem;
+  --typography-label-large-line-height: 1.25rem;
   --typography-label-large-tracking: 0.02em;
   --typography-label-large-weight: var(--font-weight-medium);
 
-  --typography-label-medium-size: 12px;
-  --typography-label-medium-line-height: 16px;
+  --typography-label-medium-size: 0.75rem;
+  --typography-label-medium-line-height: 1rem;
   --typography-label-medium-tracking: 0.06em;
   --typography-label-medium-weight: var(--font-weight-bold);
 
-  --typography-accent-large-size: 20px;
-  --typography-accent-large-line-height: 28px;
+  --typography-accent-large-size: 1.25rem;
+  --typography-accent-large-line-height: 1.75rem;
   --typography-accent-large-tracking: -0.01em;
   --typography-accent-large-weight: var(--font-weight-medium);
 
-  --typography-accent-small-size: 13px;
-  --typography-accent-small-line-height: 18px;
+  --typography-accent-small-size: 0.8125rem;
+  --typography-accent-small-line-height: 1.125rem;
   --typography-accent-small-tracking: 0.08em;
   --typography-accent-small-weight: var(--font-weight-bold);
+
+  --text-code: var(--typography-label-medium-size);
+  --text-code-sm: var(--typography-label-large-size);
+  --leading-code: 1.625;
 }
 
 @layer components {

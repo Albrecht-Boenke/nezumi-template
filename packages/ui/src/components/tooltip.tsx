@@ -3,4 +3,4 @@ export {
   TooltipTrigger,
   TooltipContent,
   TooltipProvider,
-} from "../molecules/Tooltip"
+} from "../molecules/Tooltip/tooltip"

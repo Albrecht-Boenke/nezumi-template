@@ -1,0 +1,76 @@
+# Checkbox — Component Tokens
+
+> Design-token contract for the `Checkbox` component.
+
+## Token Definitions
+
+```css
+/* Checkbox component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-checkbox-surface: var(--color-surface-raised);
+  --color-checkbox-surface-muted: var(--color-surface-muted);
+  --color-checkbox-text: var(--color-text);
+  --color-checkbox-text-muted: var(--color-text-muted);
+  --color-checkbox-border: var(--color-border);
+  --color-checkbox-ring: var(--color-ring);
+  --spacing-checkbox-gap: var(--spacing-8);
+  --spacing-checkbox-padding-x: var(--spacing-16);
+  --spacing-checkbox-padding-y: var(--spacing-12);
+  --spacing-checkbox-icon: var(--spacing-16);
+  --radius-checkbox: var(--radius-md);
+  --shadow-checkbox: var(--shadow-none);
+  --text-checkbox: 0.875rem;
+  --font-weight-checkbox: var(--font-weight-regular);
+  --leading-checkbox: 1.5;
+  --duration-checkbox-hover: var(--duration-fast);
+  --duration-checkbox-enter: var(--duration-normal);
+  --duration-checkbox-exit: var(--duration-fast);
+  --ease-checkbox-standard: var(--ease-in-out);
+  --ease-checkbox-enter: var(--ease-out);
+  --ease-checkbox-exit: var(--ease-in);
+
+  /* Form control tokens */
+  --color-checkbox-control-surface: var(--color-surface);
+  --color-checkbox-control-text: var(--color-text);
+  --color-checkbox-control-border: var(--color-input);
+  --color-checkbox-control-placeholder: var(--color-text-muted);
+  --color-checkbox-control-ring: var(--color-ring);
+  --color-checkbox-control-invalid-border: var(--color-error);
+  --color-checkbox-control-invalid-text: var(--color-error);
+  --color-checkbox-control-invalid-surface: var(--color-error-bg);
+  --spacing-checkbox-control-height: var(--spacing-40);
+  --spacing-checkbox-control-min-height: var(--spacing-40);
+  --spacing-checkbox-control-width: var(--spacing-128);
+  --spacing-checkbox-control-padding-x: var(--spacing-12);
+  --spacing-checkbox-control-padding-y: var(--spacing-8);
+  --spacing-checkbox-control-gap: var(--spacing-8);
+  --radius-checkbox-control: var(--radius-md);
+  --text-checkbox-placeholder: 0.875rem;
+  --font-weight-checkbox-placeholder: var(--font-weight-regular);
+
+  /* Interaction states */
+  --color-checkbox-hover-surface: var(--color-surface-muted);
+  --color-checkbox-hover-text: var(--color-text);
+  --color-checkbox-active-surface: var(--color-surface-raised-subtle);
+  --color-checkbox-active-text: var(--color-text);
+  --color-checkbox-selected-surface: var(--color-brand);
+  --color-checkbox-selected-text: var(--color-on-brand);
+  --color-checkbox-disabled-surface: var(--color-surface-muted);
+  --color-checkbox-disabled-text: var(--color-text-muted);
+  --color-checkbox-focus-ring: var(--color-ring);
+  --spacing-checkbox-action-height-sm: var(--spacing-32);
+  --spacing-checkbox-action-height-md: var(--spacing-40);
+  --spacing-checkbox-action-height-lg: var(--spacing-48);
+  --spacing-checkbox-action-padding-x-sm: var(--spacing-12);
+  --spacing-checkbox-action-padding-x-md: var(--spacing-16);
+  --spacing-checkbox-action-padding-x-lg: var(--spacing-24);
+  --radius-checkbox-action: var(--radius-md);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

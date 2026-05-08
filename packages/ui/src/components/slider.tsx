@@ -1,1 +1,1 @@
-export { Slider } from "../atoms/Slider"
+export { Slider } from "../atoms/Slider/slider"

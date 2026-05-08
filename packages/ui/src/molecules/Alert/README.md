@@ -1,0 +1,74 @@
+# Alert — Component Tokens
+
+> Design-token contract for the `Alert` component.
+
+## Token Definitions
+
+```css
+/* Alert component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-alert-surface: var(--color-surface-raised);
+  --color-alert-surface-muted: var(--color-surface-muted);
+  --color-alert-text: var(--color-text);
+  --color-alert-text-muted: var(--color-text-muted);
+  --color-alert-border: var(--color-border);
+  --color-alert-ring: var(--color-ring);
+  --spacing-alert-gap: var(--spacing-8);
+  --spacing-alert-padding-x: var(--spacing-16);
+  --spacing-alert-padding-y: var(--spacing-12);
+  --spacing-alert-icon: var(--spacing-16);
+  --radius-alert: var(--radius-md);
+  --shadow-alert: var(--shadow-none);
+  --text-alert: 0.875rem;
+  --font-weight-alert: var(--font-weight-regular);
+  --leading-alert: 1.5;
+  --duration-alert-hover: var(--duration-fast);
+  --duration-alert-enter: var(--duration-normal);
+  --duration-alert-exit: var(--duration-fast);
+  --ease-alert-standard: var(--ease-in-out);
+  --ease-alert-enter: var(--ease-out);
+  --ease-alert-exit: var(--ease-in);
+
+  /* Panel slots */
+  --color-alert-panel-surface: var(--color-surface-raised);
+  --color-alert-panel-header-surface: var(--color-surface-raised);
+  --color-alert-panel-header-text: var(--color-text);
+  --color-alert-panel-description-text: var(--color-text-muted);
+  --color-alert-panel-content-surface: var(--color-surface-raised);
+  --color-alert-panel-footer-surface: var(--color-surface-raised);
+  --spacing-alert-panel-header-gap: var(--spacing-8);
+  --spacing-alert-panel-header-padding-x: var(--spacing-24);
+  --spacing-alert-panel-header-padding-y: var(--spacing-24);
+  --spacing-alert-panel-content-gap: var(--spacing-16);
+  --spacing-alert-panel-content-padding-x: var(--spacing-24);
+  --spacing-alert-panel-content-padding-y: var(--spacing-16);
+  --spacing-alert-panel-footer-gap: var(--spacing-8);
+  --spacing-alert-panel-footer-padding-x: var(--spacing-24);
+  --spacing-alert-panel-footer-padding-y: var(--spacing-24);
+  --radius-alert-panel-header: var(--radius-md);
+  --radius-alert-panel-content: var(--radius-md);
+  --radius-alert-panel-footer: var(--radius-md);
+  --shadow-alert-panel-elevated: var(--shadow-sm);
+  --shadow-alert-panel-floating: var(--shadow-md);
+
+  /* Feedback and status tokens */
+  --color-alert-info-surface: var(--color-info-bg);
+  --color-alert-info-text: var(--color-info);
+  --color-alert-success-surface: var(--color-success-bg);
+  --color-alert-success-text: var(--color-success);
+  --color-alert-warning-surface: var(--color-warning-bg);
+  --color-alert-warning-text: var(--color-warning);
+  --color-alert-error-surface: var(--color-error-bg);
+  --color-alert-error-text: var(--color-error);
+  --color-alert-error-border: var(--color-error);
+  --spacing-alert-status-icon: var(--spacing-16);
+  --spacing-alert-status-gap: var(--spacing-8);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

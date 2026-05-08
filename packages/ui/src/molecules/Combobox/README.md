@@ -1,0 +1,113 @@
+# Combobox — Component Tokens
+
+> Design-token contract for the `Combobox` component.
+
+## Token Definitions
+
+```css
+/* Combobox component tokens. Keep values semantic; do not place implementation here. */
+@theme {
+
+  /* Base component contract */
+  --color-combobox-surface: var(--color-surface-raised);
+  --color-combobox-surface-muted: var(--color-surface-muted);
+  --color-combobox-text: var(--color-text);
+  --color-combobox-text-muted: var(--color-text-muted);
+  --color-combobox-border: var(--color-border);
+  --color-combobox-ring: var(--color-ring);
+  --spacing-combobox-gap: var(--spacing-8);
+  --spacing-combobox-padding-x: var(--spacing-16);
+  --spacing-combobox-padding-y: var(--spacing-12);
+  --spacing-combobox-icon: var(--spacing-16);
+  --radius-combobox: var(--radius-md);
+  --shadow-combobox: var(--shadow-none);
+  --text-combobox: 0.875rem;
+  --font-weight-combobox: var(--font-weight-regular);
+  --leading-combobox: 1.5;
+  --duration-combobox-hover: var(--duration-fast);
+  --duration-combobox-enter: var(--duration-normal);
+  --duration-combobox-exit: var(--duration-fast);
+  --ease-combobox-standard: var(--ease-in-out);
+  --ease-combobox-enter: var(--ease-out);
+  --ease-combobox-exit: var(--ease-in);
+
+  /* Form control tokens */
+  --color-combobox-control-surface: var(--color-surface);
+  --color-combobox-control-text: var(--color-text);
+  --color-combobox-control-border: var(--color-input);
+  --color-combobox-control-placeholder: var(--color-text-muted);
+  --color-combobox-control-ring: var(--color-ring);
+  --color-combobox-control-invalid-border: var(--color-error);
+  --color-combobox-control-invalid-text: var(--color-error);
+  --color-combobox-control-invalid-surface: var(--color-error-bg);
+  --spacing-combobox-control-height: var(--spacing-40);
+  --spacing-combobox-control-min-height: var(--spacing-40);
+  --spacing-combobox-control-width: var(--spacing-128);
+  --spacing-combobox-control-padding-x: var(--spacing-12);
+  --spacing-combobox-control-padding-y: var(--spacing-8);
+  --spacing-combobox-control-gap: var(--spacing-8);
+  --radius-combobox-control: var(--radius-md);
+  --text-combobox-placeholder: 0.875rem;
+  --font-weight-combobox-placeholder: var(--font-weight-regular);
+
+  /* Overlay and portal tokens */
+  --color-combobox-overlay: color-mix(in oklch, var(--color-text) 55%, var(--color-surface));
+  --blur-combobox-overlay: var(--blur-xs);
+  --color-combobox-portal-surface: var(--color-popover);
+  --color-combobox-portal-text: var(--color-popover-foreground);
+  --color-combobox-portal-border: var(--color-border);
+  --color-combobox-portal-ring: var(--color-ring);
+  --shadow-combobox-portal: var(--shadow-lg);
+  --radius-combobox-portal: var(--radius-lg);
+  --spacing-combobox-portal-gap: var(--spacing-16);
+  --spacing-combobox-portal-padding-x: var(--spacing-24);
+  --spacing-combobox-portal-padding-y: var(--spacing-24);
+  --spacing-combobox-portal-min-width: var(--spacing-40);
+  --spacing-combobox-portal-max-width: var(--container-lg);
+  --spacing-combobox-arrow-size: var(--spacing-8);
+  --spacing-combobox-close-size: var(--spacing-32);
+  --duration-combobox-portal-enter: var(--duration-slow);
+  --duration-combobox-portal-exit: var(--duration-fast);
+  --ease-combobox-portal-enter: var(--ease-out);
+  --ease-combobox-portal-exit: var(--ease-in);
+
+  /* Menu item tokens */
+  --color-combobox-menu-surface: var(--color-popover);
+  --color-combobox-menu-text: var(--color-popover-foreground);
+  --color-combobox-menu-border: var(--color-border);
+  --color-combobox-menu-item-hover-surface: var(--color-accent);
+  --color-combobox-menu-item-hover-text: var(--color-accent-foreground);
+  --color-combobox-menu-item-active-surface: var(--color-surface-muted);
+  --color-combobox-menu-item-selected-surface: var(--color-primary);
+  --color-combobox-menu-item-selected-text: var(--color-primary-foreground);
+  --color-combobox-menu-item-danger-text: var(--color-destructive);
+  --spacing-combobox-menu-item-height: var(--spacing-32);
+  --spacing-combobox-menu-item-padding-x: var(--spacing-8);
+  --spacing-combobox-menu-item-padding-y: var(--spacing-8);
+  --spacing-combobox-menu-item-gap: var(--spacing-8);
+  --spacing-combobox-menu-item-inset: var(--spacing-24);
+  --spacing-combobox-menu-separator-size: var(--spacing-1);
+  --text-combobox-menu-label: 0.75rem;
+  --font-weight-combobox-menu-label: var(--font-weight-medium);
+  --radius-combobox-menu-item: var(--radius-sm);
+
+  /* Collection structure */
+  --spacing-combobox-collection-list-gap: var(--spacing-4);
+  --spacing-combobox-collection-group-gap: var(--spacing-8);
+  --spacing-combobox-collection-group-padding-x: var(--spacing-8);
+  --spacing-combobox-collection-group-padding-y: var(--spacing-8);
+  --spacing-combobox-collection-item-gap: var(--spacing-8);
+  --spacing-combobox-collection-item-padding-x: var(--spacing-12);
+  --spacing-combobox-collection-item-padding-y: var(--spacing-8);
+  --spacing-combobox-collection-separator-size: var(--spacing-1);
+  --color-combobox-collection-separator: var(--color-border);
+  --color-combobox-collection-label-text: var(--color-text-muted);
+  --text-combobox-collection-label: 0.75rem;
+  --font-weight-combobox-collection-label: var(--font-weight-medium);
+}
+```
+
+## Notes
+
+- Tokens are defined at the component layer and reference semantic/primitive tokens only.
+- Do not hardcode values; always map to `var(--*)` references where possible.

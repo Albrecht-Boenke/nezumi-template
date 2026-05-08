@@ -1,1 +1,1 @@
-export { Progress } from "../atoms/Progress"
+export { Progress } from "../atoms/Progress/progress"

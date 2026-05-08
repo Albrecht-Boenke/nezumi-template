@@ -62,6 +62,7 @@ Prüfe, ob die SOLL-Datei-Kette aus SSOT_TOKEN.md eingehalten wird:
 - **Du darfst keine neue App anlegen** oder `globals.css` von Grund auf schreiben (außer es ist explizit der Auftrag).
 - **Du darfst kein neues Component-Token einführen**, wenn kein klarer semantischer Bezug besteht — Rückfrage stellen.
 - **Du darfst kein neues Primitive definieren** (neue `--color-nezumi-*`) — Rückfrage stellen.
+- **Keine Layout-Tokens erzeugen** — `max-w-*`, Container-Width-Tokens oder ähnliche Layout-Primitive dürfen nicht erzeugt werden. Layout bleibt bei Tailwind-Defaults.
 - **Keine großen Refactors** — nur mikro-level Fixes. Datei für Datei.
 
 ## Output-Format
