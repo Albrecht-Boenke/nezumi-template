@@ -93,7 +93,7 @@ export function Example({
 }) {
   return (
     <Box className="overflow-hidden rounded-lg border border-border bg-surface-raised">
-      <Grid cols={{ initial: 1, xl: "minmax(0, 1fr) minmax(360px, 0.72fr)" }}>
+      <Grid cols={{ initial: 1, lg: "minmax(0, 1fr) minmax(360px, 0.72fr)" }}>
         <Flex direction="column" gap="16" p="24">
           <Flex direction="column" gap="4">
             <h3 className="text-base font-semibold">{title}</h3>
@@ -113,7 +113,7 @@ export function Example({
 
 export function CodeBlock({ code }: { code: string }) {
   return (
-    <pre className="h-full overflow-x-auto border-t border-border bg-surface-muted p-24 text-xs leading-relaxed text-text xl:border-l xl:border-t-0">
+    <pre className="h-full overflow-x-auto border-t border-border bg-surface-muted p-24 text-xs leading-relaxed text-text lg:border-l lg:border-t-0">
       <code>{code.trim()}</code>
     </pre>
   )

@@ -54,7 +54,7 @@ describe("layout components", () => {
         p="16"
         display={{ initial: "block", md: "none" }}
         w="320px"
-        style={{ color: "red" }}
+        style={{ scrollMarginTop: "16px" }}
       >
         Content
       </Box>,
@@ -63,7 +63,7 @@ describe("layout components", () => {
     expect(markup).toContain('id="box"')
     expect(markup).toContain('data-state="ready"')
     expect(markup).toContain("width:320px")
-    expect(markup).toContain("color:red")
+    expect(markup).toContain("scroll-margin-top:16px")
     expect(markup).not.toContain("display=")
     expect(markup).not.toContain("p=")
     expectClasses(markup, ["block", "md:hidden", "p-16"])

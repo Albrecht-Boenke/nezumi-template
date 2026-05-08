@@ -80,11 +80,11 @@ export default function ContainerTutorialPage() {
 
         <Example
           title="Responsive size"
-          code={`<Container size={{ initial: "sm", md: "lg", xl: "2xl" }}>
+          code={`<Container size={{ initial: "sm", md: "lg", lg: "2xl" }}>
   Responsive content width
 </Container>`}
         >
-          <Container size={{ initial: "sm", md: "lg", xl: "2xl" }}>
+          <Container size={{ initial: "sm", md: "lg", lg: "2xl" }}>
             <Surface>
               <Grid cols={{ initial: 1, md: 3 }} gap="12">
                 <Box className="h-24 rounded-md bg-brand/20" />

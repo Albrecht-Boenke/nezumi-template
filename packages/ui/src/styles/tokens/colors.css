@@ -1,5 +1,7 @@
 /* Primitive palette — DESIGN.md §2. Stored as OKLCH via relative color (exact match to SSOT hex). @theme so Tailwind registers utilities (e.g. bg-nezumi-sabi). */
 @theme {
+  --color-*: initial;
+
   --color-nezumi-sabi: oklch(from #47585c l c h);
   --color-nezumi-minato: oklch(from #80989b l c h);
   --color-nezumi-ume: oklch(from #c099a0 l c h);

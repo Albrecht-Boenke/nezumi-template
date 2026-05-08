@@ -45,6 +45,8 @@ describe("Button", () => {
     expect(element.textContent).toBe("Save")
     expect(element.className).toContain("bg-brand")
     expect(element.className).toContain("h-40")
+    expect(element.className).toContain("focus-visible:ring-ring")
+    expect(element.className).toContain("focus-visible:ring-offset-surface")
   })
 
   it("applies variant, size, and custom classes", () => {

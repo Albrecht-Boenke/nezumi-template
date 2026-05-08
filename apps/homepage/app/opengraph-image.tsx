@@ -4,6 +4,13 @@ export const alt = "Nezumi"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
+const ogSurfaceGradient = [
+  "linear-gradient(145deg,",
+  "var(--color-surface) 0%,",
+  "var(--color-surface-raised) 58%,",
+  "var(--color-brand) 100%)",
+].join(" ")
+
 export default function OpenGraphImage() {
   return new ImageResponse(
     (
@@ -15,8 +22,8 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(145deg, #121014 0%, #1a181c 58%, #47585c 100%)",
-          color: "#faf9f5",
+          background: ogSurfaceGradient,
+          color: "var(--color-on-brand)",
           fontFamily:
             'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
         }}

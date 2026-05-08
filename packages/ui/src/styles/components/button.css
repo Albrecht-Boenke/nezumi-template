@@ -1,11 +1,15 @@
 @theme {
-  /* Interactive (not in DESIGN table; derived via color-mix from semantic + primitives) */
-  --color-button-brand-hover: color-mix(in oklch, var(--color-brand) 88%, var(--color-nezumi-koi));
-  --color-button-brand-active: color-mix(in oklch, var(--color-brand) 78%, var(--color-nezumi-koi));
-  --color-button-secondary-hover: color-mix(
-    in oklch,
-    var(--color-secondary) 82%,
-    var(--color-nezumi-koi)
-  );
-  --color-button-error-hover: color-mix(in oklch, var(--color-error) 85%, var(--color-nezumi-paper));
+  /* Interactive tokens derive from semantic colors only. */
+  --color-button-brand-hover: color-mix(in oklch, var(--color-brand) 88%, var(--color-text));
+  --color-button-brand-active: color-mix(in oklch, var(--color-brand) 78%, var(--color-text));
+  --color-button-secondary-hover: color-mix(in oklch, var(--color-secondary) 82%, var(--color-text));
+  --color-button-secondary-active: color-mix(in oklch, var(--color-secondary) 72%, var(--color-text));
+  --color-button-error-hover: color-mix(in oklch, var(--color-error) 85%, var(--color-surface));
+  --color-button-error-active: color-mix(in oklch, var(--color-error) 74%, var(--color-surface));
+  --color-button-outline-hover: var(--color-surface-raised-subtle);
+  --color-button-outline-active: var(--color-surface-muted);
+  --color-button-ghost-hover: var(--color-surface-muted);
+  --color-button-ghost-active: var(--color-surface-raised-subtle);
+  --color-button-elevated-hover: var(--color-surface-raised-subtle);
+  --color-button-elevated-active: var(--color-surface-muted);
 }

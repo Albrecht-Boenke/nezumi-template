@@ -1,21 +1,30 @@
 /**
- * Stack — Vertikaler / horizontaler Flex-Stack
+ * Stack — duenner Convenience-Wrapper um {@link Flex}
  *
- * Vereinfachter Flex-Wrapper für die häufigste Anwendung:
- * Elemente gleichmäßig entlang einer Achse stapeln.
- * `spacing` ist ein semantischer Alias für `gap`.
+ * Im Gegensatz zu `Flex` ist die Default-Richtung `"column"` (vertikal),
+ * was den haeufigsten Anwendungsfall — Elemente mit konsistenter Luecke
+ * untereinander stapeln — pragnanter macht.
+ *
+ * Stack ergaenzt keine eigene Funktionalitaet ueber Flex hinaus. Wer mehr
+ * Kontrolle braucht (Reihen, Reverse, responsive Direction etc.), greift
+ * direkt zu `<Flex>`.
  *
  * @example
+ *   // vertikaler Stack mit 16px Luecke
  *   <Stack gap="16">
- *     <Card /> <Card /> <Card />
+ *     <Card />
+ *     <Card />
  *   </Stack>
  *
+ *   // horizontaler Stack
  *   <Stack direction="horizontal" gap="8" align="center">
- *     <Icon /> <Label />
+ *     <Icon />
+ *     <Label />
  *   </Stack>
  *
+ *   // responsive Luecke; `spacing` ist ein Alias fuer `gap`
  *   <Stack spacing={{ initial: "8", md: "16" }} as="ul">
- *     responsive gap
+ *     <li>…</li>
  *   </Stack>
  */
 import { Flex } from "./Flex"
@@ -27,11 +36,8 @@ export function Stack({
   gap,
   ...props
 }: StackProps) {
-  // "spacing" ist ein ergonomischer Alias für "gap".
-  // gap hat Vorrang, wenn beides angegeben wird.
+  // gap hat Vorrang vor dem `spacing`-Alias
   const resolvedGap = gap ?? spacing ?? "16"
-
-  // Stack-Richtung auf Flex-Direction mappen
   const flexDirection = direction === "horizontal" ? "row" : "column"
 
   return (

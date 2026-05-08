@@ -19,11 +19,8 @@ import type { SpacingValue } from "./spacing"
  */
 export type ResponsiveValue<T> = T | {
   initial?: T
-  sm?: T
   md?: T
   lg?: T
-  xl?: T
-  "2xl"?: T
 }
 
 // ---- Alignment & Layout ----

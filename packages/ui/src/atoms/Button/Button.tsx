@@ -17,7 +17,7 @@ const buttonVariants = cva(
     "inline-flex items-center justify-center gap-8",
     "rounded-md font-medium text-sm",
     "transition-colors duration-normal",
-    "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2",
+    "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
     "disabled:pointer-events-none disabled:opacity-50",
     "select-none",
   ],
@@ -37,26 +37,32 @@ const buttonVariants = cva(
         tonal: [
           "bg-secondary text-on-secondary",
           "hover:bg-button-secondary-hover",
+          "active:bg-button-secondary-active",
         ],
         secondary: [
           "bg-secondary text-on-secondary",
           "hover:bg-button-secondary-hover",
+          "active:bg-button-secondary-active",
         ],
         destructive: [
           "bg-error text-on-error",
           "hover:bg-button-error-hover",
+          "active:bg-button-error-active",
         ],
         outline: [
           "border border-border bg-transparent text-text",
-          "hover:bg-surface-raised-subtle hover:border-brand",
+          "hover:bg-button-outline-hover hover:border-brand",
+          "active:bg-button-outline-active",
         ],
         ghost: [
-          "bg-transparent text-text",
-          "hover:bg-surface-muted",
+          "bg-transparent text-brand",
+          "hover:bg-button-ghost-hover",
+          "active:bg-button-ghost-active",
         ],
         elevated: [
           "bg-surface-raised text-brand shadow-sm",
-          "hover:bg-surface-raised-subtle hover:shadow-md",
+          "hover:bg-button-elevated-hover hover:shadow-md",
+          "active:bg-button-elevated-active",
         ],
         link: [
           "bg-transparent text-brand underline-offset-4",

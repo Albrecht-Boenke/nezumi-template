@@ -3,42 +3,30 @@ import {
   getDimensionClassesAndStyles,
   getLayoutSpacingClasses,
   getResponsiveDisplayClass,
+  responsiveClass,
 } from "../utils"
 import type { ContainerProps, ResponsiveValue } from "../types"
 
 const CONTAINER_SIZE_CLASSES = {
-  sm: "max-w-md",
-  md: "max-w-2xl",
-  lg: "max-w-4xl",
-  xl: "max-w-6xl",
+  sm:   "max-w-md",
+  md:   "max-w-2xl",
+  lg:   "max-w-4xl",
+  xl:   "max-w-6xl",
   "2xl": "max-w-7xl",
 } as const
 
 const DEFAULT_CONTAINER_PX = {
   initial: "16",
-  md: "24",
+  md:      "24",
 } as const
 
 type ContainerSize = keyof typeof CONTAINER_SIZE_CLASSES
 
-function getSizeClass(size: ContainerSize): string {
-  return CONTAINER_SIZE_CLASSES[size]
-}
-
 function getResponsiveSizeClass(
   size: ResponsiveValue<ContainerSize> | undefined,
 ): string {
-  if (!size) return CONTAINER_SIZE_CLASSES.lg
-  if (typeof size === "string") return getSizeClass(size)
-
-  return [
-    size.initial ? getSizeClass(size.initial) : "",
-    size.sm ? `sm:${getSizeClass(size.sm)}` : "",
-    size.md ? `md:${getSizeClass(size.md)}` : "",
-    size.lg ? `lg:${getSizeClass(size.lg)}` : "",
-    size.xl ? `xl:${getSizeClass(size.xl)}` : "",
-    size["2xl"] ? `2xl:${getSizeClass(size["2xl"])}` : "",
-  ].filter(Boolean).join(" ")
+  if (size == null) return CONTAINER_SIZE_CLASSES.lg
+  return responsiveClass(size, v => CONTAINER_SIZE_CLASSES[v])
 }
 
 export function Container({
@@ -54,14 +42,8 @@ export function Container({
   ref,
   ...props
 }: ContainerProps) {
-  const dimensions = getDimensionClassesAndStyles({
-    w,
-    h,
-    minW,
-    maxW,
-    minH,
-    maxH,
-  })
+  const dimensions = getDimensionClassesAndStyles({ w, h, minW, maxW, minH, maxH })
+  // Default-Padding nur dann, wenn weder `p` noch `px` explizit gesetzt ist.
   const resolvedPx = px ?? (p ? undefined : DEFAULT_CONTAINER_PX)
 
   return (

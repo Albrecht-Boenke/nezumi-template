@@ -1,8 +1,9 @@
 /**
  * @packages/ui/layout — Class-Name Utilities
  *
- * Responsive Tailwind-Klassen-Generierung für das Spacing-System.
- * Alle Funktionen sind pure und haben keine Side Effects.
+ * Responsive Tailwind-Klassen-Generierung für die Layout-Primitives.
+ * Alle Helfer sind pure und teilen sich denselben `responsiveClass`-Generator,
+ * damit sich Breakpoint-Logik nicht über die einzelnen Komponenten verteilt.
  */
 import type { CSSProperties } from "react"
 import { type ClassValue, clsx } from "clsx"
@@ -12,34 +13,44 @@ import type {
   AlignItems,
   BaseLayoutProps,
   DisplayValue,
+  FlexDirection,
   JustifyContent,
   ResponsiveValue,
 } from "./types"
 
-const BREAKPOINTS = ["sm", "md", "lg", "xl", "2xl"] as const
+const BREAKPOINTS = ["md", "lg"] as const
 type ResponsiveObject<T> = Exclude<ResponsiveValue<T>, T>
 
-function responsiveClass<T>(
+/**
+ * Generischer Responsive-Class-Generator.
+ *
+ * Akzeptiert einen einzelnen Wert (initial-Breakpoint) oder ein Breakpoint-Objekt
+ * `{ initial?, md?, lg? }` und einen Mapper, der den
+ * unprefixten Tailwind-Utility-Namen für einen Wert liefert.
+ * Falsy-Mapper-Werte werden stillschweigend verworfen.
+ */
+export function responsiveClass<T>(
   value: ResponsiveValue<T> | undefined,
   mapValue: (value: T) => string,
 ): string {
-  if (!value) return ""
-  if (typeof value !== "object") return mapValue(value)
+  if (value == null) return ""
+  if (typeof value !== "object") {
+    return mapValue(value as T) || ""
+  }
 
-  const responsiveValue = value as ResponsiveObject<T>
+  const responsive = value as ResponsiveObject<T>
   const parts: string[] = []
-  if (responsiveValue.initial != null) {
-    parts.push(mapValue(responsiveValue.initial))
+  if (responsive.initial != null) {
+    const cls = mapValue(responsive.initial)
+    if (cls) parts.push(cls)
   }
-
   for (const breakpoint of BREAKPOINTS) {
-    const breakpointValue = responsiveValue[breakpoint]
-    if (breakpointValue != null) {
-      parts.push(`${breakpoint}:${mapValue(breakpointValue)}`)
-    }
+    const breakpointValue = responsive[breakpoint]
+    if (breakpointValue == null) continue
+    const cls = mapValue(breakpointValue)
+    if (cls) parts.push(`${breakpoint}:${cls}`)
   }
-
-  return parts.filter(Boolean).join(" ")
+  return parts.join(" ")
 }
 
 // ---- cn ----
@@ -51,30 +62,25 @@ export function cn(...inputs: ClassValue[]) {
 // ---- Display ----
 
 const DISPLAY_MAP: Record<DisplayValue, string> = {
-  "block":        "block",
+  block:          "block",
   "inline-block": "inline-block",
-  "inline":       "inline",
-  "none":         "hidden",
-  "flex":         "flex",
+  inline:         "inline",
+  none:           "hidden",
+  flex:           "flex",
   "inline-flex":  "inline-flex",
-  "grid":         "grid",
+  grid:           "grid",
   "inline-grid":  "inline-grid",
-}
-
-export function getDisplayClass(value?: DisplayValue): string {
-  if (!value) return ""
-  return DISPLAY_MAP[value] ?? ""
 }
 
 export function getResponsiveDisplayClass(
   value?: ResponsiveValue<DisplayValue>,
 ): string {
-  return responsiveClass(value, getDisplayClass)
+  return responsiveClass(value, v => DISPLAY_MAP[v] ?? "")
 }
 
 // ---- Alignment ----
 
-const JUSTIFY_MAP: Record<string, string> = {
+const JUSTIFY_MAP: Record<JustifyContent, string> = {
   start:   "justify-start",
   center:  "justify-center",
   end:     "justify-end",
@@ -83,7 +89,7 @@ const JUSTIFY_MAP: Record<string, string> = {
   evenly:  "justify-evenly",
 }
 
-const ALIGN_MAP: Record<string, string> = {
+const ALIGN_MAP: Record<AlignItems, string> = {
   start:    "items-start",
   center:   "items-center",
   end:      "items-end",
@@ -91,49 +97,29 @@ const ALIGN_MAP: Record<string, string> = {
   baseline: "items-baseline",
 }
 
-export function getAlignmentClasses(justify?: string, align?: string): string {
-  return cn(
-    justify ? JUSTIFY_MAP[justify] : "",
-    align   ? ALIGN_MAP[align]     : "",
-  )
-}
-
 export function getResponsiveAlignmentClasses(
   justify?: ResponsiveValue<JustifyContent>,
   align?: ResponsiveValue<AlignItems>,
 ): string {
   return cn(
-    responsiveClass(justify, value => JUSTIFY_MAP[value] ?? ""),
-    responsiveClass(align, value => ALIGN_MAP[value] ?? ""),
+    responsiveClass(justify, v => JUSTIFY_MAP[v] ?? ""),
+    responsiveClass(align, v => ALIGN_MAP[v] ?? ""),
   )
 }
 
 // ---- Flex Direction ----
 
-const DIRECTION_MAP: Record<string, string> = {
-  "row":            "flex-row",
-  "column":         "flex-col",
+const DIRECTION_MAP: Record<FlexDirection, string> = {
+  row:              "flex-row",
+  column:           "flex-col",
   "row-reverse":    "flex-row-reverse",
   "column-reverse": "flex-col-reverse",
 }
 
-export function getDirectionClass(direction?: string): string {
-  if (!direction) return ""
-  return DIRECTION_MAP[direction] ?? ""
-}
-
-export function getResponsiveDirection(dir?: ResponsiveValue<string>): string {
-  if (!dir) return ""
-  if (typeof dir === "string") return getDirectionClass(dir)
-  const parts: string[] = []
-  if (dir.initial) parts.push(getDirectionClass(dir.initial))
-  for (const breakpoint of BREAKPOINTS) {
-    const breakpointValue = dir[breakpoint]
-    if (breakpointValue) {
-      parts.push(`${breakpoint}:${getDirectionClass(breakpointValue)}`)
-    }
-  }
-  return parts.filter(Boolean).join(" ")
+export function getResponsiveDirection(
+  value?: ResponsiveValue<FlexDirection>,
+): string {
+  return responsiveClass(value, v => DIRECTION_MAP[v] ?? "")
 }
 
 // ---- Spacing ----
@@ -145,29 +131,21 @@ type SpacingProperty =
 
 type MarginValue = SpacingValue | "auto"
 
-/**
- * Einzelnen Spacing-Wert -> Tailwind-Klasse.
- * Unterstützt "auto" für margin-Props.
- */
+const MARGIN_AUTO_MAP: Partial<Record<SpacingProperty, string>> = {
+  m:  "m-auto",  mx: "mx-auto", my: "my-auto",
+  mt: "mt-auto", mr: "mr-auto", mb: "mb-auto", ml: "ml-auto",
+}
+
 function singleSpacingClass(
   property: SpacingProperty,
   value: MarginValue,
 ): string {
-  if (value === "auto") {
-    const autoMap: Partial<Record<SpacingProperty, string>> = {
-      m: "m-auto", mx: "mx-auto", my: "my-auto",
-      mt: "mt-auto", mr: "mr-auto", mb: "mb-auto", ml: "ml-auto",
-    }
-    return autoMap[property] ?? ""
-  }
-
-  // Native scale: "16" maps directly to utility class suffix "16"
-  // e.g. p-16, m-32, gap-8
+  if (value === "auto") return MARGIN_AUTO_MAP[property] ?? ""
   return `${property}-${value}`
 }
 
 /**
- * Responsive Spacing Value -> Tailwind-Klassen-String.
+ * Responsive Spacing-Wert -> Tailwind-Klassen-String.
  *
  * @example
  *   getSpacingClasses("p",  "16")                       -> "p-16"
@@ -178,21 +156,7 @@ export function getSpacingClasses(
   property: SpacingProperty,
   value?: ResponsiveValue<MarginValue>,
 ): string {
-  if (!value) return ""
-
-  if (typeof value === "string") {
-    return singleSpacingClass(property, value)
-  }
-
-  const parts: string[] = []
-  if (value.initial != null) parts.push(singleSpacingClass(property, value.initial))
-  if (value.sm != null)      parts.push(`sm:${singleSpacingClass(property, value.sm)}`)
-  if (value.md != null)      parts.push(`md:${singleSpacingClass(property, value.md)}`)
-  if (value.lg != null)      parts.push(`lg:${singleSpacingClass(property, value.lg)}`)
-  if (value.xl != null)      parts.push(`xl:${singleSpacingClass(property, value.xl)}`)
-  if (value["2xl"] != null)  parts.push(`2xl:${singleSpacingClass(property, value["2xl"])}`)
-
-  return parts.filter(Boolean).join(" ")
+  return responsiveClass(value, v => singleSpacingClass(property, v))
 }
 
 type LayoutSpacingProps = Pick<
@@ -201,62 +165,63 @@ type LayoutSpacingProps = Pick<
   | "m" | "mx" | "my" | "mt" | "mr" | "mb" | "ml"
 >
 
-export function getLayoutSpacingClasses({
-  p, px, py, pt, pr, pb, pl,
-  m, mx, my, mt, mr, mb, ml,
-}: LayoutSpacingProps): string {
+export function getLayoutSpacingClasses(props: LayoutSpacingProps): string {
   return cn(
-    getSpacingClasses("p",  p),
-    getSpacingClasses("px", px),
-    getSpacingClasses("py", py),
-    getSpacingClasses("pt", pt),
-    getSpacingClasses("pr", pr),
-    getSpacingClasses("pb", pb),
-    getSpacingClasses("pl", pl),
-    getSpacingClasses("m",  m),
-    getSpacingClasses("mx", mx),
-    getSpacingClasses("my", my),
-    getSpacingClasses("mt", mt),
-    getSpacingClasses("mr", mr),
-    getSpacingClasses("mb", mb),
-    getSpacingClasses("ml", ml),
+    getSpacingClasses("p",  props.p),
+    getSpacingClasses("px", props.px),
+    getSpacingClasses("py", props.py),
+    getSpacingClasses("pt", props.pt),
+    getSpacingClasses("pr", props.pr),
+    getSpacingClasses("pb", props.pb),
+    getSpacingClasses("pl", props.pl),
+    getSpacingClasses("m",  props.m),
+    getSpacingClasses("mx", props.mx),
+    getSpacingClasses("my", props.my),
+    getSpacingClasses("mt", props.mt),
+    getSpacingClasses("mr", props.mr),
+    getSpacingClasses("mb", props.mb),
+    getSpacingClasses("ml", props.ml),
   )
 }
 
-// ---- Dimension Helpers ----
+// ---- Dimensionen ----
 
-const W_H_KEYWORDS = ["auto", "full", "screen", "svh", "dvh"] as const
-type WH = string
+const DIMENSION_KEYWORDS = new Set([
+  // spacing scale (vgl. tokens/spacing.css)
+  "0", "1", "2", "4", "8", "12", "16", "24", "32", "40", "48", "56", "64",
+  "80", "96", "112", "128",
+  // sizing keywords
+  "auto", "full", "screen", "svh", "dvh",
+])
+
+type DimensionPrefix = "w" | "h" | "min-w" | "max-w" | "min-h" | "max-h"
+
+const DIMENSION_STYLE_KEY: Record<DimensionPrefix, keyof CSSProperties> = {
+  w:       "width",
+  h:       "height",
+  "min-w": "minWidth",
+  "max-w": "maxWidth",
+  "min-h": "minHeight",
+  "max-h": "maxHeight",
+}
 
 /**
- * Gibt Tailwind width/height Klassen oder inline styles zurueck.
- * Keywords -> `w-auto`, `w-full` etc.
- * Alles andere -> inline style.
+ * Liefert eine Tailwind-Klasse, wenn der Wert ein bekanntes Spacing- oder
+ * Sizing-Keyword ist (z.B. `"64"`, `"full"`, `"svh"`); ansonsten einen
+ * Inline-Style mit dem CSS-Property als Schluessel (z.B. `width: "320px"`).
+ * Tokens, die weder zur Skala noch zu den Keywords gehoeren, werden bewusst
+ * als Inline-Style ausgegeben — so vermeiden wir gebrochene Klassen wie
+ * `w-100`, die im Theme nicht definiert sind.
  */
 export function resolveDimension(
-  prefix: "w" | "h" | "min-w" | "max-w" | "min-h" | "max-h",
-  value?: WH,
-): { className?: string; style?: Record<string, string> } {
+  prefix: DimensionPrefix,
+  value?: string,
+): { className?: string; style?: CSSProperties } {
   if (!value) return {}
-
-  if ((W_H_KEYWORDS as readonly string[]).includes(value)) {
+  if (DIMENSION_KEYWORDS.has(value)) {
     return { className: `${prefix}-${value}` }
   }
-
-  // Numerische Tailwind-Klassen (z.B. "64" -> w-64)
-  if (/^\d+$/.test(value)) {
-    return { className: `${prefix}-${value}` }
-  }
-
-  // Beliebiger CSS-Wert -> inline style
-  const styleKey = prefix
-    .replace("min-w", "minWidth")
-    .replace("max-w", "maxWidth")
-    .replace("min-h", "minHeight")
-    .replace("max-h", "maxHeight")
-    .replace(/^w$/, "width")
-    .replace(/^h$/, "height")
-  return { style: { [styleKey]: value } }
+  return { style: { [DIMENSION_STYLE_KEY[prefix]]: value } }
 }
 
 type DimensionProps = Pick<
@@ -264,25 +229,22 @@ type DimensionProps = Pick<
   "w" | "h" | "minW" | "maxW" | "minH" | "maxH"
 >
 
-export function getDimensionClassesAndStyles({
-  w,
-  h,
-  minW,
-  maxW,
-  minH,
-  maxH,
-}: DimensionProps): { className: string; style: CSSProperties } {
+export function getDimensionClassesAndStyles(
+  props: DimensionProps,
+): { className: string; style: CSSProperties } {
   const style: CSSProperties = {}
   const classNames: string[] = []
 
-  for (const [prefix, value] of [
-    ["w", w],
-    ["h", h],
-    ["min-w", minW],
-    ["max-w", maxW],
-    ["min-h", minH],
-    ["max-h", maxH],
-  ] as const) {
+  const entries: ReadonlyArray<readonly [DimensionPrefix, string | undefined]> = [
+    ["w",     props.w],
+    ["h",     props.h],
+    ["min-w", props.minW],
+    ["max-w", props.maxW],
+    ["min-h", props.minH],
+    ["max-h", props.maxH],
+  ]
+
+  for (const [prefix, value] of entries) {
     const resolved = resolveDimension(prefix, value)
     if (resolved.className) classNames.push(resolved.className)
     if (resolved.style) Object.assign(style, resolved.style)

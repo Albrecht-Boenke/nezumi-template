@@ -35,4 +35,22 @@ describe("design tokens", () => {
 
     expect(css).toContain("@custom-variant dark (&:where(.dark, .dark *));")
   })
+
+  it("disables Tailwind default colors so color utilities come from Nezumi tokens", async () => {
+    const css = await readFile(resolve(stylesDir, "tokens/colors.css"), "utf8")
+
+    expect(css).toContain("--color-*: initial;")
+    expect(css).toMatch(tokenDeclaration("--color-nezumi-sabi", "oklch(from #47585c l c h)"))
+  })
+
+  it("registers only the product breakpoints required by DESIGN.md", async () => {
+    const css = await readFile(resolve(stylesDir, "tokens/breakpoints.css"), "utf8")
+
+    expect(css).toContain("--breakpoint-*: initial;")
+    expect(css).toMatch(tokenDeclaration("--breakpoint-md", "48rem"))
+    expect(css).toMatch(tokenDeclaration("--breakpoint-lg", "64rem"))
+    expect(css).not.toContain("--breakpoint-sm")
+    expect(css).not.toContain("--breakpoint-xl")
+    expect(css).not.toContain("--breakpoint-2xl")
+  })
 })
