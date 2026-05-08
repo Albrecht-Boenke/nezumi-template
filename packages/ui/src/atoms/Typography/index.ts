@@ -7,23 +7,17 @@ import {
 import { cn } from "../../lib/utils"
 
 export type TypographyVariant =
-  | "display-large"
-  | "display-medium"
-  | "display-small"
-  | "headline-large"
-  | "headline-medium"
-  | "headline-small"
-  | "title-fluid"
-  | "body-fluid"
+  | "clamp-large"
+  | "clamp-medium"
+  | "clamp-small"
+  | "clamp-text"
   | "title-large"
   | "title-medium"
-  | "title-small"
-  | "body-large"
   | "body-medium"
-  | "body-small"
   | "label-large"
   | "label-medium"
-  | "label-small"
+  | "accent-large"
+  | "accent-small"
 
 export type TypographyTone =
   | "default"
@@ -38,43 +32,31 @@ export type TypographyTone =
   | "info"
 
 const variantClass: Record<TypographyVariant, string> = {
-  "display-large": "typography-display-large",
-  "display-medium": "typography-display-medium",
-  "display-small": "typography-display-small",
-  "headline-large": "typography-headline-large",
-  "headline-medium": "typography-headline-medium",
-  "headline-small": "typography-headline-small",
-  "title-fluid": "typography-title-fluid",
-  "body-fluid": "typography-body-fluid",
+  "clamp-large": "typography-clamp-large",
+  "clamp-medium": "typography-clamp-medium",
+  "clamp-small": "typography-clamp-small",
+  "clamp-text": "typography-clamp-text",
   "title-large": "typography-title-large",
   "title-medium": "typography-title-medium",
-  "title-small": "typography-title-small",
-  "body-large": "typography-body-large",
   "body-medium": "typography-body-medium",
-  "body-small": "typography-body-small",
   "label-large": "typography-label-large",
   "label-medium": "typography-label-medium",
-  "label-small": "typography-label-small",
+  "accent-large": "typography-accent-large",
+  "accent-small": "typography-accent-small",
 }
 
 const variantDefaultTag: Record<TypographyVariant, ElementType> = {
-  "display-large": "h1",
-  "display-medium": "h1",
-  "display-small": "h2",
-  "headline-large": "h2",
-  "headline-medium": "h3",
-  "headline-small": "h4",
-  "title-fluid": "h3",
-  "body-fluid": "p",
+  "clamp-large": "h1",
+  "clamp-medium": "h2",
+  "clamp-small": "h3",
+  "clamp-text": "p",
   "title-large": "h1",
   "title-medium": "h2",
-  "title-small": "h3",
-  "body-large": "p",
   "body-medium": "p",
-  "body-small": "p",
   "label-large": "span",
   "label-medium": "span",
-  "label-small": "span",
+  "accent-large": "h3",
+  "accent-small": "span",
 }
 
 const toneClass: Record<TypographyTone, string> = {

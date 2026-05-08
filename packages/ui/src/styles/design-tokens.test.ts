@@ -56,6 +56,8 @@ describe("design tokens", () => {
     const css = await readFile(resolve(stylesDir, "tokens/typography.css"), "utf8")
 
     expect(css).toMatch(tokenDeclaration("--font-family-sans", 'var(--font-urbanist, "Urbanist"), system-ui,\n    -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'))
+    expect(css).toMatch(tokenDeclaration("--font-family-accent", 'var(--font-space-grotesk, "Space Grotesk"),\n    var(--font-family-sans)'))
+    expect(css).toMatch(tokenDeclaration("--font-accent", "var(--font-family-accent)"))
     expect(css).toMatch(tokenDeclaration("--font-weight-regular", "400"))
     expect(css).not.toContain("--text-sm:")
     expect(css).not.toContain("--text-4xl:")
@@ -70,12 +72,18 @@ describe("design tokens", () => {
     const designTokens = await readFile(resolve(stylesDir, "design-tokens.css"), "utf8")
 
     expect(designTokens).toContain('@import "../atoms/Typography/tokens.css";')
-    expect(css).toContain(".typography-display-large")
+    expect(css).toContain(".typography-clamp-large")
+    expect(css).toContain(".typography-clamp-text")
     expect(css).toContain(".typography-body-medium")
-    expect(css).toContain(".typography-label-small")
-    expect(css).toMatch(tokenDeclaration("--typography-display-large-size", "clamp(2.5rem, 5vw + 1.25rem, 5rem)"))
-    expect(css).toMatch(tokenDeclaration("--typography-body-medium-size", "14px"))
-    expect(css).toMatch(tokenDeclaration("--typography-label-small-weight", "var(--font-weight-bold)"))
+    expect(css).toContain(".typography-label-medium")
+    expect(css).toContain(".typography-accent-small")
+    expect(css).not.toContain(".typography-display-large")
+    expect(css).not.toContain(".typography-headline-medium")
+    expect(css).not.toContain(".typography-body-small")
+    expect(css).toMatch(tokenDeclaration("--typography-clamp-large-size", "clamp(2.5rem, 4vw + 1rem, 4.5rem)"))
+    expect(css).toMatch(tokenDeclaration("--typography-body-medium-size", "16px"))
+    expect(css).toMatch(tokenDeclaration("--typography-label-medium-weight", "var(--font-weight-bold)"))
+    expect(css).toMatch(tokenDeclaration("--typography-accent-small-size", "13px"))
   })
 
   it("exports typography and theme provider public surfaces", async () => {

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next"
-import { Urbanist } from "next/font/google"
+import { Space_Grotesk, Urbanist } from "next/font/google"
 import type { ReactNode } from "react"
 import { ThemeProvider } from "@packages/ui/providers/theme"
 import "./globals.css"
@@ -9,6 +9,12 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
 const urbanist = Urbanist({
   subsets: ["latin"],
   variable: "--font-urbanist",
+  display: "swap",
+})
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
   display: "swap",
 })
 
@@ -31,7 +37,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="de" className={urbanist.variable} suppressHydrationWarning>
+    <html
+      lang="de"
+      className={`${urbanist.variable} ${spaceGrotesk.variable}`}
+      suppressHydrationWarning
+    >
       <body className="min-h-screen bg-surface text-text">
         <ThemeProvider
           attribute="class"
