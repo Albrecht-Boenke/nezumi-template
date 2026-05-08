@@ -1,4 +1,0 @@
-/* global.css — one-shot import (e.g. Storybook); apps use globals.css entry + design-tokens */
-@import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
-@import "./design-tokens.css";

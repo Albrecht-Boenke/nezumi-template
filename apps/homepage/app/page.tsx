@@ -178,7 +178,7 @@ function renderBlossomContent(mode: BlossomExample["mode"] = "word") {
     return Array.from(blossomWord).map((letter, index) => (
       <span
         key={`${letter}-${index}`}
-        style={{ "--letter-shift": `${(index % 3) * -1}px` } as BlossomStyle}
+        style={{ "--editorial-letter-shift": `${(index % 3) * -1}px` } as BlossomStyle}
       >
         {letter}
       </span>
@@ -200,7 +200,7 @@ function VariantRow({ variant }: { variant: TypographyVariant }) {
       <Typography
         variant="label-medium"
         tone="muted"
-        className="font-mono normal-case"
+        className="normal-case"
       >
         {variant}
       </Typography>

@@ -10,6 +10,11 @@
   --spacing-toggle-md-x: var(--spacing-16);
   --spacing-toggle-lg-x: var(--spacing-24);
 
+  /* Typography */
+  --text-toggle-sm: 0.875rem;
+  --text-toggle-md: 0.875rem;
+  --text-toggle-lg: 1rem;
+
   /* Colors */
   --color-toggle-border: var(--color-border);
   --color-toggle-surface: var(--color-surface-raised);

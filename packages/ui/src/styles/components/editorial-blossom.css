@@ -1,0 +1,365 @@
+/*
+ * Layer 3 — Homepage editorial (“blossom” typography lab).
+ * Tokens are @theme-registered for consistency; this module is optional for product apps.
+ * Depends on: semantic colors, typography component tokens, motion (--duration-editorial-*).
+ */
+
+@theme {
+  /* --- Angles --- */
+  --editorial-angle-gradient-stripe: -12deg;
+  --editorial-angle-gradient-text: 110deg;
+  --editorial-angle-gradient-text-chroma: 90deg;
+
+  /* --- Blur / filter --- */
+  --editorial-blur-orb: 32px;
+  --editorial-chroma-hue-rotate: 42deg;
+
+  /* --- Clamp caps (viewport) --- */
+  --editorial-clamp-large-vw-cap: 12vw;
+  --editorial-clamp-medium-vw-cap: 10vw;
+
+  /* --- Drift keyframe --- */
+  --editorial-drift-skew: -4deg;
+
+  /* --- Mask (fade variant) --- */
+  --editorial-fade-mask-end: 82%;
+  --editorial-fade-mask-start: 18%;
+
+  /* --- color-mix stops on semantic bases (percent of paint) --- */
+  --editorial-mix-brand-bg-tiles: 28%;
+  --editorial-mix-brand-echo-cut: 64%;
+  --editorial-mix-brand-echo-glow-far: 28%;
+  --editorial-mix-brand-echo-glow-near: 64%;
+  --editorial-mix-brand-echo-standard-a: 62%;
+  --editorial-mix-brand-echo-standard-b: 48%;
+  --editorial-mix-brand-orb: 14%;
+  --editorial-mix-brand-outline-glow: 44%;
+  --editorial-mix-brand-underline: 54%;
+  --editorial-mix-echo-cool-brand: 38%;
+  --editorial-mix-echo-cool-info: 62%;
+  --editorial-mix-echo-stack-accent: 32%;
+  --editorial-mix-echo-stack-brand: 74%;
+  --editorial-mix-echo-stack-info: 48%;
+  --editorial-mix-echo-warm-error: 28%;
+  --editorial-mix-echo-warm-warning: 58%;
+  --editorial-mix-highlight-warning-bg: 68%;
+  --editorial-mix-info-glow-mid: 52%;
+  --editorial-mix-press-text-shadow: 28%;
+
+  /* --- Motion helpers (opacity / tracking delta) --- */
+  --editorial-opacity-pulse-rest: 0.78;
+  --editorial-spacing-pulse-tracking-add: 0.08em;
+
+  /* --- Layout sizes --- */
+  --editorial-size-card-min-block: 12rem;
+  --editorial-size-orb: 8rem;
+  --editorial-size-stripe-band: 0.34em;
+  --editorial-size-stripe-stroke: 0.18em;
+  --editorial-size-tile-min-inline: 1.35em;
+  --editorial-size-vertical-max-block: 13rem;
+
+  /* --- Micro typography --- */
+  --editorial-spacing-echo-cut-shadow-1: 0.055em;
+  --editorial-spacing-echo-cut-shadow-2: 0.11em;
+  --editorial-spacing-echo-standard-a: 0.08em;
+  --editorial-spacing-echo-standard-b: -0.04em;
+  --editorial-spacing-echo-stack-1: 0.04em;
+  --editorial-spacing-echo-stack-2: 0.08em;
+  --editorial-spacing-echo-stack-3: 0.12em;
+  --editorial-spacing-echo-warm-a: 0.07em;
+  --editorial-spacing-echo-warm-b: 0.14em;
+  --editorial-spacing-echo-cool-a: -0.07em;
+  --editorial-spacing-echo-cool-b: 0.07em;
+  --editorial-spacing-echo-glow-spread-1: 0.04em;
+  --editorial-spacing-join-pull: -0.18em;
+  --editorial-spacing-press-shadow-y: 10px;
+  --editorial-spacing-press-shadow-blur: 24px;
+  --editorial-spacing-press-shadow-outline-y: 1px;
+  --editorial-spacing-underline-offset: 0.12em;
+  --editorial-spacing-underline-thickness: 0.08em;
+
+  /* --- Strokes --- */
+  --editorial-text-stroke-echo-cut: 1px;
+  --editorial-text-stroke-outline: 1px;
+}
+
+@keyframes editorial-drift {
+  0%,
+  100% {
+    transform: translateX(0) skewX(0deg);
+  }
+  50% {
+    transform: translateX(var(--spacing-8)) skewX(var(--editorial-drift-skew));
+  }
+}
+
+@keyframes editorial-pulse {
+  0%,
+  100% {
+    letter-spacing: var(--editorial-word-tracking-fallback);
+    opacity: var(--editorial-opacity-pulse-rest);
+  }
+  50% {
+    letter-spacing: calc(
+      var(--editorial-word-tracking-fallback) + var(--editorial-spacing-pulse-tracking-add)
+    );
+    opacity: 1;
+  }
+}
+
+@keyframes editorial-chroma {
+  0%,
+  100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(var(--editorial-chroma-hue-rotate));
+  }
+}
+
+@layer components {
+  .blossom-card {
+    position: relative;
+    isolation: isolate;
+    min-block-size: var(--editorial-size-card-min-block);
+    overflow: hidden;
+  }
+
+  .blossom-card::before {
+    content: "";
+    position: absolute;
+    inset: auto var(--spacing-16) var(--spacing-16) auto;
+    z-index: -1;
+    inline-size: var(--editorial-size-orb);
+    block-size: var(--editorial-size-orb);
+    border-radius: var(--radius-full);
+    background: color-mix(in oklch, var(--color-brand) var(--editorial-mix-brand-orb), transparent);
+    filter: blur(var(--editorial-blur-orb));
+  }
+
+  /*
+   * Consumer hooks (not defaults in @theme): set on `.blossom-word` or ancestors from TSX.
+   * --editorial-word-tracking  → optional letter-spacing override
+   * --editorial-word-color    → optional text color
+   * --editorial-word-weight   → optional font-weight
+   */
+  .blossom-word {
+    --editorial-word-tracking-fallback: var(
+      --editorial-word-tracking,
+      var(--typography-clamp-large-tracking)
+    );
+
+    display: inline-block;
+    max-inline-size: 100%;
+    color: var(--editorial-word-color, currentColor);
+    font-weight: var(--editorial-word-weight, var(--font-weight-bold));
+    letter-spacing: var(--editorial-word-tracking-fallback);
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+
+  .blossom-card .typography-clamp-large {
+    font-size: min(var(--typography-clamp-large-size), var(--editorial-clamp-large-vw-cap));
+  }
+
+  .blossom-card .typography-clamp-medium {
+    font-size: min(var(--typography-clamp-medium-size), var(--editorial-clamp-medium-vw-cap));
+  }
+
+  .blossom-word--base {
+    text-decoration: underline;
+    text-decoration-thickness: var(--editorial-spacing-underline-thickness);
+    text-decoration-color: color-mix(
+      in oklch,
+      var(--color-brand) var(--editorial-mix-brand-underline),
+      transparent
+    );
+    text-underline-offset: var(--editorial-spacing-underline-offset);
+  }
+
+  .blossom-word--join {
+    white-space: nowrap;
+  }
+
+  .blossom-word__join {
+    margin-inline-start: var(--editorial-spacing-join-pull);
+  }
+
+  .blossom-word--two-tone {
+    white-space: nowrap;
+  }
+
+  .blossom-word--two-tone .blossom-word__join {
+    color: var(--color-brand);
+  }
+
+  .blossom-word--gradient {
+    color: transparent;
+    background: linear-gradient(
+      var(--editorial-angle-gradient-text),
+      var(--color-text),
+      var(--color-brand),
+      var(--color-accent)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .blossom-word--outline {
+    color: transparent;
+    -webkit-text-stroke: var(--editorial-text-stroke-outline) var(--color-text);
+    text-shadow:
+      0 0 var(--spacing-24)
+        color-mix(in oklch, var(--color-brand) var(--editorial-mix-brand-outline-glow), transparent);
+  }
+
+  .blossom-word--press {
+    text-shadow:
+      0 var(--editorial-spacing-press-shadow-outline-y) 0 var(--color-border),
+      0 var(--editorial-spacing-press-shadow-y) var(--editorial-spacing-press-shadow-blur)
+        color-mix(in oklch, var(--color-text) var(--editorial-mix-press-text-shadow), transparent);
+  }
+
+  .blossom-word--drift {
+    animation: editorial-drift var(--duration-slower) var(--ease-in-out) infinite;
+  }
+
+  .blossom-word--pulse {
+    animation: editorial-pulse var(--duration-editorial-pulse) var(--ease-in-out) infinite;
+  }
+
+  .blossom-word--stripe {
+    color: transparent;
+    background: repeating-linear-gradient(
+      var(--editorial-angle-gradient-stripe),
+      var(--color-text) 0 var(--editorial-size-stripe-stroke),
+      var(--color-brand) var(--editorial-size-stripe-stroke) var(--editorial-size-stripe-band)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .blossom-word--highlight {
+    box-decoration-break: clone;
+    padding-inline: var(--spacing-8);
+    border-radius: var(--radius-sm);
+    background: color-mix(
+      in oklch,
+      var(--color-warning-bg) var(--editorial-mix-highlight-warning-bg),
+      transparent
+    );
+  }
+
+  .blossom-word--echo {
+    text-shadow:
+      var(--editorial-spacing-echo-standard-a) var(--editorial-spacing-echo-standard-a) 0
+        color-mix(in oklch, var(--color-brand) var(--editorial-mix-brand-echo-standard-a), transparent),
+      var(--editorial-spacing-echo-standard-b) var(--editorial-spacing-echo-standard-b) 0
+        color-mix(in oklch, var(--color-accent) var(--editorial-mix-brand-echo-standard-b), transparent);
+  }
+
+  .blossom-word--echo-warm {
+    color: var(--color-text);
+    text-shadow:
+      var(--editorial-spacing-echo-warm-a) var(--editorial-spacing-echo-warm-a) 0
+        color-mix(in oklch, var(--color-warning) var(--editorial-mix-echo-warm-warning), transparent),
+      var(--editorial-spacing-echo-warm-b) var(--editorial-spacing-echo-warm-b) 0
+        color-mix(in oklch, var(--color-error) var(--editorial-mix-echo-warm-error), transparent);
+  }
+
+  .blossom-word--echo-cool {
+    text-shadow:
+      var(--editorial-spacing-echo-cool-a) var(--editorial-spacing-echo-cool-a) 0
+        color-mix(in oklch, var(--color-info) var(--editorial-mix-echo-cool-info), transparent),
+      var(--editorial-spacing-echo-cool-b) var(--editorial-spacing-echo-cool-b) 0
+        color-mix(in oklch, var(--color-brand) var(--editorial-mix-echo-cool-brand), transparent);
+  }
+
+  .blossom-word--echo-stack {
+    text-shadow:
+      var(--editorial-spacing-echo-stack-1) var(--editorial-spacing-echo-stack-1) 0
+        color-mix(in oklch, var(--color-brand) var(--editorial-mix-echo-stack-brand), transparent),
+      var(--editorial-spacing-echo-stack-2) var(--editorial-spacing-echo-stack-2) 0
+        color-mix(in oklch, var(--color-info) var(--editorial-mix-echo-stack-info), transparent),
+      var(--editorial-spacing-echo-stack-3) var(--editorial-spacing-echo-stack-3) 0
+        color-mix(in oklch, var(--color-accent) var(--editorial-mix-echo-stack-accent), transparent);
+  }
+
+  .blossom-word--echo-cut {
+    color: var(--color-surface);
+    text-shadow:
+      var(--editorial-spacing-echo-cut-shadow-1) 0 var(--color-text),
+      var(--editorial-spacing-echo-cut-shadow-2) 0
+        color-mix(in oklch, var(--color-brand) var(--editorial-mix-brand-echo-cut), transparent);
+    -webkit-text-stroke: var(--editorial-text-stroke-echo-cut) var(--color-text);
+  }
+
+  .blossom-word--echo-glow {
+    text-shadow:
+      var(--editorial-spacing-echo-glow-spread-1) var(--editorial-spacing-echo-glow-spread-1) 0
+        color-mix(in oklch, var(--color-brand) var(--editorial-mix-brand-echo-glow-near), transparent),
+      0 0 var(--spacing-16)
+        color-mix(in oklch, var(--color-info) var(--editorial-mix-info-glow-mid), transparent),
+      0 0 var(--spacing-40)
+        color-mix(in oklch, var(--color-brand) var(--editorial-mix-brand-echo-glow-far), transparent);
+  }
+
+  .blossom-word--fade {
+    mask-image: linear-gradient(
+      90deg,
+      transparent,
+      black var(--editorial-fade-mask-start),
+      black var(--editorial-fade-mask-end),
+      transparent
+    );
+  }
+
+  .blossom-word--vertical {
+    max-block-size: var(--editorial-size-vertical-max-block);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  .blossom-word--tiles {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-4);
+  }
+
+  .blossom-word--tiles span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: var(--editorial-size-tile-min-inline);
+    padding-inline: var(--spacing-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: color-mix(
+      in oklch,
+      var(--color-brand-bg) var(--editorial-mix-brand-bg-tiles),
+      transparent
+    );
+    transform: translateY(var(--editorial-letter-shift, 0px));
+  }
+
+  .blossom-word--chroma {
+    color: transparent;
+    background: linear-gradient(
+      var(--editorial-angle-gradient-text-chroma),
+      var(--color-success),
+      var(--color-brand),
+      var(--color-info)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: editorial-chroma var(--duration-editorial-chroma) var(--ease-in-out) infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blossom-word--drift,
+  .blossom-word--pulse,
+  .blossom-word--chroma {
+    animation: none;
+  }
+}

@@ -2,30 +2,30 @@
 @theme {
   --color-*: initial;
 
-  --color-nezumi-sabi: oklch(0.4475 0.0220 213.59);
-  --color-nezumi-minato: oklch(0.6621 0.0275 205.75);
-  --color-nezumi-ume: oklch(0.7208 0.0474 6.27);
-  --color-nezumi-sakura: oklch(0.9133 0.0135 340.57);
-  --color-nezumi-fuji: oklch(0.7331 0.0445 286.73);
-  --color-nezumi-kinu: oklch(0.8936 0.0082 98.89);
-  --color-nezumi-genji: oklch(0.6082 0.0113 345.62);
-  --color-nezumi-koi: oklch(0.4096 0.0398 304.50);
-  --color-nezumi-bg: oklch(0.9671 0.0041 91.45);
-  --color-nezumi-akatsuki: oklch(0.8606 0.0143 304.11);
-  --color-nezumi-fukagawa: oklch(0.7095 0.0362 137.12);
-  --color-nezumi-fukagawa-deep: oklch(0.5019 0.0713 140.68);
-  --color-nezumi-cha: oklch(0.7055 0.0204 67.49);
-  --color-nezumi-budo: oklch(0.4961 0.0327 343.08);
-  --color-nezumi-chigusa: oklch(0.8485 0.0258 168.12);
-  --color-nezumi-paper: oklch(0.9818 0.0054 95.10);
-  --color-nezumi-line: oklch(0.8665 0.0056 95.11);
-  --color-nezumi-snow: oklch(1.0000 0.0000 0.00);
-  --color-nezumi-dark-bg: oklch(0.1773 0.0087 307.92);
-  --color-nezumi-dark-raised: oklch(0.2130 0.0083 308.03);
-  --color-nezumi-dark-subtle: oklch(0.2558 0.0079 308.12);
-  --color-nezumi-dark-muted: oklch(0.2775 0.0084 317.71);
-  --color-nezumi-dark-line: oklch(0.3442 0.0074 308.22);
-  --color-nezumi-dark-secondary-bg: oklch(0.3755 0.0198 352.96);
-  --color-nezumi-d-destructive: oklch(0.5248 0.1009 30.44);
-  --color-nezumi-d-error-dark: oklch(0.6900 0.1295 29.54);
+  --color-nezumi-sabi: oklch(0.4475 0.0220 213.59);  /* #47585c */
+  --color-nezumi-minato: oklch(0.6621 0.0275 205.75);  /* #80989b */
+  --color-nezumi-ume: oklch(0.7208 0.0474 6.27);  /* #c099a0 */
+  --color-nezumi-sakura: oklch(0.9133 0.0135 340.57);  /* #e9dfe5 */
+  --color-nezumi-fuji: oklch(0.7331 0.0445 286.73);  /* #a6a5c4 */
+  --color-nezumi-kinu: oklch(0.8936 0.0082 98.89);  /* #dddcd6 */
+  --color-nezumi-genji: oklch(0.6082 0.0113 345.62);  /* #888084 */
+  --color-nezumi-koi: oklch(0.4096 0.0398 304.50);  /* #4f455c */
+  --color-nezumi-bg: oklch(0.9671 0.0041 91.45);  /* #f5f4f1 */
+  --color-nezumi-akatsuki: oklch(0.8606 0.0143 304.11);  /* #d3cfd9 */
+  --color-nezumi-fukagawa: oklch(0.7095 0.0362 137.12);  /* #97a791 */
+  --color-nezumi-fukagawa-deep: oklch(0.5019 0.0713 140.68);  /* #4d6e47 */
+  --color-nezumi-cha: oklch(0.7055 0.0204 67.49);  /* #a99e93 */
+  --color-nezumi-budo: oklch(0.4961 0.0327 343.08);  /* #705b67 */
+  --color-nezumi-chigusa: oklch(0.8485 0.0258 168.12);  /* #bed3ca */
+  --color-nezumi-paper: oklch(0.9818 0.0054 95.10);  /* #faf9f5 */
+  --color-nezumi-line: oklch(0.8665 0.0056 95.11);  /* #d4d3cf */
+  --color-nezumi-snow: oklch(1.0000 0.0000 0.00);  /* #ffffff */
+  --color-nezumi-dark-bg: oklch(0.1773 0.0087 307.92);  /* #121014 */
+  --color-nezumi-dark-raised: oklch(0.2130 0.0083 308.03);  /* #1a181c */
+  --color-nezumi-dark-subtle: oklch(0.2558 0.0079 308.12);  /* #242226 */
+  --color-nezumi-dark-muted: oklch(0.2775 0.0084 317.71);  /* #2a272b */
+  --color-nezumi-dark-line: oklch(0.3442 0.0074 308.22);  /* #3a383c */
+  --color-nezumi-dark-secondary-bg: oklch(0.3755 0.0198 352.96);  /* #4a3d42 */
+  --color-nezumi-d-destructive: oklch(0.5248 0.1009 30.44);  /* #9c5246 */
+  --color-nezumi-d-error-dark: oklch(0.6900 0.1295 29.54);  /* #e07a6b */
 }

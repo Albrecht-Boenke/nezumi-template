@@ -3,6 +3,7 @@ import { Button } from "@packages/ui/components/button"
 import { Flex } from "@packages/ui/components/flex"
 import { Grid } from "@packages/ui/components/grid"
 import { Section } from "@packages/ui/components/section"
+import { Typography } from "@packages/ui/components/typography"
 import {
   DemoNav,
   Example,
@@ -34,7 +35,7 @@ export default function SectionTutorialPage() {
           title="Feature section"
           code={`<Section size="lg" id="features">
   <Container>
-    <h2>Features</h2>
+    <Typography variant="title-medium">Features</Typography>
     <Grid />
   </Container>
 </Section>`}
@@ -42,8 +43,10 @@ export default function SectionTutorialPage() {
           <Section size="sm" id="example-features" className="rounded-lg bg-surface-muted">
             <Flex direction="column" gap="16" px="16">
               <Flex direction="column" gap="4">
-                <h2 className="text-2xl font-semibold">Features</h2>
-                <p className="text-sm text-text-muted">A composed heading inside the primitive.</p>
+                <Typography variant="title-medium">Features</Typography>
+                <Typography variant="body-medium" tone="muted">
+                  A composed heading inside the primitive.
+                </Typography>
               </Flex>
               <Grid cols={{ initial: 1, md: 3 }} gap="12">
                 <Surface>Grid</Surface>
@@ -76,8 +79,16 @@ export default function SectionTutorialPage() {
             ].map(([size, label]) => (
               <Box key={size} className="overflow-hidden rounded-lg border border-border">
                 <Flex align="center">
-                  <Box p="12" className="w-96 bg-surface-muted text-sm font-medium">{size}</Box>
-                  <Box p="12" className="flex-1 text-sm text-text-muted">{label}</Box>
+                  <Box p="12" className="w-96 bg-surface-muted">
+                    <Typography variant="label-large" as="span">
+                      {size}
+                    </Typography>
+                  </Box>
+                  <Box p="12" className="flex-1">
+                    <Typography variant="body-medium" tone="muted" as="span">
+                      {label}
+                    </Typography>
+                  </Box>
                 </Flex>
               </Box>
             ))}
@@ -92,7 +103,9 @@ export default function SectionTutorialPage() {
         >
           <Section size="xl" py="32" className="rounded-lg bg-surface-muted">
             <Box px="16">
-              <span className="text-sm font-medium">Only py-32 is applied here.</span>
+              <Typography variant="label-large" as="span">
+                Only py-32 is applied here.
+              </Typography>
             </Box>
           </Section>
         </Example>
@@ -111,8 +124,12 @@ export default function SectionTutorialPage() {
           <Flex direction="column" gap="0" className="overflow-hidden rounded-lg border border-border">
             <Section aria-label="Hero" size="sm" className="bg-brand text-on-brand">
               <Flex direction="column" gap="12" align="center" className="px-16 text-center">
-                <h3 className="text-2xl font-semibold">Build faster</h3>
-                <p className="max-w-xl text-sm opacity-80">Production-oriented primitives for repeated page layouts.</p>
+                <Typography variant="title-medium" tone="on-brand" balance>
+                  Build faster
+                </Typography>
+                <Typography variant="body-medium" tone="on-brand" pretty className="max-w-xl opacity-80">
+                  Production-oriented primitives for repeated page layouts.
+                </Typography>
                 <Button variant="elevated" size="sm">Start</Button>
               </Flex>
             </Section>

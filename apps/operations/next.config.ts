@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
     // true    — all console output
     // false   — disabled
   },
+
+  /** Source-only workspace package (`tsc --noEmit` only). Next transpiles + bundles TS/TSX/CSS here via the compiler — not a `@packages/ui` npm build script. See nextjs.org transpilePackages. */
   transpilePackages: ["@packages/ui"],
 }
 

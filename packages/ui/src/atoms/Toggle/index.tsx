@@ -14,9 +14,9 @@ const toggleVariants = cva(
   {
     variants: {
       size: {
-        sm: "h-toggle-sm px-toggle-sm-x text-sm",
-        md: "h-toggle-md px-toggle-md-x text-sm",
-        lg: "h-toggle-lg px-toggle-lg-x text-base",
+        sm: "h-toggle-sm px-toggle-sm-x text-toggle-sm",
+        md: "h-toggle-md px-toggle-md-x text-toggle-md",
+        lg: "h-toggle-lg px-toggle-lg-x text-toggle-lg",
       },
     },
     defaultVariants: {

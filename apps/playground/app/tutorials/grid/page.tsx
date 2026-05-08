@@ -1,6 +1,7 @@
 import { Box } from "@packages/ui/components/box"
 import { Flex } from "@packages/ui/components/flex"
 import { Grid } from "@packages/ui/components/grid"
+import { Typography } from "@packages/ui/components/typography"
 import {
   DemoNav,
   Example,
@@ -42,8 +43,12 @@ export default function GridTutorialPage() {
             {["Analytics", "Automation", "Security"].map((label) => (
               <Surface key={label}>
                 <Flex direction="column" gap="8">
-                  <span className="text-sm font-semibold">{label}</span>
-                  <span className="text-sm text-text-muted">grid cell</span>
+                  <Typography variant="label-large" as="span">
+                    {label}
+                  </Typography>
+                  <Typography variant="body-medium" tone="muted" as="span">
+                    grid cell
+                  </Typography>
                 </Flex>
               </Surface>
             ))}
@@ -66,7 +71,9 @@ export default function GridTutorialPage() {
         >
           <Grid cols={{ initial: 1, lg: "16rem minmax(0, 1fr)" }} gap="24">
             <Box p="16" className="rounded-lg bg-surface-muted">
-              <span className="text-sm font-medium">Sidebar</span>
+              <Typography variant="label-large" as="span">
+                Sidebar
+              </Typography>
             </Box>
             <Box p="16" className="rounded-lg bg-surface-muted">
               <Grid cols={{ initial: 1, md: 2 }} gap="12">
@@ -104,8 +111,12 @@ export default function GridTutorialPage() {
             <Surface>
               <Flex direction="column" gap="16">
                 <Flex justify="between" align="center">
-                  <span className="font-medium">Revenue</span>
-                  <span className="text-sm text-text-muted">12 months</span>
+                  <Typography variant="label-large" as="span">
+                    Revenue
+                  </Typography>
+                  <Typography variant="body-medium" tone="muted" as="span">
+                    12 months
+                  </Typography>
                 </Flex>
                 <Grid cols={12} gap="8" className="h-40 items-end">
                   {[52, 44, 68, 58, 76, 84, 62, 90, 72, 94, 82, 98].map((height, index) => (
@@ -123,7 +134,9 @@ export default function GridTutorialPage() {
                 {["Build", "Review", "Ship"].map((label) => (
                   <Flex key={label} align="center" gap="12">
                     <Box className="size-8 rounded-full bg-surface-muted" />
-                    <span className="text-sm">{label}</span>
+                    <Typography variant="body-medium" as="span">
+                      {label}
+                    </Typography>
                   </Flex>
                 ))}
               </Flex>

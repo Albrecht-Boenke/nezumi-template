@@ -1,6 +1,7 @@
 import { Box } from "@packages/ui/components/box"
 import { Flex } from "@packages/ui/components/flex"
 import { Grid } from "@packages/ui/components/grid"
+import { Typography } from "@packages/ui/components/typography"
 import {
   DemoNav,
   Example,
@@ -32,17 +33,17 @@ export default function BoxTutorialPage() {
         <Example
           title="Semantic article"
           code={`<Box as="article" p="24" className="rounded-lg border border-border bg-surface-raised">
-  <h2>Article title</h2>
-  <p>Article body</p>
+  <Typography variant="title-medium">Article title</Typography>
+  <Typography variant="body-medium" tone="muted">Article body</Typography>
 </Box>`}
         >
           <Box as="article" p="24" className="rounded-lg border border-border bg-surface-raised">
             <Flex direction="column" gap="8">
-              <h2 className="text-xl font-semibold">Article title</h2>
-              <p className="text-sm leading-relaxed text-text-muted">
-                The component-specific props are consumed before DOM spread, while `id`,
-                `role`, `aria-*`, events, `className`, and `style` pass through.
-              </p>
+              <Typography variant="title-medium">Article title</Typography>
+              <Typography variant="body-medium" tone="muted" pretty>
+                The component-specific props are consumed before DOM spread, while `id`, `role`,
+                `aria-*`, events, `className`, and `style` pass through.
+              </Typography>
             </Flex>
           </Box>
         </Example>
@@ -65,8 +66,12 @@ export default function BoxTutorialPage() {
             className="rounded-lg border border-border bg-surface-raised"
           >
             <Flex direction="column" gap="8">
-              <span className="font-medium">Responsive spacing</span>
-              <span className="text-sm text-text-muted">maxW is rendered as an inline `max-width` style.</span>
+              <Typography variant="label-large" as="span">
+                Responsive spacing
+              </Typography>
+              <Typography variant="body-medium" tone="muted" as="span">
+                maxW is rendered as an inline `max-width` style.
+              </Typography>
             </Flex>
           </Box>
         </Example>
@@ -106,7 +111,9 @@ export default function BoxTutorialPage() {
                     ? "rounded-lg border border-border bg-surface-muted"
                     : "rounded-lg border border-border bg-surface-raised"}
               >
-                <span className="font-medium">{label}</span>
+                <Typography variant="label-large" as="span">
+                  {label}
+                </Typography>
               </Box>
             ))}
           </Grid>

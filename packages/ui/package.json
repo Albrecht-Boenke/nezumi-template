@@ -2,7 +2,7 @@
   "name": "@packages/ui",
   "version": "1.0.0",
   "private": true,
-  "description": "Nezumi UI component library and design tokens for the Nezumi monorepo",
+  "description": "Nezumi UI components and design tokens (source-only workspace package). Next.js apps transpile TS/TSX/CSS via transpilePackages; there is no npm build artefact.",
   "files": [
     "src",
     "src/styles"
@@ -21,30 +21,46 @@
   "exports": {
     "./globals.css": "./src/styles/global.css",
     "./design-tokens.css": "./src/styles/design-tokens.css",
-    "./components/button": "./src/components/button.tsx",
-    "./components/container": "./src/components/container.tsx",
-    "./components/grid": "./src/components/grid.tsx",
-    "./components/flex": "./src/components/flex.tsx",
+    "./components/aspect-ratio": "./src/components/aspect-ratio.tsx",
+    "./components/avatar": "./src/components/avatar.tsx",
+    "./components/badge": "./src/components/badge.tsx",
     "./components/box": "./src/components/box.tsx",
-    "./components/section": "./src/components/section.tsx",
-    "./components/typography": "./src/components/typography.tsx",
-    "./components/input": "./src/components/input.tsx",
+    "./components/button": "./src/components/button.tsx",
     "./components/card": "./src/components/card.tsx",
+    "./components/checkbox": "./src/components/checkbox.tsx",
+    "./components/container": "./src/components/container.tsx",
+    "./components/flex": "./src/components/flex.tsx",
+    "./components/grid": "./src/components/grid.tsx",
+    "./components/input": "./src/components/input.tsx",
+    "./components/kbd": "./src/components/kbd.tsx",
+    "./components/label": "./src/components/label.tsx",
+    "./components/native-select": "./src/components/native-select.tsx",
+    "./components/progress": "./src/components/progress.tsx",
+    "./components/scroll-area": "./src/components/scroll-area.tsx",
+    "./components/section": "./src/components/section.tsx",
+    "./components/separator": "./src/components/separator.tsx",
+    "./components/skeleton": "./src/components/skeleton.tsx",
+    "./components/slider": "./src/components/slider.tsx",
+    "./components/sonner": "./src/components/sonner.tsx",
+    "./components/spinner": "./src/components/spinner.tsx",
+    "./components/switch": "./src/components/switch.tsx",
+    "./components/textarea": "./src/components/textarea.tsx",
     "./components/toast": "./src/components/toast.tsx",
     "./components/toggle": "./src/components/toggle.tsx",
-    "./components/textarea": "./src/components/textarea.tsx",
-    "./components/tooltip": "./src/components/tooltip.tsx",
     "./components/toggle-group": "./src/components/toggle-group.tsx",
-    "./components/sonner": "./src/components/sonner.tsx",
+    "./components/tooltip": "./src/components/tooltip.tsx",
+    "./components/typography": "./src/components/typography.tsx",
     "./layout": "./src/layout/index.ts",
     "./providers/theme": "./src/providers/Theme/index.tsx",
     "./lib/utils": "./src/lib/utils.ts",
+    "./lib/motion": "./src/lib/motion.ts",
     "./package.json": "./package.json"
   },
   "sideEffects": [
     "./src/styles/**/*.css"
   ],
   "peerDependencies": {
+    "framer-motion": "^12.0.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "tailwindcss": "^4.2.4"
@@ -52,10 +68,21 @@
   "peerDependenciesMeta": {
     "tailwindcss": {
       "optional": true
+    },
+    "framer-motion": {
+      "optional": true
     }
   },
   "dependencies": {
+    "@radix-ui/react-avatar": "^1.1.11",
+    "@radix-ui/react-checkbox": "^1.3.3",
+    "@radix-ui/react-label": "^2.1.8",
+    "@radix-ui/react-progress": "^1.1.8",
+    "@radix-ui/react-scroll-area": "^1.2.10",
+    "@radix-ui/react-separator": "^1.1.8",
+    "@radix-ui/react-slider": "^1.3.6",
     "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-switch": "^1.2.6",
     "@radix-ui/react-toggle": "^1.1.6",
     "@radix-ui/react-toggle-group": "^1.1.7",
     "@radix-ui/react-tooltip": "^1.2.5",

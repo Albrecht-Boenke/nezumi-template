@@ -8,11 +8,11 @@ import {
 import type { ContainerProps, ResponsiveValue } from "../types"
 
 const CONTAINER_SIZE_CLASSES = {
-  sm:   "max-w-md",
-  md:   "max-w-2xl",
-  lg:   "max-w-4xl",
-  xl:   "max-w-6xl",
-  "2xl": "max-w-7xl",
+  sm:   "max-w-sm",
+  md:   "max-w-md",
+  lg:   "max-w-lg",
+  xl:   "max-w-xl",
+  "2xl": "max-w-2xl",
 } as const
 
 const DEFAULT_CONTAINER_PX = {

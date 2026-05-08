@@ -6,6 +6,7 @@ import { Container } from "@packages/ui/components/container"
 import { Flex } from "@packages/ui/components/flex"
 import { Grid } from "@packages/ui/components/grid"
 import { Section } from "@packages/ui/components/section"
+import { Typography } from "@packages/ui/components/typography"
 
 export type PropDefinition = {
   name: string
@@ -31,7 +32,7 @@ export function PageShell({
   children: ReactNode
 }) {
   return (
-    <main>
+    <Container as="main" className="w-full">
       <Section size={{ initial: "md", lg: "lg" }} className="border-b border-border">
         <Container size="2xl">
           <Flex direction="column" gap="24">
@@ -39,20 +40,20 @@ export function PageShell({
               <Link href="/">Back to demo</Link>
             </Button>
             <Flex direction="column" gap="12">
-              <p className="font-mono text-xs uppercase text-text-muted">
-                {eyebrow}
-              </p>
-              <h1 className="max-w-3xl text-4xl font-semibold leading-tight md:text-5xl">
+              {eyebrow}
+              <Typography variant="clamp-medium" balance className="max-w-3xl">
                 {title}
-              </h1>
-              <p className="max-w-3xl text-lg leading-relaxed text-text-muted">{description}</p>
+              </Typography>
+              <Typography variant="body-medium" tone="muted" pretty className="max-w-3xl">
+                {description}
+              </Typography>
             </Flex>
           </Flex>
         </Container>
       </Section>
 
       {children}
-    </main>
+    </Container>
   )
 }
 
@@ -70,10 +71,16 @@ export function TutorialSection({
       <Container size="2xl">
         <Grid cols={{ initial: 1, lg: "280px minmax(0, 1fr)" }} gap="32">
           <Flex direction="column" gap="8">
-            <h2 className="text-2xl font-semibold leading-tight">{title}</h2>
-            <p className="text-sm leading-relaxed text-text-muted">{description}</p>
+            <Typography variant="title-medium" balance>
+              {title}
+            </Typography>
+            <Typography variant="body-medium" tone="muted" pretty>
+              {description}
+            </Typography>
           </Flex>
-          <Flex direction="column" gap="16">{children}</Flex>
+          <Flex direction="column" gap="16">
+            {children}
+          </Flex>
         </Grid>
       </Container>
     </Section>
@@ -96,9 +103,11 @@ export function Example({
       <Grid cols={{ initial: 1, lg: "minmax(0, 1fr) minmax(360px, 0.72fr)" }}>
         <Flex direction="column" gap="16" p="24">
           <Flex direction="column" gap="4">
-            <h3 className="text-base font-semibold">{title}</h3>
+            <Typography variant="title-medium">{title}</Typography>
             {description ? (
-              <p className="text-sm leading-relaxed text-text-muted">{description}</p>
+              <Typography variant="body-medium" tone="muted" pretty>
+                {description}
+              </Typography>
             ) : null}
           </Flex>
           <Box p="16" className="rounded-lg border border-border bg-surface">
@@ -113,7 +122,7 @@ export function Example({
 
 export function CodeBlock({ code }: { code: string }) {
   return (
-    <pre className="h-full overflow-x-auto border-t border-border bg-surface-muted p-24 text-xs leading-relaxed text-text lg:border-l lg:border-t-0">
+    <pre className="h-full overflow-x-auto border-t border-border bg-surface-muted p-24 text-code leading-code text-text lg:border-l lg:border-t-0">
       <code>{code.trim()}</code>
     </pre>
   )
@@ -124,12 +133,20 @@ export function PropTable({ props }: { props: PropDefinition[] }) {
     <Box className="overflow-hidden rounded-lg border border-border bg-surface-raised">
       <Grid
         cols="minmax(120px, 0.8fr) minmax(180px, 1fr) minmax(90px, 0.5fr) minmax(220px, 1.7fr)"
-        className="hidden border-b border-border bg-surface-muted px-16 py-12 text-xs font-medium text-text-muted md:grid"
+        className="hidden border-b border-border bg-surface-muted px-16 py-12 md:grid"
       >
-        <span>Name</span>
-        <span>Type</span>
-        <span>Default</span>
-        <span>Description</span>
+        <Typography variant="label-large" tone="muted" as="span">
+          Name
+        </Typography>
+        <Typography variant="label-large" tone="muted" as="span">
+          Type
+        </Typography>
+        <Typography variant="label-large" tone="muted" as="span">
+          Default
+        </Typography>
+        <Typography variant="label-large" tone="muted" as="span">
+          Description
+        </Typography>
       </Grid>
       {props.map((prop) => (
         <Grid
@@ -138,10 +155,12 @@ export function PropTable({ props }: { props: PropDefinition[] }) {
           gap="12"
           className="border-b border-border px-16 py-16 last:border-b-0"
         >
-          <code className="font-mono text-sm text-text">{prop.name}</code>
-          <code className="font-mono text-xs text-text-muted">{prop.type}</code>
-          <code className="font-mono text-xs text-text-muted">{prop.default ?? "-"}</code>
-          <span className="text-sm leading-relaxed text-text-muted">{prop.description}</span>
+          <code className="font-accent text-code-sm text-text">{prop.name}</code>
+          <code className="font-accent text-code text-text-muted">{prop.type}</code>
+          <code className="font-accent text-code text-text-muted">{prop.default ?? "-"}</code>
+          <Typography variant="body-medium" tone="muted" pretty as="span">
+            {prop.description}
+          </Typography>
         </Grid>
       ))}
     </Box>
@@ -172,7 +191,9 @@ export function DemoNav({ links }: { links: TutorialLink[] }) {
     <Section size="sm" className="border-t border-border">
       <Container size="2xl">
         <Flex justify="between" align="center" gap="16" wrap="wrap">
-          <span className="text-sm text-text-muted">More layout primitives</span>
+          <Typography variant="body-medium" tone="muted">
+            More layout primitives
+          </Typography>
           <Flex gap="8" wrap="wrap">
             {links.map((link) => (
               <Button key={link.href} asChild variant="outline" size="sm">

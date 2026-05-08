@@ -12,7 +12,7 @@ function Card({ className, size = "default", ref, ...props }: CardProps) {
       data-slot="card"
       className={cn(
         "bg-card-surface text-card-text border border-card-border rounded-card shadow-card",
-        size === "sm" && "p-3",
+        size === "sm" && "p-12",
         className,
       )}
       {...props}
@@ -40,7 +40,7 @@ function CardTitle({ className, ref, ...props }: React.ComponentProps<"h3">) {
       ref={ref}
       data-slot="card-title"
       className={cn(
-        "text-card-title-text font-semibold leading-none tracking-tight",
+        "text-card-title-text font-bold",
         className,
       )}
       {...props}
@@ -54,7 +54,7 @@ function CardDescription({ className, ref, ...props }: React.ComponentProps<"p">
       ref={ref}
       data-slot="card-description"
       className={cn(
-        "text-card-description-text text-sm",
+        "text-card-description-text text-card-description",
         className,
       )}
       {...props}
@@ -68,7 +68,7 @@ function CardAction({ className, ref, ...props }: React.ComponentProps<"div">) {
       ref={ref}
       data-slot="card-action"
       className={cn(
-        "ml-auto flex items-center gap-2",
+        "ml-auto flex items-center gap-8",
         className,
       )}
       {...props}

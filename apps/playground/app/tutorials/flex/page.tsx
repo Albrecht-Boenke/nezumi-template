@@ -1,5 +1,6 @@
 import { Box } from "@packages/ui/components/box"
 import { Flex } from "@packages/ui/components/flex"
+import { Typography } from "@packages/ui/components/typography"
 import {
   DemoNav,
   Example,
@@ -38,10 +39,14 @@ export default function FlexTutorialPage() {
         >
           <Flex direction={{ initial: "column", md: "row" }} gap="16">
             <Surface>
-              <span className="text-sm font-medium">Mobile first</span>
+              <Typography variant="label-large" as="span">
+                Mobile first
+              </Typography>
             </Surface>
             <Surface>
-              <span className="text-sm font-medium">Row from md</span>
+              <Typography variant="label-large" as="span">
+                Row from md
+              </Typography>
             </Surface>
           </Flex>
         </Example>
@@ -62,7 +67,9 @@ export default function FlexTutorialPage() {
           <Flex justify="between" align="center" gap="16" className="rounded-lg bg-surface-muted p-16">
             <Flex align="center" gap="8">
               <Box className="size-8 rounded-md bg-brand" />
-              <span className="text-sm font-semibold">Nezumi</span>
+              <Typography variant="label-large" as="span">
+                Nezumi
+              </Typography>
             </Flex>
             <Flex gap="8" wrap="wrap" justify="end">
               <Box className="h-32 w-64 rounded-md bg-surface-raised" />
@@ -79,9 +86,14 @@ export default function FlexTutorialPage() {
         >
           <Flex wrap="wrap" gap="8">
             {["Responsive", "Pure", "Server ready", "Typed", "Composable", "Token based"].map((chip) => (
-              <span key={chip} className="rounded-full border border-border bg-surface-raised px-12 py-8 text-sm">
+              <Typography
+                key={chip}
+                variant="body-medium"
+                as="span"
+                className="rounded-full border border-border bg-surface-raised px-12 py-8"
+              >
                 {chip}
-              </span>
+              </Typography>
             ))}
           </Flex>
         </Example>
@@ -97,10 +109,14 @@ export default function FlexTutorialPage() {
         >
           <Flex gap="16" align="stretch">
             <Flex basis="12rem" p="16" className="rounded-lg bg-surface-muted">
-              <span className="text-sm">12rem basis</span>
+              <Typography variant="body-medium" as="span">
+                12rem basis
+              </Typography>
             </Flex>
             <Flex flex="1" p="16" className="rounded-lg bg-brand/20">
-              <span className="text-sm">flex-1 area</span>
+              <Typography variant="body-medium" as="span">
+                flex-1 area
+              </Typography>
             </Flex>
           </Flex>
         </Example>

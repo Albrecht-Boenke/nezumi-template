@@ -19,6 +19,7 @@
 
   /* Description */
   --color-card-description-text: var(--color-text-muted);
+  --text-card-description: 0.875rem;
 
   /* Content */
   --spacing-card-content-padding: var(--spacing-24);

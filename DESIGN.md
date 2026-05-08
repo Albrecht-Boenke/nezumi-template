@@ -1,449 +1,595 @@
-# Design System: Nezumi Editorial & Trusted Operations
+# Design tokens (Nezumi)
 
-## 1. Overview
-This file is the visual SSOT for agents. It describes the **target state**, not the current audit state.
+Visuelle Token-Referenz und SSOT für Agenten. Implementierung: `packages/ui/src/styles/` (Einstieg `design-tokens.css`). Bei Farb-Primitives: **Autoren-Hex** in Kommentaren zum Abgleich; im Repo liegen die Werte als **OKLCH** in `tokens/colors.css`.
 
-### Product Modes
-| Mode | Scope | Visual behavior |
-| :--- | :---- | :-------------- |
-| Brand Mode | Homepage, campaigns, long-form public pages | Editorial, asymmetrical, image-led, fluid display type, cinematic overlays |
-| Service Mode | Members, Operations | Structured, calm, token-driven, fixed type scale, tonal Paper surfaces |
-
-### Non-Negotiable Rules
-- UI copy: **German**
-- Code/docs/tokens: **English**
-- App page grammar: **`AppShell -> PageLayout -> Section`**
-- Route header primitive: **`PageHeader`**
-- Default generic surface: **`Paper`**
-- `Card` only for explicit object/collection semantics
-- Semantic tokens only in app code; no raw hex and no Tailwind default palette
-- Product breakpoints: **`md` = 768px**, **`lg` = 1024px** only
-- Grid system: **4 / 8 / 12**
-- Homepage editorial exceptions stay route-local
-
-### Layout Rules
-- No `Container`
-- No `Stack` / `HStack` / `VStack`
-- No shared `BentoGrid`
-- No dynamic `col-span-*` interpolation
-- In apps, visible text is rendered via `Typography`
+Die folgenden Blöcke sind **Referenz-DSL** (Tailwind v4 `@theme` bzw. Dark-Override) und entsprechen der gebündelten CSS-Schicht.
 
 ---
 
-## 2. Colors
+## Breakpoints (Produkt)
 
-### Implementation (Nezumi-Template repo)
+`packages/ui/src/styles/tokens/breakpoints.css`
 
-| Layer File | Role |
-| :----------- | :--- |
-| `packages/ui/src/styles/tokens/colors.css` | **Primitives** in Tailwind `@theme`: `--color-nezumi-*`. Each value is stored as a concrete **OKLCH** coordinate converted from the SSOT sRGB hex. Tailwind generates utilities such as `bg-nezumi-sabi` (use in apps only when justified; prefer semantic utilities). |
-| `packages/ui/src/styles/semantic/colors.css` | **Semantic** colors in `@theme`: `--color-brand`, `--color-text`, … as `var(--color-nezumi-*)`. Status backgrounds use `color-mix(in oklch, …)` per rules below. |
-| `packages/ui/src/styles/design-tokens.css` | **`.dark`** block: semantic overrides (same `--color-*` names). **`html.dark`** in `@layer base` sets `color-scheme: dark` only. Base `body`, `:focus-visible`, scrollbar use semantic tokens. |
-| `packages/ui/src/styles/components/button.css` | **Component** color tokens (e.g. `--color-button-brand-hover`) as `color-mix(in oklch, …)` on top of semantic primitives. |
-| Apps | Import `@packages/ui/design-tokens.css` from `app/globals.css`. App **TSX** uses semantic Tailwind classes only (`bg-surface`, `text-text`, `border-border`, …) — no raw hex, no default Tailwind palette. |
-
-**Reference hex** in the tables below is the **authoring / SSOT sRGB** for each primitive. The **stored token value** in code is the concrete OKLCH value in the same row.
-
-### Primitive palette
-
-| Slug (human reference) | CSS token (`@theme`) | SSOT hex | Stored OKLCH |
-| :----------------------- | :------------------- | :------- | :----------- |
-| sabi | `--color-nezumi-sabi` | `#47585c` | `oklch(0.4475 0.0220 213.59)` |
-| minato | `--color-nezumi-minato` | `#80989b` | `oklch(0.6621 0.0275 205.75)` |
-| ume | `--color-nezumi-ume` | `#c099a0` | `oklch(0.7208 0.0474 6.27)` |
-| sakura | `--color-nezumi-sakura` | `#e9dfe5` | `oklch(0.9133 0.0135 340.57)` |
-| fuji | `--color-nezumi-fuji` | `#a6a5c4` | `oklch(0.7331 0.0445 286.73)` |
-| kinu | `--color-nezumi-kinu` | `#dddcd6` | `oklch(0.8936 0.0082 98.89)` |
-| genji | `--color-nezumi-genji` | `#888084` | `oklch(0.6082 0.0113 345.62)` |
-| koi | `--color-nezumi-koi` | `#4f455c` | `oklch(0.4096 0.0398 304.50)` |
-| bg | `--color-nezumi-bg` | `#f5f4f1` | `oklch(0.9671 0.0041 91.45)` |
-| akatsuki | `--color-nezumi-akatsuki` | `#d3cfd9` | `oklch(0.8606 0.0143 304.11)` |
-| fukagawa | `--color-nezumi-fukagawa` | `#97a791` | `oklch(0.7095 0.0362 137.12)` |
-| fukagawa-deep | `--color-nezumi-fukagawa-deep` | `#4d6e47` | `oklch(0.5019 0.0713 140.68)` |
-| cha | `--color-nezumi-cha` | `#a99e93` | `oklch(0.7055 0.0204 67.49)` |
-| budo | `--color-nezumi-budo` | `#705b67` | `oklch(0.4961 0.0327 343.08)` |
-| chigusa | `--color-nezumi-chigusa` | `#bed3ca` | `oklch(0.8485 0.0258 168.12)` |
-| paper | `--color-nezumi-paper` | `#faf9f5` | `oklch(0.9818 0.0054 95.10)` |
-| line | `--color-nezumi-line` | `#d4d3cf` | `oklch(0.8665 0.0056 95.11)` |
-| snow | `--color-nezumi-snow` | `#ffffff` | `oklch(1.0000 0.0000 0.00)` |
-| dark-bg | `--color-nezumi-dark-bg` | `#121014` | `oklch(0.1773 0.0087 307.92)` |
-| dark-raised | `--color-nezumi-dark-raised` | `#1a181c` | `oklch(0.2130 0.0083 308.03)` |
-| dark-subtle | `--color-nezumi-dark-subtle` | `#242226` | `oklch(0.2558 0.0079 308.12)` |
-| dark-muted | `--color-nezumi-dark-muted` | `#2a272b` | `oklch(0.2775 0.0084 317.71)` |
-| dark-line | `--color-nezumi-dark-line` | `#3a383c` | `oklch(0.3442 0.0074 308.22)` |
-| dark-secondary-bg | `--color-nezumi-dark-secondary-bg` | `#4a3d42` | `oklch(0.3755 0.0198 352.96)` |
-| d-destructive | `--color-nezumi-d-destructive` | `#9c5246` | `oklch(0.5248 0.1009 30.44)` |
-| d-error-dark | `--color-nezumi-d-error-dark` | `#e07a6b` | `oklch(0.6900 0.1295 29.54)` |
-
-### Semantic palette
-
-Light defaults live in `semantic/colors.css`; dark values are overridden in `.dark` in `design-tokens.css`. The **Implementation** columns match the actual `var(--color-nezumi-*)` wiring. **Approx. hex** is the same as before for design review (equals the referenced primitive’s SSOT hex).
-
-| Token | Light (code) | Dark (code) | Approx. hex (light → dark) | Use |
-| :---- | :----------- | :---------- | :------------------------- | :-- |
-| `--color-brand` | `var(--color-nezumi-sabi)` | `var(--color-nezumi-minato)` | `#47585c` → `#80989b` | Primary action, navigation emphasis, brand anchor |
-| `--color-on-brand` | `var(--color-nezumi-paper)` | `var(--color-nezumi-paper)` | `#faf9f5` → `#faf9f5` | Text/icon on brand |
-| `--color-brand-bg` | `var(--color-nezumi-minato)` | `var(--color-nezumi-sabi)` | `#80989b` → `#47585c` | Secondary brand panels |
-| `--color-on-brand-bg` | `var(--color-nezumi-koi)` | `var(--color-nezumi-snow)` | `#4f455c` → `#ffffff` | Text/icon on brand background |
-| `--color-secondary` | `var(--color-nezumi-ume)` | `var(--color-nezumi-ume)` | `#c099a0` → `#c099a0` | Warm secondary action/accent |
-| `--color-secondary-bg` | `var(--color-nezumi-sakura)` | `var(--color-nezumi-dark-secondary-bg)` | `#e9dfe5` → `#4a3d42` | Warm muted surfaces |
-| `--color-accent` | `var(--color-nezumi-fuji)` | `var(--color-nezumi-fuji)` | `#a6a5c4` → `#a6a5c4` | Small editorial/chart accents |
-| `--color-text` | `var(--color-nezumi-koi)` | `var(--color-nezumi-kinu)` | `#4f455c` → `#dddcd6` | Primary text |
-| `--color-text-muted` | `var(--color-nezumi-genji)` | `var(--color-nezumi-genji)` | `#888084` → `#888084` | Metadata, helper text |
-| `--color-surface` | `var(--color-nezumi-bg)` | `var(--color-nezumi-dark-bg)` | `#f5f4f1` → `#121014` | Page background |
-| `--color-surface-raised` | `var(--color-nezumi-snow)` | `var(--color-nezumi-dark-raised)` | `#ffffff` → `#1a181c` | Default lifted surface |
-| `--color-surface-raised-subtle` | `var(--color-nezumi-akatsuki)` | `var(--color-nezumi-dark-subtle)` | `#d3cfd9` → `#242226` | Soft section separation |
-| `--color-surface-muted` | `var(--color-nezumi-kinu)` | `var(--color-nezumi-dark-muted)` | `#dddcd6` → `#2a272b` | Muted rails/grouped regions |
-| `--color-border` | `var(--color-nezumi-line)` | `var(--color-nezumi-dark-line)` | `#d4d3cf` → `#3a383c` | Hairline border only |
-| `--color-success` | `var(--color-nezumi-fukagawa-deep)` | `var(--color-nezumi-fukagawa)` | `#4d6e47` → `#97a791` | Positive status |
-| `--color-warning` | `var(--color-nezumi-cha)` | `var(--color-nezumi-cha)` | `#a99e93` → `#a99e93` | Warning status |
-| `--color-error` | `var(--color-nezumi-d-destructive)` | `var(--color-nezumi-d-error-dark)` | `#9c5246` → `#e07a6b` | Error/destructive status |
-| `--color-on-error` | `var(--color-nezumi-snow)` | `var(--color-nezumi-dark-bg)` | `#ffffff` → `#121014` | Text/icon on solid error/destructive fills (contrast-safe vs `--color-error` in both modes) |
-| `--color-info` | `var(--color-nezumi-minato)` | `var(--color-nezumi-minato)` | `#80989b` → `#80989b` | Informational status |
-
-**Tailwind (semantic):** `bg-brand`, `text-on-brand`, `bg-surface`, `text-text`, `text-text-muted`, `text-on-error`, `border-border`, `bg-success-bg`, `text-success`, etc.
-
-### Status background mixes
-
-Implemented in `@theme` (light) and recomputed in `.dark` with higher percentages:
-
-| Token | Light (`semantic/colors.css`) | Dark (`.dark`) |
-| :---- | :-------------------------- | :------------- |
-| `--color-success-bg` | `color-mix(in oklch, var(--color-success) 12%, var(--color-surface))` | `25%` |
-| `--color-warning-bg` | `color-mix(in oklch, var(--color-warning) 15%, var(--color-surface))` | `25%` |
-| `--color-error-bg` | `color-mix(in oklch, var(--color-error) 12%, var(--color-surface))` | `25%` |
-| `--color-info-bg` | `color-mix(in oklch, var(--color-info) 12%, var(--color-surface))` | `25%` |
-
-### Focus tokens
-
-Defined in `semantic/colors.css` (same keys in dark unless overridden):
-
-- `--focus-ring-width`: `1px`
-- `--focus-ring-offset`: `2px`
-- `--focus-ring-color`: `var(--color-text)` (updated under `.dark` via `--color-text`)
-- `--color-ring`: `var(--focus-ring-color)`
-
-### Color Rules
-- Light mode is the canonical reference surface
-- Dark mode is first-class; do not simply invert layouts
-- Use tonal separation before borders
-- Use accent sparingly
-- No pure black for primary UI text
+```css
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-md: 48rem; /* 768px */
+  --breakpoint-lg: 64rem; /* 1024px */
+}
+```
 
 ---
 
-## 3. Typography
+## Abstände (`--spacing-*`)
 
-### Implementation (Nezumi-Template repo)
+Primitive Skala; Werte in `rem`, Kommentare mit Pixelbezug.
 
-| Layer File | Role |
-| :--------- | :--- |
-| `packages/ui/src/styles/tokens/typography.css` | **Primitive font tokens** in Tailwind `@theme`: font families and allowed weights. |
-| `packages/ui/src/styles/components/typography.css` | **Typography component tokens** for the `Typography` atom: `--typography-*` size, line-height, tracking, and weight tokens plus `.typography-*` classes. |
-| `packages/ui/src/components/typography.tsx` | Public component leaf. Apps import `Typography` from `@packages/ui/components/typography`. |
+`packages/ui/src/styles/tokens/spacing.css`
 
-### Font Families
+```css
+@theme {
+  --spacing: initial;
+  --spacing-0:  0rem;
+  --spacing-1:  0.0625rem; /* 1px */
+  --spacing-2:  0.125rem;  /* 2px */
+  --spacing-4:  0.25rem;   /* 4px */
+  --spacing-8:  0.5rem;    /* 8px */
+  --spacing-12: 0.75rem;   /* 12px */
+  --spacing-16: 1rem;      /* 16px */
+  --spacing-24: 1.5rem;    /* 24px */
+  --spacing-32: 2rem;      /* 32px */
+  --spacing-40: 2.5rem;    /* 40px */
+  --spacing-48: 3rem;      /* 48px */
+  --spacing-56: 3.5rem;    /* 56px */
+  --spacing-64: 4rem;      /* 64px */
+  --spacing-80: 5rem;      /* 80px */
+  --spacing-96: 6rem;      /* 96px */
+  --spacing-112: 7rem;     /* 112px */
+  --spacing-128: 8rem;     /* 128px */
+}
+```
 
-| Token | Value | Use |
-| :---- | :---- | :-- |
-| `--font-family-sans` | `var(--font-urbanist, "Urbanist"), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif` | Primary Nezumi typography |
-| `--font-family-accent` | `var(--font-space-grotesk, "Space Grotesk"), var(--font-family-sans)` | Limited secondary variation |
-| `--font-sans` | `var(--font-family-sans)` | Tailwind `font-sans` API |
-| `--font-accent` | `var(--font-family-accent)` | Tailwind `font-accent` API |
+### Semantische Abstände
 
-### Allowed Weights
-| Token | Value |
-| :---- | :---- |
-| `--font-weight-light` | `300` |
-| `--font-weight-regular` | `400` |
-| `--font-weight-medium` | `500` |
-| `--font-weight-bold` | `700` |
+`packages/ui/src/styles/semantic/spacing.css`
 
-### Clamp Scale: Brand/Public Mode
-
-The clamp scale is intentionally reduced to four variants. All four use the same bold-tight drawing style by default: `700` weight and `-0.055em` tracking.
-
-| Variant | Size token | Size | Line height | Tracking | Weight | Use |
-| :------ | :--------- | :--- | :---------- | :------- | :----- | :-- |
-| `clamp-large` | `--typography-clamp-large-size` | `clamp(2.5rem, 4vw + 1rem, 4.5rem)` | `0.98` | `-0.055em` | `var(--font-weight-bold)` | Hero and expressive display |
-| `clamp-medium` | `--typography-clamp-medium-size` | `clamp(2rem, 2.4vw + 1rem, 3.25rem)` | `1.05` | `-0.055em` | `var(--font-weight-bold)` | Public section titles |
-| `clamp-small` | `--typography-clamp-small-size` | `clamp(1.5rem, 1.25vw + 1rem, 2.25rem)` | `1.12` | `-0.055em` | `var(--font-weight-bold)` | Editorial callouts |
-| `clamp-text` | `--typography-clamp-text-size` | `clamp(1rem, 0.45vw + 0.9rem, 1.25rem)` | `1.5` | `-0.055em` | `var(--font-weight-bold)` | Public lead/body text when expressive type is desired |
-
-### Fixed Scale: Service Mode
-
-| Variant | Size token | Size | Line height | Tracking | Weight | Use |
-| :------ | :--------- | :--- | :---------- | :------- | :----- | :-- |
-| `title-large` | `--typography-title-large-size` | `22px` | `28px` | `0` | `var(--font-weight-bold)` | Route title |
-| `title-medium` | `--typography-title-medium-size` | `18px` | `24px` | `0` | `var(--font-weight-medium)` | Section/card title |
-| `body-medium` | `--typography-body-medium-size` | `16px` | `24px` | `0.012em` | `var(--font-weight-regular)` | Forms, reading, main UI copy |
-| `label-large` | `--typography-label-large-size` | `14px` | `20px` | `0.02em` | `var(--font-weight-medium)` | Buttons, tabs |
-| `label-medium` | `--typography-label-medium-size` | `12px` | `16px` | `0.06em` | `var(--font-weight-bold)` | Compact controls and overlines |
-
-### Accent Scale
-
-The accent family is limited to two variants and uses `--font-accent`.
-
-| Variant | Size token | Size | Line height | Tracking | Weight | Use |
-| :------ | :--------- | :--- | :---------- | :------- | :----- | :-- |
-| `accent-large` | `--typography-accent-large-size` | `20px` | `28px` | `-0.01em` | `var(--font-weight-medium)` | Secondary font display sample |
-| `accent-small` | `--typography-accent-small-size` | `13px` | `18px` | `0.08em` | `var(--font-weight-bold)` | Secondary compact accent |
-
-### Typography Rules
-- Use `Typography` in app code
-- Lowercase display is allowed on homepage only
-- Product UI uses sentence case
-- Do not import raw typography utility internals
-- Do not use raw `p`, `span`, `h1-h6` in app-level UI
+```css
+@theme {
+  --space-content: var(--spacing-16);
+  --space-section: var(--spacing-48);
+  --space-page:    var(--spacing-64);
+}
+```
 
 ---
 
-## 4. Elevation
+## Bewegung (Motion)
 
-### Shape Scale
-| Token | Value |
-| :---- | :---- |
-| `--shape-radius-none` | `0` |
-| `--shape-radius-xs` | `2px` |
-| `--shape-radius-sm` | `4px` |
-| `--shape-radius-md` | `8px` |
-| `--shape-radius-lg` | `12px` |
-| `--shape-radius-xl` | `16px` |
-| `--shape-radius-2xl` | `24px` |
-| `--shape-radius-full` | `9999px` |
+`packages/ui/src/styles/tokens/motion.css`
 
-### Semantic Radius
-| Token | Value |
-| :---- | :---- |
-| `--shape-radius-button` | `4px` |
-| `--shape-radius-input` | `16px` |
-| `--shape-radius-card` | `8px` |
-| `--shape-radius-chip` | `9999px` |
-| `--shape-radius-avatar` | `9999px` |
-| `--shape-radius-badge` | `4px` |
-| `--shape-radius-dialog` | `12px` |
-| `--shape-radius-modal` | `16px` |
-| `--shape-radius-popover` | `8px` |
+```css
+@theme {
+  /* Homepage editorial blossom — siehe components/editorial-blossom.css */
+  --duration-editorial-chroma: 6s;
+  --duration-editorial-pulse: 1800ms;
 
-### Shadow Tokens
-| Token | Value |
-| :---- | :---- |
-| `--elevation-shadow-none` | `none` |
-| `--elevation-shadow-sm` | `0 1px 2px rgb(0 0 0 / 0.05)` |
-| `--elevation-shadow-md` | `0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)` |
-| `--elevation-shadow-lg` | `0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)` |
-| `--elevation-shadow-xl` | `0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)` |
-| `--elevation-shadow-2xl` | `0 25px 50px -12px rgb(0 0 0 / 0.25)` |
+  --duration-instant: 0ms;
+  --duration-fast:    100ms;
+  --duration-normal:  200ms;
+  --duration-slow:    300ms;
+  --duration-slower:  500ms;
+  --duration-lazy:    800ms;
 
-### Semantic Shadows
-- Card: `sm`
-- Card hover: `md`
-- Button: `sm`
-- Dropdown: `lg`
-- Modal: `xl`
-- Toast: `lg`
-- Tooltip: `md`
+  --ease-linear:   linear;
+  --ease-in:       cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:      cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out:   cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce:   cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-spring:   cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-### Scrims
-- `--elevation-scrim-light`: `rgba(0 0 0 / 0.3)`
-- `--elevation-scrim-medium`: `rgba(0 0 0 / 0.5)`
-- `--elevation-scrim-heavy`: `rgba(0 0 0 / 0.7)`
-- `--elevation-scrim-backdrop`: `rgba(0 0 0 / 0.4)`
-
-### Elevation Rules
-- Hierarchy comes from surface steps first, shadows second
-- Routine `Paper` and `Card` surfaces should not look glossy
-- Borders are hairlines, not the main structure
-- Full rounding is allowed for chips/avatars only
+  --stagger-fast:  30ms;
+  --stagger-base:  50ms;
+  --stagger-slow:  100ms;
+}
+```
 
 ---
 
-## 5. Components
+## Eckenradius (`--radius-*`)
 
-### Layout System
-| Token | Value |
-| :---- | :---- |
-| `--layout-breakpoint-tablet` | `768px` |
-| `--layout-breakpoint-desktop` | `1024px` |
-| `--layout-content-max-width` | `768px` |
-| `--layout-content-max-width-default` | `1024px` |
-| `--layout-grid-container-max-width` | `1280px` |
-| `--layout-container-legal` | `1280px` |
-| `--layout-page-gutter-inline` | `clamp(16px, 5vw, 48px)` |
-| `--layout-section-gap` | `clamp(48px, 8vw, 96px)` |
-| `--layout-section-spacing-expressive` | `clamp(48px, 6vw, 80px)` |
-| `--layout-page-padding-top-mobile` | `80px` |
-| `--layout-page-padding-top-tablet` | `96px` |
-| `--layout-page-padding-top-desktop` | `128px` |
+`packages/ui/src/styles/tokens/radius.css`
 
-### Grid System
-| Token | Mobile | Tablet | Desktop |
-| :---- | :----- | :----- | :------ |
-| Columns | `4` | `8` | `12` |
-| Gap | `16px` | `24px` | `32px` |
-
-### Header / Navigation Chrome
-| Token | Value |
-| :---- | :---- |
-| `--layout-header-height-mobile` | `56px` |
-| `--layout-header-height-mobile-md` | `70px` |
-| `--layout-header-height-desktop` | `64px` |
-| `--layout-header-height-desktop-lg` | `86px` |
-| `--layout-mobile-nav-height` | `64px` |
-| `--layout-hamburger-button` | `46px` |
-| `--layout-hamburger-button-sm` | `44px` |
-| `--touch-target-min` | `44px` |
-
-### Spacing Scale
-| Token | Value |
-| :---- | :---- |
-| `--space-0` | `0` |
-| `--space-1` | `1px` |
-| `--space-2` | `2px` |
-| `--space-4` | `4px` |
-| `--space-8` | `8px` |
-| `--space-12` | `12px` |
-| `--space-16` | `16px` |
-| `--space-24` | `24px` |
-| `--space-32` | `32px` |
-| `--space-40` | `40px` |
-| `--space-48` | `48px` |
-| `--space-56` | `56px` |
-| `--space-64` | `64px` |
-| `--space-80` | `80px` |
-| `--space-96` | `96px` |
-| `--space-112` | `112px` |
-| `--space-128` | `128px` |
-
-### Control Density
-| Token | Value |
-| :---- | :---- |
-| `--component-control-height-compact` | `36px` |
-| `--component-control-height-comfortable` | `44px` |
-| `--component-control-height-relaxed` | `52px` |
-
-### Page Composition
-- Required route wrapper: `PageLayout`
-- Required route title block: `PageHeader`
-- Required page section primitive: `Section`
-- Homepage may use editorial asymmetry
-- Members and Operations use the same dashboard grammar
-
-### Paper
-| Property | Default |
-| :------- | :------ |
-| Background | `bg-surface` |
-| Text | `text-text` |
-| Elevation | `1` |
-| Outlined | `false` |
-| Padding | `md` |
-| Rounded | `lg` (`12px`) |
-| Variant | `surface` |
-
-Paper variants:
-- `surface`
-- `surface-muted`
-- `surface-raised-subtle`
-- `brand-bg`
-- `secondary-bg`
-
-Paper spacing tokens:
-- `paper-padding-default`: `20px` at `md`, `24px` at `lg`
-- `paper-padding-comfortable`: `32px` at `md`, `40px` at `lg`
-- `paper-gap-default`: `16px` at `md`, `20px` at `lg`
-- `paper-gap-comfortable`: `24px` at `md`, `32px` at `lg`
-
-### Card
-| Property | Default |
-| :------- | :------ |
-| Background | `bg-surface-raised` |
-| Text | `text-text` |
-| Border | `1px solid var(--color-border)` |
-| Radius | `8px` |
-| Elevation | `0` |
-| Padding | handled by `CardHeader`, `CardContent`, `CardFooter` |
-
-Card rules:
-- Use only for discrete objects, options, previews, or repeated card collections
-- `elevated=true` raises to elevation `1`
-- `interactive=true` adds hover/focus lift and `md` shadow
-
-### Buttons
-Base rules:
-- Radius: `4px`
-- Minimum effective touch target: `44px`
-- Focus: token-driven `focus-ring`
-- No pill buttons
-
-Variants:
-- `default`: `bg-brand text-on-brand`
-- `tonal`: `bg-secondary text-on-secondary`
-- `outline`: transparent + `border-border`
-- `ghost`: transparent + brand text
-- `elevated`: `bg-surface text-brand` + elevation
-- `destructive`: `bg-error text-on-error`
-- `link`: text-only link styling
-
-Visual size scale:
-| Size | Height | Horizontal padding |
-| :--- | :----- | :----------------- |
-| `xs` | `24px` | `12px` |
-| `sm` | `32px` | `16px` |
-| `default` | `40px` | `24px` |
-| `lg` | `48px` | `32px` |
-| `xl` | `56px` | `40px` |
-
-### Inputs
-| Property | Value |
-| :------- | :---- |
-| Height | `56px` |
-| Radius | `16px` |
-| Horizontal padding | `16px` |
-| Typography | `body-medium` |
-| Background | `bg-surface` |
-| Border | `1px solid var(--color-border)` |
-
-Input rules:
-- Hover border: `var(--color-text)`
-- Error border: `var(--color-error)`
-- Caret: brand by default, error in invalid state
-- Disabled: muted surface with disabled opacity
-
-### Tables and Dense Data
-- Always inside `Paper`
-- Use subtle dividers only
-- No aggressive zebra striping
-- Toolbar stays integrated with table surface
-- Dense data uses `body-medium` and `label-medium`
-
-### Chips / Badges / Avatars
-- Chips and avatars may use `radius-full`
-- Major buttons, cards, panels, and forms may not use `radius-full`
-- Status chips use semantic background tokens, not saturated fills
-
-### Homepage Exception Family
-- Allowed: asymmetry, image offsets, cinematic scrims, large fluid type, richer motion
-- Not allowed to leak into Members/Operations shared primitives
+```css
+@theme {
+  --radius-none: 0;
+  --radius-sm:   0.25rem;   /* 4px */
+  --radius-md:   0.375rem;  /* 6px */
+  --radius-lg:   0.5rem;    /* 8px */
+  --radius-xl:   0.75rem;   /* 12px */
+  --radius-2xl:  1rem;      /* 16px */
+  --radius-3xl:  1.5rem;    /* 24px */
+  --radius-full: 9999px;
+}
+```
 
 ---
 
-## 6. Do's and Don'ts
+## Schatten (`--shadow-*`)
 
-### Do
-- Use semantic tokens
-- Use `AppShell`, `PageLayout`, `Section`, `PageHeader`
-- Use `Paper` first, `Card` second
-- Keep Members and Operations calm and systematic
-- Keep Homepage expressive but bounded
-- Use tonal hierarchy before borders
-- Use static grid spans
+`packages/ui/src/styles/tokens/shadows.css`
 
-### Don't
-- Don't use raw hex in app code
-- Don't use Tailwind default palette colors
-- Don't use `Container`, `Stack`, `HStack`, `VStack`
-- Don't reintroduce shared `BentoGrid`
-- Don't use `sm`, `xl`, `2xl` breakpoints in app code
-- Don't use dynamic `col-span-*`
-- Don't use pill buttons or pill cards
-- Don't use raw `p`, `span`, `h1-h6` in app-level UI
+```css
+@theme {
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  --shadow-none: 0 0 #0000;
+}
+```
+
+---
+
+## Farben — Primitive (`--color-nezumi-*`)
+
+Sortierung alphabetisch nach Slug. Kommentar = Autoren-Hex (sRGB).
+
+`packages/ui/src/styles/tokens/colors.css`
+
+```css
+@theme {
+  --color-*: initial;
+
+  --color-nezumi-akatsuki: oklch(0.8606 0.0143 304.11); /* #d3cfd9 */
+  --color-nezumi-bg: oklch(0.9671 0.0041 91.45); /* #f5f4f1 */
+  --color-nezumi-budo: oklch(0.4961 0.0327 343.08); /* #705b67 */
+  --color-nezumi-cha: oklch(0.7055 0.0204 67.49); /* #a99e93 */
+  --color-nezumi-chigusa: oklch(0.8485 0.0258 168.12); /* #bed3ca */
+  --color-nezumi-d-destructive: oklch(0.5248 0.1009 30.44); /* #9c5246 */
+  --color-nezumi-d-error-dark: oklch(0.6900 0.1295 29.54); /* #e07a6b */
+  --color-nezumi-dark-bg: oklch(0.1773 0.0087 307.92); /* #121014 */
+  --color-nezumi-dark-line: oklch(0.3442 0.0074 308.22); /* #3a383c */
+  --color-nezumi-dark-muted: oklch(0.2775 0.0084 317.71); /* #2a272b */
+  --color-nezumi-dark-raised: oklch(0.2130 0.0083 308.03); /* #1a181c */
+  --color-nezumi-dark-secondary-bg: oklch(0.3755 0.0198 352.96); /* #4a3d42 */
+  --color-nezumi-dark-subtle: oklch(0.2558 0.0079 308.12); /* #242226 */
+  --color-nezumi-fuji: oklch(0.7331 0.0445 286.73); /* #a6a5c4 */
+  --color-nezumi-fukagawa: oklch(0.7095 0.0362 137.12); /* #97a791 */
+  --color-nezumi-fukagawa-deep: oklch(0.5019 0.0713 140.68); /* #4d6e47 */
+  --color-nezumi-genji: oklch(0.6082 0.0113 345.62); /* #888084 */
+  --color-nezumi-kinu: oklch(0.8936 0.0082 98.89); /* #dddcd6 */
+  --color-nezumi-koi: oklch(0.4096 0.0398 304.50); /* #4f455c */
+  --color-nezumi-line: oklch(0.8665 0.0056 95.11); /* #d4d3cf */
+  --color-nezumi-minato: oklch(0.6621 0.0275 205.75); /* #80989b */
+  --color-nezumi-paper: oklch(0.9818 0.0054 95.10); /* #faf9f5 */
+  --color-nezumi-sakura: oklch(0.9133 0.0135 340.57); /* #e9dfe5 */
+  --color-nezumi-sabi: oklch(0.4475 0.0220 213.59); /* #47585c */
+  --color-nezumi-snow: oklch(1.0000 0.0000 0.00); /* #ffffff */
+  --color-nezumi-ume: oklch(0.7208 0.0474 6.27); /* #c099a0 */
+}
+```
+
+---
+
+## Farben — Semantik & Fokus (Light)
+
+Defaults in `packages/ui/src/styles/semantic/colors.css` (`@theme`).
+
+```css
+@theme {
+  --color-brand: var(--color-nezumi-sabi);
+  --color-on-brand: var(--color-nezumi-paper);
+  --color-brand-bg: var(--color-nezumi-minato);
+  --color-on-brand-bg: var(--color-nezumi-koi);
+
+  --color-secondary: var(--color-nezumi-ume);
+  --color-on-secondary: var(--color-nezumi-koi);
+  --color-secondary-bg: var(--color-nezumi-sakura);
+  --color-accent: var(--color-nezumi-fuji);
+
+  --color-text: var(--color-nezumi-koi);
+  --color-text-muted: var(--color-nezumi-genji);
+
+  --color-surface: var(--color-nezumi-bg);
+  --color-surface-raised: var(--color-nezumi-snow);
+  --color-surface-raised-subtle: var(--color-nezumi-akatsuki);
+  --color-surface-muted: var(--color-nezumi-kinu);
+
+  --color-border: var(--color-nezumi-line);
+
+  --color-success: var(--color-nezumi-fukagawa-deep);
+  --color-warning: var(--color-nezumi-cha);
+  --color-error: var(--color-nezumi-d-destructive);
+  --color-on-error: var(--color-nezumi-snow);
+  --color-info: var(--color-nezumi-minato);
+
+  --color-success-bg: color-mix(in oklch, var(--color-success) 12%, var(--color-surface));
+  --color-warning-bg: color-mix(in oklch, var(--color-warning) 15%, var(--color-surface));
+  --color-error-bg: color-mix(in oklch, var(--color-error) 12%, var(--color-surface));
+  --color-info-bg: color-mix(in oklch, var(--color-info) 12%, var(--color-surface));
+
+  --focus-ring-width: 1px;
+  --focus-ring-offset: 2px;
+  --focus-ring-color: var(--color-text);
+  --color-ring: var(--focus-ring-color);
+
+  --color-background: var(--color-surface);
+  --color-foreground: var(--color-text);
+  --color-card: var(--color-surface-raised);
+  --color-card-foreground: var(--color-text);
+  --color-popover: var(--color-surface-raised);
+  --color-popover-foreground: var(--color-text);
+  --color-primary: var(--color-brand);
+  --color-primary-foreground: var(--color-on-brand);
+  --color-secondary-foreground: var(--color-on-secondary);
+  --color-muted: var(--color-surface-muted);
+  --color-muted-foreground: var(--color-text-muted);
+  --color-accent-foreground: var(--color-text);
+  --color-destructive: var(--color-error);
+  --color-destructive-foreground: var(--color-on-error);
+  --color-input: var(--color-border);
+}
+```
+
+### Dark (`.dark`)
+
+Overrides in `packages/ui/src/styles/design-tokens.css`.
+
+```css
+.dark {
+  --color-brand: var(--color-nezumi-minato);
+  --color-on-brand: var(--color-nezumi-paper);
+  --color-brand-bg: var(--color-nezumi-sabi);
+  --color-on-brand-bg: var(--color-nezumi-snow);
+
+  --color-secondary: var(--color-nezumi-ume);
+  --color-on-secondary: var(--color-nezumi-dark-bg);
+  --color-secondary-bg: var(--color-nezumi-dark-secondary-bg);
+  --color-accent: var(--color-nezumi-fuji);
+
+  --color-text: var(--color-nezumi-kinu);
+  --color-text-muted: var(--color-nezumi-genji);
+
+  --color-surface: var(--color-nezumi-dark-bg);
+  --color-surface-raised: var(--color-nezumi-dark-raised);
+  --color-surface-raised-subtle: var(--color-nezumi-dark-subtle);
+  --color-surface-muted: var(--color-nezumi-dark-muted);
+
+  --color-border: var(--color-nezumi-dark-line);
+
+  --color-success: var(--color-nezumi-fukagawa);
+  --color-warning: var(--color-nezumi-cha);
+  --color-error: var(--color-nezumi-d-error-dark);
+  --color-on-error: var(--color-nezumi-dark-bg);
+  --color-info: var(--color-nezumi-minato);
+
+  --color-success-bg: color-mix(in oklch, var(--color-success) 25%, var(--color-surface));
+  --color-warning-bg: color-mix(in oklch, var(--color-warning) 25%, var(--color-surface));
+  --color-error-bg: color-mix(in oklch, var(--color-error) 25%, var(--color-surface));
+  --color-info-bg: color-mix(in oklch, var(--color-info) 25%, var(--color-surface));
+
+  --focus-ring-color: var(--color-text);
+  --color-ring: var(--focus-ring-color);
+
+  color-scheme: dark;
+}
+```
+
+---
+
+## Typografie — Basistokens
+
+`packages/ui/src/styles/tokens/typography.css`
+
+```css
+@theme {
+  --font-family-sans: var(--font-urbanist, "Urbanist"), system-ui,
+    -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-family-accent: var(--font-space-grotesk, "Space Grotesk"),
+    var(--font-family-sans);
+
+  --font-sans: var(--font-family-sans);
+  --font-accent: var(--font-family-accent);
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+}
+```
+
+---
+
+## Typografie — Atom-Skalen
+
+`packages/ui/src/styles/components/typography.css` (`@theme`-Abschnitt)
+
+```css
+@theme {
+  --typography-clamp-large-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
+  --typography-clamp-large-line-height: 0.98;
+  --typography-clamp-large-tracking: -0.055em;
+  --typography-clamp-large-weight: var(--font-weight-bold);
+
+  --typography-clamp-medium-size: clamp(2rem, 2.4vw + 1rem, 3.25rem);
+  --typography-clamp-medium-line-height: 1.05;
+  --typography-clamp-medium-tracking: -0.055em;
+  --typography-clamp-medium-weight: var(--font-weight-bold);
+
+  --typography-clamp-small-size: clamp(1.5rem, 1.25vw + 1rem, 2.25rem);
+  --typography-clamp-small-line-height: 1.12;
+  --typography-clamp-small-tracking: -0.055em;
+  --typography-clamp-small-weight: var(--font-weight-bold);
+
+  --typography-clamp-text-size: clamp(1rem, 0.45vw + 0.9rem, 1.25rem);
+  --typography-clamp-text-line-height: 1.5;
+  --typography-clamp-text-tracking: -0.055em;
+  --typography-clamp-text-weight: var(--font-weight-bold);
+
+  --typography-title-large-size: 22px;
+  --typography-title-large-line-height: 28px;
+  --typography-title-large-tracking: 0;
+  --typography-title-large-weight: var(--font-weight-bold);
+
+  --typography-title-medium-size: 18px;
+  --typography-title-medium-line-height: 24px;
+  --typography-title-medium-tracking: 0;
+  --typography-title-medium-weight: var(--font-weight-medium);
+
+  --typography-body-medium-size: 16px;
+  --typography-body-medium-line-height: 24px;
+  --typography-body-medium-tracking: 0.012em;
+  --typography-body-medium-weight: var(--font-weight-regular);
+
+  --typography-label-large-size: 14px;
+  --typography-label-large-line-height: 20px;
+  --typography-label-large-tracking: 0.02em;
+  --typography-label-large-weight: var(--font-weight-medium);
+
+  --typography-label-medium-size: 12px;
+  --typography-label-medium-line-height: 16px;
+  --typography-label-medium-tracking: 0.06em;
+  --typography-label-medium-weight: var(--font-weight-bold);
+
+  --typography-accent-large-size: 20px;
+  --typography-accent-large-line-height: 28px;
+  --typography-accent-large-tracking: -0.01em;
+  --typography-accent-large-weight: var(--font-weight-medium);
+
+  --typography-accent-small-size: 13px;
+  --typography-accent-small-line-height: 18px;
+  --typography-accent-small-tracking: 0.08em;
+  --typography-accent-small-weight: var(--font-weight-bold);
+}
+```
+
+---
+
+## Komponenten-Tokens (`@theme`)
+
+### Button — `components/button.css`
+
+```css
+@theme {
+  --radius-button: var(--radius-sm);
+  --spacing-button-gap: var(--spacing-8);
+  --spacing-button-sm: var(--spacing-32);
+  --spacing-button-md: var(--spacing-40);
+  --spacing-button-lg: var(--spacing-48);
+  --spacing-button-xl: var(--spacing-56);
+  --spacing-button-icon: var(--spacing-40);
+  --spacing-button-sm-x: var(--spacing-16);
+  --spacing-button-md-x: var(--spacing-24);
+  --spacing-button-lg-x: var(--spacing-32);
+  --spacing-button-xl-x: var(--spacing-40);
+  --font-weight-button: var(--font-weight-medium);
+
+  --color-button-brand-hover: color-mix(in oklch, var(--color-brand) 88%, var(--color-text));
+  --color-button-brand-active: color-mix(in oklch, var(--color-brand) 78%, var(--color-text));
+  --color-button-secondary-hover: color-mix(in oklch, var(--color-secondary) 82%, var(--color-text));
+  --color-button-secondary-active: color-mix(in oklch, var(--color-secondary) 72%, var(--color-text));
+  --color-button-error-hover: color-mix(in oklch, var(--color-error) 85%, var(--color-surface));
+  --color-button-error-active: color-mix(in oklch, var(--color-error) 74%, var(--color-surface));
+  --color-button-outline-hover: var(--color-surface-raised-subtle);
+  --color-button-outline-active: var(--color-surface-muted);
+  --color-button-ghost-hover: var(--color-surface-muted);
+  --color-button-ghost-active: var(--color-surface-raised-subtle);
+  --color-button-elevated-hover: var(--color-surface-raised-subtle);
+  --color-button-elevated-active: var(--color-surface-muted);
+}
+```
+
+### Badge — `components/badge.css`
+
+```css
+@theme {
+  --color-badge-surface: var(--color-surface-raised);
+  --color-badge-text: var(--color-text);
+  --color-badge-border: var(--color-border);
+  --spacing-badge-padding-x: var(--spacing-16);
+  --spacing-badge-padding-y: var(--spacing-4);
+  --radius-badge: var(--radius-full);
+  --text-badge: 0.75rem;
+  --font-weight-badge: var(--font-weight-medium);
+  --leading-badge: 1;
+  --color-badge-hover-surface: var(--color-surface-muted);
+  --color-badge-focus-ring: var(--color-ring);
+}
+```
+
+### Card — `components/card.css`
+
+```css
+@theme {
+  --radius-card: var(--radius-lg);
+  --shadow-card: var(--shadow-sm);
+  --color-card-border: var(--color-border);
+  --color-card-surface: var(--color-surface-raised);
+  --color-card-text: var(--color-text);
+  --spacing-card-header-gap: var(--spacing-8);
+  --spacing-card-header-padding: var(--spacing-24);
+  --color-card-title-text: var(--color-text);
+  --color-card-description-text: var(--color-text-muted);
+  --spacing-card-content-padding: var(--spacing-24);
+  --spacing-card-footer-padding: var(--spacing-24);
+}
+```
+
+### Input — `components/input.css`
+
+```css
+@theme {
+  --spacing-input-height: var(--spacing-40);
+  --spacing-input-padding-x: var(--spacing-16);
+  --spacing-input-padding-y: var(--spacing-12);
+  --radius-input: var(--radius-md);
+  --color-input-border: var(--color-border);
+  --color-input-surface: var(--color-surface-raised);
+  --color-input-text: var(--color-text);
+  --color-input-placeholder: var(--color-text-muted);
+  --color-input-ring: var(--color-ring);
+}
+```
+
+### Textarea — `components/textarea.css`
+
+```css
+@theme {
+  --spacing-textarea-padding-x: var(--spacing-16);
+  --spacing-textarea-padding-y: var(--spacing-12);
+  --spacing-textarea-min: var(--spacing-80);
+  --radius-textarea: var(--radius-md);
+  --color-textarea-border: var(--color-border);
+  --color-textarea-surface: var(--color-surface-raised);
+  --color-textarea-text: var(--color-text);
+  --color-textarea-placeholder: var(--color-text-muted);
+  --color-textarea-ring: var(--color-ring);
+}
+```
+
+### Tooltip — `components/tooltip.css`
+
+```css
+@theme {
+  --radius-tooltip: var(--radius-md);
+  --spacing-tooltip-padding-x: var(--spacing-16);
+  --spacing-tooltip-padding-y: var(--spacing-12);
+  --shadow-tooltip: var(--shadow-md);
+  --color-tooltip-border: var(--color-border);
+  --color-tooltip-surface: var(--color-surface-raised);
+  --color-tooltip-text: var(--color-text);
+}
+```
+
+### Toast — `components/toast.css`
+
+```css
+@theme {
+  --radius-toast: var(--radius-md);
+  --spacing-toast-padding: var(--spacing-16);
+  --shadow-toast: var(--shadow-md);
+  --color-toast-surface: var(--color-surface-raised);
+  --color-toast-border: var(--color-border);
+  --color-toast-text: var(--color-text);
+  --color-toast-title-text: var(--color-text);
+  --color-toast-description-text: var(--color-text-muted);
+  --color-toast-success-surface: var(--color-success-bg);
+  --color-toast-success-border: var(--color-success);
+  --color-toast-success-text: var(--color-success);
+  --color-toast-warning-surface: var(--color-warning-bg);
+  --color-toast-warning-border: var(--color-warning);
+  --color-toast-warning-text: var(--color-warning);
+  --color-toast-error-surface: var(--color-error-bg);
+  --color-toast-error-border: var(--color-error);
+  --color-toast-error-text: var(--color-error);
+  --color-toast-info-surface: var(--color-info-bg);
+  --color-toast-info-border: var(--color-info);
+  --color-toast-info-text: var(--color-info);
+}
+```
+
+### Sonner — `components/sonner.css`
+
+```css
+@theme {
+  --radius-sonner: var(--radius-md);
+  --shadow-sonner: var(--shadow-lg);
+  --color-sonner-surface: var(--color-surface-raised);
+  --color-sonner-border: var(--color-border);
+  --color-sonner-text: var(--color-text);
+  --color-sonner-description: var(--color-text-muted);
+  --color-sonner-action-bg: var(--color-brand);
+  --color-sonner-action-text: var(--color-on-brand);
+  --color-sonner-cancel-bg: var(--color-surface-muted);
+  --color-sonner-cancel-text: var(--color-text);
+  --color-sonner-error-surface: var(--color-error-bg);
+  --color-sonner-error-text: var(--color-error);
+  --color-sonner-error-border: var(--color-error);
+  --color-sonner-success-surface: var(--color-success-bg);
+  --color-sonner-success-text: var(--color-success);
+  --color-sonner-success-border: var(--color-success);
+  --color-sonner-warning-surface: var(--color-warning-bg);
+  --color-sonner-warning-text: var(--color-warning);
+  --color-sonner-warning-border: var(--color-warning);
+  --color-sonner-info-surface: var(--color-info-bg);
+  --color-sonner-info-text: var(--color-info);
+  --color-sonner-info-border: var(--color-info);
+}
+```
+
+### Toggle — `components/toggle.css`
+
+```css
+@theme {
+  --radius-toggle: var(--radius-md);
+  --spacing-toggle-sm: var(--spacing-32);
+  --spacing-toggle-md: var(--spacing-40);
+  --spacing-toggle-lg: var(--spacing-48);
+  --spacing-toggle-sm-x: var(--spacing-12);
+  --spacing-toggle-md-x: var(--spacing-16);
+  --spacing-toggle-lg-x: var(--spacing-24);
+  --color-toggle-border: var(--color-border);
+  --color-toggle-surface: var(--color-surface-raised);
+  --color-toggle-text: var(--color-text);
+  --color-toggle-ring: var(--color-ring);
+  --color-toggle-hover-surface: var(--color-surface-muted);
+  --color-toggle-hover-text: var(--color-text);
+  --color-toggle-selected-surface: var(--color-brand);
+  --color-toggle-selected-text: var(--color-on-brand);
+}
+```
+
+### Toggle group — `components/toggle-group.css`
+
+```css
+@theme {
+  --spacing-toggle-group-gap: var(--spacing-8);
+}
+```
+
+### Sidebar — `components/sidebar.css`
+
+```css
+@theme {
+  --color-sidebar-surface: var(--color-surface-raised);
+  --color-sidebar-border: var(--color-border);
+  --spacing-sidebar-width: var(--spacing-256);
+  --spacing-sidebar-collapsed-width: var(--spacing-64);
+  --spacing-sidebar-header-padding: var(--spacing-16);
+  --spacing-sidebar-content-padding: var(--spacing-16);
+  --spacing-sidebar-footer-padding: var(--spacing-16);
+  --spacing-sidebar-group-gap: var(--spacing-8);
+  --spacing-sidebar-menu-item-gap: var(--spacing-8);
+  --spacing-sidebar-menu-item-padding-x: var(--spacing-12);
+  --spacing-sidebar-menu-item-padding-y: var(--spacing-8);
+  --radius-sidebar-menu-item: var(--radius-md);
+  --color-sidebar-menu-item-hover: var(--color-accent);
+  --color-sidebar-menu-item-active: var(--color-primary);
+  --color-sidebar-menu-item-text: var(--color-text);
+  --color-sidebar-menu-item-text-active: var(--color-primary-foreground);
+}
+```
+
+> **Hinweis:** `editorial-blossom` (Homepage-Lab) — zusätzliche `--editorial-*` und `--duration-editorial-*` siehe `components/editorial-blossom.css` bzw. `tokens/motion.css`.

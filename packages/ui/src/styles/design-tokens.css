@@ -1,33 +1,34 @@
 /* Nezumi design tokens + base — import after @import "tailwindcss" in the app */
 @import "./tokens/breakpoints.css";
 @import "./tokens/colors.css";
-@import "./tokens/spacing.css";
-@import "./tokens/typography.css";
 @import "./tokens/motion.css";
 @import "./tokens/radius.css";
 @import "./tokens/shadows.css";
+@import "./tokens/spacing.css";
+@import "./tokens/typography.css";
 
 @import "./semantic/colors.css";
 @import "./semantic/spacing.css";
 
-@import "./components/button.css";
 @import "./components/badge.css";
-@import "./components/input.css";
+@import "./components/button.css";
 @import "./components/card.css";
-@import "./components/toast.css";
-@import "./components/toggle.css";
-@import "./components/textarea.css";
-@import "./components/tooltip.css";
-@import "./components/toggle-group.css";
-@import "./components/sonner.css";
+@import "./components/editorial-blossom.css";
+@import "./components/input.css";
 @import "./components/sidebar.css";
+@import "./components/sonner.css";
+@import "./components/textarea.css";
+@import "./components/toast.css";
+@import "./components/toggle-group.css";
+@import "./components/toggle.css";
+@import "./components/tooltip.css";
 @import "./components/typography.css";
 
 @source inline("{md:,lg:,}{block,inline-block,inline,hidden,flex,inline-flex,grid,inline-grid}");
 @source inline("{md:,lg:,}{p,px,py,pt,pr,pb,pl,m,mx,my,mt,mr,mb,ml,gap,gap-x,gap-y}-{0,1,2,4,8,12,16,24,32,40,48,56,64,80,96,112,128}");
 @source inline("{md:,lg:,}{m,mx,my,mt,mr,mb,ml}-auto");
 @source inline("{md:,lg:,}{flex-row,flex-col,flex-row-reverse,flex-col-reverse,flex-nowrap,flex-wrap,flex-wrap-reverse,items-start,items-center,items-end,items-stretch,items-baseline,justify-start,justify-center,justify-end,justify-between,justify-around,justify-evenly}");
-@source inline("{md:,lg:,}max-w-{md,2xl,4xl,6xl,7xl}");
+@source inline("{md:,lg:,}max-w-{sm,md,lg,xl,2xl}");
 @source inline("{w,h,min-w,max-w,min-h,max-h}-{0,1,2,4,8,12,16,24,32,40,48,56,64,80,96,112,128,auto,full,screen,svh,dvh}");
 @source inline("{md:,lg:,}grid-cols-{1,2,3,4,5,6,7,8,9,10,11,12}");
 @source inline("{md:,lg:,}grid-rows-{1,2,3,4,5,6,7,8,9,10,11,12}");
@@ -111,8 +112,7 @@
   pre,
   kbd,
   samp {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-      "Liberation Mono", "Courier New", monospace;
+    font-family: var(--font-accent);
     font-feature-settings: "liga" 1, "calt" 1;
   }
 

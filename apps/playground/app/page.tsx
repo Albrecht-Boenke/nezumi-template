@@ -5,6 +5,7 @@ import { Container } from "@packages/ui/components/container"
 import { Flex } from "@packages/ui/components/flex"
 import { Grid } from "@packages/ui/components/grid"
 import { Section } from "@packages/ui/components/section"
+import { Typography } from "@packages/ui/components/typography"
 
 const components = [
   {
@@ -57,7 +58,9 @@ function MiniDashboard() {
       >
         <Flex align="center" gap="8">
           <Box className="size-8 rounded-md bg-brand" />
-          <span className="text-sm font-semibold">Preview</span>
+          <Typography variant="label-large" as="span">
+            Preview
+          </Typography>
         </Flex>
         <Flex gap="8" className="hidden md:flex">
           <Box className="h-8 w-64 rounded-sm bg-surface-muted" />
@@ -75,11 +78,15 @@ function MiniDashboard() {
               className="rounded-lg border border-border bg-surface"
             >
               <Flex direction="column" gap="8">
-                <span className="text-xs text-text-muted">{label}</span>
-                <span className="text-xl font-semibold">
+                <Typography variant="label-large" tone="muted" as="span">
+                  {label}
+                </Typography>
+                <Typography variant="title-medium" as="span">
                   {index === 0 ? "$45.2k" : index === 1 ? "2,340" : index === 2 ? "1,210" : "573"}
-                </span>
-                <span className="text-xs text-success">+{(index + 3) * 4}.2%</span>
+                </Typography>
+                <Typography variant="label-large" tone="success" as="span">
+                  +{(index + 3) * 4}.2%
+                </Typography>
               </Flex>
             </Box>
           ))}
@@ -89,8 +96,12 @@ function MiniDashboard() {
           <Box p="16" className="rounded-lg border border-border bg-surface">
             <Flex direction="column" gap="12">
               <Flex justify="between" align="center">
-                <span className="text-sm font-medium">Layout composition</span>
-                <span className="text-xs text-text-muted">Grid + Flex + Box</span>
+                <Typography variant="label-large" as="span">
+                  Layout composition
+                </Typography>
+                <Typography variant="label-large" tone="muted" as="span">
+                  Grid + Flex + Box
+                </Typography>
               </Flex>
               <Grid cols={12} gap="8" className="h-40 items-end">
                 {[34, 58, 42, 76, 64, 88, 52, 70, 92, 66, 84, 72].map((height, index) => (
@@ -110,7 +121,9 @@ function MiniDashboard() {
                 <Flex key={label} align="center" gap="12">
                   <Box className="size-8 rounded-full bg-surface-muted" />
                   <Box className="h-8 flex-1 rounded-sm bg-surface-muted" />
-                  <span className="min-w-24 text-xs text-text-muted">{label}</span>
+                  <Typography variant="body-medium" tone="muted" className="min-w-24 shrink-0" as="span">
+                    {label}
+                  </Typography>
                 </Flex>
               ))}
             </Flex>
@@ -123,22 +136,22 @@ function MiniDashboard() {
 
 export default function PlaygroundPage() {
   return (
-    <main>
+    <Container as="main" className="w-full">
       <Section size={{ initial: "lg", lg: "xl" }} className="border-b border-border">
         <Container size="2xl">
           <Grid cols={{ initial: 1, lg: "minmax(0, 0.9fr) minmax(0, 1.1fr)" }} gap="48" align="center">
             <Flex direction="column" gap="24">
               <Flex direction="column" gap="12">
-                <p className="font-mono text-xs uppercase text-text-muted">
+                <Typography variant="label-medium" tone="muted">
                   Nezumi UI layout primitives
-                </p>
-                <h1 className="max-w-3xl text-4xl font-semibold leading-tight text-text md:text-6xl">
+                </Typography>
+                <Typography variant="clamp-large" balance className="max-w-3xl">
                   Build pages from five predictable layout components.
-                </h1>
-                <p className="max-w-2xl text-lg leading-relaxed text-text-muted">
-                  A focused demo for `Box`, `Container`, `Flex`, `Grid`, and `Section`,
-                  adapted to the current Tailwind v4 and React 19 API in this repo.
-                </p>
+                </Typography>
+                <Typography variant="body-medium" tone="muted" pretty className="max-w-2xl">
+                  A focused demo for `Box`, `Container`, `Flex`, `Grid`, and `Section`, adapted to the
+                  current Tailwind v4 and React 19 API in this repo.
+                </Typography>
               </Flex>
 
               <Flex gap="12" wrap="wrap">
@@ -160,10 +173,12 @@ export default function PlaygroundPage() {
         <Container size="2xl">
           <Flex direction="column" gap="24">
             <Flex direction="column" gap="8">
-              <p className="font-mono text-xs uppercase text-text-muted">
+              <Typography variant="label-medium" tone="muted">
                 Tutorials
-              </p>
-              <h2 className="text-3xl font-semibold leading-tight">Component guides</h2>
+              </Typography>
+              <Typography variant="title-large" balance>
+                Component guides
+              </Typography>
             </Flex>
 
             <Grid cols={{ initial: 1, md: 2, lg: 3 }} gap="16">
@@ -176,19 +191,25 @@ export default function PlaygroundPage() {
                   <Flex direction="column" gap="16">
                     <Flex justify="between" align="start" gap="16">
                       <Flex direction="column" gap="4">
-                        <span className="font-mono text-xs text-text-muted">{component.index}</span>
-                        <h3 className="text-xl font-semibold">{component.name}</h3>
+                        <Typography variant="label-medium" tone="muted" as="span">
+                          {component.index}
+                        </Typography>
+                        <Typography variant="title-medium" as="span">
+                          {component.name}
+                        </Typography>
                       </Flex>
                       <Button asChild variant="ghost" size="sm">
                         <Link href={component.href}>Open</Link>
                       </Button>
                     </Flex>
-                    <p className="text-sm leading-relaxed text-text-muted">{component.summary}</p>
+                    <Typography variant="body-medium" tone="muted" pretty>
+                      {component.summary}
+                    </Typography>
                     <Flex gap="8" wrap="wrap">
                       {component.props.map((prop) => (
                         <code
                           key={prop}
-                          className="rounded-sm bg-surface-muted px-8 py-4 font-mono text-xs text-text-muted"
+                          className="rounded-sm bg-surface-muted px-8 py-4 font-accent text-code text-text-muted"
                         >
                           {prop}
                         </code>
@@ -201,6 +222,6 @@ export default function PlaygroundPage() {
           </Flex>
         </Container>
       </Section>
-    </main>
+    </Container>
   )
 }

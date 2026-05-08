@@ -2,6 +2,7 @@ import { Box } from "@packages/ui/components/box"
 import { Container } from "@packages/ui/components/container"
 import { Flex } from "@packages/ui/components/flex"
 import { Grid } from "@packages/ui/components/grid"
+import { Typography } from "@packages/ui/components/typography"
 import {
   DemoNav,
   Example,
@@ -37,7 +38,9 @@ export default function ContainerTutorialPage() {
         >
           <Container>
             <Surface>
-              <span className="text-sm font-medium">Default: w-full max-w-4xl mx-auto px-16 md:px-24</span>
+              <Typography variant="label-large" as="span">
+                Default: w-full max-w-4xl mx-auto px-16 md:px-24
+              </Typography>
             </Surface>
           </Container>
         </Example>
@@ -68,8 +71,12 @@ export default function ContainerTutorialPage() {
                 <Container size={size as "sm" | "md" | "lg" | "xl" | "2xl"} px="0">
                   <Box className="rounded-md bg-brand/25 px-12 py-8">
                     <Flex justify="between" gap="16">
-                      <span className="text-sm font-medium">{size}</span>
-                      <span className="font-mono text-xs text-text-muted">{className}</span>
+                      <Typography variant="label-large" as="span">
+                        {size}
+                      </Typography>
+                      <Typography variant="label-medium" tone="muted" as="span">
+                        {className}
+                      </Typography>
                     </Flex>
                   </Box>
                 </Container>
@@ -105,7 +112,9 @@ export default function ContainerTutorialPage() {
         >
           <Container px={{ initial: "8", md: "32" }}>
             <Box className="rounded-lg border border-border bg-surface-raised p-16">
-              <span className="text-sm">Custom responsive horizontal padding.</span>
+              <Typography variant="body-medium" as="span">
+                Custom responsive horizontal padding.
+              </Typography>
             </Box>
           </Container>
         </Example>
@@ -118,7 +127,9 @@ export default function ContainerTutorialPage() {
         >
           <Container centered={false} size="md">
             <Box className="rounded-lg border border-border bg-surface-raised p-16">
-              <span className="text-sm">centered=false keeps the container left aligned.</span>
+              <Typography variant="body-medium" as="span">
+                centered=false keeps the container left aligned.
+              </Typography>
             </Box>
           </Container>
         </Example>

@@ -1,4 +1,10 @@
 @theme {
+  /*
+   * Editorial (homepage “blossom” lab) — consumed by components/editorial-blossom.css
+   */
+  --duration-editorial-chroma: 6s;
+  --duration-editorial-pulse: 1800ms;
+
   --duration-instant: 0ms;
   --duration-fast:    100ms;
   --duration-normal:  200ms;
