@@ -1,6 +1,6 @@
-/* Input component tokens — used as implementation reference.
-   Component-layer registration lives in styles/components/input.css */
 @theme {
+  /* Input atom — component-layer tokens referenced by the component. */
+
   /* Geometry */
   --spacing-input-height: var(--spacing-40);
   --spacing-input-padding-x: var(--spacing-16);

@@ -1,6 +1,6 @@
-/* Toast component tokens — used as implementation reference.
-   Component-layer registration lives in styles/components/toast.css */
 @theme {
+  /* Toast organism — component-layer tokens referenced by the component. */
+
   /* Root geometry */
   --radius-toast: var(--radius-md);
   --spacing-toast-padding: var(--spacing-16);

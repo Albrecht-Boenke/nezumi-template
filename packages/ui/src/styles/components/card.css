@@ -1,6 +1,6 @@
-/* Card component tokens — used as implementation reference.
-   Component-layer registration lives in styles/components/card.css */
 @theme {
+  /* Card molecule — component-layer tokens referenced by the component. */
+
   /* Root geometry */
   --radius-card: var(--radius-lg);
   --shadow-card: var(--shadow-sm);

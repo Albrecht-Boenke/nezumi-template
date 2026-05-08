@@ -1,9 +1,4 @@
-import {
-  createElement,
-  forwardRef,
-  type ElementType,
-  type HTMLAttributes,
-} from "react"
+import { type ComponentType, type HTMLAttributes } from "react"
 import { cn } from "../../lib/utils"
 
 export type TypographyVariant =
@@ -45,7 +40,7 @@ const variantClass: Record<TypographyVariant, string> = {
   "accent-small": "typography-accent-small",
 }
 
-const variantDefaultTag: Record<TypographyVariant, ElementType> = {
+const variantDefaultTag: Record<TypographyVariant, keyof JSX.IntrinsicElements> = {
   "clamp-large": "h1",
   "clamp-medium": "h2",
   "clamp-small": "h3",
@@ -75,44 +70,40 @@ const toneClass: Record<TypographyTone, string> = {
 export interface TypographyProps extends HTMLAttributes<HTMLElement> {
   variant: TypographyVariant
   tone?: TypographyTone
-  as?: ElementType
+  as?: keyof JSX.IntrinsicElements | ComponentType<any>
   balance?: boolean
   pretty?: boolean
   truncate?: boolean
 }
 
-export const Typography = forwardRef<HTMLElement, TypographyProps>(
-  function Typography(
-    {
-      variant,
-      tone = "default",
-      as,
-      balance,
-      pretty,
-      truncate,
-      className,
-      children,
-      ...typographyProps
-    },
-    ref,
-  ) {
-    const Component = (as ?? variantDefaultTag[variant]) as ElementType
+export function Typography({
+  variant,
+  tone = "default",
+  as,
+  balance,
+  pretty,
+  truncate,
+  className,
+  children,
+  ref,
+  ...typographyProps
+}: TypographyProps) {
+  const Tag = (as ?? variantDefaultTag[variant]) as keyof JSX.IntrinsicElements
 
-    return createElement(
-      Component,
-      {
-        ref,
-        className: cn(
-          variantClass[variant],
-          toneClass[tone],
-          balance && "text-balance",
-          pretty && "text-pretty",
-          truncate && "truncate",
-          className,
-        ),
-        ...typographyProps,
-      },
-      children,
-    )
-  },
-)
+  return (
+    <Tag
+      ref={ref}
+      className={cn(
+        variantClass[variant],
+        toneClass[tone],
+        balance && "text-balance",
+        pretty && "text-pretty",
+        truncate && "truncate",
+        className,
+      )}
+      {...typographyProps}
+    >
+      {children}
+    </Tag>
+  )
+}
