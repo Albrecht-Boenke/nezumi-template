@@ -43,6 +43,14 @@ describe("design tokens", () => {
     expect(css).toMatch(tokenDeclaration("--color-nezumi-sabi", "oklch(from #47585c l c h)"))
   })
 
+  it("keeps button structure tokens in the component token layer", async () => {
+    const css = await readFile(resolve(stylesDir, "components/button.css"), "utf8")
+
+    expect(css).toMatch(tokenDeclaration("--radius-button", "var(--radius-sm)"))
+    expect(css).toMatch(tokenDeclaration("--spacing-button-md-x", "var(--spacing-24)"))
+    expect(css).toMatch(tokenDeclaration("--font-weight-button", "var(--font-weight-medium)"))
+  })
+
   it("registers only the product breakpoints required by DESIGN.md", async () => {
     const css = await readFile(resolve(stylesDir, "tokens/breakpoints.css"), "utf8")
 

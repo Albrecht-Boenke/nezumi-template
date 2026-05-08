@@ -44,7 +44,9 @@ describe("Button", () => {
     expect(element.tagName).toBe("BUTTON")
     expect(element.textContent).toBe("Save")
     expect(element.className).toContain("bg-brand")
-    expect(element.className).toContain("h-40")
+    expect(element.className).toContain("rounded-button")
+    expect(element.className).toContain("h-button-md")
+    expect(element.className).toContain("px-button-md-x")
     expect(element.className).toContain("focus-visible:ring-ring")
     expect(element.className).toContain("focus-visible:ring-offset-surface")
   })
@@ -57,7 +59,8 @@ describe("Button", () => {
     )
 
     expect(element.className).toContain("border-border")
-    expect(element.className).toContain("h-48")
+    expect(element.className).toContain("h-button-lg")
+    expect(element.className).toContain("px-button-lg-x")
     expect(element.className).toContain("custom-class")
   })
 

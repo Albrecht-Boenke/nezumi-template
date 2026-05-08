@@ -1,14 +1,4 @@
 /* Nezumi design tokens + base — import after @import "tailwindcss" in the app */
-@source inline("{md:,lg:,}{block,inline-block,inline,hidden,flex,inline-flex,grid,inline-grid}");
-@source inline("{md:,lg:,}{p,px,py,pt,pr,pb,pl,m,mx,my,mt,mr,mb,ml,gap,gap-x,gap-y}-{0,1,2,4,8,12,16,24,32,40,48,56,64,80,96,112,128}");
-@source inline("{md:,lg:,}{m,mx,my,mt,mr,mb,ml}-auto");
-@source inline("{md:,lg:,}{flex-row,flex-col,flex-row-reverse,flex-col-reverse,flex-nowrap,flex-wrap,flex-wrap-reverse,items-start,items-center,items-end,items-stretch,items-baseline,justify-start,justify-center,justify-end,justify-between,justify-around,justify-evenly}");
-@source inline("{md:,lg:,}max-w-{md,2xl,4xl,6xl,7xl}");
-@source inline("{w,h,min-w,max-w,min-h,max-h}-{0,1,2,4,8,12,16,24,32,40,48,56,64,80,96,112,128,auto,full,screen,svh,dvh}");
-@source inline("{md:,lg:,}grid-cols-{1,2,3,4,5,6,7,8,9,10,11,12}");
-@source inline("{md:,lg:,}grid-rows-{1,2,3,4,5,6,7,8,9,10,11,12}");
-@source inline("basis-{0,1,2,4,8,12,16,24,32,40,48,56,64,80,96,112,128,1/2,1/3,2/3,1/4,3/4,auto,full}");
-
 @import "./tokens/breakpoints.css";
 @import "./tokens/colors.css";
 @import "./tokens/spacing.css";
@@ -21,6 +11,16 @@
 @import "./semantic/spacing.css";
 
 @import "./components/button.css";
+
+@source inline("{md:,lg:,}{block,inline-block,inline,hidden,flex,inline-flex,grid,inline-grid}");
+@source inline("{md:,lg:,}{p,px,py,pt,pr,pb,pl,m,mx,my,mt,mr,mb,ml,gap,gap-x,gap-y}-{0,1,2,4,8,12,16,24,32,40,48,56,64,80,96,112,128}");
+@source inline("{md:,lg:,}{m,mx,my,mt,mr,mb,ml}-auto");
+@source inline("{md:,lg:,}{flex-row,flex-col,flex-row-reverse,flex-col-reverse,flex-nowrap,flex-wrap,flex-wrap-reverse,items-start,items-center,items-end,items-stretch,items-baseline,justify-start,justify-center,justify-end,justify-between,justify-around,justify-evenly}");
+@source inline("{md:,lg:,}max-w-{md,2xl,4xl,6xl,7xl}");
+@source inline("{w,h,min-w,max-w,min-h,max-h}-{0,1,2,4,8,12,16,24,32,40,48,56,64,80,96,112,128,auto,full,screen,svh,dvh}");
+@source inline("{md:,lg:,}grid-cols-{1,2,3,4,5,6,7,8,9,10,11,12}");
+@source inline("{md:,lg:,}grid-rows-{1,2,3,4,5,6,7,8,9,10,11,12}");
+@source inline("basis-{0,1,2,4,8,12,16,24,32,40,48,56,64,80,96,112,128,1/2,1/3,2/3,1/4,3/4,auto,full}");
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -58,19 +58,6 @@
 
   --focus-ring-color: var(--color-text);
   --color-ring: var(--focus-ring-color);
-
-  --color-button-brand-hover: color-mix(in oklch, var(--color-brand) 88%, var(--color-text));
-  --color-button-brand-active: color-mix(in oklch, var(--color-brand) 78%, var(--color-text));
-  --color-button-secondary-hover: color-mix(in oklch, var(--color-secondary) 82%, var(--color-text));
-  --color-button-secondary-active: color-mix(in oklch, var(--color-secondary) 72%, var(--color-text));
-  --color-button-error-hover: color-mix(in oklch, var(--color-error) 85%, var(--color-surface));
-  --color-button-error-active: color-mix(in oklch, var(--color-error) 74%, var(--color-surface));
-  --color-button-outline-hover: var(--color-surface-raised-subtle);
-  --color-button-outline-active: var(--color-surface-muted);
-  --color-button-ghost-hover: var(--color-surface-muted);
-  --color-button-ghost-active: var(--color-surface-raised-subtle);
-  --color-button-elevated-hover: var(--color-surface-raised-subtle);
-  --color-button-elevated-active: var(--color-surface-muted);
 
   color-scheme: dark;
 }

@@ -14,8 +14,8 @@ import { cn } from "../../lib/utils"
 
 const buttonVariants = cva(
   [
-    "inline-flex items-center justify-center gap-8",
-    "rounded-md font-medium text-sm",
+    "inline-flex items-center justify-center gap-button-gap",
+    "rounded-button font-button",
     "transition-colors duration-normal",
     "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
     "disabled:pointer-events-none disabled:opacity-50",
@@ -70,11 +70,11 @@ const buttonVariants = cva(
         ],
       },
       size: {
-        sm:   "h-32 px-12 text-xs",
-        md:   "h-40 px-16 text-sm",
-        lg:   "h-48 px-24 text-base",
-        xl:   "h-56 px-32 text-lg",
-        icon: "h-40 w-40 p-0",
+        sm:   "h-button-sm px-button-sm-x text-xs",
+        md:   "h-button-md px-button-md-x text-sm",
+        lg:   "h-button-lg px-button-lg-x text-base",
+        xl:   "h-button-xl px-button-xl-x text-lg",
+        icon: "h-button-icon w-button-icon p-0 text-sm",
       },
     },
     defaultVariants: {

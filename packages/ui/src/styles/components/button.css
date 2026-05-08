@@ -1,4 +1,17 @@
 @theme {
+  --radius-button: var(--radius-sm);
+  --spacing-button-gap: var(--spacing-8);
+  --spacing-button-sm: var(--spacing-32);
+  --spacing-button-md: var(--spacing-40);
+  --spacing-button-lg: var(--spacing-48);
+  --spacing-button-xl: var(--spacing-56);
+  --spacing-button-icon: var(--spacing-40);
+  --spacing-button-sm-x: var(--spacing-16);
+  --spacing-button-md-x: var(--spacing-24);
+  --spacing-button-lg-x: var(--spacing-32);
+  --spacing-button-xl-x: var(--spacing-40);
+  --font-weight-button: var(--font-weight-medium);
+
   /* Interactive tokens derive from semantic colors only. */
   --color-button-brand-hover: color-mix(in oklch, var(--color-brand) 88%, var(--color-text));
   --color-button-brand-active: color-mix(in oklch, var(--color-brand) 78%, var(--color-text));
