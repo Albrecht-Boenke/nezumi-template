@@ -107,7 +107,7 @@ export default function GridTutorialPage() {
                   <span className="font-medium">Revenue</span>
                   <span className="text-sm text-text-muted">12 months</span>
                 </Flex>
-                <Grid cols={12} gap="8" className="h-36 items-end">
+                <Grid cols={12} gap="8" className="h-40 items-end">
                   {[52, 44, 68, 58, 76, 84, 62, 90, 72, 94, 82, 98].map((height, index) => (
                     <Box
                       key={index}

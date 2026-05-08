@@ -66,7 +66,7 @@ export default function FlexTutorialPage() {
             </Flex>
             <Flex gap="8" wrap="wrap" justify="end">
               <Box className="h-32 w-64 rounded-md bg-surface-raised" />
-              <Box className="h-32 w-80 rounded-md bg-brand/25" />
+              <Box className="h-32 w-96 rounded-md bg-brand/25" />
             </Flex>
           </Flex>
         </Example>

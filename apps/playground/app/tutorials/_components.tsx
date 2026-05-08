@@ -136,7 +136,7 @@ export function PropTable({ props }: { props: PropDefinition[] }) {
           key={prop.name}
           cols={{ initial: 1, md: "minmax(120px, 0.8fr) minmax(180px, 1fr) minmax(90px, 0.5fr) minmax(220px, 1.7fr)" }}
           gap="12"
-          className="border-b border-border px-16 py-14 last:border-b-0"
+          className="border-b border-border px-16 py-16 last:border-b-0"
         >
           <code className="font-mono text-sm text-text">{prop.name}</code>
           <code className="font-mono text-xs text-text-muted">{prop.type}</code>
