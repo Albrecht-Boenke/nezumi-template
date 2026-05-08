@@ -109,6 +109,18 @@ describe("layout components", () => {
     ])
   })
 
+  it("Stack maps semantic direction and spacing onto flex utilities", () => {
+    const verticalMarkup = renderToStaticMarkup(
+      <Stack spacing={{ initial: "8", md: "16" }}>Content</Stack>,
+    )
+    const horizontalMarkup = renderToStaticMarkup(
+      <Stack direction="horizontal" gap="24">Content</Stack>,
+    )
+
+    expectClasses(verticalMarkup, ["flex", "flex-col", "gap-8", "md:gap-16"])
+    expectClasses(horizontalMarkup, ["flex", "flex-row", "gap-24"])
+  })
+
   it("Grid uses static classes for known templates and CSS variables for custom templates", () => {
     const markup = renderToStaticMarkup(
       <Grid
