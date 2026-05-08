@@ -14,9 +14,9 @@
   --spacing-breadcrumb-icon: var(--spacing-16);
   --radius-breadcrumb: var(--radius-md);
   --shadow-breadcrumb: var(--shadow-none);
-  --text-breadcrumb: var(--text-sm);
-  --font-weight-breadcrumb: var(--font-weight-normal);
-  --leading-breadcrumb: var(--leading-normal);
+  --text-breadcrumb: 0.875rem;
+  --font-weight-breadcrumb: var(--font-weight-regular);
+  --leading-breadcrumb: 1.5;
   --duration-breadcrumb-hover: var(--duration-fast);
   --duration-breadcrumb-enter: var(--duration-normal);
   --duration-breadcrumb-exit: var(--duration-fast);
@@ -37,7 +37,7 @@
   --spacing-breadcrumb-nav-trigger-padding-x: var(--spacing-12);
   --spacing-breadcrumb-nav-trigger-padding-y: var(--spacing-8);
   --radius-breadcrumb-nav-trigger: var(--radius-md);
-  --text-breadcrumb-nav-trigger: var(--text-sm);
+  --text-breadcrumb-nav-trigger: 0.875rem;
   --font-weight-breadcrumb-nav-trigger: var(--font-weight-medium);
 
   /* Collection structure */
@@ -51,6 +51,6 @@
   --spacing-breadcrumb-collection-separator-size: var(--spacing-1);
   --color-breadcrumb-collection-separator: var(--color-border);
   --color-breadcrumb-collection-label-text: var(--color-text-muted);
-  --text-breadcrumb-collection-label: var(--text-xs);
+  --text-breadcrumb-collection-label: 0.75rem;
   --font-weight-breadcrumb-collection-label: var(--font-weight-medium);
 }

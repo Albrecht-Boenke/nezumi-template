@@ -14,9 +14,9 @@
   --spacing-sonner-icon: var(--spacing-16);
   --radius-sonner: var(--radius-md);
   --shadow-sonner: var(--shadow-none);
-  --text-sonner: var(--text-sm);
-  --font-weight-sonner: var(--font-weight-normal);
-  --leading-sonner: var(--leading-normal);
+  --text-sonner: 0.875rem;
+  --font-weight-sonner: var(--font-weight-regular);
+  --leading-sonner: 1.5;
   --duration-sonner-hover: var(--duration-fast);
   --duration-sonner-enter: var(--duration-normal);
   --duration-sonner-exit: var(--duration-fast);

@@ -27,7 +27,9 @@
     "./components/flex": "./src/components/flex.tsx",
     "./components/box": "./src/components/box.tsx",
     "./components/section": "./src/components/section.tsx",
+    "./components/typography": "./src/components/typography.tsx",
     "./layout": "./src/layout/index.ts",
+    "./providers/theme": "./src/providers/Theme/index.tsx",
     "./lib/utils": "./src/lib/utils.ts",
     "./package.json": "./package.json"
   },
@@ -48,6 +50,7 @@
     "@radix-ui/react-slot": "^1.2.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "next-themes": "^0.4.6",
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {

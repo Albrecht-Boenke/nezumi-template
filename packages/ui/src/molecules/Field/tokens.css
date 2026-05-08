@@ -14,9 +14,9 @@
   --spacing-field-icon: var(--spacing-16);
   --radius-field: var(--radius-md);
   --shadow-field: var(--shadow-none);
-  --text-field: var(--text-sm);
-  --font-weight-field: var(--font-weight-normal);
-  --leading-field: var(--leading-normal);
+  --text-field: 0.875rem;
+  --font-weight-field: var(--font-weight-regular);
+  --leading-field: 1.5;
   --duration-field-hover: var(--duration-fast);
   --duration-field-enter: var(--duration-normal);
   --duration-field-exit: var(--duration-fast);
@@ -40,8 +40,8 @@
   --spacing-field-control-padding-y: var(--spacing-8);
   --spacing-field-control-gap: var(--spacing-8);
   --radius-field-control: var(--radius-md);
-  --text-field-placeholder: var(--text-sm);
-  --font-weight-field-placeholder: var(--font-weight-normal);
+  --text-field-placeholder: 0.875rem;
+  --font-weight-field-placeholder: var(--font-weight-regular);
 
   /* Collection structure */
   --spacing-field-collection-list-gap: var(--spacing-4);
@@ -54,7 +54,7 @@
   --spacing-field-collection-separator-size: var(--spacing-1);
   --color-field-collection-separator: var(--color-border);
   --color-field-collection-label-text: var(--color-text-muted);
-  --text-field-collection-label: var(--text-xs);
+  --text-field-collection-label: 0.75rem;
   --font-weight-field-collection-label: var(--font-weight-medium);
 
   /* Feedback and status tokens */

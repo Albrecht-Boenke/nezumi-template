@@ -14,9 +14,9 @@
   --spacing-command-icon: var(--spacing-16);
   --radius-command: var(--radius-md);
   --shadow-command: var(--shadow-none);
-  --text-command: var(--text-sm);
-  --font-weight-command: var(--font-weight-normal);
-  --leading-command: var(--leading-normal);
+  --text-command: 0.875rem;
+  --font-weight-command: var(--font-weight-regular);
+  --leading-command: 1.5;
   --duration-command-hover: var(--duration-fast);
   --duration-command-enter: var(--duration-normal);
   --duration-command-exit: var(--duration-fast);
@@ -40,8 +40,8 @@
   --spacing-command-control-padding-y: var(--spacing-8);
   --spacing-command-control-gap: var(--spacing-8);
   --radius-command-control: var(--radius-md);
-  --text-command-placeholder: var(--text-sm);
-  --font-weight-command-placeholder: var(--font-weight-normal);
+  --text-command-placeholder: 0.875rem;
+  --font-weight-command-placeholder: var(--font-weight-regular);
 
   /* Overlay and portal tokens */
   --color-command-overlay: color-mix(in oklch, var(--color-text) 55%, var(--color-surface));
@@ -80,7 +80,7 @@
   --spacing-command-menu-item-gap: var(--spacing-8);
   --spacing-command-menu-item-inset: var(--spacing-24);
   --spacing-command-menu-separator-size: var(--spacing-1);
-  --text-command-menu-label: var(--text-xs);
+  --text-command-menu-label: 0.75rem;
   --font-weight-command-menu-label: var(--font-weight-medium);
   --radius-command-menu-item: var(--radius-sm);
 
@@ -95,6 +95,6 @@
   --spacing-command-collection-separator-size: var(--spacing-1);
   --color-command-collection-separator: var(--color-border);
   --color-command-collection-label-text: var(--color-text-muted);
-  --text-command-collection-label: var(--text-xs);
+  --text-command-collection-label: 0.75rem;
   --font-weight-command-collection-label: var(--font-weight-medium);
 }

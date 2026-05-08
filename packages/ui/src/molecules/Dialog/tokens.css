@@ -14,9 +14,9 @@
   --spacing-dialog-icon: var(--spacing-16);
   --radius-dialog: var(--radius-md);
   --shadow-dialog: var(--shadow-none);
-  --text-dialog: var(--text-sm);
-  --font-weight-dialog: var(--font-weight-normal);
-  --leading-dialog: var(--leading-normal);
+  --text-dialog: 0.875rem;
+  --font-weight-dialog: var(--font-weight-regular);
+  --leading-dialog: 1.5;
   --duration-dialog-hover: var(--duration-fast);
   --duration-dialog-enter: var(--duration-normal);
   --duration-dialog-exit: var(--duration-fast);

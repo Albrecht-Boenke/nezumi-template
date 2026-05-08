@@ -14,9 +14,9 @@
   --spacing-radio-group-icon: var(--spacing-16);
   --radius-radio-group: var(--radius-md);
   --shadow-radio-group: var(--shadow-none);
-  --text-radio-group: var(--text-sm);
-  --font-weight-radio-group: var(--font-weight-normal);
-  --leading-radio-group: var(--leading-normal);
+  --text-radio-group: 0.875rem;
+  --font-weight-radio-group: var(--font-weight-regular);
+  --leading-radio-group: 1.5;
   --duration-radio-group-hover: var(--duration-fast);
   --duration-radio-group-enter: var(--duration-normal);
   --duration-radio-group-exit: var(--duration-fast);
@@ -40,8 +40,8 @@
   --spacing-radio-group-control-padding-y: var(--spacing-8);
   --spacing-radio-group-control-gap: var(--spacing-8);
   --radius-radio-group-control: var(--radius-md);
-  --text-radio-group-placeholder: var(--text-sm);
-  --font-weight-radio-group-placeholder: var(--font-weight-normal);
+  --text-radio-group-placeholder: 0.875rem;
+  --font-weight-radio-group-placeholder: var(--font-weight-regular);
 
   /* Interaction states */
   --color-radio-group-hover-surface: var(--color-surface-muted);
@@ -72,6 +72,6 @@
   --spacing-radio-group-collection-separator-size: var(--spacing-1);
   --color-radio-group-collection-separator: var(--color-border);
   --color-radio-group-collection-label-text: var(--color-text-muted);
-  --text-radio-group-collection-label: var(--text-xs);
+  --text-radio-group-collection-label: 0.75rem;
   --font-weight-radio-group-collection-label: var(--font-weight-medium);
 }

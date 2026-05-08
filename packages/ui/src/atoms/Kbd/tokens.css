@@ -14,9 +14,9 @@
   --spacing-kbd-icon: var(--spacing-16);
   --radius-kbd: var(--radius-md);
   --shadow-kbd: var(--shadow-none);
-  --text-kbd: var(--text-sm);
-  --font-weight-kbd: var(--font-weight-normal);
-  --leading-kbd: var(--leading-normal);
+  --text-kbd: 0.875rem;
+  --font-weight-kbd: var(--font-weight-regular);
+  --leading-kbd: 1.5;
   --duration-kbd-hover: var(--duration-fast);
   --duration-kbd-enter: var(--duration-normal);
   --duration-kbd-exit: var(--duration-fast);
@@ -50,15 +50,15 @@
   --color-kbd-body-text: var(--color-text);
   --color-kbd-muted-text: var(--color-text-muted);
   --color-kbd-link-text: var(--color-primary);
-  --text-kbd-h1: var(--text-4xl);
-  --text-kbd-h2: var(--text-3xl);
-  --text-kbd-h3: var(--text-2xl);
-  --text-kbd-body: var(--text-base);
-  --text-kbd-small: var(--text-sm);
-  --font-weight-kbd-heading: var(--font-weight-semibold);
-  --font-weight-kbd-body: var(--font-weight-normal);
-  --leading-kbd-heading: var(--leading-tight);
-  --leading-kbd-body: var(--leading-relaxed);
-  --tracking-kbd-heading: var(--tracking-normal);
+  --text-kbd-h1: 2.25rem;
+  --text-kbd-h2: 1.875rem;
+  --text-kbd-h3: 1.5rem;
+  --text-kbd-body: 1rem;
+  --text-kbd-small: 0.875rem;
+  --font-weight-kbd-heading: 600;
+  --font-weight-kbd-body: var(--font-weight-regular);
+  --leading-kbd-heading: 1.2;
+  --leading-kbd-body: 1.625;
+  --tracking-kbd-heading: 0;
   --spacing-kbd-paragraph-gap: var(--spacing-16);
 }

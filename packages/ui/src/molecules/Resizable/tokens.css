@@ -14,9 +14,9 @@
   --spacing-resizable-icon: var(--spacing-16);
   --radius-resizable: var(--radius-md);
   --shadow-resizable: var(--shadow-none);
-  --text-resizable: var(--text-sm);
-  --font-weight-resizable: var(--font-weight-normal);
-  --leading-resizable: var(--leading-normal);
+  --text-resizable: 0.875rem;
+  --font-weight-resizable: var(--font-weight-regular);
+  --leading-resizable: 1.5;
   --duration-resizable-hover: var(--duration-fast);
   --duration-resizable-enter: var(--duration-normal);
   --duration-resizable-exit: var(--duration-fast);
@@ -60,6 +60,6 @@
   --spacing-resizable-collection-separator-size: var(--spacing-1);
   --color-resizable-collection-separator: var(--color-border);
   --color-resizable-collection-label-text: var(--color-text-muted);
-  --text-resizable-collection-label: var(--text-xs);
+  --text-resizable-collection-label: 0.75rem;
   --font-weight-resizable-collection-label: var(--font-weight-medium);
 }

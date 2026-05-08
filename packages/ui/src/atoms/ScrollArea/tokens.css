@@ -14,9 +14,9 @@
   --spacing-scroll-area-icon: var(--spacing-16);
   --radius-scroll-area: var(--radius-md);
   --shadow-scroll-area: var(--shadow-none);
-  --text-scroll-area: var(--text-sm);
-  --font-weight-scroll-area: var(--font-weight-normal);
-  --leading-scroll-area: var(--leading-normal);
+  --text-scroll-area: 0.875rem;
+  --font-weight-scroll-area: var(--font-weight-regular);
+  --leading-scroll-area: 1.5;
   --duration-scroll-area-hover: var(--duration-fast);
   --duration-scroll-area-enter: var(--duration-normal);
   --duration-scroll-area-exit: var(--duration-fast);

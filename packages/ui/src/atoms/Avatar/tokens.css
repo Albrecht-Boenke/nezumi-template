@@ -14,9 +14,9 @@
   --spacing-avatar-icon: var(--spacing-16);
   --radius-avatar: var(--radius-md);
   --shadow-avatar: var(--shadow-none);
-  --text-avatar: var(--text-sm);
-  --font-weight-avatar: var(--font-weight-normal);
-  --leading-avatar: var(--leading-normal);
+  --text-avatar: 0.875rem;
+  --font-weight-avatar: var(--font-weight-regular);
+  --leading-avatar: 1.5;
   --duration-avatar-hover: var(--duration-fast);
   --duration-avatar-enter: var(--duration-normal);
   --duration-avatar-exit: var(--duration-fast);

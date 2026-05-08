@@ -14,9 +14,9 @@
   --spacing-input-otp-icon: var(--spacing-16);
   --radius-input-otp: var(--radius-md);
   --shadow-input-otp: var(--shadow-none);
-  --text-input-otp: var(--text-sm);
-  --font-weight-input-otp: var(--font-weight-normal);
-  --leading-input-otp: var(--leading-normal);
+  --text-input-otp: 0.875rem;
+  --font-weight-input-otp: var(--font-weight-regular);
+  --leading-input-otp: 1.5;
   --duration-input-otp-hover: var(--duration-fast);
   --duration-input-otp-enter: var(--duration-normal);
   --duration-input-otp-exit: var(--duration-fast);
@@ -40,8 +40,8 @@
   --spacing-input-otp-control-padding-y: var(--spacing-8);
   --spacing-input-otp-control-gap: var(--spacing-8);
   --radius-input-otp-control: var(--radius-md);
-  --text-input-otp-placeholder: var(--text-sm);
-  --font-weight-input-otp-placeholder: var(--font-weight-normal);
+  --text-input-otp-placeholder: 0.875rem;
+  --font-weight-input-otp-placeholder: var(--font-weight-regular);
 
   /* Interaction states */
   --color-input-otp-hover-surface: var(--color-surface-muted);
@@ -72,6 +72,6 @@
   --spacing-input-otp-collection-separator-size: var(--spacing-1);
   --color-input-otp-collection-separator: var(--color-border);
   --color-input-otp-collection-label-text: var(--color-text-muted);
-  --text-input-otp-collection-label: var(--text-xs);
+  --text-input-otp-collection-label: 0.75rem;
   --font-weight-input-otp-collection-label: var(--font-weight-medium);
 }

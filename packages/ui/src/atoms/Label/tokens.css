@@ -14,9 +14,9 @@
   --spacing-label-icon: var(--spacing-16);
   --radius-label: var(--radius-md);
   --shadow-label: var(--shadow-none);
-  --text-label: var(--text-sm);
-  --font-weight-label: var(--font-weight-normal);
-  --leading-label: var(--leading-normal);
+  --text-label: 0.875rem;
+  --font-weight-label: var(--font-weight-regular);
+  --leading-label: 1.5;
   --duration-label-hover: var(--duration-fast);
   --duration-label-enter: var(--duration-normal);
   --duration-label-exit: var(--duration-fast);
@@ -28,16 +28,16 @@
   --color-label-body-text: var(--color-text);
   --color-label-muted-text: var(--color-text-muted);
   --color-label-link-text: var(--color-primary);
-  --text-label-h1: var(--text-4xl);
-  --text-label-h2: var(--text-3xl);
-  --text-label-h3: var(--text-2xl);
-  --text-label-body: var(--text-base);
-  --text-label-small: var(--text-sm);
-  --font-weight-label-heading: var(--font-weight-semibold);
-  --font-weight-label-body: var(--font-weight-normal);
-  --leading-label-heading: var(--leading-tight);
-  --leading-label-body: var(--leading-relaxed);
-  --tracking-label-heading: var(--tracking-normal);
+  --text-label-h1: 2.25rem;
+  --text-label-h2: 1.875rem;
+  --text-label-h3: 1.5rem;
+  --text-label-body: 1rem;
+  --text-label-small: 0.875rem;
+  --font-weight-label-heading: 600;
+  --font-weight-label-body: var(--font-weight-regular);
+  --leading-label-heading: 1.2;
+  --leading-label-body: 1.625;
+  --tracking-label-heading: 0;
   --spacing-label-paragraph-gap: var(--spacing-16);
 
   /* Form control tokens */
@@ -56,6 +56,6 @@
   --spacing-label-control-padding-y: var(--spacing-8);
   --spacing-label-control-gap: var(--spacing-8);
   --radius-label-control: var(--radius-md);
-  --text-label-placeholder: var(--text-sm);
-  --font-weight-label-placeholder: var(--font-weight-normal);
+  --text-label-placeholder: 0.875rem;
+  --font-weight-label-placeholder: var(--font-weight-regular);
 }

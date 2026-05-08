@@ -14,9 +14,9 @@
   --spacing-textarea-icon: var(--spacing-16);
   --radius-textarea: var(--radius-md);
   --shadow-textarea: var(--shadow-none);
-  --text-textarea: var(--text-sm);
-  --font-weight-textarea: var(--font-weight-normal);
-  --leading-textarea: var(--leading-normal);
+  --text-textarea: 0.875rem;
+  --font-weight-textarea: var(--font-weight-regular);
+  --leading-textarea: 1.5;
   --duration-textarea-hover: var(--duration-fast);
   --duration-textarea-enter: var(--duration-normal);
   --duration-textarea-exit: var(--duration-fast);
@@ -40,8 +40,8 @@
   --spacing-textarea-control-padding-y: var(--spacing-8);
   --spacing-textarea-control-gap: var(--spacing-8);
   --radius-textarea-control: var(--radius-md);
-  --text-textarea-placeholder: var(--text-sm);
-  --font-weight-textarea-placeholder: var(--font-weight-normal);
+  --text-textarea-placeholder: 0.875rem;
+  --font-weight-textarea-placeholder: var(--font-weight-regular);
 
   /* Interaction states */
   --color-textarea-hover-surface: var(--color-surface-muted);

@@ -14,9 +14,9 @@
   --spacing-checkbox-icon: var(--spacing-16);
   --radius-checkbox: var(--radius-md);
   --shadow-checkbox: var(--shadow-none);
-  --text-checkbox: var(--text-sm);
-  --font-weight-checkbox: var(--font-weight-normal);
-  --leading-checkbox: var(--leading-normal);
+  --text-checkbox: 0.875rem;
+  --font-weight-checkbox: var(--font-weight-regular);
+  --leading-checkbox: 1.5;
   --duration-checkbox-hover: var(--duration-fast);
   --duration-checkbox-enter: var(--duration-normal);
   --duration-checkbox-exit: var(--duration-fast);
@@ -40,8 +40,8 @@
   --spacing-checkbox-control-padding-y: var(--spacing-8);
   --spacing-checkbox-control-gap: var(--spacing-8);
   --radius-checkbox-control: var(--radius-md);
-  --text-checkbox-placeholder: var(--text-sm);
-  --font-weight-checkbox-placeholder: var(--font-weight-normal);
+  --text-checkbox-placeholder: 0.875rem;
+  --font-weight-checkbox-placeholder: var(--font-weight-regular);
 
   /* Interaction states */
   --color-checkbox-hover-surface: var(--color-surface-muted);

@@ -14,9 +14,9 @@
   --spacing-sidebar-icon: var(--spacing-16);
   --radius-sidebar: var(--radius-md);
   --shadow-sidebar: var(--shadow-none);
-  --text-sidebar: var(--text-sm);
-  --font-weight-sidebar: var(--font-weight-normal);
-  --leading-sidebar: var(--leading-normal);
+  --text-sidebar: 0.875rem;
+  --font-weight-sidebar: var(--font-weight-regular);
+  --leading-sidebar: 1.5;
   --duration-sidebar-hover: var(--duration-fast);
   --duration-sidebar-enter: var(--duration-normal);
   --duration-sidebar-exit: var(--duration-fast);
@@ -59,7 +59,7 @@
   --spacing-sidebar-nav-trigger-padding-x: var(--spacing-12);
   --spacing-sidebar-nav-trigger-padding-y: var(--spacing-8);
   --radius-sidebar-nav-trigger: var(--radius-md);
-  --text-sidebar-nav-trigger: var(--text-sm);
+  --text-sidebar-nav-trigger: 0.875rem;
   --font-weight-sidebar-nav-trigger: var(--font-weight-medium);
 
   /* Interaction states */
@@ -91,6 +91,6 @@
   --spacing-sidebar-collection-separator-size: var(--spacing-1);
   --color-sidebar-collection-separator: var(--color-border);
   --color-sidebar-collection-label-text: var(--color-text-muted);
-  --text-sidebar-collection-label: var(--text-xs);
+  --text-sidebar-collection-label: 0.75rem;
   --font-weight-sidebar-collection-label: var(--font-weight-medium);
 }

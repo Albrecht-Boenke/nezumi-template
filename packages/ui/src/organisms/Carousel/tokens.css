@@ -14,9 +14,9 @@
   --spacing-carousel-icon: var(--spacing-16);
   --radius-carousel: var(--radius-md);
   --shadow-carousel: var(--shadow-none);
-  --text-carousel: var(--text-sm);
-  --font-weight-carousel: var(--font-weight-normal);
-  --leading-carousel: var(--leading-normal);
+  --text-carousel: 0.875rem;
+  --font-weight-carousel: var(--font-weight-regular);
+  --leading-carousel: 1.5;
   --duration-carousel-hover: var(--duration-fast);
   --duration-carousel-enter: var(--duration-normal);
   --duration-carousel-exit: var(--duration-fast);
@@ -75,7 +75,7 @@
   --spacing-carousel-collection-separator-size: var(--spacing-1);
   --color-carousel-collection-separator: var(--color-border);
   --color-carousel-collection-label-text: var(--color-text-muted);
-  --text-carousel-collection-label: var(--text-xs);
+  --text-carousel-collection-label: 0.75rem;
   --font-weight-carousel-collection-label: var(--font-weight-medium);
 
   /* Media slot tokens */

@@ -14,9 +14,9 @@
   --spacing-menubar-icon: var(--spacing-16);
   --radius-menubar: var(--radius-md);
   --shadow-menubar: var(--shadow-none);
-  --text-menubar: var(--text-sm);
-  --font-weight-menubar: var(--font-weight-normal);
-  --leading-menubar: var(--leading-normal);
+  --text-menubar: 0.875rem;
+  --font-weight-menubar: var(--font-weight-regular);
+  --leading-menubar: 1.5;
   --duration-menubar-hover: var(--duration-fast);
   --duration-menubar-enter: var(--duration-normal);
   --duration-menubar-exit: var(--duration-fast);
@@ -61,7 +61,7 @@
   --spacing-menubar-menu-item-gap: var(--spacing-8);
   --spacing-menubar-menu-item-inset: var(--spacing-24);
   --spacing-menubar-menu-separator-size: var(--spacing-1);
-  --text-menubar-menu-label: var(--text-xs);
+  --text-menubar-menu-label: 0.75rem;
   --font-weight-menubar-menu-label: var(--font-weight-medium);
   --radius-menubar-menu-item: var(--radius-sm);
 
@@ -78,7 +78,7 @@
   --spacing-menubar-nav-trigger-padding-x: var(--spacing-12);
   --spacing-menubar-nav-trigger-padding-y: var(--spacing-8);
   --radius-menubar-nav-trigger: var(--radius-md);
-  --text-menubar-nav-trigger: var(--text-sm);
+  --text-menubar-nav-trigger: 0.875rem;
   --font-weight-menubar-nav-trigger: var(--font-weight-medium);
 
   /* Collection structure */
@@ -92,6 +92,6 @@
   --spacing-menubar-collection-separator-size: var(--spacing-1);
   --color-menubar-collection-separator: var(--color-border);
   --color-menubar-collection-label-text: var(--color-text-muted);
-  --text-menubar-collection-label: var(--text-xs);
+  --text-menubar-collection-label: 0.75rem;
   --font-weight-menubar-collection-label: var(--font-weight-medium);
 }

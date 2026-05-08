@@ -14,9 +14,9 @@
   --spacing-sheet-icon: var(--spacing-16);
   --radius-sheet: var(--radius-md);
   --shadow-sheet: var(--shadow-none);
-  --text-sheet: var(--text-sm);
-  --font-weight-sheet: var(--font-weight-normal);
-  --leading-sheet: var(--leading-normal);
+  --text-sheet: 0.875rem;
+  --font-weight-sheet: var(--font-weight-regular);
+  --leading-sheet: 1.5;
   --duration-sheet-hover: var(--duration-fast);
   --duration-sheet-enter: var(--duration-normal);
   --duration-sheet-exit: var(--duration-fast);

@@ -14,9 +14,9 @@
   --spacing-separator-icon: var(--spacing-16);
   --radius-separator: var(--radius-md);
   --shadow-separator: var(--shadow-none);
-  --text-separator: var(--text-sm);
-  --font-weight-separator: var(--font-weight-normal);
-  --leading-separator: var(--leading-normal);
+  --text-separator: 0.875rem;
+  --font-weight-separator: var(--font-weight-regular);
+  --leading-separator: 1.5;
   --duration-separator-hover: var(--duration-fast);
   --duration-separator-enter: var(--duration-normal);
   --duration-separator-exit: var(--duration-fast);

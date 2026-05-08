@@ -70,11 +70,11 @@ const buttonVariants = cva(
         ],
       },
       size: {
-        sm:   "h-button-sm px-button-sm-x text-xs",
-        md:   "h-button-md px-button-md-x text-sm",
-        lg:   "h-button-lg px-button-lg-x text-base",
-        xl:   "h-button-xl px-button-xl-x text-lg",
-        icon: "h-button-icon w-button-icon p-0 text-sm",
+        sm:   "h-button-sm px-button-sm-x typography-label-medium",
+        md:   "h-button-md px-button-md-x typography-label-large",
+        lg:   "h-button-lg px-button-lg-x typography-label-large",
+        xl:   "h-button-xl px-button-xl-x typography-label-large",
+        icon: "h-button-icon w-button-icon p-0 typography-label-medium",
       },
     },
     defaultVariants: {

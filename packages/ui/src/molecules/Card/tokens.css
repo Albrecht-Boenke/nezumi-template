@@ -14,9 +14,9 @@
   --spacing-card-icon: var(--spacing-16);
   --radius-card: var(--radius-md);
   --shadow-card: var(--shadow-none);
-  --text-card: var(--text-sm);
-  --font-weight-card: var(--font-weight-normal);
-  --leading-card: var(--leading-normal);
+  --text-card: 0.875rem;
+  --font-weight-card: var(--font-weight-regular);
+  --leading-card: 1.5;
   --duration-card-hover: var(--duration-fast);
   --duration-card-enter: var(--duration-normal);
   --duration-card-exit: var(--duration-fast);

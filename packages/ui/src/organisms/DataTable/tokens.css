@@ -14,9 +14,9 @@
   --spacing-data-table-icon: var(--spacing-16);
   --radius-data-table: var(--radius-md);
   --shadow-data-table: var(--shadow-none);
-  --text-data-table: var(--text-sm);
-  --font-weight-data-table: var(--font-weight-normal);
-  --leading-data-table: var(--leading-normal);
+  --text-data-table: 0.875rem;
+  --font-weight-data-table: var(--font-weight-regular);
+  --leading-data-table: 1.5;
   --duration-data-table-hover: var(--duration-fast);
   --duration-data-table-enter: var(--duration-normal);
   --duration-data-table-exit: var(--duration-fast);
@@ -59,9 +59,9 @@
   --spacing-data-table-cell-padding-x: var(--spacing-16);
   --spacing-data-table-cell-padding-y: var(--spacing-12);
   --spacing-data-table-caption-gap: var(--spacing-8);
-  --text-data-table-head: var(--text-sm);
+  --text-data-table-head: 0.875rem;
   --font-weight-data-table-head: var(--font-weight-medium);
-  --text-data-table-cell: var(--text-sm);
+  --text-data-table-cell: 0.875rem;
 
   /* Interaction states */
   --color-data-table-hover-surface: var(--color-surface-muted);

@@ -14,9 +14,9 @@
   --spacing-skeleton-icon: var(--spacing-16);
   --radius-skeleton: var(--radius-md);
   --shadow-skeleton: var(--shadow-none);
-  --text-skeleton: var(--text-sm);
-  --font-weight-skeleton: var(--font-weight-normal);
-  --leading-skeleton: var(--leading-normal);
+  --text-skeleton: 0.875rem;
+  --font-weight-skeleton: var(--font-weight-regular);
+  --leading-skeleton: 1.5;
   --duration-skeleton-hover: var(--duration-fast);
   --duration-skeleton-enter: var(--duration-normal);
   --duration-skeleton-exit: var(--duration-fast);

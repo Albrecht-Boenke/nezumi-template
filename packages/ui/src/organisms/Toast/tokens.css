@@ -14,9 +14,9 @@
   --spacing-toast-icon: var(--spacing-16);
   --radius-toast: var(--radius-md);
   --shadow-toast: var(--shadow-none);
-  --text-toast: var(--text-sm);
-  --font-weight-toast: var(--font-weight-normal);
-  --leading-toast: var(--leading-normal);
+  --text-toast: 0.875rem;
+  --font-weight-toast: var(--font-weight-regular);
+  --leading-toast: 1.5;
   --duration-toast-hover: var(--duration-fast);
   --duration-toast-enter: var(--duration-normal);
   --duration-toast-exit: var(--duration-fast);

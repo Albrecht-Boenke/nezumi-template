@@ -11,6 +11,7 @@
 @import "./semantic/spacing.css";
 
 @import "./components/button.css";
+@import "../atoms/Typography/tokens.css";
 
 @source inline("{md:,lg:,}{block,inline-block,inline,hidden,flex,inline-flex,grid,inline-grid}");
 @source inline("{md:,lg:,}{p,px,py,pt,pr,pb,pl,m,mx,my,mt,mr,mb,ml,gap,gap-x,gap-y}-{0,1,2,4,8,12,16,24,32,40,48,56,64,80,96,112,128}");
@@ -88,57 +89,20 @@
     background-color: var(--color-surface);
     color: var(--color-text);
     font-family: var(--font-sans);
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-normal);
-    line-height: var(--leading-normal);
+    font-size: 1rem;
+    font-weight: var(--font-weight-regular);
+    line-height: 1.5;
     transition:
       background-color var(--duration-normal) var(--ease-in-out),
       color var(--duration-normal) var(--ease-in-out);
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--leading-tight);
-    letter-spacing: var(--tracking-tight);
-  }
-
-  h1 {
-    font-size: var(--text-4xl);
-  }
-  h2 {
-    font-size: var(--text-3xl);
-  }
-  h3 {
-    font-size: var(--text-2xl);
-  }
-  h4 {
-    font-size: var(--text-xl);
-  }
-  h5 {
-    font-size: var(--text-lg);
-  }
-  h6 {
-    font-size: var(--text-base);
-  }
-
-  p {
-    line-height: var(--leading-relaxed);
-  }
-
-  small {
-    font-size: var(--text-sm);
   }
 
   code,
   pre,
   kbd,
   samp {
-    font-family: var(--font-mono);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
     font-feature-settings: "liga" 1, "calt" 1;
   }
 

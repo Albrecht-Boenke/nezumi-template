@@ -14,9 +14,9 @@
   --spacing-button-group-icon: var(--spacing-16);
   --radius-button-group: var(--radius-md);
   --shadow-button-group: var(--shadow-none);
-  --text-button-group: var(--text-sm);
-  --font-weight-button-group: var(--font-weight-normal);
-  --leading-button-group: var(--leading-normal);
+  --text-button-group: 0.875rem;
+  --font-weight-button-group: var(--font-weight-regular);
+  --leading-button-group: 1.5;
   --duration-button-group-hover: var(--duration-fast);
   --duration-button-group-enter: var(--duration-normal);
   --duration-button-group-exit: var(--duration-fast);
@@ -53,6 +53,6 @@
   --spacing-button-group-collection-separator-size: var(--spacing-1);
   --color-button-group-collection-separator: var(--color-border);
   --color-button-group-collection-label-text: var(--color-text-muted);
-  --text-button-group-collection-label: var(--text-xs);
+  --text-button-group-collection-label: 0.75rem;
   --font-weight-button-group-collection-label: var(--font-weight-medium);
 }

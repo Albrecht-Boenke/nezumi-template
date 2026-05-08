@@ -1,0 +1,421 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+/* Dark variant — toggled by <html class="dark"> */
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   LAYER 1 — PRIMITIVE TOKENS
+   Raw values. Authoring SSOT. No semantic meaning.
+   ============================================================ */
+@theme {
+  /* --- Color primitives (OKLCH from SSOT hex per DESIGN.md §2) --- */
+  --color-nezumi-sabi: oklch(from #47585c l c h);
+  --color-nezumi-minato: oklch(from #80989b l c h);
+  --color-nezumi-ume: oklch(from #c099a0 l c h);
+  --color-nezumi-sakura: oklch(from #e9dfe5 l c h);
+  --color-nezumi-fuji: oklch(from #a6a5c4 l c h);
+  --color-nezumi-kinu: oklch(from #dddcd6 l c h);
+  --color-nezumi-genji: oklch(from #888084 l c h);
+  --color-nezumi-koi: oklch(from #4f455c l c h);
+  --color-nezumi-bg: oklch(from #f5f4f1 l c h);
+  --color-nezumi-akatsuki: oklch(from #d3cfd9 l c h);
+  --color-nezumi-fukagawa: oklch(from #97a791 l c h);
+  --color-nezumi-fukagawa-deep: oklch(from #4d6e47 l c h);
+  --color-nezumi-cha: oklch(from #a99e93 l c h);
+  --color-nezumi-budo: oklch(from #705b67 l c h);
+  --color-nezumi-chigusa: oklch(from #bed3ca l c h);
+  --color-nezumi-paper: oklch(from #faf9f5 l c h);
+  --color-nezumi-line: oklch(from #d4d3cf l c h);
+  --color-nezumi-snow: oklch(from #ffffff l c h);
+  --color-nezumi-dark-bg: oklch(from #121014 l c h);
+  --color-nezumi-dark-raised: oklch(from #1a181c l c h);
+  --color-nezumi-dark-subtle: oklch(from #242226 l c h);
+  --color-nezumi-dark-muted: oklch(from #2a272b l c h);
+  --color-nezumi-dark-line: oklch(from #3a383c l c h);
+  --color-nezumi-dark-secondary-bg: oklch(from #4a3d42 l c h);
+  --color-nezumi-d-destructive: oklch(from #9c5246 l c h);
+  --color-nezumi-d-error-dark: oklch(from #e07a6b l c h);
+
+  /* --- Spacing primitives (DESIGN.md §5) ---
+     Tailwind v4 uses --spacing as the base unit. Setting it to 1px
+     turns every utility (p-16, gap-24, m-8, …) into a pixel-accurate
+     token aligned 1:1 with DESIGN.md. */
+  --spacing: 1px;
+  --space-0: 0px;
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-96: 96px;
+  --space-112: 112px;
+  --space-128: 128px;
+
+  /* --- Radius primitives (DESIGN.md §4) --- */
+  --shape-radius-none: 0px;
+  --shape-radius-xs: 2px;
+  --shape-radius-sm: 4px;
+  --shape-radius-md: 8px;
+  --shape-radius-lg: 12px;
+  --shape-radius-xl: 16px;
+  --shape-radius-2xl: 24px;
+  --shape-radius-full: 9999px;
+
+  /* --- Shadow primitives (DESIGN.md §4) --- */
+  --elevation-shadow-none: none;
+  --elevation-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
+  --elevation-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --elevation-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --elevation-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --elevation-shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+  /* --- Scrim primitives --- */
+  --elevation-scrim-light: rgba(0 0 0 / 0.3);
+  --elevation-scrim-medium: rgba(0 0 0 / 0.5);
+  --elevation-scrim-heavy: rgba(0 0 0 / 0.7);
+  --elevation-scrim-backdrop: rgba(0 0 0 / 0.4);
+
+  /* --- Motion primitives (tokens doc §Motion) --- */
+  --duration-100: 100ms;
+  --duration-200: 200ms;
+  --duration-300: 300ms;
+  --duration-500: 500ms;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* --- Typography primitives --- */
+  --font-family-sans: var(--font-urbanist), 'Urbanist', system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* --- Layout primitives (DESIGN.md §5) --- */
+  --layout-breakpoint-tablet: 768px;
+  --layout-breakpoint-desktop: 1024px;
+  --layout-content-max-width: 768px;
+  --layout-content-max-width-default: 1024px;
+  --layout-grid-container-max-width: 1280px;
+  --layout-container-legal: 1280px;
+  --layout-page-gutter-inline: clamp(16px, 5vw, 48px);
+  --layout-section-gap: clamp(48px, 8vw, 96px);
+  --layout-section-spacing-expressive: clamp(48px, 6vw, 80px);
+  --layout-page-padding-top-mobile: 80px;
+  --layout-page-padding-top-tablet: 96px;
+  --layout-page-padding-top-desktop: 128px;
+
+  --layout-header-height-mobile: 56px;
+  --layout-header-height-mobile-md: 70px;
+  --layout-header-height-desktop: 64px;
+  --layout-header-height-desktop-lg: 86px;
+  --layout-mobile-nav-height: 64px;
+  --layout-hamburger-button: 46px;
+  --layout-hamburger-button-sm: 44px;
+  --touch-target-min: 44px;
+
+  /* --- Control density --- */
+  --component-control-height-compact: 36px;
+  --component-control-height-comfortable: 44px;
+  --component-control-height-relaxed: 52px;
+
+  /* --- Bind Tailwind utilities to our scales --- */
+  --font-sans: var(--font-family-sans);
+  --radius-none: var(--shape-radius-none);
+  --radius-xs: var(--shape-radius-xs);
+  --radius-sm: var(--shape-radius-sm);
+  --radius-md: var(--shape-radius-md);
+  --radius-lg: var(--shape-radius-lg);
+  --radius-xl: var(--shape-radius-xl);
+  --radius-2xl: var(--shape-radius-2xl);
+  --radius-full: var(--shape-radius-full);
+  --shadow-none: var(--elevation-shadow-none);
+  --shadow-sm: var(--elevation-shadow-sm);
+  --shadow-md: var(--elevation-shadow-md);
+  --shadow-lg: var(--elevation-shadow-lg);
+  --shadow-xl: var(--elevation-shadow-xl);
+  --shadow-2xl: var(--elevation-shadow-2xl);
+
+  /* ============================================================
+     LAYER 2 — SEMANTIC TOKENS (light defaults)
+     Purpose-bound aliases. Components reference these.
+     ============================================================ */
+  --color-brand: var(--color-nezumi-sabi);
+  --color-on-brand: var(--color-nezumi-paper);
+  --color-brand-bg: var(--color-nezumi-minato);
+  --color-on-brand-bg: var(--color-nezumi-koi);
+
+  --color-secondary: var(--color-nezumi-ume);
+  --color-on-secondary: var(--color-nezumi-koi);
+  --color-secondary-bg: var(--color-nezumi-sakura);
+
+  --color-accent: var(--color-nezumi-fuji);
+
+  --color-text: var(--color-nezumi-koi);
+  --color-text-muted: var(--color-nezumi-genji);
+
+  --color-surface: var(--color-nezumi-bg);
+  --color-surface-raised: var(--color-nezumi-snow);
+  --color-surface-raised-subtle: var(--color-nezumi-akatsuki);
+  --color-surface-muted: var(--color-nezumi-kinu);
+
+  --color-border: var(--color-nezumi-line);
+
+  --color-success: var(--color-nezumi-fukagawa-deep);
+  --color-warning: var(--color-nezumi-cha);
+  --color-error: var(--color-nezumi-d-destructive);
+  --color-on-error: var(--color-nezumi-snow);
+  --color-info: var(--color-nezumi-minato);
+
+  --color-success-bg: color-mix(in oklch, var(--color-success) 12%, var(--color-surface));
+  --color-warning-bg: color-mix(in oklch, var(--color-warning) 15%, var(--color-surface));
+  --color-error-bg: color-mix(in oklch, var(--color-error) 12%, var(--color-surface));
+  --color-info-bg: color-mix(in oklch, var(--color-info) 12%, var(--color-surface));
+
+  /* Focus tokens */
+  --focus-ring-width: 1px;
+  --focus-ring-offset: 2px;
+  --focus-ring-color: var(--color-text);
+  --color-ring: var(--focus-ring-color);
+
+  /* Semantic motion */
+  --duration-fast: var(--duration-100);
+  --duration-normal: var(--duration-200);
+  --duration-slow: var(--duration-300);
+  --duration-slower: var(--duration-500);
+  --ease-standard: var(--ease-in-out);
+  --ease-entrance: var(--ease-out);
+  --ease-exit: var(--ease-in);
+
+  /* Semantic radii */
+  --shape-radius-button: var(--shape-radius-sm);
+  --shape-radius-input: var(--shape-radius-xl);
+  --shape-radius-card: var(--shape-radius-md);
+  --shape-radius-chip: var(--shape-radius-full);
+  --shape-radius-avatar: var(--shape-radius-full);
+  --shape-radius-badge: var(--shape-radius-sm);
+  --shape-radius-dialog: var(--shape-radius-lg);
+  --shape-radius-modal: var(--shape-radius-xl);
+  --shape-radius-popover: var(--shape-radius-md);
+
+  /* ============================================================
+     LAYER 3 — COMPONENT TOKENS
+     Component- and variant-specific. Reference Layer 2 only.
+     ============================================================ */
+  --color-button-brand-hover: color-mix(in oklch, var(--color-brand) 88%, var(--color-nezumi-koi));
+  --color-button-brand-active: color-mix(in oklch, var(--color-brand) 78%, var(--color-nezumi-koi));
+  --color-button-secondary-hover: color-mix(in oklch, var(--color-secondary) 88%, var(--color-nezumi-koi));
+  --color-button-destructive-hover: color-mix(in oklch, var(--color-error) 88%, var(--color-nezumi-koi));
+  --color-button-ghost-hover: color-mix(in oklch, var(--color-brand) 8%, var(--color-surface));
+
+  --color-input-hover-border: var(--color-text);
+  --color-input-error-border: var(--color-error);
+  --color-input-disabled-bg: var(--color-surface-muted);
+}
+
+/* ============================================================
+   DARK MODE — semantic overrides only.
+   Same token names; new values per DESIGN.md §2.
+   Status backgrounds use higher mix percentages (25%).
+   ============================================================ */
+.dark {
+  --color-brand: var(--color-nezumi-minato);
+  --color-on-brand: var(--color-nezumi-paper);
+  --color-brand-bg: var(--color-nezumi-sabi);
+  --color-on-brand-bg: var(--color-nezumi-snow);
+
+  --color-secondary: var(--color-nezumi-ume);
+  --color-on-secondary: var(--color-nezumi-koi);
+  --color-secondary-bg: var(--color-nezumi-dark-secondary-bg);
+
+  --color-accent: var(--color-nezumi-fuji);
+
+  --color-text: var(--color-nezumi-kinu);
+  --color-text-muted: var(--color-nezumi-genji);
+
+  --color-surface: var(--color-nezumi-dark-bg);
+  --color-surface-raised: var(--color-nezumi-dark-raised);
+  --color-surface-raised-subtle: var(--color-nezumi-dark-subtle);
+  --color-surface-muted: var(--color-nezumi-dark-muted);
+
+  --color-border: var(--color-nezumi-dark-line);
+
+  --color-success: var(--color-nezumi-fukagawa);
+  --color-warning: var(--color-nezumi-cha);
+  --color-error: var(--color-nezumi-d-error-dark);
+  --color-on-error: var(--color-nezumi-dark-bg);
+  --color-info: var(--color-nezumi-minato);
+
+  --color-success-bg: color-mix(in oklch, var(--color-success) 25%, var(--color-surface));
+  --color-warning-bg: color-mix(in oklch, var(--color-warning) 25%, var(--color-surface));
+  --color-error-bg: color-mix(in oklch, var(--color-error) 25%, var(--color-surface));
+  --color-info-bg: color-mix(in oklch, var(--color-info) 25%, var(--color-surface));
+
+  /* Focus follows text color in dark too */
+  --focus-ring-color: var(--color-text);
+  --color-ring: var(--focus-ring-color);
+}
+
+/* ============================================================
+   BASE STYLES — driven by semantic tokens only.
+   ============================================================ */
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-color: var(--color-border);
+  }
+
+  html {
+    color-scheme: light;
+    background-color: var(--color-surface);
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    font-family: var(--font-family-sans);
+    font-weight: var(--font-weight-regular);
+    -webkit-font-smoothing: antialiased;
+    transition:
+      background-color var(--duration-normal) var(--ease-standard),
+      color var(--duration-normal) var(--ease-standard);
+  }
+
+  :focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  ::selection {
+    background-color: color-mix(in oklch, var(--color-brand) 25%, transparent);
+    color: var(--color-text);
+  }
+}
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES — implements DESIGN.md §3 scales.
+   Consumed by the <Typography> component, never raw HTML in apps.
+   ============================================================ */
+@layer components {
+  /* Brand Mode — fluid scale */
+  .typography-display-large {
+    font-size: clamp(2.5rem, 5vw + 1.25rem, 5rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    font-weight: var(--font-weight-medium);
+  }
+  .typography-display-medium {
+    font-size: clamp(2rem, 3.5vw + 1.125rem, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: var(--font-weight-medium);
+  }
+  .typography-display-small {
+    font-size: clamp(1.75rem, 2.5vw + 1rem, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    font-weight: var(--font-weight-medium);
+  }
+  .typography-headline-large {
+    font-size: clamp(1.75rem, 3vw + 1rem, 3rem);
+    line-height: 1.2;
+    letter-spacing: 0;
+    font-weight: var(--font-weight-bold);
+  }
+  .typography-headline-medium {
+    font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem);
+    line-height: 1.2;
+    letter-spacing: 0;
+    font-weight: var(--font-weight-bold);
+  }
+  .typography-headline-small {
+    font-size: clamp(1.375rem, 4.5vw + 0.875rem, 2rem);
+    line-height: 1.2;
+    letter-spacing: 0;
+    font-weight: var(--font-weight-bold);
+  }
+  .typography-title-fluid {
+    font-size: clamp(1.25rem, 1.2vw + 0.95rem, 1.75rem);
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+    font-weight: var(--font-weight-medium);
+  }
+  .typography-body-fluid {
+    font-size: clamp(1rem, 0.6vw + 0.85rem, 1.25rem);
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    font-weight: var(--font-weight-regular);
+  }
+
+  /* Service Mode — fixed scale */
+  .typography-title-large {
+    font-size: 22px;
+    line-height: 28px;
+    letter-spacing: 0;
+    font-weight: var(--font-weight-medium);
+  }
+  .typography-title-medium {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    font-weight: var(--font-weight-medium);
+  }
+  .typography-title-small {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.007em;
+    font-weight: var(--font-weight-medium);
+  }
+  .typography-body-large {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    font-weight: var(--font-weight-regular);
+  }
+  .typography-body-medium {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.018em;
+    font-weight: var(--font-weight-regular);
+  }
+  .typography-body-small {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.025em;
+    font-weight: var(--font-weight-regular);
+  }
+  .typography-label-large {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.007em;
+    font-weight: var(--font-weight-medium);
+  }
+  .typography-label-medium {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.04em;
+    font-weight: var(--font-weight-medium);
+  }
+  .typography-label-small {
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.06em;
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+  }
+}

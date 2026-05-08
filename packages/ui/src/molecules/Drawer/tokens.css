@@ -14,9 +14,9 @@
   --spacing-drawer-icon: var(--spacing-16);
   --radius-drawer: var(--radius-md);
   --shadow-drawer: var(--shadow-none);
-  --text-drawer: var(--text-sm);
-  --font-weight-drawer: var(--font-weight-normal);
-  --leading-drawer: var(--leading-normal);
+  --text-drawer: 0.875rem;
+  --font-weight-drawer: var(--font-weight-regular);
+  --leading-drawer: 1.5;
   --duration-drawer-hover: var(--duration-fast);
   --duration-drawer-enter: var(--duration-normal);
   --duration-drawer-exit: var(--duration-fast);

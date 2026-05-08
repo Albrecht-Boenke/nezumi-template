@@ -14,9 +14,9 @@
   --spacing-dropdown-menu-icon: var(--spacing-16);
   --radius-dropdown-menu: var(--radius-md);
   --shadow-dropdown-menu: var(--shadow-none);
-  --text-dropdown-menu: var(--text-sm);
-  --font-weight-dropdown-menu: var(--font-weight-normal);
-  --leading-dropdown-menu: var(--leading-normal);
+  --text-dropdown-menu: 0.875rem;
+  --font-weight-dropdown-menu: var(--font-weight-regular);
+  --leading-dropdown-menu: 1.5;
   --duration-dropdown-menu-hover: var(--duration-fast);
   --duration-dropdown-menu-enter: var(--duration-normal);
   --duration-dropdown-menu-exit: var(--duration-fast);
@@ -61,7 +61,7 @@
   --spacing-dropdown-menu-menu-item-gap: var(--spacing-8);
   --spacing-dropdown-menu-menu-item-inset: var(--spacing-24);
   --spacing-dropdown-menu-menu-separator-size: var(--spacing-1);
-  --text-dropdown-menu-menu-label: var(--text-xs);
+  --text-dropdown-menu-menu-label: 0.75rem;
   --font-weight-dropdown-menu-menu-label: var(--font-weight-medium);
   --radius-dropdown-menu-menu-item: var(--radius-sm);
 
@@ -76,6 +76,6 @@
   --spacing-dropdown-menu-collection-separator-size: var(--spacing-1);
   --color-dropdown-menu-collection-separator: var(--color-border);
   --color-dropdown-menu-collection-label-text: var(--color-text-muted);
-  --text-dropdown-menu-collection-label: var(--text-xs);
+  --text-dropdown-menu-collection-label: 0.75rem;
   --font-weight-dropdown-menu-collection-label: var(--font-weight-medium);
 }

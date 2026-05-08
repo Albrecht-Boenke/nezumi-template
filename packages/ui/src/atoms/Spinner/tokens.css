@@ -14,9 +14,9 @@
   --spacing-spinner-icon: var(--spacing-16);
   --radius-spinner: var(--radius-md);
   --shadow-spinner: var(--shadow-none);
-  --text-spinner: var(--text-sm);
-  --font-weight-spinner: var(--font-weight-normal);
-  --leading-spinner: var(--leading-normal);
+  --text-spinner: 0.875rem;
+  --font-weight-spinner: var(--font-weight-regular);
+  --leading-spinner: 1.5;
   --duration-spinner-hover: var(--duration-fast);
   --duration-spinner-enter: var(--duration-normal);
   --duration-spinner-exit: var(--duration-fast);

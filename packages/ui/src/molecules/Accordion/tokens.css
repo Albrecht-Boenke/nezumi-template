@@ -14,9 +14,9 @@
   --spacing-accordion-icon: var(--spacing-16);
   --radius-accordion: var(--radius-md);
   --shadow-accordion: var(--shadow-none);
-  --text-accordion: var(--text-sm);
-  --font-weight-accordion: var(--font-weight-normal);
-  --leading-accordion: var(--leading-normal);
+  --text-accordion: 0.875rem;
+  --font-weight-accordion: var(--font-weight-regular);
+  --leading-accordion: 1.5;
   --duration-accordion-hover: var(--duration-fast);
   --duration-accordion-enter: var(--duration-normal);
   --duration-accordion-exit: var(--duration-fast);
@@ -75,7 +75,7 @@
   --spacing-accordion-collection-separator-size: var(--spacing-1);
   --color-accordion-collection-separator: var(--color-border);
   --color-accordion-collection-label-text: var(--color-text-muted);
-  --text-accordion-collection-label: var(--text-xs);
+  --text-accordion-collection-label: 0.75rem;
   --font-weight-accordion-collection-label: var(--font-weight-medium);
 
   /* Expand and collapse tokens */

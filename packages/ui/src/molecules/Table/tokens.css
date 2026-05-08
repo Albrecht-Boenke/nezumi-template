@@ -14,9 +14,9 @@
   --spacing-table-icon: var(--spacing-16);
   --radius-table: var(--radius-md);
   --shadow-table: var(--shadow-none);
-  --text-table: var(--text-sm);
-  --font-weight-table: var(--font-weight-normal);
-  --leading-table: var(--leading-normal);
+  --text-table: 0.875rem;
+  --font-weight-table: var(--font-weight-regular);
+  --leading-table: 1.5;
   --duration-table-hover: var(--duration-fast);
   --duration-table-enter: var(--duration-normal);
   --duration-table-exit: var(--duration-fast);
@@ -59,7 +59,7 @@
   --spacing-table-cell-padding-x: var(--spacing-16);
   --spacing-table-cell-padding-y: var(--spacing-12);
   --spacing-table-caption-gap: var(--spacing-8);
-  --text-table-head: var(--text-sm);
+  --text-table-head: 0.875rem;
   --font-weight-table-head: var(--font-weight-medium);
-  --text-table-cell: var(--text-sm);
+  --text-table-cell: 0.875rem;
 }

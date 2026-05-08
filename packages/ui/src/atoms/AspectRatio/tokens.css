@@ -14,9 +14,9 @@
   --spacing-aspect-ratio-icon: var(--spacing-16);
   --radius-aspect-ratio: var(--radius-md);
   --shadow-aspect-ratio: var(--shadow-none);
-  --text-aspect-ratio: var(--text-sm);
-  --font-weight-aspect-ratio: var(--font-weight-normal);
-  --leading-aspect-ratio: var(--leading-normal);
+  --text-aspect-ratio: 0.875rem;
+  --font-weight-aspect-ratio: var(--font-weight-regular);
+  --leading-aspect-ratio: 1.5;
   --duration-aspect-ratio-hover: var(--duration-fast);
   --duration-aspect-ratio-enter: var(--duration-normal);
   --duration-aspect-ratio-exit: var(--duration-fast);

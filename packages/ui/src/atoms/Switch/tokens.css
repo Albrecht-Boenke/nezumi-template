@@ -14,9 +14,9 @@
   --spacing-switch-icon: var(--spacing-16);
   --radius-switch: var(--radius-md);
   --shadow-switch: var(--shadow-none);
-  --text-switch: var(--text-sm);
-  --font-weight-switch: var(--font-weight-normal);
-  --leading-switch: var(--leading-normal);
+  --text-switch: 0.875rem;
+  --font-weight-switch: var(--font-weight-regular);
+  --leading-switch: 1.5;
   --duration-switch-hover: var(--duration-fast);
   --duration-switch-enter: var(--duration-normal);
   --duration-switch-exit: var(--duration-fast);
@@ -40,8 +40,8 @@
   --spacing-switch-control-padding-y: var(--spacing-8);
   --spacing-switch-control-gap: var(--spacing-8);
   --radius-switch-control: var(--radius-md);
-  --text-switch-placeholder: var(--text-sm);
-  --font-weight-switch-placeholder: var(--font-weight-normal);
+  --text-switch-placeholder: 0.875rem;
+  --font-weight-switch-placeholder: var(--font-weight-regular);
 
   /* Interaction states */
   --color-switch-hover-surface: var(--color-surface-muted);

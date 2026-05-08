@@ -14,9 +14,9 @@
   --spacing-toggle-icon: var(--spacing-16);
   --radius-toggle: var(--radius-md);
   --shadow-toggle: var(--shadow-none);
-  --text-toggle: var(--text-sm);
-  --font-weight-toggle: var(--font-weight-normal);
-  --leading-toggle: var(--leading-normal);
+  --text-toggle: 0.875rem;
+  --font-weight-toggle: var(--font-weight-regular);
+  --leading-toggle: 1.5;
   --duration-toggle-hover: var(--duration-fast);
   --duration-toggle-enter: var(--duration-normal);
   --duration-toggle-exit: var(--duration-fast);

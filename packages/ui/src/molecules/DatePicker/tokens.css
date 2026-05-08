@@ -14,9 +14,9 @@
   --spacing-date-picker-icon: var(--spacing-16);
   --radius-date-picker: var(--radius-md);
   --shadow-date-picker: var(--shadow-none);
-  --text-date-picker: var(--text-sm);
-  --font-weight-date-picker: var(--font-weight-normal);
-  --leading-date-picker: var(--leading-normal);
+  --text-date-picker: 0.875rem;
+  --font-weight-date-picker: var(--font-weight-regular);
+  --leading-date-picker: 1.5;
   --duration-date-picker-hover: var(--duration-fast);
   --duration-date-picker-enter: var(--duration-normal);
   --duration-date-picker-exit: var(--duration-fast);
@@ -40,8 +40,8 @@
   --spacing-date-picker-control-padding-y: var(--spacing-8);
   --spacing-date-picker-control-gap: var(--spacing-8);
   --radius-date-picker-control: var(--radius-md);
-  --text-date-picker-placeholder: var(--text-sm);
-  --font-weight-date-picker-placeholder: var(--font-weight-normal);
+  --text-date-picker-placeholder: 0.875rem;
+  --font-weight-date-picker-placeholder: var(--font-weight-regular);
 
   /* Overlay and portal tokens */
   --color-date-picker-overlay: color-mix(in oklch, var(--color-text) 55%, var(--color-surface));

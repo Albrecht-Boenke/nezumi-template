@@ -14,9 +14,9 @@
   --spacing-collapsible-icon: var(--spacing-16);
   --radius-collapsible: var(--radius-md);
   --shadow-collapsible: var(--shadow-none);
-  --text-collapsible: var(--text-sm);
-  --font-weight-collapsible: var(--font-weight-normal);
-  --leading-collapsible: var(--leading-normal);
+  --text-collapsible: 0.875rem;
+  --font-weight-collapsible: var(--font-weight-regular);
+  --leading-collapsible: 1.5;
   --duration-collapsible-hover: var(--duration-fast);
   --duration-collapsible-enter: var(--duration-normal);
   --duration-collapsible-exit: var(--duration-fast);

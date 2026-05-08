@@ -14,9 +14,9 @@
   --spacing-context-menu-icon: var(--spacing-16);
   --radius-context-menu: var(--radius-md);
   --shadow-context-menu: var(--shadow-none);
-  --text-context-menu: var(--text-sm);
-  --font-weight-context-menu: var(--font-weight-normal);
-  --leading-context-menu: var(--leading-normal);
+  --text-context-menu: 0.875rem;
+  --font-weight-context-menu: var(--font-weight-regular);
+  --leading-context-menu: 1.5;
   --duration-context-menu-hover: var(--duration-fast);
   --duration-context-menu-enter: var(--duration-normal);
   --duration-context-menu-exit: var(--duration-fast);
@@ -61,7 +61,7 @@
   --spacing-context-menu-menu-item-gap: var(--spacing-8);
   --spacing-context-menu-menu-item-inset: var(--spacing-24);
   --spacing-context-menu-menu-separator-size: var(--spacing-1);
-  --text-context-menu-menu-label: var(--text-xs);
+  --text-context-menu-menu-label: 0.75rem;
   --font-weight-context-menu-menu-label: var(--font-weight-medium);
   --radius-context-menu-menu-item: var(--radius-sm);
 
@@ -76,6 +76,6 @@
   --spacing-context-menu-collection-separator-size: var(--spacing-1);
   --color-context-menu-collection-separator: var(--color-border);
   --color-context-menu-collection-label-text: var(--color-text-muted);
-  --text-context-menu-collection-label: var(--text-xs);
+  --text-context-menu-collection-label: 0.75rem;
   --font-weight-context-menu-collection-label: var(--font-weight-medium);
 }

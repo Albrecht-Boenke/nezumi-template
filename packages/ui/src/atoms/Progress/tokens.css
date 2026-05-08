@@ -14,9 +14,9 @@
   --spacing-progress-icon: var(--spacing-16);
   --radius-progress: var(--radius-md);
   --shadow-progress: var(--shadow-none);
-  --text-progress: var(--text-sm);
-  --font-weight-progress: var(--font-weight-normal);
-  --leading-progress: var(--leading-normal);
+  --text-progress: 0.875rem;
+  --font-weight-progress: var(--font-weight-regular);
+  --leading-progress: 1.5;
   --duration-progress-hover: var(--duration-fast);
   --duration-progress-enter: var(--duration-normal);
   --duration-progress-exit: var(--duration-fast);

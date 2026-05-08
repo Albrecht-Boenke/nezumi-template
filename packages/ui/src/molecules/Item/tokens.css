@@ -14,9 +14,9 @@
   --spacing-item-icon: var(--spacing-16);
   --radius-item: var(--radius-md);
   --shadow-item: var(--shadow-none);
-  --text-item: var(--text-sm);
-  --font-weight-item: var(--font-weight-normal);
-  --leading-item: var(--leading-normal);
+  --text-item: 0.875rem;
+  --font-weight-item: var(--font-weight-regular);
+  --leading-item: 1.5;
   --duration-item-hover: var(--duration-fast);
   --duration-item-enter: var(--duration-normal);
   --duration-item-exit: var(--duration-fast);

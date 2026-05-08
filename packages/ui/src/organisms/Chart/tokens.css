@@ -14,9 +14,9 @@
   --spacing-chart-icon: var(--spacing-16);
   --radius-chart: var(--radius-md);
   --shadow-chart: var(--shadow-none);
-  --text-chart: var(--text-sm);
-  --font-weight-chart: var(--font-weight-normal);
-  --leading-chart: var(--leading-normal);
+  --text-chart: 0.875rem;
+  --font-weight-chart: var(--font-weight-regular);
+  --leading-chart: 1.5;
   --duration-chart-hover: var(--duration-fast);
   --duration-chart-enter: var(--duration-normal);
   --duration-chart-exit: var(--duration-fast);
@@ -59,9 +59,9 @@
   --spacing-chart-cell-padding-x: var(--spacing-16);
   --spacing-chart-cell-padding-y: var(--spacing-12);
   --spacing-chart-caption-gap: var(--spacing-8);
-  --text-chart-head: var(--text-sm);
+  --text-chart-head: 0.875rem;
   --font-weight-chart-head: var(--font-weight-medium);
-  --text-chart-cell: var(--text-sm);
+  --text-chart-cell: 0.875rem;
 
   /* Chart palette and geometry */
   --color-chart-series-1: var(--color-brand);
@@ -75,5 +75,5 @@
   --color-chart-tooltip-text: var(--color-popover-foreground);
   --spacing-chart-plot-gap: var(--spacing-16);
   --spacing-chart-legend-gap: var(--spacing-12);
-  --text-chart-label: var(--text-xs);
+  --text-chart-label: 0.75rem;
 }

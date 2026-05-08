@@ -14,9 +14,9 @@
   --spacing-empty-icon: var(--spacing-16);
   --radius-empty: var(--radius-md);
   --shadow-empty: var(--shadow-none);
-  --text-empty: var(--text-sm);
-  --font-weight-empty: var(--font-weight-normal);
-  --leading-empty: var(--leading-normal);
+  --text-empty: 0.875rem;
+  --font-weight-empty: var(--font-weight-regular);
+  --leading-empty: 1.5;
   --duration-empty-hover: var(--duration-fast);
   --duration-empty-enter: var(--duration-normal);
   --duration-empty-exit: var(--duration-fast);

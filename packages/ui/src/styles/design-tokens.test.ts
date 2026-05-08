@@ -5,6 +5,7 @@ import { describe, expect, it } from "vitest"
 
 const currentDir = dirname(fileURLToPath(import.meta.url))
 const stylesDir = currentDir
+const packageDir = resolve(stylesDir, "../..")
 
 function tokenDeclaration(name: string, value: string): RegExp {
   return new RegExp(`${name}:\\s*${value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")};`)
@@ -49,6 +50,41 @@ describe("design tokens", () => {
     expect(css).toMatch(tokenDeclaration("--radius-button", "var(--radius-sm)"))
     expect(css).toMatch(tokenDeclaration("--spacing-button-md-x", "var(--spacing-24)"))
     expect(css).toMatch(tokenDeclaration("--font-weight-button", "var(--font-weight-medium)"))
+  })
+
+  it("keeps typography primitives in the global token layer", async () => {
+    const css = await readFile(resolve(stylesDir, "tokens/typography.css"), "utf8")
+
+    expect(css).toMatch(tokenDeclaration("--font-family-sans", 'var(--font-urbanist, "Urbanist"), system-ui,\n    -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'))
+    expect(css).toMatch(tokenDeclaration("--font-weight-regular", "400"))
+    expect(css).not.toContain("--text-sm:")
+    expect(css).not.toContain("--text-4xl:")
+    expect(css).not.toContain("--font-weight-normal:")
+    expect(css).not.toContain("--font-weight-semibold:")
+    expect(css).not.toContain("--leading-normal:")
+    expect(css).not.toContain("--tracking-tight:")
+  })
+
+  it("keeps typography component classes with the Typography atom", async () => {
+    const css = await readFile(resolve(stylesDir, "../atoms/Typography/tokens.css"), "utf8")
+    const designTokens = await readFile(resolve(stylesDir, "design-tokens.css"), "utf8")
+
+    expect(designTokens).toContain('@import "../atoms/Typography/tokens.css";')
+    expect(css).toContain(".typography-display-large")
+    expect(css).toContain(".typography-body-medium")
+    expect(css).toContain(".typography-label-small")
+    expect(css).toMatch(tokenDeclaration("--typography-display-large-size", "clamp(2.5rem, 5vw + 1.25rem, 5rem)"))
+    expect(css).toMatch(tokenDeclaration("--typography-body-medium-size", "14px"))
+    expect(css).toMatch(tokenDeclaration("--typography-label-small-weight", "var(--font-weight-bold)"))
+  })
+
+  it("exports typography and theme provider public surfaces", async () => {
+    const pkg = JSON.parse(await readFile(resolve(packageDir, "package.json"), "utf8")) as {
+      exports: Record<string, string>
+    }
+
+    expect(pkg.exports["./components/typography"]).toBe("./src/components/typography.tsx")
+    expect(pkg.exports["./providers/theme"]).toBe("./src/providers/Theme/index.tsx")
   })
 
   it("registers only the product breakpoints required by DESIGN.md", async () => {

@@ -14,9 +14,9 @@
   --spacing-pagination-icon: var(--spacing-16);
   --radius-pagination: var(--radius-md);
   --shadow-pagination: var(--shadow-none);
-  --text-pagination: var(--text-sm);
-  --font-weight-pagination: var(--font-weight-normal);
-  --leading-pagination: var(--leading-normal);
+  --text-pagination: 0.875rem;
+  --font-weight-pagination: var(--font-weight-regular);
+  --leading-pagination: 1.5;
   --duration-pagination-hover: var(--duration-fast);
   --duration-pagination-enter: var(--duration-normal);
   --duration-pagination-exit: var(--duration-fast);
@@ -37,7 +37,7 @@
   --spacing-pagination-nav-trigger-padding-x: var(--spacing-12);
   --spacing-pagination-nav-trigger-padding-y: var(--spacing-8);
   --radius-pagination-nav-trigger: var(--radius-md);
-  --text-pagination-nav-trigger: var(--text-sm);
+  --text-pagination-nav-trigger: 0.875rem;
   --font-weight-pagination-nav-trigger: var(--font-weight-medium);
 
   /* Interaction states */
@@ -69,6 +69,6 @@
   --spacing-pagination-collection-separator-size: var(--spacing-1);
   --color-pagination-collection-separator: var(--color-border);
   --color-pagination-collection-label-text: var(--color-text-muted);
-  --text-pagination-collection-label: var(--text-xs);
+  --text-pagination-collection-label: 0.75rem;
   --font-weight-pagination-collection-label: var(--font-weight-medium);
 }

@@ -14,9 +14,9 @@
   --spacing-input-group-icon: var(--spacing-16);
   --radius-input-group: var(--radius-md);
   --shadow-input-group: var(--shadow-none);
-  --text-input-group: var(--text-sm);
-  --font-weight-input-group: var(--font-weight-normal);
-  --leading-input-group: var(--leading-normal);
+  --text-input-group: 0.875rem;
+  --font-weight-input-group: var(--font-weight-regular);
+  --leading-input-group: 1.5;
   --duration-input-group-hover: var(--duration-fast);
   --duration-input-group-enter: var(--duration-normal);
   --duration-input-group-exit: var(--duration-fast);
@@ -40,8 +40,8 @@
   --spacing-input-group-control-padding-y: var(--spacing-8);
   --spacing-input-group-control-gap: var(--spacing-8);
   --radius-input-group-control: var(--radius-md);
-  --text-input-group-placeholder: var(--text-sm);
-  --font-weight-input-group-placeholder: var(--font-weight-normal);
+  --text-input-group-placeholder: 0.875rem;
+  --font-weight-input-group-placeholder: var(--font-weight-regular);
 
   /* Interaction states */
   --color-input-group-hover-surface: var(--color-surface-muted);
@@ -72,6 +72,6 @@
   --spacing-input-group-collection-separator-size: var(--spacing-1);
   --color-input-group-collection-separator: var(--color-border);
   --color-input-group-collection-label-text: var(--color-text-muted);
-  --text-input-group-collection-label: var(--text-xs);
+  --text-input-group-collection-label: 0.75rem;
   --font-weight-input-group-collection-label: var(--font-weight-medium);
 }

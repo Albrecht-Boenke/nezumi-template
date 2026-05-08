@@ -14,9 +14,9 @@
   --spacing-input-icon: var(--spacing-16);
   --radius-input: var(--radius-md);
   --shadow-input: var(--shadow-none);
-  --text-input: var(--text-sm);
-  --font-weight-input: var(--font-weight-normal);
-  --leading-input: var(--leading-normal);
+  --text-input: 0.875rem;
+  --font-weight-input: var(--font-weight-regular);
+  --leading-input: 1.5;
   --duration-input-hover: var(--duration-fast);
   --duration-input-enter: var(--duration-normal);
   --duration-input-exit: var(--duration-fast);
@@ -40,8 +40,8 @@
   --spacing-input-control-padding-y: var(--spacing-8);
   --spacing-input-control-gap: var(--spacing-8);
   --radius-input-control: var(--radius-md);
-  --text-input-placeholder: var(--text-sm);
-  --font-weight-input-placeholder: var(--font-weight-normal);
+  --text-input-placeholder: 0.875rem;
+  --font-weight-input-placeholder: var(--font-weight-regular);
 
   /* Interaction states */
   --color-input-hover-surface: var(--color-surface-muted);

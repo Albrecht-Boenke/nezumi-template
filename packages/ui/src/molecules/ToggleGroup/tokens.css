@@ -14,9 +14,9 @@
   --spacing-toggle-group-icon: var(--spacing-16);
   --radius-toggle-group: var(--radius-md);
   --shadow-toggle-group: var(--shadow-none);
-  --text-toggle-group: var(--text-sm);
-  --font-weight-toggle-group: var(--font-weight-normal);
-  --leading-toggle-group: var(--leading-normal);
+  --text-toggle-group: 0.875rem;
+  --font-weight-toggle-group: var(--font-weight-regular);
+  --leading-toggle-group: 1.5;
   --duration-toggle-group-hover: var(--duration-fast);
   --duration-toggle-group-enter: var(--duration-normal);
   --duration-toggle-group-exit: var(--duration-fast);
@@ -53,6 +53,6 @@
   --spacing-toggle-group-collection-separator-size: var(--spacing-1);
   --color-toggle-group-collection-separator: var(--color-border);
   --color-toggle-group-collection-label-text: var(--color-text-muted);
-  --text-toggle-group-collection-label: var(--text-xs);
+  --text-toggle-group-collection-label: 0.75rem;
   --font-weight-toggle-group-collection-label: var(--font-weight-medium);
 }

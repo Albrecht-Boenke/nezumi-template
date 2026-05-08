@@ -14,9 +14,9 @@
   --spacing-tooltip-icon: var(--spacing-16);
   --radius-tooltip: var(--radius-md);
   --shadow-tooltip: var(--shadow-none);
-  --text-tooltip: var(--text-sm);
-  --font-weight-tooltip: var(--font-weight-normal);
-  --leading-tooltip: var(--leading-normal);
+  --text-tooltip: 0.875rem;
+  --font-weight-tooltip: var(--font-weight-regular);
+  --leading-tooltip: 1.5;
   --duration-tooltip-hover: var(--duration-fast);
   --duration-tooltip-enter: var(--duration-normal);
   --duration-tooltip-exit: var(--duration-fast);

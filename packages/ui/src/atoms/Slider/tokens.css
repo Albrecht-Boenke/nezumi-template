@@ -14,9 +14,9 @@
   --spacing-slider-icon: var(--spacing-16);
   --radius-slider: var(--radius-md);
   --shadow-slider: var(--shadow-none);
-  --text-slider: var(--text-sm);
-  --font-weight-slider: var(--font-weight-normal);
-  --leading-slider: var(--leading-normal);
+  --text-slider: 0.875rem;
+  --font-weight-slider: var(--font-weight-regular);
+  --leading-slider: 1.5;
   --duration-slider-hover: var(--duration-fast);
   --duration-slider-enter: var(--duration-normal);
   --duration-slider-exit: var(--duration-fast);
@@ -40,8 +40,8 @@
   --spacing-slider-control-padding-y: var(--spacing-8);
   --spacing-slider-control-gap: var(--spacing-8);
   --radius-slider-control: var(--radius-md);
-  --text-slider-placeholder: var(--text-sm);
-  --font-weight-slider-placeholder: var(--font-weight-normal);
+  --text-slider-placeholder: 0.875rem;
+  --font-weight-slider-placeholder: var(--font-weight-regular);
 
   /* Interaction states */
   --color-slider-hover-surface: var(--color-surface-muted);

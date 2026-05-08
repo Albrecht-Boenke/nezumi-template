@@ -14,9 +14,9 @@
   --spacing-popover-icon: var(--spacing-16);
   --radius-popover: var(--radius-md);
   --shadow-popover: var(--shadow-none);
-  --text-popover: var(--text-sm);
-  --font-weight-popover: var(--font-weight-normal);
-  --leading-popover: var(--leading-normal);
+  --text-popover: 0.875rem;
+  --font-weight-popover: var(--font-weight-regular);
+  --leading-popover: 1.5;
   --duration-popover-hover: var(--duration-fast);
   --duration-popover-enter: var(--duration-normal);
   --duration-popover-exit: var(--duration-fast);

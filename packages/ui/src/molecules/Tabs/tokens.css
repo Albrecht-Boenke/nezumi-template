@@ -14,9 +14,9 @@
   --spacing-tabs-icon: var(--spacing-16);
   --radius-tabs: var(--radius-md);
   --shadow-tabs: var(--shadow-none);
-  --text-tabs: var(--text-sm);
-  --font-weight-tabs: var(--font-weight-normal);
-  --leading-tabs: var(--leading-normal);
+  --text-tabs: 0.875rem;
+  --font-weight-tabs: var(--font-weight-regular);
+  --leading-tabs: 1.5;
   --duration-tabs-hover: var(--duration-fast);
   --duration-tabs-enter: var(--duration-normal);
   --duration-tabs-exit: var(--duration-fast);
@@ -75,6 +75,6 @@
   --spacing-tabs-collection-separator-size: var(--spacing-1);
   --color-tabs-collection-separator: var(--color-border);
   --color-tabs-collection-label-text: var(--color-text-muted);
-  --text-tabs-collection-label: var(--text-xs);
+  --text-tabs-collection-label: 0.75rem;
   --font-weight-tabs-collection-label: var(--font-weight-medium);
 }
