@@ -1,31 +1,31 @@
-/* Primitive palette — DESIGN.md §2. Stored as OKLCH via relative color (exact match to SSOT hex). @theme so Tailwind registers utilities (e.g. bg-nezumi-sabi). */
+/* Primitive palette — DESIGN.md §2. Stored as concrete OKLCH values. @theme so Tailwind registers utilities (e.g. bg-nezumi-sabi). */
 @theme {
   --color-*: initial;
 
-  --color-nezumi-sabi: oklch(from #47585c l c h);
-  --color-nezumi-minato: oklch(from #80989b l c h);
-  --color-nezumi-ume: oklch(from #c099a0 l c h);
-  --color-nezumi-sakura: oklch(from #e9dfe5 l c h);
-  --color-nezumi-fuji: oklch(from #a6a5c4 l c h);
-  --color-nezumi-kinu: oklch(from #dddcd6 l c h);
-  --color-nezumi-genji: oklch(from #888084 l c h);
-  --color-nezumi-koi: oklch(from #4f455c l c h);
-  --color-nezumi-bg: oklch(from #f5f4f1 l c h);
-  --color-nezumi-akatsuki: oklch(from #d3cfd9 l c h);
-  --color-nezumi-fukagawa: oklch(from #97a791 l c h);
-  --color-nezumi-fukagawa-deep: oklch(from #4d6e47 l c h);
-  --color-nezumi-cha: oklch(from #a99e93 l c h);
-  --color-nezumi-budo: oklch(from #705b67 l c h);
-  --color-nezumi-chigusa: oklch(from #bed3ca l c h);
-  --color-nezumi-paper: oklch(from #faf9f5 l c h);
-  --color-nezumi-line: oklch(from #d4d3cf l c h);
-  --color-nezumi-snow: oklch(from #ffffff l c h);
-  --color-nezumi-dark-bg: oklch(from #121014 l c h);
-  --color-nezumi-dark-raised: oklch(from #1a181c l c h);
-  --color-nezumi-dark-subtle: oklch(from #242226 l c h);
-  --color-nezumi-dark-muted: oklch(from #2a272b l c h);
-  --color-nezumi-dark-line: oklch(from #3a383c l c h);
-  --color-nezumi-dark-secondary-bg: oklch(from #4a3d42 l c h);
-  --color-nezumi-d-destructive: oklch(from #9c5246 l c h);
-  --color-nezumi-d-error-dark: oklch(from #e07a6b l c h);
+  --color-nezumi-sabi: oklch(0.4475 0.0220 213.59);
+  --color-nezumi-minato: oklch(0.6621 0.0275 205.75);
+  --color-nezumi-ume: oklch(0.7208 0.0474 6.27);
+  --color-nezumi-sakura: oklch(0.9133 0.0135 340.57);
+  --color-nezumi-fuji: oklch(0.7331 0.0445 286.73);
+  --color-nezumi-kinu: oklch(0.8936 0.0082 98.89);
+  --color-nezumi-genji: oklch(0.6082 0.0113 345.62);
+  --color-nezumi-koi: oklch(0.4096 0.0398 304.50);
+  --color-nezumi-bg: oklch(0.9671 0.0041 91.45);
+  --color-nezumi-akatsuki: oklch(0.8606 0.0143 304.11);
+  --color-nezumi-fukagawa: oklch(0.7095 0.0362 137.12);
+  --color-nezumi-fukagawa-deep: oklch(0.5019 0.0713 140.68);
+  --color-nezumi-cha: oklch(0.7055 0.0204 67.49);
+  --color-nezumi-budo: oklch(0.4961 0.0327 343.08);
+  --color-nezumi-chigusa: oklch(0.8485 0.0258 168.12);
+  --color-nezumi-paper: oklch(0.9818 0.0054 95.10);
+  --color-nezumi-line: oklch(0.8665 0.0056 95.11);
+  --color-nezumi-snow: oklch(1.0000 0.0000 0.00);
+  --color-nezumi-dark-bg: oklch(0.1773 0.0087 307.92);
+  --color-nezumi-dark-raised: oklch(0.2130 0.0083 308.03);
+  --color-nezumi-dark-subtle: oklch(0.2558 0.0079 308.12);
+  --color-nezumi-dark-muted: oklch(0.2775 0.0084 317.71);
+  --color-nezumi-dark-line: oklch(0.3442 0.0074 308.22);
+  --color-nezumi-dark-secondary-bg: oklch(0.3755 0.0198 352.96);
+  --color-nezumi-d-destructive: oklch(0.5248 0.1009 30.44);
+  --color-nezumi-d-error-dark: oklch(0.6900 0.1295 29.54);
 }

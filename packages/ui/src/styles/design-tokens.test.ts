@@ -6,6 +6,7 @@ import { describe, expect, it } from "vitest"
 const currentDir = dirname(fileURLToPath(import.meta.url))
 const stylesDir = currentDir
 const packageDir = resolve(stylesDir, "../..")
+const repoDir = resolve(packageDir, "../..")
 
 function tokenDeclaration(name: string, value: string): RegExp {
   return new RegExp(`${name}:\\s*${value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")};`)
@@ -41,7 +42,9 @@ describe("design tokens", () => {
     const css = await readFile(resolve(stylesDir, "tokens/colors.css"), "utf8")
 
     expect(css).toContain("--color-*: initial;")
-    expect(css).toMatch(tokenDeclaration("--color-nezumi-sabi", "oklch(from #47585c l c h)"))
+    expect(css).toMatch(tokenDeclaration("--color-nezumi-sabi", "oklch(0.4475 0.0220 213.59)"))
+    expect(css).toMatch(tokenDeclaration("--color-nezumi-paper", "oklch(0.9818 0.0054 95.10)"))
+    expect(css).not.toContain("oklch(from")
   })
 
   it("keeps button structure tokens in the component token layer", async () => {
@@ -68,10 +71,10 @@ describe("design tokens", () => {
   })
 
   it("keeps typography component classes with the Typography atom", async () => {
-    const css = await readFile(resolve(stylesDir, "../atoms/Typography/tokens.css"), "utf8")
+    const css = await readFile(resolve(stylesDir, "components/typography.css"), "utf8")
     const designTokens = await readFile(resolve(stylesDir, "design-tokens.css"), "utf8")
 
-    expect(designTokens).toContain('@import "../atoms/Typography/tokens.css";')
+    expect(designTokens).toContain('@import "./components/typography.css";')
     expect(css).toContain(".typography-clamp-large")
     expect(css).toContain(".typography-clamp-text")
     expect(css).toContain(".typography-body-medium")
@@ -92,6 +95,19 @@ describe("design tokens", () => {
     expect(css).toMatch(tokenDeclaration("--typography-body-medium-size", "16px"))
     expect(css).toMatch(tokenDeclaration("--typography-label-medium-weight", "var(--font-weight-bold)"))
     expect(css).toMatch(tokenDeclaration("--typography-accent-small-size", "13px"))
+  })
+
+  it("documents current color and typography tokens in DESIGN.md", async () => {
+    const design = await readFile(resolve(repoDir, "DESIGN.md"), "utf8")
+
+    expect(design).toContain("oklch(0.4475 0.0220 213.59)")
+    expect(design).toContain("oklch(0.9818 0.0054 95.10)")
+    expect(design).toContain("--font-family-accent")
+    expect(design).toContain("clamp-large")
+    expect(design).toContain("--typography-clamp-large-size")
+    expect(design).toContain("accent-small")
+    expect(design).not.toContain("oklch(from")
+    expect(design).not.toContain("display-large")
   })
 
   it("exports typography and theme provider public surfaces", async () => {

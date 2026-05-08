@@ -21,10 +21,7 @@
 @import "./components/toggle-group.css";
 @import "./components/sonner.css";
 @import "./components/sidebar.css";
-@import "../atoms/Typography/tokens.css";
-@import "../atoms/Badge/tokens.css";
-@import "../molecules/Card/tokens.css";
-@import "../organisms/Sidebar/tokens.css";
+@import "./components/typography.css";
 
 @source inline("{md:,lg:,}{block,inline-block,inline,hidden,flex,inline-flex,grid,inline-grid}");
 @source inline("{md:,lg:,}{p,px,py,pt,pr,pb,pl,m,mx,my,mt,mr,mb,ml,gap,gap-x,gap-y}-{0,1,2,4,8,12,16,24,32,40,48,56,64,80,96,112,128}");

@@ -5,7 +5,7 @@ description: CSS-first tokens under packages/ui/src/styles and Tailwind @theme.
 
 # Foundation And Design Tokens
 
-The foundation layer lives inside `packages/ui/src/styles/`. It is CSS-first and Tailwind CSS 4.2.4 native. **Color naming follows [`DESIGN.md`](../../../DESIGN.md) §2:** primitives are registered in `tokens/colors.css` inside **`@theme`** as `--color-nezumi-*` (OKLCH via `oklch(from #… l c h)` so values match the DESIGN hex table exactly). Semantic `--color-*` live in `semantic/colors.css` (`@theme`). Dark overrides: `design-tokens.css` (`.dark`).
+The foundation layer lives inside `packages/ui/src/styles/`. It is CSS-first and Tailwind CSS 4.2.4 native. **Color naming follows [`DESIGN.md`](../../../DESIGN.md) §2:** primitives are registered in `tokens/colors.css` inside **`@theme`** as `--color-nezumi-*` with concrete OKLCH coordinates converted from the DESIGN hex table. Semantic `--color-*` live in `semantic/colors.css` (`@theme`). Dark overrides: `design-tokens.css` (`.dark`).
 
 ## File Layout
 
@@ -31,12 +31,12 @@ packages/ui/src/styles/
 
 ## Token Definition
 
-Primitives (OKLCH, `@theme` — hex in [`DESIGN.md`](../../../DESIGN.md) is the SSOT input to `oklch(from …)`):
+Primitives (concrete OKLCH, `@theme` — hex in [`DESIGN.md`](../../../DESIGN.md) remains the authoring reference):
 
 ```css
 @theme {
-  --color-nezumi-sabi: oklch(from #47585c l c h);
-  --color-nezumi-paper: oklch(from #faf9f5 l c h);
+  --color-nezumi-sabi: oklch(0.4475 0.0220 213.59);
+  --color-nezumi-paper: oklch(0.9818 0.0054 95.10);
   /* … see tokens/colors.css */
 }
 ```

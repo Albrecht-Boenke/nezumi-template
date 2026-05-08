@@ -5,7 +5,7 @@ description: Three-layer tokens, @theme, motion, OKLCH, theming, and packages/ui
 
 > **Nezumi-Template:** Tailwind CSS **4.2.4** (`tailwindcss` / `@tailwindcss/postcss`, pnpm Catalog). Downstream-Kapitel nutzen weiter „v4“ konzeptionell; die gebundene Minor/Patch-Version ist **4.2.4**.
 
-**Farben in diesem Repo:** Kanonische **Namen** in **[`DESIGN.md`](../../../DESIGN.md) §2** (`--nezumi-*` in der Tabelle). **Im CSS** sind Primitives als **`@theme`**-Einträge `--color-nezumi-*` mit **OKLCH** (`oklch(from #… l c h)`, Hex aus DESIGN als Eingabe) in `tokens/colors.css`; Semantik: `--color-brand`, `--color-text`, … in `semantic/colors.css`; `.dark` in `design-tokens.css`. Die Beispiele weiter unten im Kapitel zeigen das **3-Layer-Muster** generisch (Neutral/Blue); für Produktcode gelten die DESIGN-Tokens.
+**Farben in diesem Repo:** Kanonische **Namen** in **[`DESIGN.md`](../../../DESIGN.md) §2** (`--nezumi-*` in der Tabelle). **Im CSS** sind Primitives als **`@theme`**-Einträge `--color-nezumi-*` mit konkreten **OKLCH**-Koordinaten in `tokens/colors.css`; Semantik: `--color-brand`, `--color-text`, … in `semantic/colors.css`; `.dark` in `design-tokens.css`. Die Beispiele weiter unten im Kapitel zeigen das **3-Layer-Muster** generisch (Neutral/Blue); für Produktcode gelten die DESIGN-Tokens.
 
 # Kapitel 10: Design Tokens & Tailwind v4 — Das 3-Layer-System
 

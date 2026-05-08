@@ -36,44 +36,44 @@ This file is the visual SSOT for agents. It describes the **target state**, not 
 
 | Layer File | Role |
 | :----------- | :--- |
-| `packages/ui/src/styles/tokens/colors.css` | **Primitives** in Tailwind `@theme`: `--color-nezumi-*`. Each value is **OKLCH** with the SSOT hex as input: `oklch(from #rrggbb l c h)`. Tailwind generates utilities such as `bg-nezumi-sabi` (use in apps only when justified; prefer semantic utilities). |
+| `packages/ui/src/styles/tokens/colors.css` | **Primitives** in Tailwind `@theme`: `--color-nezumi-*`. Each value is stored as a concrete **OKLCH** coordinate converted from the SSOT sRGB hex. Tailwind generates utilities such as `bg-nezumi-sabi` (use in apps only when justified; prefer semantic utilities). |
 | `packages/ui/src/styles/semantic/colors.css` | **Semantic** colors in `@theme`: `--color-brand`, `--color-text`, … as `var(--color-nezumi-*)`. Status backgrounds use `color-mix(in oklch, …)` per rules below. |
 | `packages/ui/src/styles/design-tokens.css` | **`.dark`** block: semantic overrides (same `--color-*` names). **`html.dark`** in `@layer base` sets `color-scheme: dark` only. Base `body`, `:focus-visible`, scrollbar use semantic tokens. |
 | `packages/ui/src/styles/components/button.css` | **Component** color tokens (e.g. `--color-button-brand-hover`) as `color-mix(in oklch, …)` on top of semantic primitives. |
 | Apps | Import `@packages/ui/design-tokens.css` from `app/globals.css`. App **TSX** uses semantic Tailwind classes only (`bg-surface`, `text-text`, `border-border`, …) — no raw hex, no default Tailwind palette. |
 
-**Reference hex** in the tables below is the **authoring / SSOT sRGB** for each primitive. The **stored token value** in code is always the OKLCH form above.
+**Reference hex** in the tables below is the **authoring / SSOT sRGB** for each primitive. The **stored token value** in code is the concrete OKLCH value in the same row.
 
 ### Primitive palette
 
-| Slug (human reference) | CSS token (`@theme`) | SSOT hex (input to `oklch(from …)`) |
-| :----------------------- | :------------------- | :---------------------------------- |
-| sabi | `--color-nezumi-sabi` | `#47585c` |
-| minato | `--color-nezumi-minato` | `#80989b` |
-| ume | `--color-nezumi-ume` | `#c099a0` |
-| sakura | `--color-nezumi-sakura` | `#e9dfe5` |
-| fuji | `--color-nezumi-fuji` | `#a6a5c4` |
-| kinu | `--color-nezumi-kinu` | `#dddcd6` |
-| genji | `--color-nezumi-genji` | `#888084` |
-| koi | `--color-nezumi-koi` | `#4f455c` |
-| bg | `--color-nezumi-bg` | `#f5f4f1` |
-| akatsuki | `--color-nezumi-akatsuki` | `#d3cfd9` |
-| fukagawa | `--color-nezumi-fukagawa` | `#97a791` |
-| fukagawa-deep | `--color-nezumi-fukagawa-deep` | `#4d6e47` |
-| cha | `--color-nezumi-cha` | `#a99e93` |
-| budo | `--color-nezumi-budo` | `#705b67` |
-| chigusa | `--color-nezumi-chigusa` | `#bed3ca` |
-| paper | `--color-nezumi-paper` | `#faf9f5` |
-| line | `--color-nezumi-line` | `#d4d3cf` |
-| snow | `--color-nezumi-snow` | `#ffffff` |
-| dark-bg | `--color-nezumi-dark-bg` | `#121014` |
-| dark-raised | `--color-nezumi-dark-raised` | `#1a181c` |
-| dark-subtle | `--color-nezumi-dark-subtle` | `#242226` |
-| dark-muted | `--color-nezumi-dark-muted` | `#2a272b` |
-| dark-line | `--color-nezumi-dark-line` | `#3a383c` |
-| dark-secondary-bg | `--color-nezumi-dark-secondary-bg` | `#4a3d42` |
-| d-destructive | `--color-nezumi-d-destructive` | `#9c5246` |
-| d-error-dark | `--color-nezumi-d-error-dark` | `#e07a6b` |
+| Slug (human reference) | CSS token (`@theme`) | SSOT hex | Stored OKLCH |
+| :----------------------- | :------------------- | :------- | :----------- |
+| sabi | `--color-nezumi-sabi` | `#47585c` | `oklch(0.4475 0.0220 213.59)` |
+| minato | `--color-nezumi-minato` | `#80989b` | `oklch(0.6621 0.0275 205.75)` |
+| ume | `--color-nezumi-ume` | `#c099a0` | `oklch(0.7208 0.0474 6.27)` |
+| sakura | `--color-nezumi-sakura` | `#e9dfe5` | `oklch(0.9133 0.0135 340.57)` |
+| fuji | `--color-nezumi-fuji` | `#a6a5c4` | `oklch(0.7331 0.0445 286.73)` |
+| kinu | `--color-nezumi-kinu` | `#dddcd6` | `oklch(0.8936 0.0082 98.89)` |
+| genji | `--color-nezumi-genji` | `#888084` | `oklch(0.6082 0.0113 345.62)` |
+| koi | `--color-nezumi-koi` | `#4f455c` | `oklch(0.4096 0.0398 304.50)` |
+| bg | `--color-nezumi-bg` | `#f5f4f1` | `oklch(0.9671 0.0041 91.45)` |
+| akatsuki | `--color-nezumi-akatsuki` | `#d3cfd9` | `oklch(0.8606 0.0143 304.11)` |
+| fukagawa | `--color-nezumi-fukagawa` | `#97a791` | `oklch(0.7095 0.0362 137.12)` |
+| fukagawa-deep | `--color-nezumi-fukagawa-deep` | `#4d6e47` | `oklch(0.5019 0.0713 140.68)` |
+| cha | `--color-nezumi-cha` | `#a99e93` | `oklch(0.7055 0.0204 67.49)` |
+| budo | `--color-nezumi-budo` | `#705b67` | `oklch(0.4961 0.0327 343.08)` |
+| chigusa | `--color-nezumi-chigusa` | `#bed3ca` | `oklch(0.8485 0.0258 168.12)` |
+| paper | `--color-nezumi-paper` | `#faf9f5` | `oklch(0.9818 0.0054 95.10)` |
+| line | `--color-nezumi-line` | `#d4d3cf` | `oklch(0.8665 0.0056 95.11)` |
+| snow | `--color-nezumi-snow` | `#ffffff` | `oklch(1.0000 0.0000 0.00)` |
+| dark-bg | `--color-nezumi-dark-bg` | `#121014` | `oklch(0.1773 0.0087 307.92)` |
+| dark-raised | `--color-nezumi-dark-raised` | `#1a181c` | `oklch(0.2130 0.0083 308.03)` |
+| dark-subtle | `--color-nezumi-dark-subtle` | `#242226` | `oklch(0.2558 0.0079 308.12)` |
+| dark-muted | `--color-nezumi-dark-muted` | `#2a272b` | `oklch(0.2775 0.0084 317.71)` |
+| dark-line | `--color-nezumi-dark-line` | `#3a383c` | `oklch(0.3442 0.0074 308.22)` |
+| dark-secondary-bg | `--color-nezumi-dark-secondary-bg` | `#4a3d42` | `oklch(0.3755 0.0198 352.96)` |
+| d-destructive | `--color-nezumi-d-destructive` | `#9c5246` | `oklch(0.5248 0.1009 30.44)` |
+| d-error-dark | `--color-nezumi-d-error-dark` | `#e07a6b` | `oklch(0.6900 0.1295 29.54)` |
 
 ### Semantic palette
 
@@ -134,8 +134,22 @@ Defined in `semantic/colors.css` (same keys in dark unless overridden):
 
 ## 3. Typography
 
-### Font Family
-- `--font-family`: `'Urbanist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`
+### Implementation (Nezumi-Template repo)
+
+| Layer File | Role |
+| :--------- | :--- |
+| `packages/ui/src/styles/tokens/typography.css` | **Primitive font tokens** in Tailwind `@theme`: font families and allowed weights. |
+| `packages/ui/src/styles/components/typography.css` | **Typography component tokens** for the `Typography` atom: `--typography-*` size, line-height, tracking, and weight tokens plus `.typography-*` classes. |
+| `packages/ui/src/components/typography.tsx` | Public component leaf. Apps import `Typography` from `@packages/ui/components/typography`. |
+
+### Font Families
+
+| Token | Value | Use |
+| :---- | :---- | :-- |
+| `--font-family-sans` | `var(--font-urbanist, "Urbanist"), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif` | Primary Nezumi typography |
+| `--font-family-accent` | `var(--font-space-grotesk, "Space Grotesk"), var(--font-family-sans)` | Limited secondary variation |
+| `--font-sans` | `var(--font-family-sans)` | Tailwind `font-sans` API |
+| `--font-accent` | `var(--font-family-accent)` | Tailwind `font-accent` API |
 
 ### Allowed Weights
 | Token | Value |
@@ -145,30 +159,35 @@ Defined in `semantic/colors.css` (same keys in dark unless overridden):
 | `--font-weight-medium` | `500` |
 | `--font-weight-bold` | `700` |
 
-### Fluid Scale: Brand Mode
-| Token | Size | Line height | Tracking | Weight | Use |
-| :---- | :--- | :---------- | :------- | :----- | :-- |
-| `display-large` | `clamp(2.5rem, 5vw + 1.25rem, 5rem)` | `1.1` | `-0.04em` | `500` | Homepage hero |
-| `display-medium` | `clamp(2rem, 3.5vw + 1.125rem, 3.5rem)` | `1.1` | `-0.02em` | `500` | Marketing hero/subhero |
-| `display-small` | `clamp(1.75rem, 2.5vw + 1rem, 2.5rem)` | `1.15` | `-0.01em` | `500` | Editorial callouts |
-| `headline-large` | `clamp(1.75rem, 3vw + 1rem, 3rem)` | `1.2` | `0` | `700` | Public section titles |
-| `headline-medium` | `clamp(1.5rem, 2vw + 1rem, 2.25rem)` | `1.2` | `0` | `700` | Public sub-sections |
-| `headline-small` | `clamp(1.375rem, 4.5vw + 0.875rem, 2rem)` | `1.2` | `0` | `700` | Smaller promo headers |
-| `title-fluid` | `clamp(1.25rem, 1.2vw + 0.95rem, 1.75rem)` | `1.3` | `0.01em` | `500` | FAQs, legal intros |
-| `body-fluid` | `clamp(1rem, 0.6vw + 0.85rem, 1.25rem)` | `1.5` | `0.02em` | `400` | Long-form public copy |
+### Clamp Scale: Brand/Public Mode
+
+The clamp scale is intentionally reduced to four variants. All four use the same bold-tight drawing style by default: `700` weight and `-0.055em` tracking.
+
+| Variant | Size token | Size | Line height | Tracking | Weight | Use |
+| :------ | :--------- | :--- | :---------- | :------- | :----- | :-- |
+| `clamp-large` | `--typography-clamp-large-size` | `clamp(2.5rem, 4vw + 1rem, 4.5rem)` | `0.98` | `-0.055em` | `var(--font-weight-bold)` | Hero and expressive display |
+| `clamp-medium` | `--typography-clamp-medium-size` | `clamp(2rem, 2.4vw + 1rem, 3.25rem)` | `1.05` | `-0.055em` | `var(--font-weight-bold)` | Public section titles |
+| `clamp-small` | `--typography-clamp-small-size` | `clamp(1.5rem, 1.25vw + 1rem, 2.25rem)` | `1.12` | `-0.055em` | `var(--font-weight-bold)` | Editorial callouts |
+| `clamp-text` | `--typography-clamp-text-size` | `clamp(1rem, 0.45vw + 0.9rem, 1.25rem)` | `1.5` | `-0.055em` | `var(--font-weight-bold)` | Public lead/body text when expressive type is desired |
 
 ### Fixed Scale: Service Mode
-| Token | Size | Line height | Tracking | Weight | Use |
-| :---- | :--- | :---------- | :------- | :----- | :-- |
-| `title-large` | `22px` | `28px` | `0` | `500` | Route title |
-| `title-medium` | `16px` | `24px` | `0.01em` | `500` | Section/card title |
-| `title-small` | `14px` | `20px` | `0.007em` | `500` | Small structured heading |
-| `body-large` | `16px` | `24px` | `0.03em` | `400` | Forms, reading, main UI copy |
-| `body-medium` | `14px` | `20px` | `0.018em` | `400` | Table cells, secondary UI copy |
-| `body-small` | `12px` | `16px` | `0.025em` | `400` | Metadata |
-| `label-large` | `14px` | `20px` | `0.007em` | `500` | Buttons, tabs |
-| `label-medium` | `12px` | `16px` | `0.04em` | `500` | Compact controls |
-| `label-small` | `11px` | `16px` | `0.06em` | `700` | Overlines, legal/meta labels |
+
+| Variant | Size token | Size | Line height | Tracking | Weight | Use |
+| :------ | :--------- | :--- | :---------- | :------- | :----- | :-- |
+| `title-large` | `--typography-title-large-size` | `22px` | `28px` | `0` | `var(--font-weight-bold)` | Route title |
+| `title-medium` | `--typography-title-medium-size` | `18px` | `24px` | `0` | `var(--font-weight-medium)` | Section/card title |
+| `body-medium` | `--typography-body-medium-size` | `16px` | `24px` | `0.012em` | `var(--font-weight-regular)` | Forms, reading, main UI copy |
+| `label-large` | `--typography-label-large-size` | `14px` | `20px` | `0.02em` | `var(--font-weight-medium)` | Buttons, tabs |
+| `label-medium` | `--typography-label-medium-size` | `12px` | `16px` | `0.06em` | `var(--font-weight-bold)` | Compact controls and overlines |
+
+### Accent Scale
+
+The accent family is limited to two variants and uses `--font-accent`.
+
+| Variant | Size token | Size | Line height | Tracking | Weight | Use |
+| :------ | :--------- | :--- | :---------- | :------- | :----- | :-- |
+| `accent-large` | `--typography-accent-large-size` | `20px` | `28px` | `-0.01em` | `var(--font-weight-medium)` | Secondary font display sample |
+| `accent-small` | `--typography-accent-small-size` | `13px` | `18px` | `0.08em` | `var(--font-weight-bold)` | Secondary compact accent |
 
 ### Typography Rules
 - Use `Typography` in app code
@@ -380,7 +399,7 @@ Visual size scale:
 | Height | `56px` |
 | Radius | `16px` |
 | Horizontal padding | `16px` |
-| Typography | `body-large` |
+| Typography | `body-medium` |
 | Background | `bg-surface` |
 | Border | `1px solid var(--color-border)` |
 
@@ -395,7 +414,7 @@ Input rules:
 - Use subtle dividers only
 - No aggressive zebra striping
 - Toolbar stays integrated with table surface
-- Dense data uses `body-medium` and `body-small`
+- Dense data uses `body-medium` and `label-medium`
 
 ### Chips / Badges / Avatars
 - Chips and avatars may use `radius-full`
