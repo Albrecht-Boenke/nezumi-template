@@ -1,5 +1,5 @@
 {
-  "name": "@nezumi/ui",
+  "name": "@packages/ui",
   "version": "1.0.0",
   "private": true,
   "description": "Nezumi UI component library and design tokens for the Nezumi monorepo",
@@ -8,6 +8,7 @@
     "src/styles"
   ],
   "scripts": {
+    "build": "tsc --noEmit",
     "dev": "tsc --noEmit --watch",
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",

@@ -27,7 +27,7 @@ None. The local repository documentation and code were sufficient for this verif
 
 ## Abgeleiteter SOLL-Zustand
 
-- Layout demos should import public Nezumi UI components via granular `@nezumi/ui/components/*` imports.
+- Layout demos should import public Nezumi UI components via granular `@packages/ui/components/*` imports.
 - Tailwind responsive behavior is mobile-first: `md` starts at `768px`, `lg` at `1024px`, and `xl` at `1280px`.
 - Demo utility classes must use the documented Nezumi pixel-named token scale, for example `8`, `12`, `16`, `24`, `32`, `40`, `48`, `64`, and `96`.
 - `Grid` demos should stack at mobile where configured, switch to two or three columns at the documented breakpoints, and keep nested chart bars and placeholder boxes nonzero.

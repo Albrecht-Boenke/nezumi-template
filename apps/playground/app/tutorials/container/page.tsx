@@ -1,7 +1,7 @@
-import { Box } from "@nezumi/ui/components/box"
-import { Container } from "@nezumi/ui/components/container"
-import { Flex } from "@nezumi/ui/components/flex"
-import { Grid } from "@nezumi/ui/components/grid"
+import { Box } from "@packages/ui/components/box"
+import { Container } from "@packages/ui/components/container"
+import { Flex } from "@packages/ui/components/flex"
+import { Grid } from "@packages/ui/components/grid"
 import {
   DemoNav,
   Example,

@@ -1,5 +1,5 @@
 /**
- * @nezumi/ui — Button Atom
+ * @packages/ui — Button Atom
  *
  * Primitiver Button mit CVA-Varianten.
  * Kein Business-Logic, reines UI.

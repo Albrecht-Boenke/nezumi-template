@@ -7,15 +7,21 @@
     "node": "^24.0.0"
   },
   "scripts": {
-    "dev": "turbo dev",
     "build": "turbo build",
-    "lint": "turbo lint",
-    "test": "turbo test",
-    "typecheck": "turbo typecheck"
+    "build:homepage": "next build apps/homepage",
+    "build:members": "next build apps/members",
+    "build:operations": "next build apps/operations",
+    "build:packages": "turbo build --filter='./packages/*'",
+    "build:playground": "next build apps/playground",
+    "dev:homepage": "next dev apps/homepage --turbopack -p 3000",
+    "dev:members": "next dev apps/members --turbopack -p 3001",
+    "dev:operations": "next dev apps/operations --turbopack -p 3002",
+    "dev:playground": "next dev apps/playground --turbopack -p 3003"
   },
   "devDependencies": {
     "eslint": "^9.39.2",
     "eslint-config-next": "^16.1.0",
+    "next": "catalog:",
     "turbo": "^2.9.9",
     "typescript": "catalog:"
   }

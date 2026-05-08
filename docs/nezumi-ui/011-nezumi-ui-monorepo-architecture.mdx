@@ -26,9 +26,9 @@ description: Workspace layout, UI package contract, and export pattern for this 
 Consumer imports:
 
 ```tsx
-import { Button } from "@nezumi/ui/components/button"
-import { Container, Grid } from "@nezumi/ui/layout"
-import { cn } from "@nezumi/ui/lib/utils"
+import { Button } from "@packages/ui/components/button"
+import { Container, Grid } from "@packages/ui/layout"
+import { cn } from "@packages/ui/lib/utils"
 ```
 
 Internal folders:
@@ -52,9 +52,9 @@ For Next.js 16.2.5 and React 19.2.6 / react-dom 19.2.6, keep server and client b
 
 ## Export Pattern
 
-Use package-map exports instead of a root barrel. `@nezumi/ui` is an internal
+Use package-map exports instead of a root barrel. `@packages/ui` is an internal
 source-first package, so public entries point at source files and app builds
-transpile them through `transpilePackages: ["@nezumi/ui"]`:
+transpile them through `transpilePackages: ["@packages/ui"]`:
 
 ```json
 {

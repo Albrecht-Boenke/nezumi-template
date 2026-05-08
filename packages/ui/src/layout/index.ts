@@ -1,5 +1,5 @@
 /**
- * @nezumi/ui/layout
+ * @packages/ui/layout
  *
  * Local implementation of layout components mapped to Tailwind CSS v4.
  */

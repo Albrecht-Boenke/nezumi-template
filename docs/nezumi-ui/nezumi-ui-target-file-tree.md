@@ -51,7 +51,7 @@ Turborepo and the shadcn monorepo template converge on **`apps/`** for deployabl
 │   ├── members/
 │   └── operations/
 └── packages/
-    ├── ui/                      # shared design system (@nezumi/ui)
+    ├── ui/                      # shared design system (@packages/ui)
     ├── typescript-config/       # optional — shared TS base/next/react configs
     └── storybook/               # optional — visual docs / review
 ```
@@ -63,7 +63,7 @@ Optional (not required by the minimal shadcn example; add when you need them):
 - `packages/typescript-config/` and `packages/storybook/` are shown in the topology above when you adopt them; they are **not** mandated by the minimal shadcn example. Storybook: **no** Storybook content in `docs/` mirrors here—version and addons are **not** fixed by this vendor set—see Storybook’s own documentation.
 - `.nvmrc` — **not** required by Turborepo/Next vendor docs; optional team pin if it satisfies Next’s **minimum Node** (currently **≥ 20.9** per [001-01-app-01-getting-started-01-installation.mdx](docs/nextjs/001-01-app-01-getting-started-01-installation.mdx)).
 
-**Boundary rule (Nezumi):** apps may depend on `@nezumi/ui`; apps do not import each other; `@nezumi/ui` does not import apps ([011-nezumi-ui-monorepo-architecture.mdx](docs/nezumi-ui/011-nezumi-ui-monorepo-architecture.mdx)).
+**Boundary rule (Nezumi):** apps may depend on `@packages/ui`; apps do not import each other; `@packages/ui` does not import apps ([011-nezumi-ui-monorepo-architecture.mdx](docs/nezumi-ui/011-nezumi-ui-monorepo-architecture.mdx)).
 
 ---
 
@@ -114,14 +114,14 @@ apps/
 **Vendor-backed responsibilities (every app):**
 
 - **`app/`:** routes, layouts, metadata, data fetching, app-specific logic.
-- **`app/globals.css`:** `@import "tailwindcss"` ([011-01-app-01-getting-started-11-css.mdx](docs/nextjs/011-01-app-01-getting-started-11-css.mdx)); **`@source`** for `packages/ui` when needed ([053-detecting-classes-in-source-files.mdx](docs/tailwind-css/053-detecting-classes-in-source-files.mdx)); import shared CSS via **`package.json#exports`** (e.g. **`@import "@nezumi/ui/design-tokens.css"`** — actual export names follow `packages/ui/package.json`).
+- **`app/globals.css`:** `@import "tailwindcss"` ([011-01-app-01-getting-started-11-css.mdx](docs/nextjs/011-01-app-01-getting-started-11-css.mdx)); **`@source`** for `packages/ui` when needed ([053-detecting-classes-in-source-files.mdx](docs/tailwind-css/053-detecting-classes-in-source-files.mdx)); import shared CSS via **`package.json#exports`** (e.g. **`@import "@packages/ui/design-tokens.css"`** — actual export names follow `packages/ui/package.json`).
 - **`app/layout.tsx`:** import `./globals.css` ([011-01-app-01-getting-started-11-css.mdx](docs/nextjs/011-01-app-01-getting-started-11-css.mdx)); optional **`ThemeProvider`** if using `next-themes` / shadcn theming ([theming.mdx](docs/shadcn-ui/overview/theming.mdx)); `<html lang="..." suppressHydrationWarning>` as needed.
 - **`components/blocks/`:** app-owned shadcn registry blocks and page regions.
 - **`components/organisms/`** / **`components/templates/`:** app-specific Atomic-Design compositions.
-- **`components.json`:** shadcn bridge — map **`utils`** → `@nezumi/ui/lib/utils`, **`ui`** → `@nezumi/ui/components`; keep **`style`**, **`iconLibrary`**, **`baseColor`** identical to `packages/ui/components.json`; **`tailwind.config` empty** for Tailwind v4 ([monorepo.mdx](docs/shadcn-ui/overview/monorepo.mdx)).
-- **`next.config.ts`:** `transpilePackages: ["@nezumi/ui"]` ([223-01-app-03-api-reference-05-config-01-next-config-js-transpilepackages.mdx](docs/nextjs/223-01-app-03-api-reference-05-config-01-next-config-js-transpilepackages.mdx)).
+- **`components.json`:** shadcn bridge — map **`utils`** → `@packages/ui/lib/utils`, **`ui`** → `@packages/ui/components`; keep **`style`**, **`iconLibrary`**, **`baseColor`** identical to `packages/ui/components.json`; **`tailwind.config` empty** for Tailwind v4 ([monorepo.mdx](docs/shadcn-ui/overview/monorepo.mdx)).
+- **`next.config.ts`:** `transpilePackages: ["@packages/ui"]` ([223-01-app-03-api-reference-05-config-01-next-config-js-transpilepackages.mdx](docs/nextjs/223-01-app-03-api-reference-05-config-01-next-config-js-transpilepackages.mdx)).
 - **`postcss.config.mjs`:** `@tailwindcss/postcss` ([011-01-app-01-getting-started-11-css.mdx](docs/nextjs/011-01-app-01-getting-started-11-css.mdx)).
-- **`package.json`:** `workspace:*` → `@nezumi/ui`; React / Next per catalog or lockfile.
+- **`package.json`:** `workspace:*` → `@packages/ui`; React / Next per catalog or lockfile.
 
 **Docs:** [001-01-app-01-getting-started-01-installation.mdx](docs/nextjs/001-01-app-01-getting-started-01-installation.mdx) · [011-01-app-01-getting-started-11-css.mdx](docs/nextjs/011-01-app-01-getting-started-11-css.mdx) · [005-01-app-01-getting-started-05-server-and-client-components.mdx](docs/nextjs/005-01-app-01-getting-started-05-server-and-client-components.mdx) · [223-01-app-03-api-reference-05-config-01-next-config-js-transpilepackages.mdx](docs/nextjs/223-01-app-03-api-reference-05-config-01-next-config-js-transpilepackages.mdx) · [monorepo.mdx](docs/shadcn-ui/overview/monorepo.mdx) · [components-json.mdx](docs/shadcn-ui/overview/components-json.mdx).
 
@@ -178,22 +178,22 @@ packages/ui/
 
 **Animations (vendor):** If following current shadcn Tailwind v4 guidance, add **`@import "tw-animate-css"`** to globals after installing `tw-animate-css` ([tailwind-v4.mdx](docs/shadcn-ui/overview/tailwind-v4.mdx)).
 
-**Build output:** shadcn’s monorepo guidance allows `exports` to point at **source** `.tsx` ([package-imports.mdx](docs/shadcn-ui/overview/package-imports.mdx)). **This repo** uses that source-first / Just-in-Time package model for `@nezumi/ui`: there is no package-local bundler output, and Next consumes the source via `transpilePackages`.
+**Build output:** shadcn’s monorepo guidance allows `exports` to point at **source** `.tsx` ([package-imports.mdx](docs/shadcn-ui/overview/package-imports.mdx)). **This repo** uses that source-first / Just-in-Time package model for `@packages/ui`: there is no package-local bundler output, and Next consumes the source via `transpilePackages`.
 
 ---
 
 ## UI package public `exports` (no root barrel)
 
-Normative pattern: **subpath `exports`**, no default `@nezumi/ui` barrel ([components-json.mdx](docs/shadcn-ui/overview/components-json.mdx), [package-imports.mdx](docs/shadcn-ui/overview/package-imports.mdx)).
+Normative pattern: **subpath `exports`**, no default `@packages/ui` barrel ([components-json.mdx](docs/shadcn-ui/overview/components-json.mdx), [package-imports.mdx](docs/shadcn-ui/overview/package-imports.mdx)).
 
 Illustrative paths (adjust names to your package):
 
 ```text
-@nezumi/ui/globals.css              # maps to src/styles/globals.css (or shared global entry)
-@nezumi/ui/design-tokens.css       # optional second CSS entry (this repo)
-@nezumi/ui/components/button
-@nezumi/ui/layout
-@nezumi/ui/lib/utils
+@packages/ui/globals.css              # maps to src/styles/globals.css (or shared global entry)
+@packages/ui/design-tokens.css       # optional second CSS entry (this repo)
+@packages/ui/components/button
+@packages/ui/layout
+@packages/ui/lib/utils
 ```
 
 Do **not** expose **internal** atomic folders as stable public imports unless you deliberately add an export (vendor/shadcn public API is **`components/*`**, **`lib/*`**, **`hooks/*`**).
@@ -252,21 +252,21 @@ Same extraction triggers as [08-core-concepts-internal-packages.mdx](docs/turbo/
 Allowed:
 
 ```text
-apps/*     -> @nezumi/ui
+apps/*     -> @packages/ui
 apps/*     -> that app’s npm dependencies
-@nezumi/ui -> its own dependencies
-@nezumi/ui -> @nezumi/typescript-config   # at dev / type-check time, if that package exists
-packages/storybook -> @nezumi/ui           # if you add a Storybook package
+@packages/ui -> its own dependencies
+@packages/ui -> @packages/typescript-config   # at dev / type-check time, if that package exists
+packages/storybook -> @packages/ui           # if you add a Storybook package
 ```
 
 Not allowed:
 
 ```text
-@nezumi/ui -> apps/*
+@packages/ui -> apps/*
 apps/homepage -> apps/members
 apps/members -> apps/operations
 apps/* -> app-specific code from another app
-@nezumi/ui -> root barrel import from consumers
+@packages/ui -> root barrel import from consumers
 ```
 
 ---

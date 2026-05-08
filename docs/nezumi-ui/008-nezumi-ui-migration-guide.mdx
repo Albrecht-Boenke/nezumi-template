@@ -10,8 +10,8 @@ description: Moving imports and tokens onto the Nezumi UI public API and CSS-fir
 Move consumer imports to public leaves:
 
 ```tsx
-import { Button } from "@nezumi/ui/components/button"
-import { Container } from "@nezumi/ui/layout"
+import { Button } from "@packages/ui/components/button"
+import { Container } from "@packages/ui/layout"
 ```
 
 ## Token Migration
@@ -47,6 +47,6 @@ Do not add a second token source.
 
 ```bash
 pnpm install
-pnpm --filter @nezumi/ui typecheck
-pnpm turbo build
+pnpm build --filter @packages/ui
+pnpm build:packages
 ```

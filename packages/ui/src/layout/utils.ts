@@ -1,5 +1,5 @@
 /**
- * @nezumi/ui/layout — Class-Name Utilities
+ * @packages/ui/layout — Class-Name Utilities
  *
  * Responsive Tailwind-Klassen-Generierung für das Spacing-System.
  * Alle Funktionen sind pure und haben keine Side Effects.

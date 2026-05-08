@@ -5,4 +5,4 @@
 @source "../../../packages/ui/src";
 @source "../";
 
-@import "@nezumi/ui/design-tokens.css";
+@import "@packages/ui/design-tokens.css";

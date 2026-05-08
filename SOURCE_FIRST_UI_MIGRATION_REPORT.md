@@ -2,7 +2,7 @@
 
 ## Aufgabenstellung
 
-`@nezumi/ui` sollte als internes Monorepo-Package source-first bleiben: `tsup`
+`@packages/ui` sollte als internes Monorepo-Package source-first bleiben: `tsup`
 entfernen, `package.json#exports` auf Source-Dateien umstellen, Next/Turbo
 bewusst passend halten, danach Build- und Dev-Verifikation ausfuehren und die
 Nezumi-UI-Dokumentation aktualisieren.
@@ -36,12 +36,12 @@ Nezumi-UI-Dokumentation aktualisieren.
 
 ## Abgeleiteter SOLL-Zustand
 
-- `@nezumi/ui` ist ein privates, internes Just-in-Time Package.
+- `@packages/ui` ist ein privates, internes Just-in-Time Package.
 - Public CSS-, Component-, Layout- und Utility-Entrypoints zeigen direkt auf
   `packages/ui/src`.
 - Es gibt keinen package-lokalen Bundler-Build, kein `dist/`-Output und keine
   `tsup`-Abhaengigkeit.
-- Next.js Apps behalten `transpilePackages: ["@nezumi/ui"]`.
+- Next.js Apps behalten `transpilePackages: ["@packages/ui"]`.
 - Turbo cached keine `dist/**`-Outputs und typecheckt ohne vorgeschalteten
   UI-Build.
 - shadcn package imports werden package-lokal ueber `#components/*` und
@@ -70,7 +70,7 @@ Keine verbleibenden High-Severity-Findings.
 
 ### Mittel
 
-- Behoben: `@nezumi/ui` war noch als compiled package dokumentiert und
+- Behoben: `@packages/ui` war noch als compiled package dokumentiert und
   konfiguriert. Die Exports zeigten auf `dist/`, obwohl das Package intern
   source-first genutzt werden soll.
 - Behoben: Turbo und Root-Scripts enthielten noch UI-Build-Annahmen.
@@ -84,8 +84,8 @@ Keine verbleibenden High-Severity-Findings.
 
 - Neue public UI-Komponenten als `src/components/<name>.tsx` anlegen und direkt
   in `package.json#exports` auf diese Source-Datei mappen.
-- `transpilePackages: ["@nezumi/ui"]` in allen Next.js Apps beibehalten.
-- Einen Package-Build nur wieder einfuehren, wenn `@nezumi/ui` publishable
+- `transpilePackages: ["@packages/ui"]` in allen Next.js Apps beibehalten.
+- Einen Package-Build nur wieder einfuehren, wenn `@packages/ui` publishable
   werden soll.
 
 ## Offene Fragen oder Restrisiken
@@ -99,9 +99,9 @@ Keine verbleibenden High-Severity-Findings.
 - `pnpm install` erfolgreich.
 - Source-first invariant script erfolgreich.
 - `pnpm turbo typecheck --force` erfolgreich.
-- `pnpm --filter @nezumi/ui test -- --run` erfolgreich: 3 Dateien, 10 Tests.
+- `pnpm --filter @packages/ui test -- --run` erfolgreich: 3 Dateien, 10 Tests.
 - `pnpm turbo build --force` erfolgreich: alle 4 Next.js Apps gebaut.
-- `pnpm dev` erfolgreich gestartet: `@nezumi/ui` watch typecheck meldete 0
+- `pnpm dev` erfolgreich gestartet: `@packages/ui` watch typecheck meldete 0
   Fehler; Homepage, Members, Operations und Playground lieferten HTTP 200.
 - `pnpm turbo lint --force` erfolgreich.
 - `git diff --check` erfolgreich.

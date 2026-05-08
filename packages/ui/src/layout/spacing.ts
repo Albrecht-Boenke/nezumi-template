@@ -1,5 +1,5 @@
 /**
- * @nezumi/ui/layout — Spacing Scale
+ * @packages/ui/layout — Spacing Scale
  *
  * Pixel-benannte Spacing-Werte auf rem-Basis.
  * Benennung nach px macht den konkreten Wert explizit lesbar:

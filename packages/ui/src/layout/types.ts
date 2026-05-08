@@ -1,5 +1,5 @@
 /**
- * @nezumi/ui/layout — Core Types
+ * @packages/ui/layout — Core Types
  *
  * Inspiriert von Radix UI Themes Layout-API,
  * re-implementiert auf Tailwind v4 + shadcn-Patterns.

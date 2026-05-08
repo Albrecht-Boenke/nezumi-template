@@ -30,7 +30,7 @@ Keine. Die lokalen Vendor-Dokumentationssets waren fuer diese Cleanup-Entscheidu
 - Next.js Apps behalten nur die minimalen App-Router-Quellen und ihre App-Konfiguration.
 - Tailwind CSS bleibt CSS-first konfiguriert; nur tatsaechlich verwendete Component-Token-Sheets werden importiert.
 - shadcn/ui-Monorepo-Aliase in `components.json` bleiben als Tooling-Konfiguration erhalten, auch wenn kein Barrel-Import existiert.
-- `@nezumi/ui` exponiert nur die in `package.json` definierten granularen Source-Leaf-Entrypoints.
+- `@packages/ui` exponiert nur die in `package.json` definierten granularen Source-Leaf-Entrypoints.
 - Interne Placeholder-Barrels, doppelte Implementierungen und stale Review-/Report-Artefakte gehoeren nicht in den produktiven Source-Tree.
 
 ## Analysierte Dateien
@@ -60,7 +60,7 @@ Keine verbleibenden High-Severity-Findings nach Cleanup und Verifikation.
 ### Mittel
 
 - Entfernt: doppelte, nicht referenzierte Layout-Implementierungen unter `packages/ui/src/layout/{Box,Container,Flex,Grid,Section}/`.
-  Risiko vorher: parallele Implementierungen konnten auseinanderlaufen, obwohl der public `@nezumi/ui/layout` Entrypoint nur die top-level Layout-Dateien baut.
+  Risiko vorher: parallele Implementierungen konnten auseinanderlaufen, obwohl der public `@packages/ui/layout` Entrypoint nur die top-level Layout-Dateien baut.
 - Entfernt: unexported `packages/ui/src/atoms/Card/card.tsx` plus Card/Input-Component-Token-Sheets.
   Risiko vorher: Tailwind-Token und Komponenten wirkten produktiv, waren aber nicht ueber `package.json` erreichbar.
 
@@ -74,7 +74,7 @@ Keine verbleibenden High-Severity-Findings nach Cleanup und Verifikation.
 ## Konkrete Empfehlungen
 
 - Neue UI-Komponenten erst dann mit Component-Tokens anlegen, wenn ein public Leaf-Entrypoint in `src/components/<name>.tsx` existiert und in `package.json#exports` auf die Source-Datei zeigt.
-- Keine neuen packageweiten Barrels fuer `@nezumi/ui/components` oder `@nezumi/ui/lib` einfuehren; die dokumentierte API bleibt granular.
+- Keine neuen packageweiten Barrels fuer `@packages/ui/components` oder `@packages/ui/lib` einfuehren; die dokumentierte API bleibt granular.
 - Review-Artefakte kuenftig in einem klaren Report-Namen ablegen und veraltete Zwischenberichte nach Abschluss entfernen.
 
 ## Offene Fragen oder Restrisiken

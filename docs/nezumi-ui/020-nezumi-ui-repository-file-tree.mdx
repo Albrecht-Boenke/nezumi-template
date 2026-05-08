@@ -15,7 +15,7 @@ Das System basiert auf einer klaren Trennung zwischen Applikationen (`apps/`) un
 
 ```text
 / (Root)
-├── package.json                # Root package (Scripts: dev, build, lint, typecheck)
+├── package.json                # Root package (Scripts: app builds/dev servers; package build filter)
 ├── pnpm-workspace.yaml         # Definiert apps/* und packages/*
 ├── turbo.json                  # Task-Pipeline (Next-App-Builds; UI source-first)
 ├── pnpm-lock.yaml              # Single Lockfile (Catalog-driven)
@@ -27,10 +27,10 @@ Das System basiert auf einer klaren Trennung zwischen Applikationen (`apps/`) un
 │   │   │   ├── layout.tsx      # Root Layout
 │   │   │   └── page.tsx        # Homepage
 │   │   ├── components/         # App-spezifische Molecules/Organisms
-│   │   ├── components.json     # shadcn/ui Config (UI-Alias zeigt auf @nezumi/ui)
-│   │   ├── next.config.ts      # transpilePackages: ["@nezumi/ui"]
+│   │   ├── components.json     # shadcn/ui Config (UI-Alias zeigt auf @packages/ui)
+│   │   ├── next.config.ts      # transpilePackages: ["@packages/ui"]
 │   │   ├── postcss.config.mjs  # Tailwind v4 PostCSS Plugin
-│   │   └── package.json        # Deps: @nezumi/ui, next, react
+│   │   └── package.json        # Deps: @packages/ui, next, react
 │   │
 │   ├── members/                # Next.js 16 App Router (User Dashboard)
 │   │   └── ...                 # Identische Struktur wie homepage
@@ -39,10 +39,10 @@ Das System basiert auf einer klaren Trennung zwischen Applikationen (`apps/`) un
 │       └── ...                 # Identische Struktur wie homepage
 │
 └── packages/
-    ├── ui/                     # Nezumi UI Design System (@nezumi/ui)
+    ├── ui/                     # Nezumi UI Design System (@packages/ui)
     │   ├── package.json        # Granulare subpath exports (kein root-barrel)
     │   ├── components.json     # shadcn/ui monorepo config
-    │   ├── tsconfig.json       # Erbt von @nezumi/typescript-config
+    │   ├── tsconfig.json       # Erbt von @packages/typescript-config
     │   ├── src/
     │   │   ├── atoms/          # Primitive (Button, Badge, Input - Internal)
     │   │   ├── molecules/      # Composed (FieldGroup, Alert - Internal)
@@ -74,8 +74,8 @@ Das System basiert auf einer klaren Trennung zwischen Applikationen (`apps/`) un
 Jede App (`homepage`, `members`, `operations`) ist technisch unabhängig. Sie teilen sich die UI-Package, können aber unterschiedliche Versionen von Komponenten (via Feature-Flags oder Props) oder eigene Business-Logik-Organismen besitzen.
 
 ### 2. Granulare UI-Exports
-Wir vermeiden Barrel-Files im Root von `@nezumi/ui`. Der Import erfolgt immer spezifisch:
-`import { Button } from "@nezumi/ui/components/button"`. Dies optimiert Tree-Shaking und Fast-Refresh-Zeiten drastisch.
+Wir vermeiden Barrel-Files im Root von `@packages/ui`. Der Import erfolgt immer spezifisch:
+`import { Button } from "@packages/ui/components/button"`. Dies optimiert Tree-Shaking und Fast-Refresh-Zeiten drastisch.
 
 ### 3. Atomic Design Facades
 Der Ordner `src/components/` in der UI-Package dient als Fassade. Er versteckt die interne Komplexität des Atomic Designs (`atoms/`, `molecules/`) vor den Konsumenten. Dies erlaubt interne Refactorings, ohne die öffentliche API der UI-Package zu brechen.
@@ -86,7 +86,7 @@ Da Tailwind v4 kein `content`-Array in einer JS-Config mehr nutzt, müssen die C
 **Pfad-Disziplin:** `app/globals.css` liegt unter `apps/<name>/app/`. Für `packages/ui` sind **drei** Ebenen zum Repo-Root nötig, z. B. `@source "../../../packages/ui/src"`. Für **ausschließlich diese App** (nicht `apps/` insgesamt) reicht **eine** Ebene zur App-Wurzel: `@source "../"`. Verwendet man fälschlich `@source "../../"`, landet Tailwind unter `apps/` und indexiert alle Geschwister-Apps — unerwünschte Kopplung, größere CSS-Ausgabe und langsamere Builds.
 
 ### 5. Single Source of Truth for Tokens
-Alle Design-Entscheidungen (Farben, Spacing, Radius) leben ausschließlich in `packages/ui/src/styles/`. Apps importieren diese via `@import "@nezumi/ui/design-tokens.css"`.
+Alle Design-Entscheidungen (Farben, Spacing, Radius) leben ausschließlich in `packages/ui/src/styles/`. Apps importieren diese via `@import "@packages/ui/design-tokens.css"`.
 
 ---
 

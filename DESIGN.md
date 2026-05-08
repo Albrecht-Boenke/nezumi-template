@@ -40,7 +40,7 @@ This file is the visual SSOT for agents. It describes the **target state**, not 
 | `packages/ui/src/styles/semantic/colors.css` | **Semantic** colors in `@theme`: `--color-brand`, `--color-text`, … as `var(--color-nezumi-*)`. Status backgrounds use `color-mix(in oklch, …)` per rules below. |
 | `packages/ui/src/styles/design-tokens.css` | **`.dark`** block: semantic overrides (same `--color-*` names). **`html.dark`** in `@layer base` sets `color-scheme: dark` only. Base `body`, `:focus-visible`, scrollbar use semantic tokens. |
 | `packages/ui/src/styles/components/button.css` | **Component** color tokens (e.g. `--color-button-brand-hover`) as `color-mix(in oklch, …)` on top of semantic primitives. |
-| Apps | Import `@nezumi/ui/design-tokens.css` from `app/globals.css`. App **TSX** uses semantic Tailwind classes only (`bg-surface`, `text-text`, `border-border`, …) — no raw hex, no default Tailwind palette. |
+| Apps | Import `@packages/ui/design-tokens.css` from `app/globals.css`. App **TSX** uses semantic Tailwind classes only (`bg-surface`, `text-text`, `border-border`, …) — no raw hex, no default Tailwind palette. |
 
 **Reference hex** in the tables below is the **authoring / SSOT sRGB** for each primitive. The **stored token value** in code is always the OKLCH form above.
 

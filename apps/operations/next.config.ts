@@ -1,7 +1,14 @@
 import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["@nezumi/ui"],
+  logging: {
+    browserToTerminal: true,
+    // 'error' — errors only (default)
+    // 'warn'  — warnings and errors
+    // true    — all console output
+    // false   — disabled
+  },
+  transpilePackages: ["@packages/ui"],
 }
 
 export default nextConfig

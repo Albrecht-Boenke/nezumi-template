@@ -12,8 +12,8 @@
   "iconLibrary": "lucide",
   "aliases": {
     "components": "@/components",
-    "ui": "@nezumi/ui/components",
-    "utils": "@nezumi/ui/lib/utils",
+    "ui": "@packages/ui/components",
+    "utils": "@packages/ui/lib/utils",
     "lib": "@/lib"
   }
 }

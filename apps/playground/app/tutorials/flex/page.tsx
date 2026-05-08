@@ -1,5 +1,5 @@
-import { Box } from "@nezumi/ui/components/box"
-import { Flex } from "@nezumi/ui/components/flex"
+import { Box } from "@packages/ui/components/box"
+import { Flex } from "@packages/ui/components/flex"
 import {
   DemoNav,
   Example,

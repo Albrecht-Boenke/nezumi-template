@@ -1,11 +1,11 @@
 import Link from "next/link"
 import type { ReactNode } from "react"
-import { Box } from "@nezumi/ui/components/box"
-import { Button } from "@nezumi/ui/components/button"
-import { Container } from "@nezumi/ui/components/container"
-import { Flex } from "@nezumi/ui/components/flex"
-import { Grid } from "@nezumi/ui/components/grid"
-import { Section } from "@nezumi/ui/components/section"
+import { Box } from "@packages/ui/components/box"
+import { Button } from "@packages/ui/components/button"
+import { Container } from "@packages/ui/components/container"
+import { Flex } from "@packages/ui/components/flex"
+import { Grid } from "@packages/ui/components/grid"
+import { Section } from "@packages/ui/components/section"
 
 export type PropDefinition = {
   name: string

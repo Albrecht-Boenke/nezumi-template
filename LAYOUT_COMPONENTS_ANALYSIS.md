@@ -62,7 +62,7 @@ Keine. Die lokalen Vendor- und Projektdokumente waren fuer diese Aufgabe ausreic
 - Layout-Komponenten sind pure React-Funktionskomponenten ohne Render-Side-Effects und ohne Mutation von Props.
 - React 19 erlaubt `ref` als normales Prop; wiederverwendbare DOM-Primitives sollen `ref` an das gerenderte Element weitergeben.
 - Komponenten-eigene Props muessen vor dem DOM-Spread konsumiert werden. Native DOM-Props wie `id`, `role`, `aria-*`, `data-*`, Events, `className` und `style` muessen durchgereicht werden.
-- Nezumi UI nutzt granulare Public Leaves unter `src/components/*.tsx` und einen oeffentlichen Layout-Einstieg `@nezumi/ui/layout`; interne Refactorings duerfen diese API nicht brechen.
+- Nezumi UI nutzt granulare Public Leaves unter `src/components/*.tsx` und einen oeffentlichen Layout-Einstieg `@packages/ui/layout`; interne Refactorings duerfen diese API nicht brechen.
 - Tailwind v4 scannt Source als Plain Text. Prop-basierte Klassen duerfen daher nur aus statisch abgedeckten endlichen Utility-Familien stammen oder muessen ueber `@source inline()` explizit erzeugt werden.
 - Responsive Verhalten ist mobile-first: unpraefixte Klasse fuer Base, praefixte Klassen fuer Breakpoints und groesser.
 - Flex- und Grid-Abstaende verwenden `gap`, `gap-x` und `gap-y`; `space-x/y` ist fuer diese Primitives nicht die richtige Basis.
@@ -100,7 +100,7 @@ Keine. Die lokalen Vendor- und Projektdokumente waren fuer diese Aufgabe ausreic
 
 Status: behoben.
 
-Die alte Struktur enthielt case-konfliktierende Dateien (`box.tsx` vs. erwartetes `Box.tsx` usw.), kaputte `../atoms/*` Public Leaves, kaputte `*2.tsx`-Imports und doppelte Type-Exports. Das bestaetigte `pnpm --filter @nezumi/ui typecheck` vor der Implementierung mit `TS2307`, `TS2459`, `TS1261`, `TS1149` und `TS2308`.
+Die alte Struktur enthielt case-konfliktierende Dateien (`box.tsx` vs. erwartetes `Box.tsx` usw.), kaputte `../atoms/*` Public Leaves, kaputte `*2.tsx`-Imports und doppelte Type-Exports. Das bestaetigte `pnpm --filter @packages/ui typecheck` vor der Implementierung mit `TS2307`, `TS2459`, `TS1261`, `TS1149` und `TS2308`.
 
 Korrektur:
 
@@ -170,7 +170,7 @@ Status: behoben.
 Vor der Implementierung:
 
 ```bash
-pnpm --filter @nezumi/ui typecheck
+pnpm --filter @packages/ui typecheck
 ```
 
 Ergebnis: fehlgeschlagen mit kaputten Imports, case-only Konflikten und doppelten Exports.
@@ -178,7 +178,7 @@ Ergebnis: fehlgeschlagen mit kaputten Imports, case-only Konflikten und doppelte
 RED-Test vor Implementierung:
 
 ```bash
-pnpm --filter @nezumi/ui test -- src/layout/layout-components.test.tsx --run
+pnpm --filter @packages/ui test -- src/layout/layout-components.test.tsx --run
 ```
 
 Ergebnis: fehlgeschlagen, weil `src/components/box.tsx` noch `../atoms/Box` importierte.
@@ -186,8 +186,8 @@ Ergebnis: fehlgeschlagen, weil `src/components/box.tsx` noch `../atoms/Box` impo
 Nach der Implementierung:
 
 ```bash
-pnpm --filter @nezumi/ui test -- --run
-pnpm --filter @nezumi/ui typecheck
+pnpm --filter @packages/ui test -- --run
+pnpm --filter @packages/ui typecheck
 pnpm --filter homepage build
 git diff --check
 ```

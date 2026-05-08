@@ -12,7 +12,7 @@ Nezumi UI uses a small, source-first package architecture. The current mockup do
 ```
 Applications
   import public leaf exports
-@nezumi/ui package
+@packages/ui package
   src/components/<name>.tsx     # public surface
   src/layout/index.ts           # public layout entrypoint
   src/lib/utils.ts              # public utility entrypoint
@@ -30,9 +30,9 @@ CSS foundation
 The public API is granular:
 
 ```tsx
-import { Button } from "@nezumi/ui/components/button"
-import { Grid } from "@nezumi/ui/layout"
-import { cn } from "@nezumi/ui/lib/utils"
+import { Button } from "@packages/ui/components/button"
+import { Grid } from "@packages/ui/layout"
+import { cn } from "@packages/ui/lib/utils"
 ```
 
 The root package export is intentionally absent. This keeps dependency graphs small and matches the shadcn monorepo model.
@@ -72,6 +72,9 @@ Then components consume generated utilities:
 
 ```bash
 pnpm install
-pnpm --filter @nezumi/ui typecheck
-pnpm turbo build
+pnpm build --filter @packages/ui
+pnpm build:homepage
+pnpm build:members
+pnpm build:operations
+pnpm build:playground
 ```

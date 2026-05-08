@@ -1,12 +1,12 @@
-# @nezumi/ui/layout
+# @packages/ui/layout
 
-Layout primitives live inside the UI package and are exported through `@nezumi/ui/layout`.
+Layout primitives live inside the UI package and are exported through `@packages/ui/layout`.
 
 ## Imports
 
 ```tsx
-import { Box, Container, Flex, Grid, Section, Stack } from "@nezumi/ui/layout"
-import type { FlexProps, ContainerProps, SpacingValue } from "@nezumi/ui/layout"
+import { Box, Container, Flex, Grid, Section, Stack } from "@packages/ui/layout"
+import type { FlexProps, ContainerProps, SpacingValue } from "@packages/ui/layout"
 ```
 
 ## Spacing
