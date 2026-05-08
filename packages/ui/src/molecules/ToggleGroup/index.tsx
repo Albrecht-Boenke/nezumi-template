@@ -4,8 +4,9 @@ import { cn } from "../../lib/utils"
 import { toggleVariants } from "../../atoms/Toggle"
 import { type VariantProps } from "class-variance-authority"
 
-export interface ToggleGroupProps
-  extends React.ComponentProps<typeof ToggleGroupPrimitive.Root> {}
+type ToggleGroupProps = React.ComponentProps<typeof ToggleGroupPrimitive.Root> & {
+  className?: string
+}
 
 function ToggleGroup({ className, ref, ...props }: ToggleGroupProps) {
   return (
@@ -20,9 +21,8 @@ function ToggleGroup({ className, ref, ...props }: ToggleGroupProps) {
   )
 }
 
-export interface ToggleGroupItemProps
-  extends React.ComponentProps<typeof ToggleGroupPrimitive.Item>,
-    VariantProps<typeof toggleVariants> {}
+type ToggleGroupItemProps = React.ComponentProps<typeof ToggleGroupPrimitive.Item> &
+  VariantProps<typeof toggleVariants>
 
 function ToggleGroupItem({ className, size = "md", ref, ...props }: ToggleGroupItemProps) {
   return (
@@ -35,3 +35,4 @@ function ToggleGroupItem({ className, size = "md", ref, ...props }: ToggleGroupI
 }
 
 export { ToggleGroup, ToggleGroupItem }
+export type { ToggleGroupProps, ToggleGroupItemProps }

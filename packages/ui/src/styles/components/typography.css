@@ -1,0 +1,155 @@
+/* Typography atom — component-layer tokens referenced by the component. */
+@theme {
+  --typography-clamp-large-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
+  --typography-clamp-large-line-height: 0.98;
+  --typography-clamp-large-tracking: -0.055em;
+  --typography-clamp-large-weight: var(--font-weight-bold);
+
+  --typography-clamp-medium-size: clamp(2rem, 2.4vw + 1rem, 3.25rem);
+  --typography-clamp-medium-line-height: 1.05;
+  --typography-clamp-medium-tracking: -0.055em;
+  --typography-clamp-medium-weight: var(--font-weight-bold);
+
+  --typography-clamp-small-size: clamp(1.5rem, 1.25vw + 1rem, 2.25rem);
+  --typography-clamp-small-line-height: 1.12;
+  --typography-clamp-small-tracking: -0.055em;
+  --typography-clamp-small-weight: var(--font-weight-bold);
+
+  --typography-clamp-text-size: clamp(1rem, 0.45vw + 0.9rem, 1.25rem);
+  --typography-clamp-text-line-height: 1.5;
+  --typography-clamp-text-tracking: -0.055em;
+  --typography-clamp-text-weight: var(--font-weight-bold);
+
+  --typography-title-large-size: 22px;
+  --typography-title-large-line-height: 28px;
+  --typography-title-large-tracking: 0;
+  --typography-title-large-weight: var(--font-weight-bold);
+
+  --typography-title-medium-size: 18px;
+  --typography-title-medium-line-height: 24px;
+  --typography-title-medium-tracking: 0;
+  --typography-title-medium-weight: var(--font-weight-medium);
+
+  --typography-body-medium-size: 16px;
+  --typography-body-medium-line-height: 24px;
+  --typography-body-medium-tracking: 0.012em;
+  --typography-body-medium-weight: var(--font-weight-regular);
+
+  --typography-label-large-size: 14px;
+  --typography-label-large-line-height: 20px;
+  --typography-label-large-tracking: 0.02em;
+  --typography-label-large-weight: var(--font-weight-medium);
+
+  --typography-label-medium-size: 12px;
+  --typography-label-medium-line-height: 16px;
+  --typography-label-medium-tracking: 0.06em;
+  --typography-label-medium-weight: var(--font-weight-bold);
+
+  --typography-accent-large-size: 20px;
+  --typography-accent-large-line-height: 28px;
+  --typography-accent-large-tracking: -0.01em;
+  --typography-accent-large-weight: var(--font-weight-medium);
+
+  --typography-accent-small-size: 13px;
+  --typography-accent-small-line-height: 18px;
+  --typography-accent-small-tracking: 0.08em;
+  --typography-accent-small-weight: var(--font-weight-bold);
+}
+
+@layer components {
+  .typography-clamp-large,
+  .typography-clamp-medium,
+  .typography-clamp-small,
+  .typography-clamp-text,
+  .typography-title-large,
+  .typography-title-medium,
+  .typography-body-medium,
+  .typography-label-large,
+  .typography-label-medium {
+    font-family: var(--font-sans);
+  }
+
+  .typography-accent-large,
+  .typography-accent-small {
+    font-family: var(--font-accent);
+  }
+
+  .typography-clamp-large {
+    font-size: var(--typography-clamp-large-size);
+    line-height: var(--typography-clamp-large-line-height);
+    letter-spacing: var(--typography-clamp-large-tracking);
+    font-weight: var(--typography-clamp-large-weight);
+  }
+
+  .typography-clamp-medium {
+    font-size: var(--typography-clamp-medium-size);
+    line-height: var(--typography-clamp-medium-line-height);
+    letter-spacing: var(--typography-clamp-medium-tracking);
+    font-weight: var(--typography-clamp-medium-weight);
+  }
+
+  .typography-clamp-small {
+    font-size: var(--typography-clamp-small-size);
+    line-height: var(--typography-clamp-small-line-height);
+    letter-spacing: var(--typography-clamp-small-tracking);
+    font-weight: var(--typography-clamp-small-weight);
+  }
+
+  .typography-clamp-text {
+    font-size: var(--typography-clamp-text-size);
+    line-height: var(--typography-clamp-text-line-height);
+    letter-spacing: var(--typography-clamp-text-tracking);
+    font-weight: var(--typography-clamp-text-weight);
+  }
+
+  .typography-title-large {
+    font-size: var(--typography-title-large-size);
+    line-height: var(--typography-title-large-line-height);
+    letter-spacing: var(--typography-title-large-tracking);
+    font-weight: var(--typography-title-large-weight);
+  }
+
+  .typography-title-medium {
+    font-size: var(--typography-title-medium-size);
+    line-height: var(--typography-title-medium-line-height);
+    letter-spacing: var(--typography-title-medium-tracking);
+    font-weight: var(--typography-title-medium-weight);
+  }
+
+  .typography-body-medium {
+    font-size: var(--typography-body-medium-size);
+    line-height: var(--typography-body-medium-line-height);
+    letter-spacing: var(--typography-body-medium-tracking);
+    font-weight: var(--typography-body-medium-weight);
+  }
+
+  .typography-label-large {
+    font-size: var(--typography-label-large-size);
+    line-height: var(--typography-label-large-line-height);
+    letter-spacing: var(--typography-label-large-tracking);
+    font-weight: var(--typography-label-large-weight);
+  }
+
+  .typography-label-medium {
+    font-size: var(--typography-label-medium-size);
+    line-height: var(--typography-label-medium-line-height);
+    letter-spacing: var(--typography-label-medium-tracking);
+    font-weight: var(--typography-label-medium-weight);
+    text-transform: uppercase;
+  }
+
+  .typography-accent-large {
+    font-size: var(--typography-accent-large-size);
+    line-height: var(--typography-accent-large-line-height);
+    letter-spacing: var(--typography-accent-large-tracking);
+    font-weight: var(--typography-accent-large-weight);
+  }
+
+  .typography-accent-small {
+    font-size: var(--typography-accent-small-size);
+    line-height: var(--typography-accent-small-line-height);
+    letter-spacing: var(--typography-accent-small-tracking);
+    font-weight: var(--typography-accent-small-weight);
+    text-transform: uppercase;
+  }
+}
