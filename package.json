@@ -11,10 +11,10 @@
     "build:members": "next build apps/members",
     "build:operations": "next build apps/operations",
     "build:playground": "next build apps/playground",
-    "dev:homepage": "next dev apps/homepage --turbopack -p 3000",
-    "dev:members": "next dev apps/members --turbopack -p 3001",
-    "dev:operations": "next dev apps/operations --turbopack -p 3002",
-    "dev:playground": "next dev apps/playground --turbopack -p 3003"
+    "dev:homepage": "next dev apps/homepage",
+    "dev:members": "next dev apps/members",
+    "dev:operations": "next dev apps/operations",
+    "dev:playground": "next dev apps/playground"
   },
   "devDependencies": {
     "eslint": "^9.39.2",

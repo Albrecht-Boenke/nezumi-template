@@ -22,19 +22,19 @@ Detailed architecture, workflows, and conventions: **[`docs/nezumi-ui/README.md`
 
 ```bash
 pnpm install
-pnpm build:homepage
-pnpm build:members
-pnpm build:operations
-pnpm build:playground
+next build apps/homepage
+next build apps/members
+next build apps/operations
+next build apps/playground
 ```
 
 Start a specific app dev server:
 
 ```bash
-pnpm dev:homepage
-pnpm dev:members
-pnpm dev:operations
-pnpm dev:playground
+next dev apps/homepage
+next dev apps/members
+next dev apps/operations
+next dev apps/playground
 ```
 
 ## Repository layout
