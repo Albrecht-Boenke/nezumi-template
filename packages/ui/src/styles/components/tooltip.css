@@ -1,6 +1,6 @@
-/* Tooltip component tokens — used as implementation reference.
-   Component-layer registration lives in styles/components/tooltip.css */
 @theme {
+  /* Tooltip molecule — component-layer tokens referenced by the component. */
+
   /* Geometry */
   --radius-tooltip: var(--radius-md);
   --spacing-tooltip-padding-x: var(--spacing-16);

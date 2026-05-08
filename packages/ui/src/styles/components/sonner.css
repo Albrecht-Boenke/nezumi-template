@@ -1,6 +1,6 @@
-/* Sonner component tokens — used as implementation reference.
-   Component-layer registration lives in styles/components/sonner.css */
 @theme {
+  /* Sonner organism — component-layer tokens referenced by the component. */
+
   /* Root geometry */
   --radius-sonner: var(--radius-md);
   --shadow-sonner: var(--shadow-lg);

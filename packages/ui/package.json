@@ -31,6 +31,11 @@
     "./components/input": "./src/components/input.tsx",
     "./components/card": "./src/components/card.tsx",
     "./components/toast": "./src/components/toast.tsx",
+    "./components/toggle": "./src/components/toggle.tsx",
+    "./components/textarea": "./src/components/textarea.tsx",
+    "./components/tooltip": "./src/components/tooltip.tsx",
+    "./components/toggle-group": "./src/components/toggle-group.tsx",
+    "./components/sonner": "./src/components/sonner.tsx",
     "./layout": "./src/layout/index.ts",
     "./providers/theme": "./src/providers/Theme/index.tsx",
     "./lib/utils": "./src/lib/utils.ts",
@@ -51,9 +56,13 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-toggle": "^1.1.6",
+    "@radix-ui/react-toggle-group": "^1.1.7",
+    "@radix-ui/react-tooltip": "^1.2.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "next-themes": "^0.4.6",
+    "sonner": "^2.0.3",
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {

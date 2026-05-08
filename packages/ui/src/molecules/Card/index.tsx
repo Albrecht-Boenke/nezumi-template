@@ -1,91 +1,103 @@
 import * as React from "react"
 import { cn } from "../../lib/utils"
 
-function Card({ ref, className, ...props }: React.ComponentProps<"div">) {
+export interface CardProps extends React.ComponentProps<"div"> {
+  size?: "default" | "sm"
+}
+
+function Card({ className, size = "default", ref, ...props }: CardProps) {
   return (
     <div
       ref={ref}
+      data-slot="card"
       className={cn(
-        "rounded-card border border-card-border bg-card-surface text-card-text shadow-card",
-        className
+        "bg-card-surface text-card-text border border-card-border rounded-card shadow-card",
+        size === "sm" && "p-3",
+        className,
       )}
       {...props}
     />
   )
 }
 
-function CardHeader({ ref, className, ...props }: React.ComponentProps<"div">) {
+function CardHeader({ className, ref, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       ref={ref}
+      data-slot="card-header"
       className={cn(
         "flex flex-col gap-card-header-gap p-card-header-padding",
-        className
+        className,
       )}
       {...props}
     />
   )
 }
 
-function CardTitle({ ref, className, ...props }: React.ComponentProps<"div">) {
+function CardTitle({ className, ref, ...props }: React.ComponentProps<"h3">) {
   return (
-    <div
+    <h3
       ref={ref}
+      data-slot="card-title"
       className={cn(
-        "typography-title-medium font-semibold leading-none tracking-tight text-card-title-text",
-        className
+        "text-card-title-text font-semibold leading-none tracking-tight",
+        className,
       )}
       {...props}
     />
   )
 }
 
-function CardDescription({ ref, className, ...props }: React.ComponentProps<"div">) {
+function CardDescription({ className, ref, ...props }: React.ComponentProps<"p">) {
   return (
-    <div
+    <p
       ref={ref}
+      data-slot="card-description"
       className={cn(
-        "typography-body-medium text-card-description-text",
-        className
+        "text-card-description-text text-sm",
+        className,
       )}
       {...props}
     />
   )
 }
 
-function CardContent({ ref, className, ...props }: React.ComponentProps<"div">) {
+function CardAction({ className, ref, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       ref={ref}
+      data-slot="card-action"
+      className={cn(
+        "ml-auto flex items-center gap-2",
+        className,
+      )}
+      {...props}
+    />
+  )
+}
+
+function CardContent({ className, ref, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      ref={ref}
+      data-slot="card-content"
       className={cn(
         "p-card-content-padding",
-        className
+        className,
       )}
       {...props}
     />
   )
 }
 
-function CardFooter({ ref, className, ...props }: React.ComponentProps<"div">) {
+function CardFooter({ className, ref, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       ref={ref}
+      data-slot="card-footer"
       className={cn(
         "flex items-center p-card-footer-padding",
-        className
-      )}
-      {...props}
-    />
-  )
-}
-
-function CardAction({ ref, className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      ref={ref}
-      className={cn(
-        "ml-auto",
-        className
+        className,
       )}
       {...props}
     />
@@ -97,7 +109,7 @@ export {
   CardHeader,
   CardTitle,
   CardDescription,
+  CardAction,
   CardContent,
   CardFooter,
-  CardAction,
 }

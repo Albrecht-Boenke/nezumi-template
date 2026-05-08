@@ -23,7 +23,6 @@ interface BlossomExample {
   variant: ClampVariant
   className?: string
   mode?: "word" | "join" | "letters"
-  style?: BlossomStyle
 }
 
 const clampVariants: TypographyVariant[] = [
@@ -61,122 +60,107 @@ const blossomWord = "blütenrepublik"
 
 const blossomExamples: BlossomExample[] = [
   {
-    label: "01 light / loose",
+    label: "01 bold tight base",
     variant: "clamp-large",
-    style: { "--blossom-weight": 300, "--blossom-tracking": "0.02em" },
+    className: "blossom-word--base",
   },
   {
-    label: "02 bold / tight",
-    variant: "clamp-large",
-    style: { "--blossom-weight": 700, "--blossom-tracking": "-0.055em" },
-  },
-  {
-    label: "03 medium / wide",
-    variant: "clamp-medium",
-    style: { "--blossom-weight": 500, "--blossom-tracking": "0.16em" },
-  },
-  {
-    label: "04 text / quiet",
-    variant: "clamp-text",
-    style: { "--blossom-weight": 400, "--blossom-tracking": "0.08em" },
-  },
-  {
-    label: "05 split collision",
+    label: "02 split collision",
     variant: "clamp-large",
     className: "blossom-word--join",
     mode: "join",
-    style: { "--blossom-weight": 500, "--blossom-tracking": "0.14em" },
   },
   {
-    label: "06 split two-tone",
+    label: "03 split two tone",
     variant: "clamp-medium",
     className: "blossom-word--two-tone",
     mode: "join",
-    style: { "--blossom-weight": 700, "--blossom-tracking": "0.08em" },
   },
   {
-    label: "07 gradient bloom",
-    variant: "clamp-large",
-    className: "blossom-word--gradient",
-    style: { "--blossom-weight": 700, "--blossom-tracking": "-0.04em" },
-  },
-  {
-    label: "08 outline",
-    variant: "clamp-medium",
-    className: "blossom-word--outline",
-    style: { "--blossom-weight": 700, "--blossom-tracking": "0.04em" },
-  },
-  {
-    label: "09 shadow press",
+    label: "04 shadow press",
     variant: "clamp-small",
     className: "blossom-word--press",
-    style: { "--blossom-weight": 700, "--blossom-tracking": "0.02em" },
   },
   {
-    label: "10 kinetic drift",
-    variant: "clamp-medium",
-    className: "blossom-word--drift",
-    style: { "--blossom-weight": 500, "--blossom-tracking": "-0.02em" },
+    label: "05 gradient bloom",
+    variant: "clamp-large",
+    className: "blossom-word--gradient",
   },
   {
-    label: "11 pulse ink",
-    variant: "clamp-small",
-    className: "blossom-word--pulse",
-    style: { "--blossom-weight": 700, "--blossom-tracking": "0.1em" },
-  },
-  {
-    label: "12 stripe fill",
+    label: "06 stripe fills",
     variant: "clamp-large",
     className: "blossom-word--stripe",
-    style: { "--blossom-weight": 700, "--blossom-tracking": "-0.035em" },
   },
   {
-    label: "13 soft highlight",
-    variant: "clamp-medium",
-    className: "blossom-word--highlight",
-    style: { "--blossom-weight": 400, "--blossom-tracking": "0.12em" },
-  },
-  {
-    label: "14 echo offset",
-    variant: "clamp-large",
-    className: "blossom-word--echo",
-    style: { "--blossom-weight": 700, "--blossom-tracking": "-0.05em" },
-  },
-  {
-    label: "15 compact seal",
-    variant: "clamp-small",
-    className: "blossom-word--seal",
-    style: { "--blossom-weight": 700, "--blossom-tracking": "-0.03em" },
-  },
-  {
-    label: "16 wide republic",
-    variant: "clamp-text",
-    style: { "--blossom-weight": 500, "--blossom-tracking": "0.32em" },
-  },
-  {
-    label: "17 fading terminals",
+    label: "07 fading terminals",
     variant: "clamp-medium",
     className: "blossom-word--fade",
-    style: { "--blossom-weight": 400, "--blossom-tracking": "0.04em" },
   },
   {
-    label: "18 vertical mark",
-    variant: "clamp-small",
-    className: "blossom-word--vertical",
-    style: { "--blossom-weight": 700, "--blossom-tracking": "0.08em" },
-  },
-  {
-    label: "19 letter tiles",
+    label: "08 letter tiles",
     variant: "clamp-text",
     className: "blossom-word--tiles",
     mode: "letters",
-    style: { "--blossom-weight": 700, "--blossom-tracking": "0.02em" },
   },
   {
-    label: "20 breathing color",
+    label: "09 vertical mark",
+    variant: "clamp-small",
+    className: "blossom-word--vertical",
+  },
+  {
+    label: "10 breathing color",
     variant: "clamp-large",
     className: "blossom-word--chroma",
-    style: { "--blossom-weight": 700, "--blossom-tracking": "-0.045em" },
+  },
+  {
+    label: "11 echo offset standard",
+    variant: "clamp-large",
+    className: "blossom-word--echo",
+  },
+  {
+    label: "12 echo offset warm",
+    variant: "clamp-large",
+    className: "blossom-word--echo-warm",
+  },
+  {
+    label: "13 echo offset cool",
+    variant: "clamp-medium",
+    className: "blossom-word--echo-cool",
+  },
+  {
+    label: "14 echo offset stack",
+    variant: "clamp-large",
+    className: "blossom-word--echo-stack",
+  },
+  {
+    label: "15 echo offset cut",
+    variant: "clamp-small",
+    className: "blossom-word--echo-cut",
+  },
+  {
+    label: "16 echo offset glow",
+    variant: "clamp-medium",
+    className: "blossom-word--echo-glow",
+  },
+  {
+    label: "17 outline bloom",
+    variant: "clamp-medium",
+    className: "blossom-word--outline",
+  },
+  {
+    label: "18 ink trap pulse",
+    variant: "clamp-small",
+    className: "blossom-word--pulse",
+  },
+  {
+    label: "19 kinetic drift",
+    variant: "clamp-large",
+    className: "blossom-word--drift",
+  },
+  {
+    label: "20 soft highlight",
+    variant: "clamp-medium",
+    className: "blossom-word--highlight",
   },
 ]
 
@@ -364,8 +348,9 @@ export default function HomePage() {
                     Clamp-Schrift als typografisches Material
                   </Typography>
                   <Typography variant="body-medium" tone="muted" pretty>
-                    Diese Beispiele variieren Gewicht, Tracking, Trennung,
-                    Farbe und Bewegung direkt auf der Clamp-Skala.
+                    Alle Beispiele starten mit der bold-tight Clamp-Basis und
+                    variieren nur typografische Effekte wie Echo, Split,
+                    Füllung, Bewegung und Maskierung.
                   </Typography>
                 </Flex>
 
@@ -391,7 +376,6 @@ export default function HomePage() {
                             ? "blüten republik"
                             : blossomWord}
                           className={cn("blossom-word", example.className)}
-                          style={example.style}
                           variant={example.variant}
                         >
                           {renderBlossomContent(example.mode)}

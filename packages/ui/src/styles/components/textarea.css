@@ -1,6 +1,6 @@
-/* Textarea component tokens — used as implementation reference.
-   Component-layer registration lives in styles/components/textarea.css */
 @theme {
+  /* Textarea atom — component-layer tokens referenced by the component. */
+
   /* Geometry */
   --spacing-textarea-padding-x: var(--spacing-16);
   --spacing-textarea-padding-y: var(--spacing-12);

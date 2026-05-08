@@ -1,5 +1,6 @@
-/* Sidebar component tokens. Keep values semantic; do not place implementation here. */
 @theme {
+  /* Sidebar organism — component-layer tokens referenced by the component. */
+
   /* Root geometry */
   --color-sidebar-surface: var(--color-surface-raised);
   --color-sidebar-border: var(--color-border);

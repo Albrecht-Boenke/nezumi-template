@@ -1,4 +1,4 @@
-import { type ComponentType, type HTMLAttributes } from "react"
+import { type ElementType, type HTMLAttributes, type Ref } from "react"
 import { cn } from "../../lib/utils"
 
 export type TypographyVariant =
@@ -40,7 +40,7 @@ const variantClass: Record<TypographyVariant, string> = {
   "accent-small": "typography-accent-small",
 }
 
-const variantDefaultTag: Record<TypographyVariant, keyof JSX.IntrinsicElements> = {
+const variantDefaultTag: Record<TypographyVariant, ElementType> = {
   "clamp-large": "h1",
   "clamp-medium": "h2",
   "clamp-small": "h3",
@@ -70,10 +70,11 @@ const toneClass: Record<TypographyTone, string> = {
 export interface TypographyProps extends HTMLAttributes<HTMLElement> {
   variant: TypographyVariant
   tone?: TypographyTone
-  as?: keyof JSX.IntrinsicElements | ComponentType<any>
+  as?: ElementType
   balance?: boolean
   pretty?: boolean
   truncate?: boolean
+  ref?: Ref<HTMLElement>
 }
 
 export function Typography({
@@ -88,7 +89,7 @@ export function Typography({
   ref,
   ...typographyProps
 }: TypographyProps) {
-  const Tag = (as ?? variantDefaultTag[variant]) as keyof JSX.IntrinsicElements
+  const Tag = (as ?? variantDefaultTag[variant]) as ElementType
 
   return (
     <Tag

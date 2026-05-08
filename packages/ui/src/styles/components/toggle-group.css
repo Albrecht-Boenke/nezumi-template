@@ -1,0 +1,6 @@
+@theme {
+  /* ToggleGroup molecule — component-layer tokens referenced by the component. */
+
+  /* Geometry */
+  --spacing-toggle-group-gap: var(--spacing-8);
+}

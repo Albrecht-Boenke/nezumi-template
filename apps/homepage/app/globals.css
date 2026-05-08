@@ -20,11 +20,11 @@
 @keyframes blossom-pulse {
   0%,
   100% {
-    letter-spacing: var(--blossom-tracking, 0);
+    letter-spacing: var(--blossom-base-tracking);
     opacity: 0.78;
   }
   50% {
-    letter-spacing: calc(var(--blossom-tracking, 0) + 0.08em);
+    letter-spacing: calc(var(--blossom-base-tracking) + 0.08em);
     opacity: 1;
   }
 }
@@ -60,11 +60,16 @@
   }
 
   .blossom-word {
+    --blossom-base-tracking: var(
+      --blossom-tracking,
+      var(--typography-clamp-large-tracking)
+    );
+
     display: inline-block;
     max-inline-size: 100%;
     color: var(--blossom-color, currentColor);
-    font-weight: var(--blossom-weight, inherit);
-    letter-spacing: var(--blossom-tracking, inherit);
+    font-weight: var(--blossom-weight, var(--font-weight-bold));
+    letter-spacing: var(--blossom-base-tracking);
     overflow-wrap: anywhere;
     text-wrap: balance;
   }
@@ -77,12 +82,23 @@
     font-size: min(var(--typography-clamp-medium-size), 10vw);
   }
 
+  .blossom-word--base {
+    text-decoration: underline;
+    text-decoration-thickness: 0.08em;
+    text-decoration-color: color-mix(in oklch, var(--color-brand) 54%, transparent);
+    text-underline-offset: 0.12em;
+  }
+
   .blossom-word--join {
     white-space: nowrap;
   }
 
   .blossom-word__join {
-    margin-inline-start: calc(var(--blossom-tracking, 0.08em) * -1.4);
+    margin-inline-start: -0.18em;
+  }
+
+  .blossom-word--two-tone {
+    white-space: nowrap;
   }
 
   .blossom-word--two-tone .blossom-word__join {
@@ -148,12 +164,41 @@
       -0.04em -0.04em 0 color-mix(in oklch, var(--color-accent) 48%, transparent);
   }
 
-  .blossom-word--seal {
-    padding: var(--spacing-8) var(--spacing-12);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    color: var(--color-on-brand);
-    background: var(--color-brand);
+  .blossom-word--echo-warm {
+    color: var(--color-text);
+    text-shadow:
+      0.07em 0.07em 0 color-mix(in oklch, var(--color-warning) 58%, transparent),
+      0.14em 0.14em 0 color-mix(in oklch, var(--color-error) 28%, transparent);
+  }
+
+  .blossom-word--echo-cool {
+    text-shadow:
+      -0.07em 0.07em 0 color-mix(in oklch, var(--color-info) 62%, transparent),
+      0.07em -0.07em 0 color-mix(in oklch, var(--color-brand) 38%, transparent);
+  }
+
+  .blossom-word--echo-stack {
+    text-shadow:
+      0.04em 0.04em 0 color-mix(in oklch, var(--color-brand) 74%, transparent),
+      0.08em 0.08em 0 color-mix(in oklch, var(--color-info) 48%, transparent),
+      0.12em 0.12em 0 color-mix(in oklch, var(--color-accent) 32%, transparent);
+  }
+
+  .blossom-word--echo-cut {
+    color: var(--color-surface);
+    text-shadow:
+      0.055em 0 var(--color-text),
+      0.11em 0 color-mix(in oklch, var(--color-brand) 64%, transparent);
+    -webkit-text-stroke: 1px var(--color-text);
+  }
+
+  .blossom-word--echo-glow {
+    text-shadow:
+      0.04em 0.04em 0 color-mix(in oklch, var(--color-brand) 64%, transparent),
+      0 0 var(--spacing-16)
+        color-mix(in oklch, var(--color-info) 52%, transparent),
+      0 0 var(--spacing-40)
+        color-mix(in oklch, var(--color-brand) 28%, transparent);
   }
 
   .blossom-word--fade {

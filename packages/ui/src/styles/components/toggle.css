@@ -1,6 +1,6 @@
-/* Toggle component tokens — used as implementation reference.
-   Component-layer registration lives in styles/components/toggle.css */
 @theme {
+  /* Toggle atom — component-layer tokens referenced by the component. */
+
   /* Geometry */
   --radius-toggle: var(--radius-md);
   --spacing-toggle-sm: var(--spacing-32);
