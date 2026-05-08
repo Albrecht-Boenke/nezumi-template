@@ -32,7 +32,7 @@ export function PageShell({
 }) {
   return (
     <main>
-      <Section size="lg" className="border-b border-border">
+      <Section size={{ initial: "md", lg: "lg" }} className="border-b border-border">
         <Container size="2xl">
           <Flex direction="column" gap="24">
             <Button asChild variant="ghost" size="sm" className="w-fit px-0">

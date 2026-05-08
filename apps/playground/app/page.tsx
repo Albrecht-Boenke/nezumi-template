@@ -124,7 +124,7 @@ function MiniDashboard() {
 export default function PlaygroundPage() {
   return (
     <main>
-      <Section size="xl" className="border-b border-border">
+      <Section size={{ initial: "lg", lg: "xl" }} className="border-b border-border">
         <Container size="2xl">
           <Grid cols={{ initial: 1, lg: "minmax(0, 0.9fr) minmax(0, 1.1fr)" }} gap="48" align="center">
             <Flex direction="column" gap="24">
@@ -156,7 +156,7 @@ export default function PlaygroundPage() {
         </Container>
       </Section>
 
-      <Section id="components" size="lg">
+      <Section id="components" size={{ initial: "md", lg: "lg" }}>
         <Container size="2xl">
           <Flex direction="column" gap="24">
             <Flex direction="column" gap="8">
